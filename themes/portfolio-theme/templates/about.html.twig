@@ -16,7 +16,9 @@
 	{% do assets.addJs('theme://vendor/sly-1.6.1.min.js', {'group': 'bottom'}) %}
 	{% do assets.addJs('theme://js/project/slyUtils.js', {'group': 'bottom'}) %}
 
+	{# 
 	{% do assets.addJs('theme://js/about.js', {'group': 'bottom'}) %}
+	#}
 {% endblock %}
 
 {% set bodyAttributes %}
@@ -25,8 +27,6 @@ class="spyScroll" data-spy="scroll" data-target="#sideNav"
 
 {% block content %}
 	<aside id="sideNav">
-		<h2>About this website</h2>
-
 		<ul class="nav">
 			<li class="active">
 				<a href="#credits">Credits</a>
@@ -38,15 +38,15 @@ class="spyScroll" data-spy="scroll" data-target="#sideNav"
 				</ul>
 			</li>
 			<li><a href="#sources">Source</a>
-				<ul class="nav">
+				<!-- <ul class="nav">
 					<li><a href="#sources_less" class="subItem">Less</a></li>
-				</ul></li>
+				</ul> --></li>
 		</ul>
 	</aside>
 
 	<div class="wrapper">
-		<h3 id="intro" class="superHeading">Credits</h3>
 		<section class="aboutSection left">
+			<h4 id="intro" class="contentHeading">Intro</h4>
 			<p class="content">This website was designed and implemented by <a href="#" data-featherlight="#contact" data-featherlight-open-speed="500">me</a>. Please have a look at the following resources that I used with kind permission of their respective owners.</p>
 		</section>
 
@@ -100,14 +100,17 @@ class="spyScroll" data-spy="scroll" data-target="#sideNav"
 
 		<h3 id="sources" class="superHeading contentHeading">Source</h3>
 		<section class="aboutSection left">
-			<ul class="content">
+			<!-- <ul class="content">
 				<li>xx,xxx lines of code</li>
 				<li>HTML + JS source can be viewed with CTRL+U or F12</li>
 				<li>Less source follows</li>
-				<!-- <li>Last updated on <time datetime="2016-03-01">01 Mar 2014</time>.</li> -->
-			</ul>
+				<li>Last updated on <time datetime="2016-03-01">01 Mar 2014</time>.</li>
+			</ul> -->
+			<p class="content">
+				Complete source code can be found in the the <a href="https://github.com/r-zander/Portfolio" class="external">GitHub repository</a>.
+			</p>
 		</section>
-		<section class="aboutSection double">
+		<!-- <section class="aboutSection double">
 			<h4 id="sources_less" class="contentHeading">Less Sources</h4>
 
 			<div id="source" class="content">
@@ -154,6 +157,6 @@ class="spyScroll" data-spy="scroll" data-target="#sideNav"
 					</div>
 				</div>
 			</div> 
-		</section>
+		</section> -->
 	</div>
 {% endblock %}

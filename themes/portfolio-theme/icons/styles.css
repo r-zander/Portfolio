@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "portfolio";
+  src:url("fonts/portfolio.eot");
+  src:url("fonts/portfolio.eot?#iefix") format("embedded-opentype"),
+    url("fonts/portfolio.woff") format("woff"),
+    url("fonts/portfolio.ttf") format("truetype"),
+    url("fonts/portfolio.svg#portfolio") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "portfolio" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "portfolio" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-contact:before {
+  content: "\61";
+}
+.icon-glas:before {
+  content: "\62";
+}
+.icon-prev:before {
+  content: "\64";
+}
+.icon-next:before {
+  content: "\65";
+}
+.icon-newtab:before {
+  content: "\66";
+}
+.icon-external:before {
+  content: "\67";
+}
+.icon-download:before {
+  content: "\68";
+}
+.icon-flip:before {
+  content: "\63";
+}
+.icon-help:before {
+  content: "\69";
+}

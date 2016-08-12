@@ -1,0 +1,176 @@
+#aboutPage {
+	text-align: left;
+	/* Add enough padding to ensure scrollSpy to work */
+	padding-bottom: 50vh;
+	padding-right: 0;
+	padding-left: 0;
+	overflow: visible;
+
+	> .wrapper {
+		margin-left: 25%;
+		padding-left: (2 * @gridDistance + @gridPadding/2 );
+		padding-right: @gridDistance;
+	}
+
+	.content {
+		.panel(left);
+		padding: @gridPadding @gridDistance;
+		border-top-left-radius: 0;
+		margin: 0;
+
+		list-style: none;
+
+		&.icons {
+			> dt {
+				clear: left;
+				float: left;
+				width: 100%;
+			}
+
+			> dd {
+				float: left;
+				margin-left: @gridDistance;
+				margin-top: 0.5em;
+			}
+		}
+
+		> li, dt {
+			margin-top: @gridPadding;
+
+			&:first-child {
+				margin-top: 0;
+			}
+		}
+	}
+
+	#source {
+		position: relative;
+	}
+
+	.interactionTips {
+		position: absolute;
+		top: 100vh;
+		margin-top: -8.2em;
+		right: 0;
+		bottom: auto;
+
+		&.affix {
+			position: fixed;
+			top: auto;
+			margin-top: 0;
+			bottom: 0;
+			right: (@gridDistance + @gridPadding);
+		}
+	}
+}
+
+#sideNav {
+	position: fixed;
+	left: (@gridDistance + @gridPadding);
+	/* undefined top - will be at original position */
+	.panel;
+	padding: @gridDistance;
+	border-right: 2px solid @accentColor;
+	max-width: 25%;
+
+	.highlightedItem(){
+		color: @accentColor;
+		border-left: 2px solid @accentColor;
+		padding-left: (@gridPadding - 2px);
+
+		&.subItem {
+			padding-left: (@gridPadding + @gridDistance - 2px);
+		}
+	}
+
+	a {
+		display: block;
+		margin-left: @gridPadding;
+		padding-left: @gridPadding;
+		text-decoration: none;
+
+		&.subItem {
+			padding-left: (@gridPadding + @gridDistance);
+			font-size: 0.8em;
+		}
+
+		&:hover,
+		&:active,
+		&:focus {
+			.highlightedItem;
+		}
+	}
+
+	li {
+		&.active {
+			> a {
+				.highlightedItem;
+			}
+		}
+	}
+
+	> .nav {
+		margin-top: @gridDistance;
+		line-height: 2;
+	}
+
+	.nav {
+		list-style: none;
+		padding: 0;
+	}
+}
+
+.superHeading {
+	.panel(left);
+	padding: @gridPadding @gridDistance;
+	width: (2 * 520px + @gridDistance);
+	margin-bottom: @gridPadding;
+	position: relative;
+}
+
+.superHeading:not(:first-child){
+	margin-top: @gridDistance;
+}
+
+.contentHeading {
+	.panel(left);
+	padding: @gridPadding @gridDistance;
+	border-bottom-right-radius: 0;
+	margin-bottom: (@gridPadding / 2);
+}
+
+// .separator(){
+// 	border-top: (@gridPadding / 2) solid @backgroundColor;
+// 	margin-top: @gridPadding;
+// 	padding-top: @gridPadding;
+// }
+
+.exo {
+	.textFont;
+	// .separator;
+}
+
+.telegrama {
+	font-family: 'Telegrama';
+	// .separator;
+}
+
+.aboutSection {
+	width: @textWidth;
+
+	&.right {
+		position: relative;
+		left: 26em;
+		margin-left: @gridDistance;
+	}
+
+	&.double {
+		margin-top: 0 !important;
+		width: auto;
+	}
+}
+
+.aboutSection + .aboutSection {
+	margin-top: -3em;
+	padding-top: (@gridPadding / 2);
+}

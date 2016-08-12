@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+
+        <title>Spinning Squares</title>
+
+        <link rel="stylesheet" href="../../style.css" type="text/css" media="screen" charset="utf-8"/>
+        
+        <style type="text/css" media="screen">
+
+            html {
+                overflow: hidden;
+            }
+
+            #spinning {
+                height: 800px;
+                width: 800px;
+                margin: 0 auto;
+            }
+
+            @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+            }
+
+            @-moz-keyframes
+            spin {to {
+                -moz-transform: rotate(360deg);
+            }
+            }
+
+            @-webkit-keyframes
+            spin {to {
+                -webkit-transform: rotate(360deg);
+            }
+            }
+
+            @-o-keyframes
+            spin {to {
+                -o-transform: rotate(360deg);
+            }
+            }
+
+            @-ms-keyframes
+            spin {to {
+                -ms-transform: rotate(360deg);
+            }
+            }
+
+            #spinning div {
+                height: 84%;
+                width: 84%;
+                position: relative;
+                top: 8%;
+                left: 8%;
+                background-color: white;
+                animation: spin 20s infinite linear;
+                -moz-animation: spin 20s infinite linear;
+                -webkit-animation: spin 20s infinite linear;
+                -o-animation: spin 20s infinite linear;
+                -ms-animation: spin 20s infinite linear;
+            }
+        </style>
+    </head>
+
+    <body id="spinning">
+        <div class="black">
+            <div>
+                <div class="black">
+                    <div>
+                        <div class="black">
+                            <div>
+                                <div class="black">
+                                    <div>
+                                        <div class="black">
+                                            <div>
+                                                <div class="black">
+                                                    <div>
+                                                        <div class="black">
+                                                            <div>
+                                                                <div class="black"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

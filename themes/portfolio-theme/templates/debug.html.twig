@@ -1,0 +1,20 @@
+{% extends 'partials/base.html.twig' %}
+
+{% set mainId = "debug" %}
+
+{% block content %}
+<ul
+	style="
+		text-align: left;
+	">
+	{% for taxCategory,taxValues in taxonomy.taxonomy() %}
+	<li>{{ taxCategory }}
+		<ul>
+			{% for value,pages in taxValues %}
+			<li>{{ value }}</li>
+			{% endfor %}
+		</ul>
+	</li>
+	{% endfor %}
+</ul>
+{% endblock %}

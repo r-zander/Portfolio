@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="{{ grav.language.getActive ?: theme_config.default_lang }}">
+<head>
+
+{% set themeConfig = config.themes["portfolio-theme"] %}
+
+{% if pageTitle is not defined %}
+    {% set pageTitle = page.title %}
+{% endif %}
+
+{% block head %}
+    <meta charset="utf-8" />
+	<title>{{ pageTitle is not empty ? pageTitle ~ " :: "}}Raoul Zander :: Portfolio</title>
+
+	{% block favicon %}
+		<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+		<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="/favicon-194x194.png" sizes="194x194">
+		<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+		<link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+		<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+		<link rel="manifest" href="/manifest.json">
+		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+		<meta name="msapplication-TileColor" content="#da532c">
+		<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+		<meta name="theme-color" content="#222222">
+	{% endblock %}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="{{ page.url(true, true) }}" />
+
+    {% block assets %}
+    	{# 1st: jQuery #}
+    	{% if config.system.debugger.enabled %}
+       		{% do assets.addJs('jquery', 999) %}
+    	{% else %}
+       		{% do assets.addJs('jquery', {'group': 'bottom'}) %}
+    	{% endif %}
+
+        {# 2nd: jQuery Plugins #}
+		{% do assets.addCss('theme://vendor/featherlight-1.4.0/featherlight.min.css') %}
+		{% do assets.addJs('theme://vendor/featherlight-1.4.0/featherlight.min.js', {'group': 'bottom'}) %}
+		
+		{# Own JS #}
+		{% do assets.addJs('theme://js/global.js', {'group': 'bottom'}) %}
+		{% do assets.addJs('theme://js/contact.js', {'group': 'bottom'}) %}
+
+		{# Other CSS #}
+		{% do assets.addCss('theme://icons/styles.css') %}
+		{# Compiled main site style #}
+		{% do assets.addCss('theme://css-compiled/style.css', 0) %}
+	{% endblock %}
+
+    {{ assets.css() }}
+    {{ assets.js() }}
+
+{% endblock head%}
+</head>
+<body {{ bodyAttributes }}>
+	<header>
+		<a href="#" data-featherlight="#contact" class="contactLink icon-contact button" data-featherlight-open-speed="500">Me</a>
+		<div class="headline">
+			<h1>
+				<a href="{{ base_url == '' ? '/' : base_url }}">
+					<span class="logo">RZ</span>
+					Portfolio
+				</a>
+			</h1>
+			{% block pageTitle %}
+				<h2>{{ pageTitle }}</h2>
+			{% endblock %}
+		</div>
+	</header>
+	<main id="{{ mainId }}">
+		{% block content %}{% endblock %}
+	</main>
+
+	<div id="contact" class="flipper">
+		<div class="front">
+			<div class="leftSide">
+				<div class="portrait">
+					<img src="{{ url('theme://images/portrait.jpg') }}" alt="Portrait" />
+				</div>
+			</div>
+			<div class="rightSide">
+				<h2>Raoul Zander</h2>
+				<h3>Coder</h3>
+				<table class="skills">
+					<caption>Skill Levels</caption>
+
+					{% set tagPage = page.find("/tag") %}
+
+					<tr class="skillRow">
+						<td><a href="{{ tagPage.url ~ "/:" ~ "wicket" }}" class="language"
+							title="See all Java projects">Java</a></td>
+						<td class="bar"><div class="barContainer"><div class="filledBar" style="width: 85%"></div></div></td>
+						<td class="level"><span class="tooltip">85%</span></td>
+					</tr>
+					<tr class="skillRow">
+						<td><a href="{{ tagPage.url ~ "/:" ~ "website" }}" class="language"
+							title="See all HTML5 projects">xHTML5</a></td>
+						<td class="bar"><div class="barContainer"><div class="filledBar" style="width: 95%"></div></div></td>
+						<td class="level"><span class="tooltip">95%</span></td>
+					</tr>
+					<tr class="skillRow">
+						<td><a href="{{ tagPage.url ~ "/:" ~ "css" }}" class="language"
+							title="See all CSS3 projects">CSS3</a></td>
+						<td class="bar"><div class="barContainer"><div class="filledBar" style="width: 80%"></div></div></td>
+						<td class="level"><span class="tooltip">80%</span></td>
+					</tr>
+					<tr class="skillRow">
+						<td><a href="{{ tagPage.url ~ "/:" ~ "javascript" }}" class="language"
+							title="See all JavaScript projects">JavaScript</a></td>
+						<td class="bar"><div class="barContainer"><div class="filledBar" style="width: 50%"></div></div></td>
+						<td class="level"><span class="tooltip">50%</span></td>
+					</tr>
+					<tr class="skillRow">
+						<td><a href="{{ tagPage.url ~ "/:" ~ "webapplication" }}" class="language"
+							title="See all SQL projects">SQL</a></td>
+						<td class="bar"><div class="barContainer"><div class="filledBar" style="width: 60%"></div></div></td>
+						<td class="level"><span class="tooltip">60%</span></td>
+					</tr>
+				</table>
+				<footer>
+					<span class="glas icon-glas" title="Click to drop me a line.&#013;Sorry it's not copiable, but those spam bots ...">r_zander</span>
+				</footer>
+			</div>
+		</div>
+		<div class="back">
+			<div class="rightSide">
+				<h2>Raoul Zander</h2>
+				<h3>Coder</h3>
+				<p>
+					I'm 26 years old, born in Berlin, living in Berlin but ready to move abroad. I like to code both visual stuff and abstract software architecture.
+
+					<!-- Vor 12 Jahren das erste mal mit Code in Berührung gekommen und seitdem möchte ich ein Amazing Coder werden. Tag für Tag verbessere ich mich -->
+				</p>
+				<p>
+					<a href="{{ url('user://data/CV Raoul Zander.pdf') }}" class="pdf" target="_blank">Curriculum Vitae</a>
+				</p>
+				<footer>
+					<span class="glas icon-glas" title="Click to drop me a line.&#013;Sorry it's not copiable, but those spam bots ...">r_zander</span>
+				</footer>
+			</div>
+		</div>
+		<a href="#" class="icon-flip">
+			<div class="tooltip">
+				flip
+			</div>
+		</a>
+	</div>
+
+    {% block bottom %}
+        {{ assets.js('bottom') }}
+    {% endblock %}
+</body>
+</html>

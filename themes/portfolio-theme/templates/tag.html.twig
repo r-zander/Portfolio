@@ -1,0 +1,243 @@
+{% extends 'partials/base.html.twig' %}
+
+{% set themeConfig = config.themes["portfolio-theme"] %}
+
+{# Initialize tag parameters #}
+{% set tagParam = uri.params|split(':')[1] %}
+{% set tags = tagParam|split('+') %}
+{% set attributedTags = {} %}
+
+{% for tag in tags %}
+    {% set attributedTags = attributedTags|merge({ (tag): {
+    	'found': false, 
+    	'category': 'tag',
+    	'title': themeConfig.tagMapping[tag].title|default(tag|capitalize)
+	}}) %}
+{% endfor %}
+
+{% set pageTitle = [] %}
+{% for tag in tags %}
+    {% set pageTitle = pageTitle|merge([ attributedTags[tag].title ]) %}
+{% endfor %}
+{% set pageTitle = pageTitle|join(" + ") %}
+
+{# Set the main id #}
+{% set mainId = "tag" %}
+
+{% block assets %}
+	{{ parent() }}
+	{% do assets.addJs('theme://vendor/isotope-2.2.2/isotope.pkgd.min.js', {'group': 'bottom'}) %}
+	{% do assets.addJs('theme://vendor/isotope-2.2.2/packery-mode.pkgd.min.js', {'group': 'bottom'}) %}
+
+	{% do assets.addJs('theme://js/tag.js', {'group': 'bottom'}) %}
+{% endblock %}
+
+{% set taxMap = {} %}
+{% set knownTags = [] %}
+{% set unknownTags = [] %}
+{% set hasUnknownTags = false %}
+
+{# Search for the provided tags in all tag categories #}
+{% for taxCategory,taxValues in taxonomy.taxonomy() %}
+	{% for taxValue in taxValues|keys %}
+		{% if attributedTags[taxValue] is not empty %}
+		    {% set attributedTags = attributedTags|merge(
+		    	{(taxValue):
+			    attributedTags[taxValue]|merge({
+			    	'found': true,
+			    	'category': taxCategory,
+				})}) %}
+		{% endif %}
+	{% endfor %}
+{% endfor %}
+
+{# Move the attributed tags in appropriate collections for simpler usage #}
+{% for tag,attributes in attributedTags %}
+	{% if attributes.found %}
+    	{% set knownTags = knownTags|merge([ tag ]) %}
+    {% else %}
+		{% set hasUnknownTags = true %}
+		{% set unknownTags = unknownTags|merge([ tag ]) %}
+	{% endif %}
+
+	{% if taxMap[attributes.category] is empty %}
+    	{% set taxMap = taxMap|merge({(attributes.category): [tag] }) %}
+    {% else %}
+		{% set taxMap = taxMap|merge({(attributes.category): taxMap[(attributes.category)]|merge([tag]) }) %}
+	{% endif %}
+{% endfor %}
+
+{% if hasUnknownTags %}
+	{% set projects = {} %}
+{% else %}
+	{% set projects = taxonomy.findTaxonomy(taxMap) %}
+{% endif %}
+
+{% set knownTags = knownTags|sort %}
+{# 
+<div>knownTags: {{knownTags|json_encode}} </div>
+<div>taxMap: {{taxMap|json_encode}} </div>
+<div>attributedTags: {{attributedTags|json_encode}} </div>
+
+<ul>
+{% for item in projects %}
+    <li>{{ item.title }} </li>
+{% endfor %}
+</ul>
+ #}
+
+{% block pageTitle %}
+	<h2>{{ pageTitle }}
+		<small class="numberOfProjects">{{ projects|length }}</small>
+	</h2>
+{% endblock %}
+
+{% block content %}
+	{{ dump(attributedTags) }}
+
+	<section class="description">
+		{% set description = "" %}
+		{% for module in page.collection %}
+			{% for tag in knownTags %}
+				{% if module.folder == ("_" ~ tag)  %}
+					{% set description = description ~ module.content ~ "\n" %}
+				{% endif %}
+			{% endfor %}
+		{% endfor %}
+
+		{% if description is not empty %}
+			<article class="text">
+				{{ description }}
+			</article>
+		{% endif %}
+		<div class="infoBox">
+			<h4>Modify Selection</h4>
+			<dl>
+				{% if knownTags|length > 1 %}
+					<dt class="tags">Expand</dt>
+					<dd class="tags">
+						{% for tag in knownTags %}
+							<a href="{{ page.url ~ "/:" ~ tag }}" class="tag">
+								All {{ attributedTags[tag].title }} Projects
+								<small class="numberOfProjects">{{ taxonomy.findTaxonomy({ 
+										(attributedTags[tag].category): tag
+									})|length }}</small>
+							</a>
+						{% endfor %}
+					</dd>
+				{% endif %}
+
+				{% if projects is not empty %}
+					{# Aggregate related tags #}
+	    			{% set relatedTags = [] %}
+
+					{% for item in projects %}
+						{% for taxCategory,taxTags in item.taxonomy %}
+							{# We don't want to filter by promotion status at this point #}
+						    {% for tag in taxTags if taxCategory != "promoted" %}
+						        {% if (tag not in knownTags) and (tag not in relatedTags) %}
+						            {% set relatedTags = relatedTags|merge([ tag ]) %}
+				            	    {% set attributedTags = attributedTags|merge({ (tag): {
+								    	'found': true, 
+								    	'category': taxCategory,
+								    	'title': themeConfig.tagMapping[tag].title|default(tag|capitalize)
+									}}) %}
+						        {% endif %}
+						    {% endfor %}
+						{% endfor %}
+
+						{# <div>{{ item.title }} related tags: {{ relatedTags|json_encode }}</div> #}
+					{% endfor %}
+
+					<dt class="tags" title="Showing all tags also contained in the current selection">Narrow</dt>
+					<dd class="tags" id="relatedTags">
+						{% for tag in relatedTags|sort %}
+							<a href="{{ page.url ~ "/:" ~ tagParam ~ "+" ~ tag }}" class="tag" data-tag="{{ tag }}">
+								+ {{ attributedTags[tag].title }}
+
+								{% if taxMap[attributedTags[tag].category] is empty %}
+							    	{% set narrowedTaxMap = taxMap|merge({(attributedTags[tag].category): [tag] }) %}
+							    {% else %}
+									{% set narrowedTaxMap = taxMap|merge({(attributedTags[tag].category): taxMap[(attributedTags[tag].category)]|merge([tag]) }) %}
+								{% endif %}
+
+								<small class="numberOfProjects">{{ taxonomy.findTaxonomy( narrowedTaxMap )|length }}</small>
+							</a>
+						{% endfor %}
+					</dd>
+				{% endif %}
+
+				{% for taxCategory,taxTags in taxMap if taxCategory != "tag" %}
+					{% set otherTagsInCategory = taxonomy.taxonomy[taxCategory]|keys %}
+					{% if (otherTagsInCategory|length > 1) %}
+						{% set tagList = "" %}
+						{% for tag in taxTags %}
+							{% if not (tag == taxTags|first) %}
+							    {% if (tag == taxTags|last) %}
+									{% set tagList = tagList ~ " and " %}
+								{% else %}
+									{% set tagList = tagList ~ ", " %}
+							    {% endif %}
+							{% endif %}
+							{% set tagList = tagList ~ "'" ~ attributedTags[tag].title ~ "'" %}
+						{% endfor %}
+
+						{% set tagCategoryMapping = themeConfig.tagCategoryMapping[taxCategory] %}
+						<dt class="tags" title="As {{ tagList }} {{ taxTags|length == 1 ? "is a " ~ tagCategoryMapping.inline : "are " ~ tagCategoryMapping.inlinePlural }}, here are other {{ tagCategoryMapping.inlinePlural }} you might find interesting.">Other <em>{{ tagCategoryMapping.inlinePlural }}</em></dt>
+						<dd class="tags">
+						{% for tag in otherTagsInCategory|sort 
+							if tag not in taxTags %}
+
+							<a href="{{ page.url ~ "/:" ~ tag }}" class="tag">
+								{{ themeConfig.tagMapping[tag].title|default(tag|capitalize) }}
+								<small class="numberOfProjects">{{ taxonomy.findTaxonomy( {(taxCategory): tag} )|length }}</small>
+							</a>
+						{% endfor %}
+						</dd>
+
+
+				    {% endif %}
+				{% endfor %}
+			</dl>
+		</div>
+	</section>
+	<section class="content">
+		{% if projects is empty %}
+	    	<div class="note">
+	    		<p>Sorry, but there are <strong>no projects</strong> matching your selection.</p>
+	    		<p>Try to expand the selection!</p>
+	    	</div>
+	    {% else %}
+			<div class="grid">
+				<div class="grid-sizer"></div>
+				{% for project in projects %}
+					{% set thumbnailType = project.header.thumbnail.extension|default("webm") %}
+					{% set itemMedia = project.media[project.slug ~ "." ~ thumbnailType] %}
+					{% if not project.header.thumbnail.start is empty %}
+						{% set mediaFragment = "#t=" ~ project.header.thumbnail.start %}
+					{% endif %}
+					{% if project.taxonomy["promoted"] is empty %}
+						{% set promotedClass = "" %}
+					{% else %}
+						{% set promotedClass = " promoted" %}
+					{% endif %}
+
+					{% set projectTags = [] %}
+					{% for tagCategory,tags in project.taxonomy %}
+					    {% set projectTags = projectTags|merge(tags) %}
+					{% endfor %}
+				<div class="grid-item{{ promotedClass }}{{ project.header.thumbnail.format }}" data-tags="{{ projectTags|join(' ') }}">
+					<a href="{{ project.url }}">
+						<h3 class="projectTitle"><span class="centered">{{ project.title }}</span></h3>
+						{% if thumbnailType == "webm" %}
+							<video src="{{ itemMedia.url }}{{ mediaFragment }}" preload="auto" muted="muted" loop="loop"></video>
+						{% else %}
+							{{ itemMedia }}
+						{% endif %}
+					</a>
+				</div>
+				{% endfor %}
+			</div>
+		{% endif %}
+	</section>
+{% endblock %}

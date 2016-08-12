@@ -1,0 +1,8 @@
+webm:
+  type: video
+  thumb: media/thumb-webm.png
+  mime: video/webm
+pde:
+  type: file
+  thumb: media/thumb-pde.png
+  mime: text/plain

@@ -1,0 +1,166 @@
+enabled: true
+
+tagMapping:
+  animation:
+    title: Animations
+  blackwhite:
+    title: "Black and White"
+  css:
+    title: CSS
+  divcomposition:
+    title: "Compositions with Divs"
+  experiment:
+  game:
+    title: Games
+  opart:
+    title: "Op Art"
+  static:
+    title: "Static Work"
+
+tagCategoryMapping:
+  tagLvl0:
+    inline: front page category
+    inlinePlural: front page categories
+  language:
+    inline: language
+    inlinePlural: languages
+  typeOfWork:
+    inline: project framework
+    inlinePlural: project frameworks
+  series:
+    inline: series
+    inlinePlural: series
+
+projectDisplay:
+  displayTypes:
+  # Order here == display order on project page
+    liveRender:
+      id: render
+      title: "Live Render"
+      showMediaContainer: true
+    liveRenderP5:
+      id: render
+      title: "Live Render"
+      showMediaContainer: true
+    promoVideo:
+      id: video
+      title: Teaser
+      showMediaContainer: true
+    embeddedSite:
+      id: embeddedSite
+      title: "Embedded"
+      file: "live/index.html"
+      showMediaContainer: true
+    webmRender:
+      id: webm
+      title: WebM
+      file: webm
+      showMediaContainer: true
+    gifRender:
+      id: gif
+      title: Gif
+      file: gif
+      showMediaContainer: true
+    screenshots:
+      id: screenshots
+      title: Screenshots
+      showMediaContainer: true
+      file: (jpg|png|gif)
+    screenshot:
+      id: screenshot
+      title: Screenshot
+      file: png
+      showMediaContainer: true
+    liveSite:
+      title: "Live App"
+    embeddedLiveSite:
+      id: embeddedSite
+      title: "Live App"
+      showMediaContainer: true
+    localSite:
+      title: "Live Site"
+      file: "live/index.html"
+    logo:
+      id: projectLogo
+      title: Logo
+      file: svg
+      showMediaContainer: true
+    storyboard:
+      title: "Storyboard"
+      file: _storyboard.pdf
+    conceptPng:
+      id: concept
+      title: "Concept"
+      file: _concept.png
+      showMediaContainer: true
+    conceptJpg:
+      id: concept
+      title: "Concept"
+      file: _concept.jpg
+      showMediaContainer: true
+    sourceCode:
+      id: source
+      title: Source
+      showMediaContainer: true
+    zipDownload:
+      title: Download
+      file: zip
+  projectTypes:
+  # Order by priority - the highest fitting type is applied
+    app:
+      category: tag
+      displayTypes:
+        - screenshots
+        - localSite
+    p5js:
+      category: language
+      displayTypes:
+        - 
+    game:
+      category: tagLvl0
+      displayTypes:
+        - liveRender
+        - webmRender
+        - screenshots
+        - sourceCode
+        - zipDownload
+    webapplication:
+      category: tag
+      displayTypes:
+        - localSite
+        - screenshots
+    website:
+      category: tag
+      displayTypes:
+        - localSite
+        - screenshots
+        - sourceCode
+    css:
+      category: language
+      displayTypes:
+        - embeddedSite
+        - webmRender
+        - gifRender
+        - screenshot
+    animation:
+      category: tagLvl0
+      displayTypes:
+        - liveRender
+        - webmRender
+        - gifRender
+        - screenshot
+        - sourceCode
+        - zipDownload
+    processing:
+      category: language
+      displayTypes:
+        - liveRender
+        - webmRender
+        - screenshot
+        - sourceCode
+        - zipDownload
+    static:
+      category: tagLvl0
+      displayTypes:
+        - embeddedSite
+        - screenshot

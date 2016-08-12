@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+
+        <title>Golden rectangles</title>
+
+        <link rel="stylesheet" href="../../style.css" type="text/css" media="screen" charset="utf-8"/>
+
+        <style type="text/css" media="screen">
+            #borders {
+                background-color: black;
+            }
+
+            #borders div {
+                border: 20px solid white;
+                position: absolute;
+            }
+            
+            #borders div:not(.slim){
+                box-shadow: 0 0 0 2px rgba(0,0,0,0.5), 0 0 0 2px rgba(0,0,0,0.5) inset;
+            }
+
+            #borders div.slim {
+                border-width: 20px 0 0 0;
+            }
+
+            #borders div.slim.upright {
+                border-width: 0 20px 0 0;
+            }
+
+            /**
+             * CSS Aspect Ratio
+             * ****************
+             * Some things to know:
+             *      Shrink-to-fit:
+             * http://www.w3.org/TR/CSS21/visudet.html#shrink-to-fit-float
+             *      Containing block:
+             * http://www.w3.org/TR/CSS2/visuren.html#containing-block
+             *      Calculation percentual padding/margin:
+             * http://www.w3.org/TR/CSS2/box.html#propdef-margin-top
+             *      Automatically computed height:
+             * http://www.w3.org/TR/CSS2/visudet.html#root-height
+             *
+             * Source:
+             * http://ansciath.tumblr.com/post/7347495869/css-aspect-ratio
+             */
+            #borders div {
+                display: inline-block; /* gives the container a shrink-to-fit
+                 * box. */
+                /*position: relative; (not used, because all divs are positioned
+                 * absolute)*/
+                /*position: relative gives the container a position box. The
+                 * position box acts as the containing block of the inner
+                 * elements. (Note: Using position:absolute would give the
+                 * element a shrink-to-fit box that would act as the containing
+                 * block of the inner elements.) */
+                /*width: 50%; (not used because each div has its own width)*/
+                /* gives the box of the container a width that will
+                 * be used for the aspect ratio. The width can be specified as a
+                 * length or as a percentage. */
+            }
+            #borders div:before {
+                content: ""; /* creates an empty dummy element */
+                display: block; /* makes the dummy element a block element so
+                 * that the following padding can be applied */
+                padding-top: 61.8%; /* golden ratio (width : height (75% -->
+                 * 4:3)) */
+                /* gives the box of the dummy element a height that is XX% of the
+                 * aforementioned width, thus defining the aspect ratio. The key
+                 * here is that a percentage value for padding-top or
+                 * padding-bottom (or for margin-top or margin-bottom, for that
+                 * matter) refers to the width of the containing block. Because
+                 * the container is an inline-level block container, the height
+                 * of the container is automatically computed as the height of
+                 * the dummy element, which is based on the width of the
+                 * container. Voilà, instant aspect ratio using only CSS. */
+            }
+            #borders div:after {
+                content: ""; /* creates an empty dummy element */
+                position: absolute; /* removes the element from the normal flow
+                 * inside the container, allowing the dummy element to dictate
+                 * the sizing of the container. */
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                /* top/bottom/left/right:0 stretches the element to the edges of
+                 * the container,
+                 * which are determined by the aspect ratio as per the above. The
+                 * element will thus receive all user events. Set
+                 * margin/border/padding to taste. */
+            }
+
+            #borders div.upright:before {
+                padding-top: 161.8%;
+            }
+
+            /**
+             *     All the rectangles
+             */
+            #center {
+                width: 20%;
+                margin-top: 7.5%;
+                left: 40%;
+            }
+
+            #big-left {
+                width: 40%;
+                margin-top: 12%;
+                left: 10%;
+            }
+
+            #medium-left {
+                width: 26.5%;
+                margin-top: 16%;
+                left: 6.5%;
+            }
+
+            #small-left {
+                width: 14%;
+                margin-top: 20%;
+                left: 3%;
+            }
+
+            #big-right {
+                width: 34%;
+                margin-top: 9.75%;
+                right: 16%;
+            }
+
+            #medium-right {
+                width: 24%;
+                margin-top: 14%;
+                right: 8%;
+            }
+
+            #small-right {
+                width: 10%;
+                margin-top: 17%;
+                right: 3%;
+            }
+
+            #top {
+                left: 45.5%;
+                margin-top: 1%;
+                width: 9%;
+            }
+
+            #big-bottom {
+                width: 14%;
+                margin-top: 21%;
+                left: 43%;
+            }
+
+            #small-bottom {
+                left: 45%;
+                margin-top: 35%;
+                width: 2%;
+            }
+
+            /**
+             *     All the bars
+             */
+            #one {
+                margin-top: 3%;
+                right: 40%;
+                width: 8%;
+            }
+
+            #two {
+                margin-top: 26%;
+                right: 25%;
+                width: 20%;
+            }
+
+            #three {
+                margin-top: 38%;
+                right: 35%;
+                width: 5%;
+            }
+
+            #four {
+                left: 39%;
+                margin-top: 39.5%;
+                width: 3%;
+            }
+
+            #five {
+                left: 21%;
+                margin-top: 28%;
+                width: 25%;
+            }
+
+            #six {
+                left: 34%;
+                margin-top: 10%;
+                width: 10%;
+            }
+
+        </style>
+    </head>
+
+    <body id="borders">
+        <!-- The order of divs is quite important - for the stacking & shadowing
+        -->
+        <div id="center" class="upright"></div>
+
+        <div id="one" class="slim upright"></div>
+        <div id="two" class="slim"></div>
+        <div id="three" class="slim"></div>
+        <div id="four" class="slim"></div>
+        <div id="five" class="slim"></div>
+        <div id="six" class="slim"></div>
+
+        <div id="big-left"></div>
+        <div id="medium-left"></div>
+        <div id="small-left"></div>
+
+        <div id="big-right"></div>
+        <div id="medium-right"></div>
+        <div id="small-right"></div>
+
+        <div id="top" class="upright"></div>
+
+        <div id="big-bottom" class="upright"></div>
+        <div id="small-bottom" class="upright"></div>
+
+    </body>
+</html>

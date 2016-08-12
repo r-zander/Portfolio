@@ -1,0 +1,345 @@
+@tilePadding: (@gridPadding / 2);
+
+// .noTransitions * {
+// 	transition: none !important;
+// }
+
+#index {
+	position: absolute;
+	top: (3 * @gridPadding); // all paddings of header
+	margin-top: 2em; // font size of header
+	bottom: 0;
+	left: @gridPadding;
+	right: @gridPadding;
+
+	/* Adjust padding for tiles */
+	padding:
+		@tilePadding
+		(@gridDistance - @tilePadding)
+		@tilePadding;
+}
+
+#indexNavigation {
+	float: left;
+	width: 100%;
+	height: 100%;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+
+
+	> li {
+		float: left;
+		width: 33.33%;
+		height: 50%;
+
+		/* Padding instead of margin to make use
+		 * of box-sizing: border-box */
+		padding: @tilePadding;
+		/* Beveled right, considering the padding */
+		border-radius: 0 (@gridDistance + @tilePadding);
+
+		// font-size: 2em;
+		// font-size: 1.66vw;
+		font-size: 2.5vw;
+		text-align: center;
+	}
+
+
+	.itemWrapper {
+		display: block;
+		height: 100%;
+		.beveledRight;
+		padding: 0;
+
+		overflow: hidden;
+		.overflowFix;
+		position: relative;
+
+		text-decoration: none;
+
+		&:hover,
+		&:active,
+		&:focus {
+			color: @panelFontColor;
+		}
+	}
+
+	.categoryLink {
+		display: block;
+		height: 100%;
+
+		overflow: hidden; // crop the overflowing <small> when collapsing 
+
+		background-color: @panelBackgroundColor;
+		color: @panelFontColor;
+
+		transition: all 0.5s 0.3s;
+		transition-property: height, font-size;
+
+		padding: @gridPadding;
+		text-decoration: none;
+
+		&:hover,
+		&:active,
+		&:focus {
+			color: @panelFontColor;
+		}
+	}
+
+	h2 {
+		/* Vertical center single line */
+		position: relative;
+		top: 50%;
+		margin-top: -0.5em;
+
+		font-size: 1em;
+		font-weight: normal;
+		font-variant: normal;
+	}
+
+	.doubleLine > h2 {
+		margin-top: -1em;
+	}
+
+	.numberOfProjects {
+		display: block;
+		transition: transform 0.5s 0.3s;
+	}
+
+	.subItems {
+		overflow: hidden;
+
+		position: absolute;
+		top: 100%;
+		right: 0;
+		bottom: -100%;
+		left: 0;
+		margin-top: @gridPadding;
+		
+		transition: all 0.5s 0.3s;
+		transition-property: top, bottom;
+
+		&.with2children {
+			> .subItem {
+				width: 50%;
+				height: 100%;
+
+				&:last-of-type {
+					padding-right: 0;
+				}
+			}
+		}
+
+		&.with4children {
+			> .subItem {
+				width: 50%;
+				height: 50%;
+
+				&:last-of-type {
+					padding-right: 0;
+				}
+
+				&.promoted {
+					width: 100%;
+					padding-right: 0;
+					padding-bottom: @gridPadding;
+				}
+			}
+		}
+
+		&.with5children {
+			> .subItem {
+				width: 50%;
+				height: 50%;
+
+				&:nth-child(1),
+				&:nth-child(2) {
+					padding-bottom: @gridPadding;
+				}
+
+				&:nth-child(2n) {
+					padding-right: 0;
+				}
+
+				// &.promoted {
+				// 	padding-right: 0;
+				// }
+			}
+		}
+
+		&.notes {
+			padding: @gridPadding @gridDistance;
+			
+			background-color: @panelBackgroundColor;
+			color: @panelFontColor;
+
+			text-align: left;
+			font-size: 0.5em;
+
+			ul {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+				line-height: 2;
+			}
+		}
+	}
+
+	.subItem {
+		float: left;
+		position: relative;
+		padding-right: @gridPadding;
+
+		> div {
+			display: flex;
+			align-items: center;
+			height: 100%;
+			background-color: @panelBackgroundColor;
+
+			overflow: hidden;
+			.overflowFix;
+
+			> video,
+			> img {
+				display: block;
+				margin: 0 auto;
+				max-width: 100%;
+				opacity: 0.1;
+				transition: opacity 0.5s 0.3s;
+			}
+
+			&.notHighEnough {
+				flex-direction: column;
+
+				> video,
+				> img {
+					flex-basis: 100%;
+					max-width: none;
+					height: 100%;
+				}
+
+				&.centered {
+					> video,
+					> img {
+						margin: 0;
+					}
+				}
+			}
+
+			&.tooHigh {
+				> video,
+				> img {
+					align-self: flex-start;
+					flex-basis: 100%;
+				}
+			}
+		}
+
+		
+
+		&.promoted {
+			> div {
+				border: 2px solid @highlightColor;
+				position: relative;
+				border-top-left-radius: (1.5 * @gridDistance) 0.8em;
+
+				&::after {
+					content: "Highlighted Project";
+					display: block;
+					position: absolute;
+					top: 0;
+					left: 0;
+
+					border-bottom-right-radius: (1.5 * @gridDistance) 100%;
+
+					background-color: @highlightColor;
+					color: @panelBackgroundColor;
+					
+					font-size: 0.3em;
+					padding: 0.25em (0.75 * @gridDistance);
+				}
+			}
+
+			video {
+				top: -72%;
+			}
+		}
+	}
+
+	.projectTitle {
+		// font-size: 1.6vw;
+		font-size: 0.64em;
+	}
+
+	> li {
+		&.hover,
+		&:hover,
+		&.active,
+		&:focus {
+			padding: (@tilePadding - 2px);
+			border: 2px solid @accentColor;
+
+			.categoryLink {
+				// font-size: 0.64em;
+				// font-size: 0.9em;
+				// height: 1.8em;
+				height: 3.5vw;
+				transition-delay: 0.18s;
+
+				&.doubleLine {
+					height: (2 * 3.5vw);
+				}
+
+				.numberOfProjects {
+					transform: scale(1, 0); 
+					transition-delay: 0.18s;
+				}
+			}
+
+			> .itemWrapper {
+				transition-delay: 0.18s;
+			}
+
+			.subItems {
+				// top: 1.8em;
+				top: 3.5vw;
+				bottom: 0;
+				transition-delay: 0.18s;
+
+				// &.notes {
+				// 	top: 3.6em;
+				// }
+			}
+
+			.doubleLine + .subItems {
+				top: (2 * 3.5vw);
+			}
+		}
+
+		&.simpleLink {
+			&.hover,
+			&:hover,
+			&.active,
+			&:focus {
+				.categoryLink {
+					height: 100%;
+				}
+			}
+		}
+	}
+
+	.subItem {
+		&:hover,
+		&:active,
+		&.focus {
+			color: inherit;
+
+			> div > video,
+			> div > img {
+				opacity: 1;
+				transition-delay: 0.18s;
+			}
+		}
+	}
+}

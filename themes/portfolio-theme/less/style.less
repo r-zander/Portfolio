@@ -1,0 +1,413 @@
+@import (inline) "../vendor/normalize-3.0.2.css";
+@import "fonts.less";
+
+// @backgroundColor: #111;
+@backgroundColor: #000;
+@panelBackgroundColor: (@backgroundColor + #222);
+@fontColor: (#ddd - @backgroundColor);
+@panelFontColor: (@fontColor + #222);
+@accentColor: DeepSkyBlue;
+@highlightColor: White;
+@passiveColor: #999;
+
+@browserFontSize: 16px;
+
+@gridBase: 4px;
+@gridPadding: 4 * @gridBase;
+@gridDistance: 8 * @gridBase;
+
+@glowRadius: 10px;
+@insideGlowRadius: 1em;
+
+@textWidth: 26em;
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Orbitron', sans-serif;
+	text-rendering: optimizeLegibility;
+	font-size: 1.25em;
+	text-align: center;
+	letter-spacing: 0.1em;
+	color: @fontColor;
+	background-color: @backgroundColor;
+	
+	height: 100%;
+	padding: @gridPadding;
+	margin: 0;
+}
+
+header {
+	text-align: left;
+
+	> .headline {
+		.panel;
+		padding: @gridPadding @gridDistance;
+		font-size: 2em;
+		overflow: hidden;
+		border-top-right-radius: 0;
+
+		> h1, h2 {
+			font-size: inherit;
+			float: left;
+		}
+
+		> h2::before {
+			content: "::";
+			margin: 0 0.5em;
+		}
+	}
+
+	> .contactLink {
+		float: right;
+		.panel;
+		background: none;
+		text-decoration: none;
+		border-bottom-left-radius: 0;
+		line-height: 2em;
+		margin-left: @gridPadding;
+		border-left: 2px solid @accentColor;
+		border-right: 2px solid @accentColor;
+		border: 2px solid @accentColor;
+		padding-top: (@gridPadding - 2px);
+		padding-bottom: (@gridPadding - 2px);
+
+		&:before {
+			margin-right: 0.5em;
+			font-size: 1.5em;
+			vertical-align: middle;
+		}
+	}
+}
+
+main {
+	padding: @gridPadding @gridDistance;
+	.containFloats;
+}
+
+a {
+	text-decoration-color: @accentColor;
+
+	&:link {
+		color: inherit;
+	}
+
+	&:visited {
+		// TODO
+		color: inherit;
+	}
+
+	&:hover,
+	&:active,
+	&:focus {
+		text-decoration: none;
+		color: @accentColor;
+	}
+
+	&:focus {
+		outline: none;
+	}
+
+	&[download] {
+		.hasIcon(" \68", after);
+	}
+
+	&[target="_blank"]{
+		.hasIcon(" \66", after);
+	}
+
+	&.external,
+	&.external-link {
+		.hasIcon(" \67", after);
+	}
+
+	&.pdf {
+		border-bottom: 1px solid @accentColor;
+		text-decoration: none;
+
+		&:hover,
+		&:active,
+		&:focus {
+			border-bottom-color: transparent;
+		}
+
+		&::after {
+			content: "pdf";
+			display: inline-block;
+			border: 1px solid; /* color of the font */
+			border-radius: @gridPadding 0;
+			font: inherit !important;
+			font-size: 0.5em !important;
+			margin-left: 1em;
+			padding: 0.2em 0.4em;
+			/* Adjust vertical position: */
+			position: relative;
+			top: -0.5em;
+		}
+	}
+}
+
+.button {
+	&:link, &:visited {
+		color: @accentColor;
+		text-decoration: none;
+	}
+
+	&.hover,
+	&:hover,
+	&:focus,
+	&:active {
+		.insideGlow;
+	}
+}
+
+h1, h2, h3, h4 {
+	margin: 0;
+	line-height: 1;
+	font-variant: small-caps;
+	font-weight: 700;
+}
+
+h1 a {
+	text-decoration: none;
+}
+
+.spyScroll {
+	position: relative;
+}
+
+.noScroll {
+	max-height: 0;
+}
+
+.panel {
+	background-color: @panelBackgroundColor;
+	color: @panelFontColor;
+	.beveledRight;
+}
+
+.panel(@beveled) when (@beveled = left) {
+	background-color: @panelBackgroundColor;
+	color: @panelFontColor;
+	.beveledLeft;
+}
+
+.smallPanel {
+	background-color: @panelBackgroundColor;
+	color: @panelFontColor;
+	border-top-left-radius: @gridPadding;
+	border-bottom-right-radius: @gridPadding;
+	padding: (@gridPadding / 2);
+}
+
+.textFont(){
+	font-family: 'Exo', sans-serif;
+	font-weight: 200;
+	letter-spacing: 0;
+
+	b, strong {
+		font-weight: 400;
+	}
+
+	h2 {
+		-moz-font-feature-settings:"smcp" 1; 
+		-ms-font-feature-settings:"smcp" 1; 
+		-o-font-feature-settings:"smcp" 1; 
+		-webkit-font-feature-settings:"smcp" 1; 
+		font-feature-settings:"smcp" 1;
+		font-variant: normal;
+		font-weight: 400;
+	}
+}
+
+.text {
+	.textFont;
+	line-height: 1.8;
+
+	transition: max-height 0.35s;
+
+	&.collapsed {
+		max-height: 12.5em !important;
+		overflow: hidden;
+		position: relative;
+	}
+
+	> p {
+		margin: 1.8em 0;
+
+		/* Remove margins and line distance from first/last paragraph */
+		&:first-child {
+			margin-top: -0.7em;
+		}
+
+		&:last-child {
+			margin-bottom: -0.7em;
+		}
+	}
+
+	> h2 + p {
+		margin-top: 1em;
+	}
+	
+	a {
+		&::after {
+			font-size: 0.7em !important;
+		}
+	}
+
+	> p + ul {
+		margin-top: -1.8em;
+	}
+
+	> ul:last-child {
+		margin-bottom: -0.7em;
+	}
+
+	> .readMore {
+		display: block;
+		position: absolute;
+		left: @gridDistance;
+		bottom: 0;
+		right: 0;
+		padding-top: @gridDistance;
+		background-image:
+			linear-gradient(transparent,
+				@panelBackgroundColor @gridDistance);
+
+		&:link, &:visited {
+			color: @accentColor;
+			text-decoration: none;
+		}
+
+		&.hover,
+		&:hover,
+		&:focus,
+		&:active {
+			text-decoration: underline;
+		}
+	}
+}
+
+.numberOfProjects {
+	margin-top: 0.5em;
+
+	font-size: 60%;
+	color: @passiveColor;
+
+	&:before {
+		content: "(";
+	}
+
+	&:after {
+		content: ")";
+	}
+}
+
+.projectTitle {
+	position: absolute;
+	top: 50%;
+	margin-top: -0.5em;
+	width: 100%;
+	z-index: 1;
+
+	padding: 0 @gridPadding;
+
+	color: @panelFontColor;
+	font-weight: normal;
+	font-variant: normal;
+
+	text-shadow:
+		-1px 0 0.5em black,
+		0 1px 0.5em black,
+		1px 0 0.5em black,
+		0 -1px 0.5em black;
+
+	&.doubleLine {
+		margin-top: -1em;
+	}
+}
+
+.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+/* Left and right are inverted to create a symmetric view.
+   Elements on the left are beveled left and vice versa. */
+.beveledLeft {
+	// for now just some rounded corners
+	border-radius: @gridDistance 0;
+	padding: @gridPadding;
+}
+
+.beveledRight {
+	border-radius: 0 @gridDistance;
+	padding: @gridPadding;
+}
+
+.overflowFix(){
+	// Enforce overflow: hidden for animations
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	// backface-visibility: hidden;
+	-webkit-transform: translate3d(0, 0, 0);
+	-moz-transform: translate3d(0, 0, 0);
+	// transform: translate3d(0, 0, 0);
+}
+
+.containFloats(){
+	overflow: hidden;
+}
+
+.hasIcon(@content, @position: before){
+	&:@{position}{
+		font-family: "portfolio" !important;
+		font-style: normal !important;
+		font-weight: normal !important;
+		font-variant: normal !important;
+		text-transform: none !important;
+		speak: none;
+		line-height: 1;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+
+		content: @content;
+	}
+}
+
+@pulseFactor: 0.75;
+
+@keyframes pulsating {
+	from {
+		box-shadow: 0 0 (@insideGlowRadius * @pulseFactor) 0 @accentColor inset;
+	}
+	to {
+		box-shadow: 0 0 @insideGlowRadius 0 @accentColor inset;
+	}
+}
+
+.insideGlow {
+	animation: pulsating 1.2s ease-in-out infinite alternate;
+}
+
+
+.logo {
+	@logoColor: @fontColor;
+	@logoColor: @accentColor;
+
+	border: 0.1em solid @logoColor;
+	border-bottom-left-radius: @gridDistance;
+	border-top-right-radius: @gridDistance;
+	margin-left: (-@gridDistance * 0.75);
+	padding: 0 @gridPadding;
+	color: @logoColor;
+}
+
+@import "index.less";
+@import "contact.less";
+@import "project.less";
+@import "aboutPage.less";
+@import "tagPage.less";

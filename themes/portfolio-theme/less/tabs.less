@@ -1,0 +1,148 @@
+.slyTabs {
+	float: left;
+	max-width: 100%;
+	position: relative;
+
+	@buttonWidth: (@gridDistance + @gridPadding - 10px);
+	padding: 0 (@buttonWidth);
+
+	> .prev,
+	> .next {
+		position: absolute;
+		top: 0;
+
+		text-decoration: none;
+
+		font-size: 1.5em;
+		width: @buttonWidth;
+
+		color: @accentColor;
+
+		&:before {
+			line-height: 66px;
+		}
+
+		&:hover,
+		&:active {
+			text-shadow:
+				0 0 @glowRadius @accentColor,
+				0 0 @glowRadius @panelFontColor;
+		}
+
+		&:active {
+			color: @panelFontColor;
+		}
+
+		&.disabled {
+			cursor: default;
+			color: @panelBackgroundColor;
+			text-shadow: none !important;
+			box-shadow: none;
+		}
+
+	}
+
+	> .prev {
+		left: 0;
+		text-align: left;
+	}
+
+	> .next {
+		right: 0;
+		text-align: right;
+	}
+
+	&.scrollShadowLeft {
+		> .prev {
+			box-shadow: @glowRadius 0 @glowRadius (-0.7 * @glowRadius) black;
+		}
+	}
+
+	&.scrollShadowRight {
+		> .next {
+			box-shadow: -@glowRadius 0 @glowRadius (-0.7 * @glowRadius) black;
+		}
+	}
+
+	&.inPanel {
+		margin-bottom: (@gridDistance - 10px);
+		margin-top: -10px;
+
+		@buttonWidth: (@gridDistance);
+		padding: 0 @buttonWidth;
+
+		.frame {
+			font-size: 0.9em;
+
+			a {
+				font-size: 1.125rem; // reset font-size
+				background-color: @panelBackgroundColor;
+				border-color: @backgroundColor;
+
+				&.active {
+					background-color: @backgroundColor;
+				}
+			}
+		}
+
+		> .prev,
+		> .next {
+			width: @buttonWidth;
+
+			&.disabled {
+				color: @backgroundColor;
+			}
+
+			&:before {
+				position: relative;
+				line-height: 64px;
+			}
+		}
+
+		> .prev:before {
+			left: -8px;
+		}
+
+		> .next:before {
+			right: -8px;
+		}
+	}
+}
+
+/* Frame */
+.frame {
+	overflow: hidden;
+
+	> .slidee {
+		margin: 0;
+		/* All elements in 1 line with display: inline-block */
+		white-space: nowrap;
+		font-size: 0;
+		cursor: grab;
+
+		> a {
+			display: inline-block;
+			font-size: 1.25rem; // reset font-size
+			margin: @glowRadius;
+			float: none !important;
+
+			&:last-child {
+				margin-right: 30px;
+			}
+
+			// &[download] {
+			// 	.hasIcon("\68", after);
+			// }
+
+			// &[target="_blank"]{
+			// 	.hasIcon("\66", after);
+			// }
+
+			&:after {
+				vertical-align: middle;
+				padding-left: 0.6em;
+			}
+		}
+	}
+}
+

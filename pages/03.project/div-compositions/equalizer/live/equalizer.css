@@ -1,0 +1,95 @@
+/**
+ * Disable transitions for nav
+ */
+nav {
+    transition: none;
+}
+
+/**
+ *     E Q U A L I Z E R
+ *     *****************
+ */
+.equalizer {
+    padding: 0 5.6%;
+    height: 94.4%;
+    border-bottom: 5px solid black;
+}
+
+/**
+ *     Outlines
+ */
+/*.equalizer, */
+.equalizer > div > div {
+    outline: 1px solid black;
+}
+.equalizer > div > div {
+    /*box-shadow: -1px 0 0 1px black;*/
+}
+
+.equalizer > div {
+    width: 6.25%; /* 16 Spalten = 100% */
+    height: 94.4%;
+    position: relative;
+    top: 5.6%; /* use top instead of margin-top, because we want 5%
+     * of
+     * the parent height, not of the width (and % margin always uses
+     * width) */
+    float: left;
+}
+
+.equalizer > div > div {
+    height: 7.7%;
+}
+
+/**
+ *     Color Rules
+ *     ***********
+ *
+ * Es wird von oben nach unten eingefärbt. Demnach werden die oberen
+ * Farb-Regeln bewusst von Folgenden überschrieben.
+ *
+ */
+/**
+ *     Die obersten Kästen sind schwarz.
+ */
+.equalizer > div > div:nth-child(n+0) {
+    background-color: black;
+}
+
+/**
+ *     Ab dem 5. Kasten abwärts kommen graue Kästen
+ */
+.equalizer > div > div:nth-child(n+5) {
+    background-color: gray;
+}
+
+/**
+ *     Ab dem 10. Kasten abwärts kommen weiße Kästen
+ */
+.equalizer > div > div:nth-child(n+10) {
+    background-color: white;
+}
+
+/**
+ *     Display Rules
+ *     *************
+ *
+ * Per default, all boxes are hidden. They are shown by the class
+ * 'peak', which indicates the top box. This (default hiding, then
+ * making it visible back again) is because of the DOM nature - no
+ * element know's it's descandant.
+ * Visiblity is used in favor to display:none, because hidden
+ * elements still keep their space reserved.
+ */
+.equalizer > div > div {
+    visibility: hidden;
+}
+
+/**
+ *     '~' means ANY following sibling element.
+ */
+.equalizer div.peak,
+.equalizer div.peak ~
+div {
+    visibility: visible;
+}

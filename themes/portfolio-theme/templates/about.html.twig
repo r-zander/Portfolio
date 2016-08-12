@@ -1,0 +1,159 @@
+{% extends 'partials/base.html.twig' %}
+
+{% set mainId = "aboutPage" %}
+
+{% block assets %}
+	{{ parent() }}
+
+	{% do assets.addJs('theme://vendor/bootstrap/scrollspy.js', {'group': 'bottom'}) %}
+	{% do assets.addJs('theme://vendor/bootstrap/affix.js', {'group': 'bottom'}) %}
+
+	{% do assets.addJs('theme://vendor/highlightjs/highlight-2.9.0.pack-css-less-xml-processing-java.js', {'group': 'bottom'}) %}
+	{% do assets.addCss('theme://vendor/highlightjs/monokai.css', 100) %}
+
+
+	{% do assets.addJs('theme://vendor/jquery.easing-1.3.2.min.js', {'group': 'bottom'}) %}
+	{% do assets.addJs('theme://vendor/sly-1.6.1.min.js', {'group': 'bottom'}) %}
+	{% do assets.addJs('theme://js/project/slyUtils.js', {'group': 'bottom'}) %}
+
+	{% do assets.addJs('theme://js/about.js', {'group': 'bottom'}) %}
+{% endblock %}
+
+{% set bodyAttributes %}
+class="spyScroll" data-spy="scroll" data-target="#sideNav"
+{% endset %}
+
+{% block content %}
+	<aside id="sideNav">
+		<h2>About this website</h2>
+
+		<ul class="nav">
+			<li class="active">
+				<a href="#credits">Credits</a>
+				<ul class="nav">
+					<li><a href="#credits_serverSide" class="subItem">Server Side</a></li>
+					<li><a href="#credits_javascript" class="subItem">JavaScript / jQuery Plugins</a></li>
+					<li><a href="#credits_icons" class="subItem">Icons</a></li>
+					<li><a href="#credits_fonts" class="subItem">Fonts</a></li>
+				</ul>
+			</li>
+			<li><a href="#sources">Source</a>
+				<ul class="nav">
+					<li><a href="#sources_less" class="subItem">Less</a></li>
+				</ul></li>
+		</ul>
+	</aside>
+
+	<div class="wrapper">
+		<h3 id="intro" class="superHeading">Credits</h3>
+		<section class="aboutSection left">
+			<p class="content">This website was 100% designed and implemented by <a href="#" data-featherlight="#contact" data-featherlight-open-speed="500">me</a>. Please have a look at the following resources that I used with kind permission of their respective owners.</p>
+		</section>
+
+		<h3 id="credits" class="superHeading">Credits</h3>
+		<section class="aboutSection left">
+			<h4 id="credits_serverSide" class="contentHeading">Server Side</h4>
+			<ul class="content">
+				<li><a href="https://getgrav.org/" class="external">Grav</a> - flat file CMS</li>
+				<li><a href="http://lesscss.org/" class="external">Less</a> - CSS pre-processor</li>
+			</ul>
+		</section>
+
+		<section class="aboutSection right">
+			<h4 id="credits_javascript" class="contentHeading">JavaScript / jQuery Plugins</h4>
+			<ul class="content">
+				<li><a href="http://processingjs.org/" class="external">Processing.js</a> - visualization library</li>
+				<li><a href="https://jquery.com/" class="external">jQuery</a></li>
+				<li><a href="http://darsa.in/sly/" class="external">Sly</a> - one-directional item scrolling</li>
+				<li><a href="http://gsgd.co.uk/sandbox/jquery/easing/" class="external">jQuery easing</a></li>
+				<li><a href="https://github.com/alexei/sprintf.js" class="external">sprintf.js</a> - String formatter</li>
+			</ul>
+		</section>
+
+		<section class="aboutSection left">
+			<h4 id="credits_icons" class="contentHeading">Icons</h4>
+			<dl class="content icons">
+				<dt>Icon made
+					by <a href="http://www.freepik.com/" class="external">Freepik</a>
+					from <a href="http://www.flaticon.com/" class="external">www.flaticon.com</a>:</dt>
+				<dd class="icon-contact"></dd>
+
+				<dt>Icons made
+					by <a href="http://www.danielbruce.se/" class="external">Daniel Bruce</a>
+					for <a href="http://www.entypo.com/" class="external">Entypo</a>: </dt>
+				<dd class="icon-glas"></dd>
+				<dd class="icon-download"></dd>
+				<dd class="icon-newtab"></dd>
+				<dd class="icon-next"></dd>
+				<dd class="icon-prev"></dd>
+			</dl>
+		</section>
+
+		<section class="aboutSection right">
+			<h4 id="credits_fonts" class="contentHeading">Fonts</h4>
+			<ul class="content">
+				<li><a href="https://www.theleagueofmoveabletype.com/orbitron">Orbitron</a> by <a href="matt.cc">Matt McInerney</a> - default font</li>
+				<li class="exo"><a href="https://www.theleagueofmoveabletype.com/orbitron">Exo</a> by <a href="http://ndiscovered.com/">Natanael Gama</a> - text font</li>
+				<li class="telegrama"><a href="http://www.yoworks.com/telegrama/index.html">Telegrama (Raw)</a> by <a href="http://www.yoworks.com/index.html">Yamaoka Yasuhiro</a> - source code</li>
+			</ul>
+		</section>
+
+		<h3 id="sources" class="superHeading contentHeading">Source</h3>
+		<section class="aboutSection left">
+			<ul class="content">
+				<li>xx,xxx lines of code</li>
+				<li>HTML + JS source can be viewed with CTRL+U or F12</li>
+				<li>Less source follows</li>
+				<!-- <li>Last updated on <time datetime="2016-03-01">01 Mar 2014</time>.</li> -->
+			</ul>
+		</section>
+		<section class="aboutSection double">
+			<h4 id="sources_less" class="contentHeading">Less Sources</h4>
+
+			<div id="source" class="content">
+				{% set lessFolder = theme_url|replace({(base_url ~ "/"): ""}) ~ "/less" %}
+				{% set lessFilesUnsorted = listfiles(lessFolder, '/.\.less$/i') %}
+				{# style.less nach vorne sortieren #}
+				{% set lessFiles = [] %}
+				{% for file in lessFilesUnsorted %}
+					{% if file ends with "style.less" %}
+						{% set lessFiles = lessFiles|merge([file]) %}
+					{% endif %}
+				{% endfor %}
+				{% for file in lessFilesUnsorted %}
+					{% if not (file ends with "style.less") %}
+						{% set lessFiles = lessFiles|merge([file]) %}
+					{% endif %}
+				{% endfor %}
+
+				<div class="slyTabs inPanel">
+					<div class="frame">
+						<nav class="slidee">
+							{% for file in lessFiles %}
+								{% set fileName = file|split("/")|last %}
+								<a href="#" data-target="{{ fileName }}"{{ file == lessFiles|first ? ' class="active"' }}>{{ fileName }}</a>
+							{% endfor %}
+						</nav>
+					</div>
+					<a href="#" class="prev icon-prev"></a>
+					<a href="#" class="next icon-next"></a>
+				</div>
+				{% for file in lessFiles %}
+					{% set fileName = file|split("/")|last %}
+					<div class="sources{{file == lessFiles|first ? " active"}}" data-source-id="{{ fileName }}">
+						{% set fileLanguage = fileName|split(".")|last %}
+
+						<pre><code class="language-{{ fileLanguage }}" >{{ filecontent( file|replace({(base_url ~ "/") : "/"}) )|escape }}</code></pre>
+					</div>
+				{% endfor %}
+
+				<div class="interactionTips">
+					<div>
+						<mark>Left</mark>/<mark>Right Arrow Key</mark>
+						Switch File
+					</div>
+				</div>
+			</div> 
+		</section>
+	</div>
+{% endblock %}

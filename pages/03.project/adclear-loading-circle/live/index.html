@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		@keyframes rotating {
+		 from {
+		    transform: rotate(0deg);
+		 }
+		 to {
+		    transform: rotate(360deg);
+		 }
+
+		}
+
+		html, body {
+			margin: 0;
+			height: 100%;
+		}
+
+		.ajaxIndicatorAware {
+		    position: relative;
+		    height: 100%;
+		    background-color: black;
+		}
+
+		.ajaxLoadingContainer {
+		    position: absolute;
+		    top: 0;
+		    right: 0;
+		    left: 0;
+		    /* Assign a height instead of stretching the element 
+		     * with 'bottom' to ensure relative heights on child elements */
+		    height: 100%; 
+		    
+		    background-image:
+		        radial-gradient(circle,
+		            white 225px,
+		            rgba(255,255,255,0) 87%);
+		}
+
+		.ajaxLoading {
+		  position: relative;
+		  /* height: 100%; */
+		  overflow: hidden;
+		  
+		  width: 450px;
+		  height: 450px;
+		  margin: 0 auto;
+		  
+		  /* Vertical centration */
+		  top: 50%;
+		  margin-top: -225px;
+		}
+		  
+		.ajaxLoading > div {
+		    width: 50%;
+		    height: 50%;
+		    position: absolute;
+		    left: 0;
+		    top: 0;
+		    border-radius: 100% 0 0 0;
+		    transform-origin: right bottom;
+            animation: rotating linear infinite;
+		    background-color: #00679C;
+		}
+
+	  	.one {
+		    animation-duration: 1.5s !important;
+	  	}
+		  
+	  	.two {
+		    animation-duration: 2.25s !important;
+	  	}
+		  
+	  	.three {
+		    animation-duration: 3s !important;
+	  	}
+		  
+	  	.four {
+		    animation-duration: 3.75s !important;
+	  	}
+		  
+	  	.ajaxLoading::after {
+		    content: "";
+		    display: block;
+		    width: 79%;
+		    height: 79%;
+		    top: 10.5%;
+		    left: 10.5%;
+		    
+		    position: absolute;
+		    background-image:
+		        url('exclamationMark.svg');
+		    background-position: center;
+		    background-size: 40% 71%;
+		    background-repeat: no-repeat;
+		    background-color: white;
+		    border-radius: 100%;
+            animation: rotating 3.75s ease-in-out infinite reverse;
+	  	}
+	</style>
+</head>
+<body>
+	<div class="ajaxIndicatorAware">
+		<div class="ajaxLoadingContainer">
+			<div class="ajaxLoading">
+				<div class="one"></div>
+				<div class="two"></div>
+				<div class="three"></div>
+				<div class="four"></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

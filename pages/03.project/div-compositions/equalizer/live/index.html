@@ -1,0 +1,1911 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+
+        <title>Equalizer</title>
+
+        <link rel="stylesheet" href="../../style.css" type="text/css" media="screen" charset="utf-8"/>
+        <link rel="stylesheet" href="equalizer.css" type="text/css" media="screen" charset="utf-8"/>
+
+        <style type="text/css" media="screen">
+            .equalizer {
+                animation: lapse 1.2s infinite;
+                position: absolute;
+                top: 0;
+                left: 0;
+                opacity: 0.0;
+                width: 88.8%;
+            }
+
+            /**
+             *     Animation
+             *     *********
+             */
+            @keyframes lapse {
+            0% {
+            opacity: 1.0;
+            }
+            16.67%{
+            opacity: 1.0;
+            }
+            33.33%{
+            opacity: 0.0;
+            }
+            100% {
+            opacity: 0.0;
+            }
+            }
+
+            .equalizer:nth-of-type(1) {
+                animation-delay: 0s;
+            }
+
+            .equalizer:nth-of-type(2) {
+                animation-delay: 0.2s;
+            }
+
+            .equalizer:nth-of-type(3) {
+                animation-delay: 0.4s;
+            }
+
+            .equalizer:nth-of-type(4) {
+                animation-delay: 0.6s;
+            }
+
+            .equalizer:nth-of-type(5) {
+                animation-delay: 0.8s;
+            }
+
+            .equalizer:nth-of-type(6) {
+                animation-delay: 1s;
+            }
+        </style>
+        <script src="/js/prefixfree.min.js" type="text/javascript" charset="utf-8"></script>
+    </head>
+
+    <body>
+        <!-- Frame 1 -->
+        <div class="equalizer">
+            <!-- Balken 1 -->
+            <div>
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 2 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 3 -->
+            <div>
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 4 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 5 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 6 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 7 -->
+            <div>
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 8 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 9 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 10 -->
+            <div>
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 11 -->
+            <div>
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 12 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 13 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 14 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 15 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 16 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+
+        <!-- Frame 2 -->
+        <div class="equalizer">
+            <!-- Balken 1 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 2 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 3 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 4 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 5 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 6 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 7 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 8 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 9 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 10 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 11 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 12 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 13 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 14 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+            </div>
+
+            <!-- Balken 15 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 16 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+            </div>
+        </div>
+
+        <!-- Frame 3 -->
+        <div class="equalizer">
+            <!-- Balken 1 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 2 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 3 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 4 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 5 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 6 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 7 -->
+            <div>
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 8 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 9 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 10 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 11 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 12 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 13 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 14 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 15 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 16 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+
+        <!-- Frame 4 -->
+        <div class="equalizer">
+            <!-- Balken 1 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 2 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 3 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 4 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 5 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 6 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 7 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 8 -->
+            <div>
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 9 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 10 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 11 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 12 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 13 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+            </div>
+
+            <!-- Balken 14 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 15 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 16 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+
+        <!-- Frame 5 -->
+        <div class="equalizer">
+            <!-- Balken 1 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 2 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 3 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 4 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 5 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 6 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 7 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 8 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 9 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 10 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 11 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 12 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 13 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 14 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 15 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 16 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+
+        <!-- Frame 6 -->
+        <div class="equalizer">
+            <!-- Balken 1 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 2 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 3 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+            </div>
+
+            <!-- Balken 4 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 5 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 6 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 7 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 8 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 9 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 10 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 11 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 12 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 13 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 14 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div class="peak"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 15 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Balken 16 -->
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div class="peak"></div>
+                <div></div>
+            </div>
+        </div>
+
+    </body>
+</html>

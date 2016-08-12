@@ -1,0 +1,681 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>0101001001100101011000010110010001111001001000000110011001101111011100100010000001110011011101010111000000111111</title>
+
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
+        <style type="text/css">
+            /*pointer-events: none;*/ /* let the box be click transparent */
+            /**
+             *  Global styles
+             */
+            * {
+                transition: all 1s ease;
+                -moz-transition: all 1s ease;
+                -webkit-transition: all 1s ease;
+                -o-transition: all 1s ease;
+                -ms-transition: all 1s ease;
+            }
+
+            body {
+                height: 100%;
+                color: white;
+            }
+
+            a:link, a:visited, a:focus, a:hover, a:active {
+                text-decoration: none;
+                color: white;
+            }
+
+            *:focus {
+                outline: none !important;
+            }
+
+            .no-mouse {
+                pointer-events: none;
+            }
+
+            /******************************************************************
+             * 	Story Elements
+             */
+            /**
+             * 	Black Box
+             */
+            #blackscreen {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: black;
+                color: white !important;
+                overflow: hidden;
+                display: table;
+                text-align: center;
+                font-size: 300%;
+            }
+
+            #blackscreen > .first {
+                display: table-cell;
+                height: 100%;
+                vertical-align: middle;
+            }
+
+            #blackscreen > .second {
+                display: none;
+                vertical-align: middle;
+            }
+
+            .hidden-note, .note {
+                color: transparent;
+                position: absolute;
+                bottom: 0;
+                transition: all 3s ease-in;
+            }
+
+            .note {
+                pointer-events: none;
+            }
+
+            .hidden-note {
+                color: rgba(255,255,255,0.01);
+                right: 0;
+            }
+
+            .hidden-note:hover {
+                color: white;
+            }
+
+            *:hover > .note {
+                color: white;
+            }
+
+            #freedom .note {
+                left: 0;
+                transform: rotate(270deg);
+                transform-origin: left top;
+                -moz-transform: rotate(270deg);
+                -moz-transform-origin: left top;
+                -webkit-transform: rotate(270deg);
+                -webkit-transform-origin: left top;
+                -o-transform: rotate(270deg);
+                -o-transform-origin: left top;
+                -ms-transform: rotate(270deg);
+                -ms-transform-origin: left top;
+            }
+
+            #truth .note {
+                right: 0;
+                transform: rotate(90deg);
+                transform-origin: right top;
+                -moz-transform: rotate(90deg);
+                -moz-transform-origin: right top;
+                -webkit-transform: rotate(90deg);
+                -webkit-transform-origin: right top;
+                -o-transform: rotate(90deg);
+                -o-transform-origin: right top;
+                -ms-transform: rotate(90deg);
+                -ms-transform-origin: right top;
+            }
+
+            #freedom .second, #truth .second, #freedom:active .first, #truth:active .first {
+                display: none;
+            }
+
+            #freedom:active .second, #truth:active .second {
+                display: inline;
+            }
+
+            #decision {
+                position: relative;
+            }
+
+            #decision span {
+                display: inline-block !important;
+            }
+
+            #decision .second {
+                position: absolute;
+                left: 25%;
+            }
+
+            #decision .second, *:hover > #decision .first {
+                color: transparent;
+            }
+
+            *:hover > #decision * {
+                transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                -webkit-transform: rotate(360deg);
+                -o-transform: rotate(360deg);
+                -ms-transform: rotate(360deg);
+            }
+
+            *:hover > #decision .second {
+                color: white;
+            }
+
+            @keyframes fade-out {
+            from {
+                opacity: 1.0;
+            }
+            to {
+                opacity: 0.0;
+                width: 0;
+                height: 0;
+                top: 50%;
+                left: 50%;
+                font-size: 0;
+            }
+            }
+
+            @-moz-keyframes
+            fade-out {from {
+                opacity: 1.0;
+            }
+            to {
+                opacity: 0.0;
+                width: 0;
+                height: 0;
+                top: 50%;
+                left: 50%;
+                font-size: 0;
+            }
+            }
+
+            @-webkit-keyframes
+            fade-out {from {
+                opacity: 1.0;
+            }
+            to {
+                opacity: 0.0;
+                width: 0;
+                height: 0;
+                top: 50%;
+                left: 50%;
+                font-size: 0;
+            }
+            }
+
+            @-o-keyframes
+            fade-out {from {
+                opacity: 1.0;
+            }
+            to {
+                opacity: 0.0;
+                width: 0;
+                height: 0;
+                top: 50%;
+                left: 50%;
+                font-size: 0;
+            }
+            }
+
+            @-ms-keyframes
+            fade-out {from {
+                opacity: 1.0;
+            }
+            to {
+                opacity: 0.0;
+                width: 0;
+                height: 0;
+                top: 50%;
+                left: 50%;
+                font-size: 0;
+            }
+            }
+
+            #blackscreen:target {
+                animation: fade-out 6s forwards;
+                -moz-animation: fade-out 6s forwards;
+                -webkit-animation: fade-out 6s forwards;
+                -o-animation: fade-out 6s forwards;
+                -ms-animation: fade-out 6s forwards;
+            }
+
+            #blackscreen:target .first {
+                display: none;
+            }
+
+            #blackscreen:target .second {
+                display: table-cell;
+            }
+
+            @keyframes bounce-background {
+            from {
+                background-position: center bottom -1000px;
+            }
+            to {
+                background-position: top;
+            }
+            }
+
+            @-moz-keyframes
+            bounce-background {from {
+                background-position: center bottom -1000px;
+            }
+            to {
+                background-position: top;
+            }
+            }
+
+            @-webkit-keyframes
+            bounce-background {from {
+                background-position: center bottom -1000px;
+            }
+            to {
+                background-position: top;
+            }
+            }
+
+            @-o-keyframes
+            bounce-background {from {
+                background-position: center bottom -1000px;
+            }
+            to {
+                background-position: top;
+            }
+            }
+
+            @-ms-keyframes
+            bounce-background {from {
+                background-position: center bottom -1000px;
+            }
+            to {
+                background-position: top;
+            }
+            }
+
+            @keyframes
+            slide-background {from {
+                background-position: left;
+            }
+            to {
+                background-position: 200%;
+            }
+            }
+
+            @-moz-keyframes
+            slide-background {from {
+                background-position: left;
+            }
+            to {
+                background-position: 200%;
+            }
+            }
+
+            @-webkit-keyframes
+            slide-background {from {
+                background-position: left;
+            }
+            to {
+                background-position: 200%;
+            }
+            }
+
+            @-o-keyframes
+            slide-background {from {
+                background-position: left;
+            }
+            to {
+                background-position: 200%;
+            }
+            }
+
+            @-ms-keyframes
+            slide-background {from {
+                background-position: left;
+            }
+            to {
+                background-position: 200%;
+            }
+            }
+
+            .scrollingbg {
+                background-image: url('imgs/comission_artwork_for_megajump_by_brosa-d4a6joa.jpg');
+                animation: bounce-background 60s ease-in-out infinite alternate;
+                -moz-animation: bounce-background 60s ease-in-out infinite alternate;
+                -webkit-animation: bounce-background 60s ease-in-out infinite alternate;
+                -o-animation: bounce-background 60s ease-in-out infinite alternate;
+                -ms-animation: bounce-background 60s ease-in-out infinite alternate;
+                background-repeat: no-repeat;
+                background-size: 100% auto;
+            }
+
+            #paradox-arrow {
+                color: white;
+                display: inline-block;
+                height: 300px;
+                left: 50%;
+                line-height: 150px;
+                margin-left: -207.5px;
+                margin-top: -150px;
+                position: absolute;
+                text-align: center;
+                top: 50%;
+                width: 415px;
+            }
+
+            .arrow_box {
+                position: relative;
+                background: rgb(0,0,0);
+                border: 4px solid rgb(255,255,255);
+            }
+            .arrow_box:after, .arrow_box:before {
+                right: 100%;
+                border: solid transparent;
+                content: " ";
+                height: 0;
+                width: 0;
+                position: absolute;
+                pointer-events: none;
+            }
+            .arrow_box:after {
+                border-color: rgba(0,0,0, 0);
+                border-right-color: rgb(0,0,0);
+                border-width: 180px;
+                top: 50%;
+                margin-top: -180px;
+            }
+            .arrow_box:before {
+                border-color: rgba(255,255,255, 0);
+                border-right-color: rgb(255,255,255);
+                border-width: 186px;
+                top: 50%;
+                margin-top: -186px;
+            }
+
+            #left-box, #right-box {
+                position: absolute;
+                top: 0;
+                height: 100%;
+                width: 10%;
+            }
+
+            #left-box {
+                left: 0;
+                background-color: #FF9D00;
+                font-size: 0;
+                text-align: justify;
+                display: table;
+            }
+
+            .wrapper {
+                display: table-cell;
+                vertical-align: middle;
+                height: 100%;
+            }
+
+            #right-box {
+                right: 0;
+                background-color: #003466;
+            }
+
+            #left-box:hover, #right-box:hover {
+                z-index: 10000;
+            }
+
+            #left-box:hover {
+                width: 90%;
+                background-color: #a00030;
+                font-size: 300%;
+                cursor: help;
+            }
+
+            #right-box:hover {
+                width: 100%;
+                background-image: url('imgs/LongNyanCatWithArrow.png');
+                animation: slide-background 5s linear infinite;
+                -moz-animation: slide-background 5s linear infinite;
+                -webkit-animation: slide-background 5s linear infinite;
+                -o-animation: slide-background 5s linear infinite;
+                -ms-animation: slide-background 5s linear infinite;
+                background-repeat: repeat-x;
+                background-size: auto 100%;
+                cursor: s-resize;
+            }
+
+            /**
+             *     Orange Box
+             */
+            #left-box span {
+                color: transparent;
+                pointer-events: none;
+            }
+
+            #left-box:hover span.first, #left-box span:hover > span {
+                color: black;
+                pointer-events: auto;
+            }
+
+            #left-box span:hover > span.second {
+                color: white;
+            }
+
+            /**
+             *     Right Area
+             */
+            #top-box, #bottom-box {
+                position: absolute;
+                left: 0;
+                height: 10%;
+                width: 100%;
+                text-align: center;
+                background-color: rgba(0,52,102,0.8);
+            }
+
+            #top-box:hover, #bottom-box:hover {
+                z-index: 10000;
+            }
+            #top-box {
+                top: 0;
+                font-size: 0;
+            }
+
+            #right-box:hover #top-box {
+                border-bottom: 1px dashed white;
+            }
+            #right-box:hover #bottom-box {
+                border-top: 1px dashed white;
+            }
+
+            #bottom-box:hover {
+                height: 100%;
+                font-size: 300%;
+                background-image: url('imgs/superlongcat.jpg');
+                animation: bounce-background 20s ease-in-out infinite alternate;
+                -moz-animation: bounce-background 20s ease-in-out infinite alternate;
+                -webkit-animation: bounce-background 20s ease-in-out infinite alternate;
+                -o-animation: bounce-background 20s ease-in-out infinite alternate;
+                -ms-animation: bounce-background 20s ease-in-out infinite alternate;
+                background-repeat: no-repeat;
+                background-size: 100% auto;
+                border-bottom-width: 0 !important;
+            }
+
+            #bottom-box div {
+                color: transparent;
+            }
+
+            #bottom-box:hover div.first, #bottom-box div:hover, #bottom-box div:hover + div {
+                color: black;
+                text-shadow: 0 0 0.2em white;
+            }
+
+            #bottom-box {
+                bottom: 0;
+                font-size: 0;
+                overflow: auto;
+            }
+
+            #top-box:hover {
+                border-top-width: 0 !important;
+                font-size: 500%;
+                height: 25%;
+            }
+
+            #top-box a:hover {
+                color: #a00030;
+            }
+
+            #recursion {
+                opacity: 0;
+                pointer-events: none;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+            }
+
+            #recursion:target {
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            #recursion a:link {
+                border: 1px double white;
+                border-width: 1px 0;
+            }
+
+        </style>
+    </head>
+    <body class="scrollingbg">
+        <audio
+        src="snds/isithedreamaker_-_free_your_mind_celtic_world_49s.ogg"
+        autoplay="autoplay" loop="loop" autobuffer="autobuffer"></audio>
+
+        <div id="paradox-arrow">
+            <div class="arrow_box">
+                <h2>To the right!</h2>
+            </div>
+        </div>
+
+        <div id="left-box">
+            <div class="wrapper">
+                <span class="first">What is <span class="second">up? <span>Yes, <span>I <span>am <span>asking <span>you <span>this <span>question. <span>But <span>I <span>am <span>going <span>to <span>tell <span>you <span>what <span>is <span>up: <span>Every <span>word <span>you <span>read <span>of <span>this <span>useless <span>fine <span>print <span>is <span>another <span>second <span>off <span>your <span>life. <span>Don't <span>you <span>have <span>other <span>things <span>to <span>do? <span>Is <span>your <span>life <span>so <span>empty <span>that <span>you <span>honestly <span>can't <span>think <span>of <span>a <span>better <span>way <span>to <span>spend <span>these <span>moments? <span>Or <span>are <span>you <span>so <span>impressed <span>with <span>authority <span>that <span>you <span>give <span>respect <span>and <span>credence <span>to <span>all <span>who <span>claim <span>it? <span>Do <span>you <span>read <span>everything <span>you're <span>supposed <span>to <span>read? <span>Do <span>you <span>think <span>everything <span>you're <span>supposed <span>to <span>think? <span>Your <span>way <span>is <span>another <span>one, <span>move <span><a href="index.html#recursion">on</a>.</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+            </div>
+        </div>
+        <div id="right-box" class="slidingingbg">
+
+            <div id="top-box">
+                Let's end this <a href="http://lmgtfy.com/?q=Has+anyone+ever+been+as+far+even+as+decided+to+do+look+more+like%3F">Enlightment.</a>
+            </div>
+            <div id="bottom-box">
+                <div>
+                    This
+                </div>
+                <div>
+                    is
+                </div>
+                <div>
+                    getting
+                </div>
+                <div>
+                    b
+                </div>
+                <div>
+                    o
+                </div>
+                <div>
+                    oo
+                </div>
+                <div>
+                    ooo
+                </div>
+                <div>
+                    oooo
+                </div>
+                <div>
+                    ooooo
+                </div>
+                <div>
+                    oooooo
+                </div>
+                <div>
+                    ooooooo
+                </div>
+                <div>
+                    oooooooo
+                </div>
+                <div>
+                    ooooooooo
+                </div>
+                <div>
+                    oooooooooo
+                </div>
+                <div>
+                    ooooooooooo
+                </div>
+                <div>
+                    oooooooooooo
+                </div>
+                <div>
+                    ooooooooooooo
+                </div>
+                <div>
+                    oooooooooooooo
+                </div>
+                <div>
+                    ooooooooooooooo
+                </div>
+                <div>
+                    oooooooooooooooo
+                </div>
+                <div>
+                    ooooooooooooooooo
+                </div>
+                <div>
+                    oooooooooooooooooo
+                </div>
+                <div>
+                    ring
+                </div>
+                <div>
+                    ...
+                </div>
+            </div>
+
+        </div>
+
+        <div id="blackscreen">
+            <div class="first">
+                <div>
+                    <a href="#blackscreen" id="truth" onmouseup="location.href = '#blackscreen'"> <span class="first"
+                    style="color: #4080ff;">Truth</span> <span class="second"
+                    style="color: #a00030;">Slavery</span>
+                    <div class="note">
+                        Nothing is true, everything is allowed
+                    </div></a>
+
+                    <span id="decision"><span class="first">or</span><span class="second">?</span></span>
+
+                    <a href="#blackscreen" id="freedom" onmouseup="location.href = '#blackscreen'"> <span class="first"
+                    style="color: #FF9D00;">Freedom</span><span class="second"
+                    style="color: #a00030;">Ignorance</span>
+                    <div class="note">
+                        What if I told you there is no either/or
+                    </div></a>
+                </div>
+            </div>
+            <p class="second">
+                You've been warned
+                <br />
+                ...
+                <br />
+                You didn't listen
+                <br />
+                ...
+                <br />
+                But now it's to late to go back.
+            </p>
+
+            <p class="hidden-note">
+                Do not feed the pinguin!
+            </p>
+
+            <p id="recursion">
+                Let me <a href="http://www.google.com/search?q=recursion" target="_blank">explain</a>!
+            </p>
+        </div>
+    </body>
+</html>

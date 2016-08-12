@@ -1,0 +1,429 @@
+a.tag {
+	float: left;
+
+	line-height: 1.5;
+	text-decoration: none;
+
+	border: 1px solid @accentColor;
+	border-top-right-radius: @gridPadding;
+	border-bottom-left-radius: @gridPadding;
+	padding: 0.1em @gridPadding;
+	margin-right: @gridPadding;
+			
+	&:last-child {
+		margin-right: 0;
+	}
+}
+
+
+
+.flavor {
+	img {
+		max-width: 100%;
+		margin: 0.5em auto;
+		display: block;
+
+		&.white {
+			background-color: #ffffff;
+			padding: @gridPadding;
+		}
+	}
+}
+
+.description {
+	float: left;
+	text-align: left;
+	width: @textWidth;
+	margin-right: @gridDistance;
+
+	> h2,
+	> .infoBox,
+	> article {
+		.panel;
+		padding: @gridDistance;
+		margin: 0;
+		margin-bottom: @gridPadding;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	> h2 {
+		padding-top: @gridPadding;
+		padding-bottom: @gridPadding; 
+	}
+
+	> .infoBox {
+		border-left: 2px solid @accentColor;
+		.containFloats;
+		font-size: 0.9em;
+
+		dt {
+			font-weight: 700;
+
+			&[title] {
+				.hasIcon(" \69", after);
+			}
+		}
+
+		dd.tags {
+			overflow: hidden;
+			
+			> .tag {
+				margin-top: @gridPadding;
+			}
+		}
+
+		&.tabular {
+			> * {
+				float: left;
+				margin: 0;
+				margin-top: @gridDistance;
+
+				&:first-of-type {
+					margin-top: 0;
+				}
+			}
+
+			> dt {
+				width: 9em;
+				clear: left;
+				text-align: right;
+				margin-right: @gridPadding;
+
+				&.tags {
+					width: auto;
+				}
+			}
+
+			> dd.tags {
+				/* Instead of floating, this container is as big as possible */
+				float: none;
+				@lineDistanceCompensation: 5px;
+				margin-top: (@gridDistance - @gridPadding - @lineDistanceCompensation);
+
+				&:first-of-type {
+					margin-top: (-@gridPadding - @lineDistanceCompensation);
+				}
+			}
+
+			> dd.projects {
+				.textFont;
+				color: @panelFontColor;
+
+				a {
+					display: block;
+				}
+			}
+		}
+	}
+}
+
+.content {
+	/* Activate Block Formattig Context to span the
+	 * complete remaining width */
+	overflow: hidden;
+		
+	nav {
+		a {
+			float: left;
+			margin-right: @gridPadding;
+			.smallPanel;
+
+			@borderDifference: 2px;
+			border: (2px + @borderDifference) solid @panelBackgroundColor;
+			/* compensate bigger borders of inactive elements */
+			padding:
+				(@gridPadding / 2 - @borderDifference)
+				(@gridDistance - @borderDifference);
+			background-color: @backgroundColor;
+			.button;
+
+			&:last-child {
+				margin-right: 0;
+			}
+
+			&.active {
+				cursor: inherit;
+				border-width: 2px;
+				padding:
+					(@gridPadding / 2)
+					@gridDistance;
+				border-color: @accentColor !important;
+				box-shadow:
+					0 0 @glowRadius 0 @accentColor !important;
+				background-color: @panelBackgroundColor;
+			}
+		}
+	}
+
+	> .slyTabs {
+		/* padding top to match alignment with .description h2 bottom */
+		padding-top: 0.15rem;
+
+		.prev,
+		.next {
+			top: 0.15rem;
+		}
+	}
+
+	> .media {
+		clear: left;
+		.panel(left);
+		padding: 0;
+		/* Apply those rounded courners to any content by cutting it */
+		overflow: hidden;
+
+		display: none;
+
+		&.active {
+			display: block;
+		}
+
+		// /*
+		//  * A little trick to show the last element per default.
+		//  * http://stackoverflow.com/a/9812170
+		//  */
+		// &:target ~ .media:last-child,
+		// & {
+	 //    	display: none;
+		// }
+
+		// &:last-child,
+		// &:target {
+		//     display: block;
+		// }
+
+		position: relative;
+
+		aside {
+			position: absolute;
+			bottom: (@gridPadding);
+			left: (@gridPadding);
+			padding: @gridPadding @gridDistance;
+			background-color: fade(@backgroundColor, 75%);
+			color: @fontColor;
+			text-align: left;
+
+			// Evtl noch weitere Ausrichtungen:
+			// top | bottom x left | right
+		}
+	}
+
+	.slyTabs {
+		overflow: hidden;
+		margin-bottom: @gridPadding;
+
+		> nav {
+			margin: 0;
+		}
+	}
+
+	#render {
+		border: 4px solid @panelBackgroundColor;
+
+		> canvas {
+			display: block;
+		}
+	}
+
+	#screenshot,
+	#screenshots,
+	#gif,
+	#concept {
+		img {
+			max-width: 100%;
+		}
+	}
+
+	#webm {
+		border: 4px solid @panelBackgroundColor;
+		
+		> video {
+			max-width: 100%;
+			display: block;
+		}
+	}
+
+	#screenshots {
+		border: 4px solid @panelBackgroundColor;
+
+		> .frame {
+			> ul {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+
+				> li {
+					cursor: grab;
+					float: left;
+					margin-left: 1px;
+					padding: 0;
+					text-align: center;
+					background-color: @panelBackgroundColor;
+					position: relative; // to contain the <aside>
+				}
+			}
+		}
+
+		position: relative;
+		> .prev,
+		> .next {
+			position: absolute;
+			top: 50%;
+			@buttonHeight: (16 * @gridBase);
+			margin-top: (@buttonHeight / -2);
+
+			&::before {
+				font-size: @buttonHeight;
+			}
+
+			text-decoration: none;
+			color: @accentColor;
+
+			&:hover,
+			&:active {
+				text-shadow:
+					0 0 @glowRadius @accentColor,
+					0 0 @glowRadius @panelFontColor;
+			}
+
+			&:active {
+				color: @panelFontColor;
+			}
+
+			&.disabled {
+				cursor: default;
+				color: @panelBackgroundColor;
+				text-shadow: none !important;
+				box-shadow: none;
+			}
+		}
+
+		> .prev {
+			left: @gridDistance;
+		}
+
+		> .next {
+			right: @gridDistance;
+		}
+	}
+
+	#projectLogo {
+		padding: @gridDistance;
+
+		// > .size1 {
+		// 	width: 3%;
+		// }
+		// > .size2 {
+		// 	width: 6%;
+		// }
+		// > .size3 {
+		// 	width: 13%;
+		// }
+		// > .size4 {
+		// 	width: 26%;
+		// }
+		// > .size5 {
+		// 	width: 52%;
+		// }
+
+		> .size1 {
+			width: 7%;
+		}
+		> .size2 {
+			width: 13%;
+		}
+		> .size3 {
+			width: 27%;
+		}
+		> .size4 {
+			width: 53%;
+		}
+
+		> .size1,
+		> .size2,
+		> .size3,
+		> .size4,
+		> .size5 {
+			float: left;
+			padding-right: @gridPadding;
+
+			&:last-child {
+				padding-right: 0;
+			}
+
+			> svg {
+				path {
+					fill: @panelFontColor !important;
+				}
+			}
+		}
+
+		table {
+			table-layout: fixed;
+		}
+
+		td {
+			height: 150px;
+		}
+
+		.noHeight > td {
+			height: 0;
+			width: (100% / 8);
+		}
+	}
+}
+
+.aspect-ratio {
+	position: relative;
+	width: 100%;
+	height: 0;
+
+	> iframe {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+#source {
+	text-align: left;
+	padding: @gridDistance;
+
+	.sources {
+		clear: left;
+		display: none;
+
+		&.active {
+			display: block;
+		}
+	}
+}
+
+
+.interactionTips {
+	position: fixed;
+	bottom: 0;
+	right: (@gridDistance + @gridPadding);
+	font-size: 0.8em;
+
+	> div {
+		float: left;
+		background-color: @backgroundColor;
+		padding: @gridPadding;
+		margin-right: @gridPadding;
+	}
+
+	mark {
+		background: none;
+		color: @accentColor;
+	}
+}
+
+@import "project-specific.less";
+@import "tabs.less";
+@import "highlightjs.less";

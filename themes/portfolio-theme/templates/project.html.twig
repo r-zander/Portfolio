@@ -1,0 +1,323 @@
+{% extends 'partials/base.html.twig' %}
+
+{% set slugParts = page.slug|split('-') %}
+{% set mainId = slugParts|first %}
+{% for part in slugParts if part != slugParts|first %}
+	{% set mainId = mainId ~ part|capitalize %}    
+{% endfor %}
+
+{% block assets %}
+	{{ parent() }}
+
+	{% do assets.addJs('theme://vendor/sprintf-1.0.3.min.js', {'group': 'bottom'}) %}
+	{# TODO use min version #}
+	{% do assets.addJs('theme://vendor/processing-1.4.8.js', {'group': 'bottom'}) %}
+
+	{% do assets.addJs('theme://vendor/jquery.easing-1.3.2.min.js', {'group': 'bottom'}) %}
+	{% do assets.addJs('theme://vendor/sly-1.6.1.min.js', {'group': 'bottom'}) %}
+
+	{% do assets.addJs('theme://vendor/highlightjs/highlight-2.9.0.pack-css-less-xml-processing-java.js', {'group': 'bottom'}) %}
+	{% do assets.addCss('theme://vendor/highlightjs/monokai.css', 100) %}
+
+	{% do assets.addJs('theme://js/project/processingSetup.js', {'group': 'bottom'}) %}
+	{% do assets.addJs('theme://js/project/slyUtils.js', {'group': 'bottom'}) %}
+	{% do assets.addJs('theme://js/project/sources.js', {'group': 'bottom'}) %}
+	{% do assets.addJs('theme://js/project/screenshots.js', {'group': 'bottom'}) %}
+	{% do assets.addJs('theme://js/project/initContentTabs.js', {'group': 'bottom'}) %}
+	{% do assets.addJs('theme://js/project/readMore.js', {'group': 'bottom'}) %}
+{% endblock %}
+
+{% block content %}
+<section class="description">
+	<dl class="infoBox tabular">
+		{% set tagPage = page.find("/tag") %}
+
+		<dt class="tags">Tags</dt>
+
+		{% set tags = [] %}
+		{% set tagAttributes = {} %}
+
+		{% for tagCategory,categoryTags in page.taxonomy
+			if tagCategory not in ["promoted", "language", "series"] %}
+		    
+		    {% for tag in categoryTags %}
+		    	{% set tags = tags|merge([ tag ]) %}
+		    	{% set tagAttributes = tagAttributes|merge({ (tag): tagCategory}) %}
+		    {% endfor %}
+		{% endfor %}
+		{% set tags = tags|sort %}
+
+		<dd class="tags">
+			{% for tag in tags %}
+				<a href="{{ tagPage.url ~ '/:' ~ tag }}" class="tag">
+					{{ themeConfig.tagMapping[tag].title|default(tag|capitalize) }}
+					<small class="numberOfProjects">{{ taxonomy.findTaxonomy({(tagAttributes[tag]): tag})|length }}</small>
+				</a>
+			{% endfor %}
+		</dd>
+		<dt>Language(s)</dt>
+		<dd class="tags">
+			{% for tag in page.taxonomy["language"] %}
+				<a href="{{ tagPage.url ~ '/:' ~ tag }}" class="tag">
+					{{ themeConfig.tagMapping[tag].title|default(tag|capitalize) }}
+					<small class="numberOfProjects">{{ taxonomy.findTaxonomy({"language": tag})|length }}</small>
+				</a>
+			{% endfor %}
+		</dd>
+
+		<dt>Date</dt>
+		<dd><time datetime="{{ page.date|date("Y-m-d") }}">{{ page.date|date("d M Y") }}</time></dd>
+
+		{% if related_pages is not empty %}
+			<dt>Related Projects</dt>
+			<dd class="projects">
+			    {% for related_path, score in related_pages %}
+			        {% set related = grav['pages'].get(related_path) %}
+			        {% if related %}
+		                <a href="{{ related.url }}">{{ related.title }}</a>
+			        {% endif %}
+			    {% endfor %}
+			</dd>
+		{% endif %}
+	</dl>
+
+	{% set series = page.taxonomy["series"] %}
+	{% if series is not empty %}
+		{% for tag in series %}
+			<article class="series text collapsed">
+				<h2>Part of the series <a href="{{ tagPage.url ~ '/:' ~ tag }}">{{ themeConfig.tagMapping[tag].title|default(tag|capitalize) }} <small class="numberOfProjects">{{ taxonomy.findTaxonomy({"series": tag})|length }}</small></a></h2>
+
+				{{ page.find("/tag/_" ~ tag).content }}
+			</article>
+		{% endfor %}
+	{% endif %}
+
+	{% if page.content is not empty %}
+		<article class="flavor text">
+			{{ page.content }}
+		</article>
+	{% endif %}
+</section>
+
+{# Determine the display type of the project
+	There are three ways (in descending priority):
+	1. Custom displayTypes in the project
+	2. Custom projectType in the project
+	3. Automatically determined projectType based on taxonomy
+ #}
+{% set displayTypesUnsorted = [] %}
+{% if (header.autoDectectDisplayTypes == false) and (header.displayTypes is defined) %}
+	{{ dump("Using header.displayTypes") }}
+	{% set displayTypesUnsorted = header.displayTypes|keys %}
+{% elseif (header.autoDectectDisplayTypes == false) and (header.projectType is defined) %}
+	{{ dump("Using header.projectType") }}
+	{% set displayTypesUnsorted = themeConfig.projectDisplay.projectTypes[header.projectType].displayTypes %}
+{% else %}
+	{{ dump("Using automatic displayTypes") }}
+	{% for key,projectType in themeConfig.projectDisplay.projectTypes 
+		if displayTypesUnsorted is empty %}
+		{% if key in page.taxonomy[projectType.category] %}
+			{{ dump("Found a '" ~ key ~ "' project") }}
+		    {% set displayTypesUnsorted = projectType.displayTypes %}
+		{% endif %}
+	{% endfor %}
+{% endif %}
+
+{{ dump("displayTypesUnsorted:", displayTypesUnsorted) }}
+
+{% if header.displayTypesSorting == "custom" %}
+	{% set displayTypes = displayTypesUnsorted %}
+{% else %}
+	{% set displayTypes = [] %}
+	{# Sort the determined displayTypes according to site configuration #}
+	    
+	{% for displayType in themeConfig.projectDisplay.displayTypes|keys %}
+	    {% if displayType in displayTypesUnsorted %}
+	    	{% set displayTypes = displayTypes|merge([ displayType ]) %}
+	    {% endif %}
+	{% endfor %}
+{% endif %}
+
+{% set mergedDisplayTypes = [] %}
+{% for displayType, display in themeConfig.projectDisplay.displayTypes %}
+	{% set overriddenDisplay = header.displayTypes[displayType] %}
+	{% if overriddenDisplay is null %}
+		{% set mergedDisplayTypes = mergedDisplayTypes|merge({ (displayType): display}) %}
+    {% else %}
+		{% set mergedDisplay = display|merge(header.displayTypes[displayType]) %}
+		{% set mergedDisplayTypes = mergedDisplayTypes|merge({ (displayType): mergedDisplay}) %}        
+	{% endif %}
+{% endfor %}
+
+{{ dump(mergedDisplayTypes) }}
+
+<section class="content">
+	<div id="contentTabs" class="slyTabs">
+		<div class="frame">
+			<nav class="slidee">
+				{% for displayType in displayTypes %}
+					{% set display = mergedDisplayTypes[displayType] %}
+					{# Handle some special cases #}
+					{% if displayType == "zipDownload" %}
+						{% set fileName = page.slug ~ "." ~ display.file %}
+						<a href="{{ page.media[fileName].url }}" download="{{ fileName }}">{{display.title}}</a>
+					{% elseif displayType == "storyboard" %}
+						{% set fileName = page.slug ~ display.file %}
+						<a href="{{ page.media[fileName].url }}" class="pdf" target="_blank">{{display.title}}</a>
+					{% elseif displayType == "localSite" %}
+						{% set fileName = page.slug ~ "/" ~ display.file %}
+						<a href="{{ fileName }}" target="_blank">{{display.title}}</a>
+					{% else %}
+				    	<a href="#{{ display.id }}">{{ display.title }}</a>
+					{% endif %}
+				{% endfor %}
+			</nav>
+		</div>
+		<a href="#" class="prev icon-prev"></a>
+		<a href="#" class="next icon-next"></a>
+	</div>
+
+	{% set firstDisplay = true %}
+	{% for displayType in displayTypes %}
+		{% set display = mergedDisplayTypes[displayType] %}
+		
+		{% if display.showMediaContainer %}
+			<div id="{{ display.id }}" class="media">
+				{# Handle all the cases #}
+				{# TODO: alle verbleibenen Fälle rendern #}
+				{% if displayType == "liveRender" %}
+					{% set pdeFiles = [ page.url ~ "/pde/" ~ page.slug ~ ".pde" ] %}
+					{% set pdeFiles = pdeFiles|merge(listfiles(page.relativePagePath ~ "/pde", '/.\.java$/i')) %}
+
+					<canvas id="renderCanvas" data-processing-sources="{{ pdeFiles|join(" ") }}" tabindex="0"></canvas>
+
+					{% if display.interactionTips is defined %}
+						<div class="interactionTips">
+							{% for key,command in display.interactionTips %}
+								<div>
+								    <mark>{{ key|title }}</mark>
+								    {{ command }}
+								</div>
+							{% endfor %}
+						</div>
+					{% endif %}
+
+
+				{% elseif displayType == "promoVideo" %}
+					<div class="aspect-ratio" style="padding-bottom: {{ (display.height / display.width * 100)|round(2) }}%">
+						<iframe src="https://player.vimeo.com/video/{{ display.vimeoId }}?title=0&byline=0&portrait=0" width="{{display.width}}" height="{{display.height}}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+					</div>
+
+				{% elseif displayType == "embeddedSite" %}
+					{% set fileName = page.slug ~ "/" ~ display.file %}
+					<div class="aspect-ratio" style="padding-bottom: {{ (9 / 16 * 100)|round(2) }}%">
+						<iframe src="{{ fileName }}" width="16" height="9" frameborder="0"></iframe>
+					</div>
+
+				{% elseif displayType == "embeddedLiveSite" %}
+					<div class="aspect-ratio" style="padding-bottom: {{ (9 / 16 * 100)|round(2) }}%">
+						<iframe src="{{ display.url }}" width="16" height="9" frameborder="0"></iframe>
+					</div>
+
+				{% elseif displayType == "webmRender" %}
+					<video src="{{ page.media[page.slug ~ "." ~ display.file].url }}" preload="auto" muted="muted" controls="controls" loop="loop"{% if firstDisplay %} autoplay="autoplay"{% endif %}></video>
+
+				{% elseif displayType == "gifRender" %}
+					<img src="{{ page.media[page.slug ~ "." ~ display.file].url }}" />
+
+				{% elseif displayType == "screenshot" %}
+					<img src="{{ page.media[page.slug ~ "." ~ display.file].url }}" />
+					
+					{% if display.caption is defined %}
+						<aside>{{ display.caption|markdown }}</aside>
+					{% endif %}
+
+				{% elseif (displayType == "conceptPng") or (displayType == "conceptJpg") %}
+					<img src="{{ page.media[page.slug ~ display.file].url }}" />
+
+				{% elseif displayType == "logo" %}
+					{% for i in 1..4 %}
+						<div class="size{{i}}">
+							{{ filecontent(page.slug ~ "." ~ display.file) }}
+						</div>
+					{% endfor %} 
+
+				{% elseif displayType == "screenshots" %}
+					{% set screenshots = listfiles(page.relativePagePath ~ "/screenshots", '/.\.' ~ displayType.file ~ '$/i') %}
+
+					<div class="frame oneperframe">
+						<ul class="clearfix">
+							{% for image in screenshots %}
+								<li>
+									<img src="{{ image }}" />
+
+									{# Extract screenshot name #}
+									{% set screenshotName = image|split('/') %}
+									{% set screenshotName = screenshotName[screenshotName|length - 1] %}
+									{% set screenshotName = screenshotName|split('.', -1) %}
+									{% set screenshotName = screenshotName|join('.') %}
+									{% if display[screenshotName] is defined %}
+										<aside>{{ display[screenshotName]|markdown }}</aside>
+									{% endif %}
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+
+					<a href="#" class="prev icon-prev"></a>
+					<a href="#" class="next icon-next"></a>
+					
+					<div class="scrollbar">
+						<div class="handle">
+							<div class="mousearea"></div>
+						</div>
+					</div>
+
+					<div class="interactionTips">
+						<div>
+							<mark>Left</mark>/<mark>Right Arrow Key</mark>
+							Navigate Screenshots
+						</div>
+					</div>
+					
+				{% elseif displayType == "sourceCode" %}
+					{% set pdeFiles = [ "/" ~ page.relativePagePath ~ "/pde/" ~ page.slug ~ ".pde" ] %}
+					{% set pdeFiles = pdeFiles|merge(listfiles(page.relativePagePath ~ "/pde", '/.\.java$/i')) %}
+
+					<div class="slyTabs inPanel">
+						<div class="frame">
+							<nav class="slidee">
+								{% for file in pdeFiles %}
+									{% set fileName = file|split("/")|last %}
+									<a href="#" data-target="{{ fileName }}"{{ file == pdeFiles|first ? ' class="active"' }}>{{ fileName }}</a>
+								{% endfor %}
+							</nav>
+						</div>
+						<a href="#" class="prev icon-prev"></a>
+						<a href="#" class="next icon-next"></a>
+					</div>
+					{% for file in pdeFiles %}
+						{% set fileName = file|split("/")|last %}
+						<div class="sources{{file == pdeFiles|first ? " active"}}" data-source-id="{{ fileName }}">
+							{% set fileLanguage = fileName|split(".")|last %}
+							{% if fileLanguage == "pde" %}
+							    {% set fileLanguage = "processing" %}
+							{% endif %}
+
+							<pre><code class="language-{{ fileLanguage }}" >{{ filecontent( file|replace({(base_url) : ""}) ) }}</code></pre>
+						</div>
+					{% endfor %}
+
+					<div class="interactionTips">
+						<div>
+							<mark>Left</mark>/<mark>Right Arrow Key</mark>
+							Switch File
+						</div>
+					</div>
+				{% endif %}
+			</div>
+		{% endif %}
+		{% set firstDisplay = false %}
+	{% endfor %}
+</section>
+{% endblock %}

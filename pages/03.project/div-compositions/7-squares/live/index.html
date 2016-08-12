@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+
+        <title>7 Squares</title>
+
+        <link rel="stylesheet" href="../../style.css" type="text/css" media="screen" charset="utf-8"/>
+
+        <style type="text/css" media="screen">
+            /**
+             *     Uncomplicated centering of the whole site without providing a
+             * site width.
+             */
+            html {
+                width: 100%;
+                text-align: center;
+            }
+
+            #squares {
+                display: inline-block;
+                overflow: hidden;
+            }
+
+            /**
+             *     The 7 basic squares
+             *     *******************
+             */
+            /**
+             *     Wrapping Divs
+             *
+             * The wrappers are used to position the squares according to there
+             * generated size (and not the size of the body)
+             */
+            #squares > div {
+                float: left;
+                height: 40%;
+            }
+
+            /**
+             *     Squares (with aspect ratio enforced via image child)
+             */
+            #squares > div > div {
+                height: 100%;
+                border: 3px solid white;
+                float: left;
+                position: relative;
+            }
+
+            img {
+                position: relative;
+                visibility: hidden;
+                z-index: -1;
+                height: 100%;
+                min-height: 100%;
+            }
+
+            .inner {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: -1;
+            }
+
+            #squares #top-left {
+                top: 25%;
+                left: 32.5%;
+            }
+
+            #squares #top-left > .inner > .top-right {
+                width: 55%;
+                height: 35%;
+                float: right;
+            }
+
+            #squares #top-center {
+                right: 22.5%;
+            }
+
+            #squares #top-center > .inner > .bottom-right {
+                width: 35%;
+                height: 65%;
+                float: right;
+                position: relative;
+                top: 35%;
+            }
+
+            #squares #top-center > .inner > .bottom-right > div {
+                float: left;
+            }
+
+            #squares #top-center > .inner > .bottom-right > .bottom-left {
+                height: 61.5%; /* 40%/65% --> inner percentage */
+                width: 71.4%;/* 25%/35% --> inner percentage */
+                position: relative;
+                top: 38.5%;
+            }
+
+            #squares #top-center > .inner > .bottom-right > .bottom-right {
+                height: 30.8%; /* 20%/65% --> inner percentage */
+                width: 28.6%;/* the rest width */
+                position: relative;
+                top: 69.2%;
+            }
+
+            #squares #top-right {
+                top: 35%;
+                right: 57.5%;
+                margin-right: 4px; /* border-width of middle box to let the
+                 * borders collapse (+1px)*/
+            }
+
+            #squares #top-right > .inner > .bottom-right {
+                width: 65%;
+                height: 55%;
+                float: right;
+                position: relative;
+                top: 45%;
+            }
+
+            #squares #middle {
+                bottom: 40%;
+                left: 67.5%;
+            }
+
+            #squares #middle > .inner > .left {
+                width: 65%;
+                height: 100%;
+                float: left;
+            }
+
+            #squares #middle > .inner > .left > div {
+                float: right;
+            }
+
+            #squares #middle > .inner > .left > .top-right {
+                right: 0;
+                width: 84.6%; /* 55%/65% --> inner percentage */
+                height: 40%;
+            }
+
+            #squares #middle > .inner > .left > .middle-right, #squares #middle > .inner > .left > .bottom-right {
+                width: 38.5%; /* 25%/65% --> inner percentage */
+                height: 25%;
+            }
+            #squares #middle > .inner > .left > .middle-left {
+                float: left;
+                height: 10%;
+                width: 61.5%;
+            }
+            
+            
+            #squares #middle > .inner > .top-center {
+                width: 10%;
+                height: 40%;
+                float: left;
+            }
+            
+            #squares #middle > .inner > .top-right {
+                height: 75%;
+                width: 25%;
+                float: right;
+            }
+
+            #squares #middle > .inner > .top-right > .bottom {
+                width: 100%;
+                height: 46.7%; /* 35%/75% --> inner percentage */
+                /* valign: bottom */
+                position: relative;
+                top: 53.3%;
+            }
+
+            #squares #middle > .inner > .bottom-right {
+                width: 60%;
+                height: 60%;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                z-index: -1;
+            }
+
+            #squares #middle > .inner > .bottom-right > .top-right {
+                width: 41.7%; /* 25%/60% --> inner percentage */
+                height: 58.3%; /* 35%/60% --> inner percentage */
+                float: right;
+            }
+
+            #squares #bottom-left {
+                bottom: 65%;
+                left: 32.5%
+            }
+
+            #squares #bottom-center {
+                bottom: 100%;
+                left: 7.5%;
+                margin-top: 3px; /* border-width of top-center box to let the
+                 * borders collapse */
+            }
+
+            #squares #bottom-center > .inner > .bottom-left {
+                width: 25%;
+                height: 40%;
+                position: relative;
+                top: 60%;
+            }
+
+            #squares #bottom-right {
+                bottom: 120%;
+                right: 32.5%;
+                margin-right: 4px; /* border-width of middle box to let the
+                 * borders collapse (+1px)*/
+            }
+
+            #squares #bottom-right > .inner > .bottom-left {
+                width: 40%;
+                height: 80%;
+                position: relative;
+                top: 20%;
+            }
+
+            #squares #bottom-right > .inner > .bottom-left > .top {
+                width: 100%;
+                height: 43.75%; /* 35%/80% --> inner percentage */
+            }
+
+            /**
+             *     Colors
+             *     ******
+             */
+            /*
+             * Create a block to hold the background-color in the real
+             * background, but the borders in foreground.
+             */
+            #squares > div > div:before {
+                content: "";
+                display: block;
+                height: 100%;
+                position: absolute;
+                width: 100%;
+                z-index: -100;
+            }
+
+            #squares > div > div:before {
+                background-color: black;
+            }
+
+            #squares .lvl1 {
+                background-color: black !important;
+            }
+
+            #squares > div > div > .inner > div {
+                background-color: gray;
+            }
+
+            #squares > div > div > .inner > div > div {
+                background-color: white;
+            }
+
+            #squares .lvl3 {
+                background-color: white !important;
+            }
+
+        </style>
+    </head>
+
+    <body id="squares">
+        <div>
+            <div id="top-left"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+                <div class="inner">
+                    <div class="top-right"></div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div id="top-center"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+                <div class="inner">
+                    <div class="bottom-right">
+                        <div class="bottom-left"></div>
+                        <div class="bottom-right"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div id="top-right"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+                <div class="inner">
+                    <div class="bottom-right">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="newline">
+            <div id="middle"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+                <div class="inner">
+                    <div class="bottom-right">
+                        <div class="top-right"></div>
+                    </div>
+                    <div class="left">
+                        <div class="top-right"></div>
+                        <div class="middle-right"></div>
+                        <div class="middle-left lvl1 newline"></div>
+                        <div class="bottom-right newline"></div>
+                    </div>
+                    <div class="top-center"></div>
+                </div>
+            </div>
+        </div>
+        <div class="newline">
+            <div id="bottom-left"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+            </div>
+        </div>
+        <div>
+            <div id="bottom-center"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+                <div class="inner">
+                    <div class="bottom-left"></div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div id="bottom-right"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+                <div class="inner">
+                    <div class="bottom-left">
+                        <div class="top"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

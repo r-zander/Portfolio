@@ -1,0 +1,15 @@
+title: 'Raoul Zander :: Portfolio'
+author:
+  name: 'Raoul Zander'
+taxonomies:
+  - tagLvl0
+  - tag
+  - typeOfWork
+  - language
+  - promoted
+  - series
+summary:
+  enabled: true
+  format: short
+  size: 300
+  delimiter: '==='

@@ -11,7 +11,7 @@
 	<li>{{ taxCategory }}
 		<ul>
 			{% for value,pages in taxValues %}
-			<li>{{ value }}</li>
+			<li>{{ value }}: {{ themeConfig.tagMapping[value].title|default(value|capitalize) }}</li>
 			{% endfor %}
 		</ul>
 	</li>

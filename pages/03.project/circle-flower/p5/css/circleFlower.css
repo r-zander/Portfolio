@@ -1,0 +1,40 @@
+#wrapper {
+    margin: 0 auto;
+}
+
+canvas {
+    margin: 0;
+}
+
+h2 {
+    margin-top: 32px;
+}
+
+.inputs {
+    float: right;
+    height: 100vmin;
+    box-sizing: border-box;
+    background-color: #222;
+}
+
+.inputs > label {
+    cursor: pointer;
+    display: block;
+}
+
+.inputs > input {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative; /* to cover the default markers */
+}
+
+.inputs > .defaultMarker {
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    border: 2px solid DeepSkyBlue;
+    position: relative;
+    top: 20.5px;
+    margin-left: -3px;
+}

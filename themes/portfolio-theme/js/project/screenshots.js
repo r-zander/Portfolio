@@ -1,4 +1,18 @@
 $(function() {
+	$('#screenshot').bind('initialActivation', function() {
+		$('#screenshot > aside').affix({
+			offset: {
+				bottom: 64 + 16
+				// function(elem){
+				// 	if (elem.hasClass('affix-bottom')){
+				// 		return 32;
+				// 	}
+				// 	return 64 + 16;
+				// }
+			}
+		});
+	});
+
 	var $wrap  = $('#screenshots');
 
 	$wrap.bind('initialActivation', function(){
@@ -37,7 +51,25 @@ $(function() {
 				// Buttons
 				prev: $wrap.find('.prev'),
 				next: $wrap.find('.next')
+			},
+			// Callbacks
+			{
+				active: function(eventName, itemIndex){
+					$wrap.find('.affixContainer > aside').html($frame.find('li.active > .caption').html());
+				}
 			});
 		}());
+
+		$wrap.children('.affixContainer').affix({
+			offset: {
+				bottom: 64 + 16
+				// function(elem){
+				// 	if (elem.hasClass('affix-bottom')){
+				// 		return 32;
+				// 	}
+				// 	return 64 + 16;
+				// }
+			}
+		});
 	});
 });

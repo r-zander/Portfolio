@@ -4,7 +4,9 @@ taxonomy:
   tagLvl0: game
   tag: 
   typeOfWork: studies
-  language: processing
+  language:
+    - processing
+    - java
   promoted: frontpage
 thumbnail:
   start: 4

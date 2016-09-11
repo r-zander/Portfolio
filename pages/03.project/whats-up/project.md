@@ -4,7 +4,9 @@ taxonomy:
   tagLvl0: interactive
   tag: website
   typeOfWork: studies
-  language: css
+  language:
+    - css
+    - html
   promoted: frontpage
 thumbnail:
   class: notHighEnough centered

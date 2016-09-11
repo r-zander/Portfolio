@@ -198,16 +198,26 @@ a.tag {
 		position: relative;
 
 		aside {
-			position: absolute;
-			bottom: (@gridPadding);
-			left: (@gridPadding);
 			padding: @gridPadding @gridDistance;
 			background-color: fade(@backgroundColor, 75%);
 			color: @fontColor;
 			text-align: left;
+			top: auto !important;
 
-			// Evtl noch weitere Ausrichtungen:
-			// top | bottom x left | right
+			&.affix {
+				position: fixed;
+				// bottom: 1em;
+				// margin-bottom: (2* @gridPadding);
+				bottom: @gridPadding;
+				left: 26em;
+				margin-left: (2 * @gridDistance + 2 * @gridPadding);
+			}
+
+			&.affix-bottom {
+				position: absolute;
+				bottom: (@gridPadding);
+				left: (@gridPadding);
+			}
 		}
 	}
 
@@ -233,6 +243,7 @@ a.tag {
 	#gif,
 	#concept {
 		img {
+			display: block;
 			max-width: 100%;
 		}
 	}
@@ -267,11 +278,36 @@ a.tag {
 			}
 		}
 
+		.caption {
+			display: none;
+		}
+
+		> .affixContainer {
+			right: (519px + @gridDistance);
+			top: auto !important;
+
+			&.affix {
+				position: fixed;
+				// bottom: 1em;
+				// margin-bottom: (2* @gridPadding);
+				bottom: @gridPadding;
+				left: 26em;
+				margin-left: (2 * @gridDistance + 2 * @gridPadding + 4px);
+				padding-right: (@gridPadding + @gridDistance + 4px);
+			}
+
+			&.affix-bottom {
+				position: absolute;
+				bottom: (@gridPadding);
+				left: (@gridPadding);
+			}
+		}
+
 		position: relative;
 		> .prev,
 		> .next {
 			position: absolute;
-			top: 50%;
+			top: 40vh;
 			@buttonHeight: (16 * @gridBase);
 			margin-top: (@buttonHeight / -2);
 

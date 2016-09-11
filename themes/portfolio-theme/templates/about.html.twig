@@ -6,7 +6,9 @@
 	{{ parent() }}
 
 	{% do assets.addJs('theme://vendor/bootstrap/scrollspy.js', {'group': 'bottom'}) %}
+	{# 
 	{% do assets.addJs('theme://vendor/bootstrap/affix.js', {'group': 'bottom'}) %}
+	#}
 
 	{% do assets.addJs('theme://vendor/highlightjs/highlight-2.9.0.pack-css-less-xml-processing-java.js', {'group': 'bottom'}) %}
 	{% do assets.addCss('theme://vendor/highlightjs/monokai.css', 100) %}

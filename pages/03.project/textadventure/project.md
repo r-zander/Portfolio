@@ -4,7 +4,12 @@ taxonomy:
   tagLvl0: game
   tag: [app, webapplication]
   typeOfWork: unpaid
-  language: wicket
+  language:
+    - wicket
+    - java
+    - html
+    - sql
+    - css
   promoted: highlight
 displayTypes:
   screenshots:

@@ -4,7 +4,9 @@ date: 21-07-2014
 taxonomy:
   tagLvl0: animation
   typeOfWork: studies
-  language: processing
+  language:
+    - processing
+    - java
   promoted: highlight
 autoDectectDisplayTypes: true
 displayTypes:

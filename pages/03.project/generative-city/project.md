@@ -3,13 +3,15 @@ title: 'Sound of the City'
 taxonomy:
   tagLvl0: interactive
   typeOfWork: studies
-  language: 
+  language:
+    - processing
     - p5js
     - javascript
   promoted: highlight
 displayTypes:
-  embeddedSite:
+  embeddedLiveSite:
     title: "Play it!"
+    url: "http://www.rza.io/projects/sound-of-the-city"
 ---
 Brush a city map and listen to its generated soundtrack.
 

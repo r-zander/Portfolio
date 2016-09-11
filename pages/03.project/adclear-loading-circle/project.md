@@ -4,7 +4,13 @@ taxonomy:
   tagLvl0: animation
   typeOfWork: professional
   language: css
-date: 18-09-13
+date: 18-09-2013
+autoDectectDisplayTypes: true
+displayTypes:
+  embeddedSite:
+    title: "CSS3"
+related_pages:
+  - /project/adclear-ui
 ---
 An AJAX loading icon based on the company logo:
 ![AdClear Logo](adclear-logo.svg) {.white}

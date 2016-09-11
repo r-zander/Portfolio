@@ -8,6 +8,7 @@
 
 {% block assets %}
 	{{ parent() }}
+	{% do assets.addJs('theme://vendor/bootstrap/affix.js', {'group': 'bottom'}) %}
 
 	{% do assets.addJs('theme://vendor/sprintf-1.0.3.min.js', {'group': 'bottom'}) %}
 	{# TODO use min version #}
@@ -57,7 +58,7 @@
 		</dd>
 		<dt>Language(s)</dt>
 		<dd class="tags">
-			{% for tag in page.taxonomy["language"] %}
+			{% for tag in page.taxonomy["language"]|default([])|sort %}
 				<a href="{{ tagPage.url ~ '/:' ~ tag }}" class="tag">
 					{{ themeConfig.tagMapping[tag].title|default(tag|capitalize) }}
 					<small class="numberOfProjects">{{ taxonomy.findTaxonomy({"language": tag})|length }}</small>
@@ -257,7 +258,7 @@
 									{% set screenshotName = screenshotName|split('.', -1) %}
 									{% set screenshotName = screenshotName|join('.') %}
 									{% if display[screenshotName] is defined %}
-										<aside>{{ display[screenshotName]|markdown }}</aside>
+										<div class="caption">{{ display[screenshotName]|markdown }}</div>
 									{% endif %}
 								</li>
 							{% endfor %}
@@ -271,6 +272,10 @@
 						<div class="handle">
 							<div class="mousearea"></div>
 						</div>
+					</div>
+
+					<div class="affixContainer">
+						<aside></aside>
 					</div>
 
 					<div class="interactionTips">

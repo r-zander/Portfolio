@@ -876,11 +876,13 @@ h1 a {
   transition: all 0.5s 0.3s;
   transition-property: top, bottom;
 }
-#indexNavigation .subItems.with2children > .subItem {
+#indexNavigation .subItems.with2children > .subItem,
+#indexNavigation .subItems.with3children > .subItem {
   width: 50%;
   height: 100%;
 }
-#indexNavigation .subItems.with2children > .subItem:last-of-type {
+#indexNavigation .subItems.with2children > .subItem:last-of-type,
+#indexNavigation .subItems.with3children > .subItem:last-of-type {
   padding-right: 0;
 }
 #indexNavigation .subItems.with4children > .subItem {
@@ -1122,8 +1124,9 @@ h1 a {
 #contact .back .skills {
   margin: 0 auto;
 }
-#contact .front .skills caption,
-#contact .back .skills caption {
+#contact .front .skills > caption,
+#contact .back .skills > caption {
+  font-size: 1.15em;
   text-align: left;
   margin-bottom: 8px;
   font-weight: 700;
@@ -1144,6 +1147,10 @@ h1 a {
   height: 100%;
   background-color: DeepSkyBlue;
   border-radius: 0.25em 0;
+}
+#contact .front .skills .language,
+#contact .back .skills .language {
+  white-space: nowrap;
 }
 #contact .front .skills .bar,
 #contact .back .skills .bar {
@@ -1182,7 +1189,7 @@ h1 a {
 }
 #contact .front .glas:after,
 #contact .back .glas:after {
-  content: '@gmx.net';
+  content: '@rza.io';
 }
 #contact .front .glas:before,
 #contact .back .glas:before {
@@ -1463,13 +1470,22 @@ a.tag:last-child {
   display: block;
 }
 .content > .media aside {
-  position: absolute;
-  bottom: 16px;
-  left: 16px;
   padding: 16px 32px;
   background-color: rgba(0, 0, 0, 0.75);
   color: #dddddd;
   text-align: left;
+  top: auto !important;
+}
+.content > .media aside.affix {
+  position: fixed;
+  bottom: 16px;
+  left: 26em;
+  margin-left: 96px;
+}
+.content > .media aside.affix-bottom {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
 }
 .content .slyTabs {
   overflow: hidden;
@@ -1488,6 +1504,7 @@ a.tag:last-child {
 .content #screenshots img,
 .content #gif img,
 .content #concept img {
+  display: block;
   max-width: 100%;
 }
 .content #webm {
@@ -1515,10 +1532,29 @@ a.tag:last-child {
   background-color: #222222;
   position: relative;
 }
+.content #screenshots .caption {
+  display: none;
+}
+.content #screenshots > .affixContainer {
+  right: 551px;
+  top: auto !important;
+}
+.content #screenshots > .affixContainer.affix {
+  position: fixed;
+  bottom: 16px;
+  left: 26em;
+  margin-left: 100px;
+  padding-right: 52px;
+}
+.content #screenshots > .affixContainer.affix-bottom {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+}
 .content #screenshots > .prev,
 .content #screenshots > .next {
   position: absolute;
-  top: 50%;
+  top: 40vh;
   margin-top: -32px;
   text-decoration: none;
   color: DeepSkyBlue;

@@ -9,13 +9,24 @@ tagMapping:
     title: CSS
   divcomposition:
     title: "Compositions with Divs"
-  experiment:
   game:
     title: Games
+  html:
+    title: HTML
+  javascript:
+    title: JavaScript
+  loadinganimation:
+    title: "Loading animation"
   opart:
     title: "Op Art"
+  p5js:
+    title: "p5.js"
   static:
     title: "Static Work"
+  sql:
+    title: "SQL"
+  webapplication:
+    title: "Web application"
 
 tagCategoryMapping:
   tagLvl0:

@@ -53,6 +53,7 @@ Temporary Items
 # ==================================
 # Custom ignores
 # ==================================
+.idea/
 accounts/
 localhost/
 plugins/*/

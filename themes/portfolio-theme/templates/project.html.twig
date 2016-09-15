@@ -301,6 +301,7 @@
 						<a href="#" class="prev icon-prev"></a>
 						<a href="#" class="next icon-next"></a>
 					</div>
+					{% set index = 0 %}
 					{% for file in pdeFiles %}
 						{% set fileName = file|split("/")|last %}
 						<div class="sources{{file == pdeFiles|first ? " active"}}" data-source-id="{{ fileName }}">
@@ -309,8 +310,9 @@
 							    {% set fileLanguage = "processing" %}
 							{% endif %}
 
-							<pre><code class="language-{{ fileLanguage }}" >{{ filecontent( file|replace({(base_url) : ""}) ) }}</code></pre>
+							<pre><code class="language-{{ fileLanguage }}" >{{ filecontent( base_url is empty ? file : file|replace({(base_url) : ""}) ) }}</code></pre>
 						</div>
+						{% set index = index+1 %}
 					{% endfor %}
 
 					<div class="interactionTips">

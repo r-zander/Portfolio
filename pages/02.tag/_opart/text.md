@@ -1,0 +1,1 @@
+Op art (short for optical art) is a form of art that is based on optical illusions and mostly only black and white.

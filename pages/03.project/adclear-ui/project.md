@@ -55,11 +55,11 @@ displayTypes:
       Example for a futuristic screen design.
     12.final: |
       ### 8. Final result
-      Flat design with hint of futurism. Using 'Open Sans' as font, because it is the corporate font. 
+      Flat design with hint of futurism. Using 'Open Sans' as font, as it is the corporate font. 
 displayTypesSorting: custom
 related_pages:
   - /project/adclear-loading-circle
 ---
-For nearly 4 years I have been **Lead Front End Developer** at [AdClear](http://www.adclear.de). In this position I developed and managed three major versions of the companies data dashboard, called 'AdClear UI'.
+For nearly 4 years I have been **Lead Front End Developer** at [AdClear](http://www.adclear.de). In this position I developed, implemented and managed three major versions of the companies data dashboard, called 'AdClear UI'. The latest re-design is documented on the right.
 
-'AdClear UI' is the main access points for clients to check their online marketing performance and customer journey analysis.
+'AdClear UI' is the main access points for company clients to check their online marketing performance and customer journey analysis.

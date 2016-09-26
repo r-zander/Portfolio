@@ -12,6 +12,8 @@
 	left: @gridPadding;
 	right: @gridPadding;
 
+	overflow: visible;
+
 	/* Adjust padding for tiles */
 	padding:
 		@tilePadding
@@ -26,7 +28,6 @@
 	list-style: none;
 	padding: 0;
 	margin: 0;
-
 
 	> li {
 		float: left;
@@ -44,7 +45,6 @@
 		font-size: 2.5vw;
 		text-align: center;
 	}
-
 
 	.itemWrapper {
 		display: block;
@@ -116,7 +116,7 @@
 		bottom: -100%;
 		left: 0;
 		margin-top: @gridPadding;
-		
+
 		transition: all 0.5s 0.3s;
 		transition-property: top, bottom;
 
@@ -171,7 +171,7 @@
 
 		&.notes {
 			padding: @gridPadding @gridDistance;
-			
+
 			background-color: @panelBackgroundColor;
 			color: @panelFontColor;
 
@@ -237,8 +237,6 @@
 			}
 		}
 
-		
-
 		&.promoted {
 			> div {
 				border: 2px solid @highlightColor;
@@ -256,7 +254,7 @@
 
 					background-color: @highlightColor;
 					color: @panelBackgroundColor;
-					
+
 					font-size: 0.3em;
 					padding: 0.25em (0.75 * @gridDistance);
 				}
@@ -293,7 +291,7 @@
 				}
 
 				.numberOfProjects {
-					transform: scale(1, 0); 
+					transform: scale(1, 0);
 					transition-delay: 0.18s;
 				}
 			}
@@ -341,6 +339,24 @@
 				opacity: 1;
 				transition-delay: 0.18s;
 			}
+		}
+	}
+}
+
+@media (max-width : 950px) {
+	#indexNavigation {
+		> li {
+			width: 50%;
+			font-size: 3.5vw;
+		}
+	}
+}
+
+@media (max-width : 600px) {
+	#indexNavigation {
+		> li {
+			width: 100%;
+			font-size: 7vw;
 		}
 	}
 }

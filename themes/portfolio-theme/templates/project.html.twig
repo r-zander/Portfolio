@@ -245,6 +245,7 @@
 
 				{% elseif displayType == "screenshots" %}
 					{% set screenshots = listfiles(page.relativePagePath ~ "/screenshots", '/.\.' ~ displayType.file ~ '$/i') %}
+					{% set screenshots = screenshots|sort %}
 
 					<div class="frame oneperframe">
 						<ul class="clearfix">

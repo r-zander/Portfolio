@@ -48,30 +48,45 @@
 			img {
 				width: 100%;
 			}
-			
+
+			position: relative;
+
 			&::after {
-			    content: "";
-			    display: block;
-			    position: absolute;
-			    top: 0;
-			    bottom: 0;
-			    left: 0;
-			    right: 0;
-			    box-shadow: @accentColor 0 0 10px 5px inset;
-			    border-top-left-radius: 16px;
-			    border-bottom-right-radius: 32px;
+				content: "";
+				display: block;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				box-shadow: @accentColor 0 0 10px 5px inset;
+				border-top-left-radius: 16px;
+				border-bottom-right-radius: 32px;
 			}
 		}
 
 		h2, h3 {
-			text-align: center;
+			display: table;
+			margin: 0 auto;
+		}
+
+		h2 {
+			color: @accentColor;
 		}
 
 		h3 {
-			color: @accentColor;
-			font-style: oblique;
-			font-size: 1.4em;
+			font-style: italic;
+			font-size: 1.3em;
 			margin-bottom: @gridDistance;
+		}
+
+		.tableContainer {
+			padding-top: 0.65em;
+			padding-bottom: 0.8em;
+			border: 1px solid @accentColor;
+			border-left: none;
+			border-right: none;
+			background: @panelBackgroundColor;
 		}
 
 		.skills {
@@ -90,7 +105,6 @@
 				}
 			}
 
-
 			.barContainer {
 				height: 0.25em;
 				width: 100%;
@@ -106,6 +120,14 @@
 
 			.language {
 				white-space: nowrap;
+			}
+
+			.languageTag {
+				text-decoration: none;
+			}
+
+			.underline {
+				text-decoration: underline;
 			}
 
 			.bar {
@@ -150,7 +172,7 @@
 			cursor: pointer;
 
 			&:after {
-				content:'@rza.io';
+				content: '@rza.io';
 			}
 
 			&:before {
@@ -163,6 +185,53 @@
 				color: @accentColor;
 			}
 		}
+	}
+
+	.front {
+		h2, h3 {
+			background: @panelBackgroundColor;
+		}
+
+		h2 {
+			margin-top: (@gridPadding + @gridDistance - @gridBase * 2);
+			padding-top: (@gridBase * 2);
+		}
+
+		h3 {
+			margin-bottom: @gridPadding;
+			padding-bottom: (@gridBase * 2);
+		}
+
+		.rightSide::before {
+			content: "";
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 0.75em;
+			border: 0.2em solid @accentColor;
+			border-left: none;
+			border-bottom: none;
+			height: 16em;
+			width: 50%;
+			z-index: -1;
+		}
+
+		//h2::after {
+		//	.guideline;
+		//	left: 0;
+		//	top: 0.5em;
+		//	height: 0.13em;
+		//	width: 2.7em;
+		//}
+		//
+		//.rightSide::before {
+		//	.guideline;
+		//	left: 50%;
+		//	bottom: 2.4em;
+		//	width: 0.13em;
+		//	height: 6em;
+		//	z-index: -1;
+		//}
 	}
 
 	.back {
@@ -194,7 +263,7 @@
 		text-decoration: none;
 
 		> .tooltip {
-			display: none;
+			//display: none;
 			padding-left: (2.5 * @gridBase)
 		}
 

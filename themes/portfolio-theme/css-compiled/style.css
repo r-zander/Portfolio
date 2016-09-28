@@ -1115,6 +1115,7 @@ h1 a {
   border-bottom-right-radius: 32px;
   display: inline-block;
   font-size: 0;
+  position: relative;
 }
 #contact .front .portrait img,
 #contact .back .portrait img {
@@ -1137,14 +1138,27 @@ h1 a {
 #contact .back h2,
 #contact .front h3,
 #contact .back h3 {
-  text-align: center;
+  display: table;
+  margin: 0 auto;
+}
+#contact .front h2,
+#contact .back h2 {
+  color: DeepSkyBlue;
 }
 #contact .front h3,
 #contact .back h3 {
-  color: DeepSkyBlue;
-  font-style: oblique;
-  font-size: 1.4em;
+  font-style: italic;
+  font-size: 1.3em;
   margin-bottom: 32px;
+}
+#contact .front .tableContainer,
+#contact .back .tableContainer {
+  padding-top: 0.65em;
+  padding-bottom: 0.8em;
+  border: 1px solid DeepSkyBlue;
+  border-left: none;
+  border-right: none;
+  background: #222222;
 }
 #contact .front .skills,
 #contact .back .skills {
@@ -1177,6 +1191,14 @@ h1 a {
 #contact .front .skills .language,
 #contact .back .skills .language {
   white-space: nowrap;
+}
+#contact .front .skills .languageTag,
+#contact .back .skills .languageTag {
+  text-decoration: none;
+}
+#contact .front .skills .underline,
+#contact .back .skills .underline {
+  text-decoration: underline;
 }
 #contact .front .skills .bar,
 #contact .back .skills .bar {
@@ -1228,6 +1250,31 @@ h1 a {
 #contact .back .glas:active {
   color: DeepSkyBlue;
 }
+#contact .front h2,
+#contact .front h3 {
+  background: #222222;
+}
+#contact .front h2 {
+  margin-top: 40px;
+  padding-top: 8px;
+}
+#contact .front h3 {
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+}
+#contact .front .rightSide::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0.75em;
+  border: 0.2em solid DeepSkyBlue;
+  border-left: none;
+  border-bottom: none;
+  height: 16em;
+  width: 50%;
+  z-index: -1;
+}
 #contact .back > .rightSide {
   padding-right: 16px;
 }
@@ -1251,7 +1298,6 @@ h1 a {
   font-size: 80px !important;
 }
 #contact .icon-flip > .tooltip {
-  display: none;
   padding-left: 10px;
 }
 #contact .icon-flip:hover,

@@ -1,49 +1,60 @@
 <div id="contact" class="flipper">
 	<div class="front">
-		<div class="leftSide">
-			<div class="portrait">
-				<img src="{{ url('theme://images/portrait.jpg') }}" alt="Portrait"/>
+		<div id="fpc_effect-back">
+			<div id="fpc_box">
+				<div id="fpc_content">
+
+					<div class="leftSide">
+						<div class="portrait">
+							<img src="{{ url('theme://images/portrait.jpg') }}" alt="Portrait"/>
+						</div>
+					</div>
+					<div class="rightSide">
+						<h2>Raoul Zander</h2>
+						<h3>Coder</h3>
+						<div class="tableContainer">
+							<table class="skills">
+								<caption>Skill Levels</caption>
+
+								{% macro skillRow(tagPageUrl, language, title, rating, taxonomy) %}
+									<tr class="skillRow">
+										{% set numberOfProjects = taxonomy.findTaxonomy({'language': language})|length %}
+										<td class="language"><a href="{{ tagPageUrl ~ "/:" ~ language }}" class="languageTag"
+										                        title="See all {{ numberOfProjects }} {{ title }} projects"><span>{{ title }}</span>
+												<small class="numberOfProjects">{{ numberOfProjects }}</small>
+											</a></td>
+										<td class="bar">
+											<div class="barContainer">
+												<div class="filledBar" style="width: {{ rating }}"></div>
+											</div>
+										</td>
+										<td class="level"><span class="tooltip">{{ rating }}</span></td>
+									</tr>
+								{% endmacro %}
+
+								{% from _self import skillRow %}
+
+								{% set tagPageUrl = page.find("/tag").url %}
+
+								{{ skillRow(tagPageUrl, "java", "Java", "85%", taxonomy) }}
+								{{ skillRow(tagPageUrl, "html", "xHTML5", "95%", taxonomy) }}
+								{{ skillRow(tagPageUrl, "css", "CSS3", "90%", taxonomy) }}
+								{{ skillRow(tagPageUrl, "javascript", "JavaScript", "50%", taxonomy) }}
+								{{ skillRow(tagPageUrl, "sql", "SQL", "60%", taxonomy) }}
+							</table>
+						</div>
+						<footer>
+							<span class="glas icon-glas"
+							      title="Drop me a line!">hello</span>
+						</footer>
+					</div>
+
+				</div>
+				<div id="fpc_corner-box">
+					<a id="fpc_page-tip" href="#">
+						<div id="fpc_corner-contents"><div id="fpc_corner-button">flip</div></div></a>
+				</div>
 			</div>
-		</div>
-		<div class="rightSide">
-			<h2>Raoul Zander</h2>
-			<h3>Coder</h3>
-			<div class="tableContainer">
-				<table class="skills">
-					{# <caption>Skills</caption>#}
-
-					{% macro skillRow(tagPageUrl, language, title, rating, taxonomy) %}
-						<tr class="skillRow">
-							{% set numberOfProjects = taxonomy.findTaxonomy({'language': language})|length %}
-							<td class="language"><a href="{{ tagPageUrl ~ "/:" ~ language }}" class="languageTag"
-							                        title="See all {{ numberOfProjects }} {{ title }} projects"><span
-											class="underline">{{ title }}</span>
-									<small class="numberOfProjects">{{ numberOfProjects }}</small>
-								</a></td>
-							<td class="bar">
-								<div class="barContainer">
-									<div class="filledBar" style="width: {{ rating }}"></div>
-								</div>
-							</td>
-							<td class="level"><span class="tooltip">{{ rating }}</span></td>
-						</tr>
-					{% endmacro %}
-
-					{% from _self import skillRow %}
-
-					{% set tagPageUrl = page.find("/tag").url %}
-
-					{{ skillRow(tagPageUrl, "java", "Java", "85%", taxonomy) }}
-					{{ skillRow(tagPageUrl, "html", "xHTML5", "95%", taxonomy) }}
-					{{ skillRow(tagPageUrl, "css", "CSS3", "90%", taxonomy) }}
-					{{ skillRow(tagPageUrl, "javascript", "JavaScript", "50%", taxonomy) }}
-					{{ skillRow(tagPageUrl, "sql", "SQL", "60%", taxonomy) }}
-				</table>
-			</div>
-			<footer>
-				<span class="glas icon-glas"
-				      title="Drop me a line!">hello</span>
-			</footer>
 		</div>
 	</div>
 	<div class="back">

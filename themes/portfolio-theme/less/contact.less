@@ -13,22 +13,23 @@
 		border-bottom: none;
 
 		display: table;
+	}
 
-		> .leftSide,
-		> .rightSide {
+		.leftSide,
+		.rightSide {
 			display: table-cell;
 			vertical-align: top;
 			position: relative;
 		}
 
-		> .leftSide {
+		.leftSide {
 			position: relative;
 			width: 35%;
 			padding-bottom: @gridPadding;
 			border-bottom: @gridPadding solid @backgroundColor;
 		}
 
-		> .rightSide {
+		.rightSide {
 			padding-left: @gridPadding;
 			padding-bottom: (4 * @gridPadding);
 
@@ -90,7 +91,8 @@
 		}
 
 		.skills {
-			margin: 0 auto;
+			//margin: 0 auto;
+			width: 100%;
 
 			> caption {
 				font-size: 1.15em;
@@ -185,7 +187,6 @@
 				color: @accentColor;
 			}
 		}
-	}
 
 	.front {
 		h2, h3 {
@@ -343,4 +344,188 @@
 	}
 }
 
+//h1 { color: #900; font-size: 16pt;/* trivial */  }
+//a.trivial {color: #C55;/* trivial */}
+#fpc_effect-back {
+	//background-color: #eeeef4; /* some background color to match corner inside's */
+	background-color: @accentColor;
+	//width: 100%;/* trivial */
+	//font: 12pt arial,sans-serif,helvetica,verdana;/* trivial */
+	//color: #666;//trivial
+}
+//#fpc_effect-back * {
+//	box-sizing: border-box;
+//}
+#fpc_box {
+	//width: 500px;/*any relative or absolute*/
+	position: relative;
+	//background-color: #FFF;
+	background-color: @panelBackgroundColor;
+}
+//#fpc_content {
+//	padding: 20px;
+//}
+//#fpc_content:before {
+//	content:"";
+//	width: 80px;
+//	height: 80px;
+//	float: right;
+//}
+#fpc_page-tip:before, #fpc_page-tip:after {
+	//background-color: #FFF;
+	background-color: @panelBackgroundColor;
+	position: absolute;
+	display: block;
+	z-index: 2;
+	border-top-right-radius: 60%;
+	width: 50%;
+	height: 50%;
+	content: "";
+}
+#fpc_page-tip:before {
+	right: 100%;
+	top: 0%;
+	//background: -webkit-radial-gradient(-180% 200%, circle, rgba(255,255,255,0) 80%, rgba(0,0,0,.2) 100%);
+	background: -webkit-radial-gradient(-180% 200%, circle, fade(@panelBackgroundColor, 0) 80%, rgba(0,0,0,.2) 100%);
+	background: radial-gradient(-180% 200%, circle, fade(@panelBackgroundColor, 0) 80%, rgba(0,0,0,.2) 100%);
+}
+#fpc_box:hover #fpc_page-tip:before {
+	//border-right: solid 1px #fff;
+	border-right: solid 1px @panelBackgroundColor;
+}
+#fpc_box div#fpc_corner-box:hover #fpc_page-tip:before {
+	//border-right: solid 2px #fff;
+	border-right: solid 2px @panelBackgroundColor;
+}
+#fpc_page-tip:after {
+	top: 100%;
+	right: 0%;
+	//background: -webkit-radial-gradient(-250% 320%, circle, rgba(255,255,255,0) 80%, rgba(0,0,0,.2) 100%);
+	background: -webkit-radial-gradient(-250% 320%, circle, fade(@panelBackgroundColor, 0) 80%, rgba(0,0,0,.2) 100%);
+	background: radial-gradient(-250% 320%, circle, fade(@panelBackgroundColor, 0) 80%, rgba(0,0,0,.2) 100%);
+}
+#fpc_box:hover #fpc_page-tip:after {
+	//border-top: solid 1px #fff;
+	border-top: solid 1px @panelBackgroundColor;
+}
+#fpc_box div#fpc_corner-box:hover #fpc_page-tip:after {
+	//border-top: solid 2px #fff;
+	border-top: solid 2px @panelBackgroundColor;
+}
+#fpc_corner-box {  /* edit these sizes for the default revealing corner size */
+	height: 20px;
+	width: 20px;
+	right: 0;
+	top: 0;
+	position: absolute;
+	overflow: visible;
+}
+#fpc_box:hover #fpc_corner-box { /* edit corner size (First animation, when the whole page is rollovered) */
+	height: 50px;
+	width: 50px;
+}
+#fpc_box div#fpc_corner-box:hover { /* edit corner size (Second animation, when the corner itself is rollovered) */
+	height: 100px;
+	width: 100px;
+}
+#fpc_corner-box:before {
+	position: absolute;
+	top: 0;
+	right: 0;
+	content: "";
+	display: block;
+	width: 133%;
+	height: 133%;
+}
+#fpc_corner-contents:after {
+	position: absolute;
+	top: 0;
+	right: 0;
+	content: "";
+	background:
+			-webkit-linear-gradient(45deg,
+				//rgba(255, 255, 255, 0) 37%,
+				//#DDD 62%,
+				//rgba(230, 230, 230, 0.1) 64%,
+				//rgba(255, 255, 255, 0) 67%),
+			fade(@panelFontColor, 0) 37%,
+			darken(@panelFontColor, 13.7%) 62%,
+			darken(@panelFontColor, 10.2%) 64%,
+			fade(@panelFontColor, 0) 67%),
+			-webkit-radial-gradient(-50% 150%, circle, transparent 74%, rgba(0, 0, 0, 0.2) 74%, transparent 81%);
+	display: block;
+	width: 133%;
+	height: 133%;
+}
+#fpc_page-tip {
+	position: absolute;
+	top: 0;
+	right: 0;
+	content: "";
+	background: -webkit-linear-gradient(
+			45deg,
+			//#ddd 17%, // 221 86,3%
+			//#dfdfdf 18%, // 223 87,1%
+			//#f5f5f5 30%, // 245 95,7%
+			//#f8f8f8 34%, // 248 96,9%
+			//#eee 39%, // 238 93,0%
+			//rgba(200,200,200,0) 41%); // 78,1%
+			darken(@panelFontColor, 13.7%) 17%,
+			darken(@panelFontColor, 12.9%) 18%,
+			darken(@panelFontColor, 4.4%) 30%,
+			darken(@panelFontColor, 3.1%) 34%,
+			darken(@panelFontColor, 7.0%) 39%,
+			fade(darken(@panelFontColor, 21.9%), 0) 41%);
 
+
+display: block;
+	width: 100%;
+	height: 100%;
+}
+#fpc_corner-button {
+	position: absolute;
+	width: 7em;
+	top: 0;
+	right: 0;
+	//background-color: #900;
+	//color: #fff;
+	color: @panelFontColor;
+	//font-family: Verdana, Geneva, sans-serif;
+	text-align: center;
+	padding: 8px 5px;
+	border-radius: 5px;
+	display: inline-block;
+	font-size: 11px;
+}
+#fpc_corner-contents {
+	width: 125%;
+	position: absolute;
+	display: block;
+	overflow: hidden;
+	-webkit-mask: -webkit-linear-gradient(45deg, transparent 49%, #000 53%);
+	top: 0;
+	right: 0;
+	height: 125%;
+}
+#fpc_corner-contents:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	content: "";
+	display: block;
+	width: 100%;
+	height: 100%;
+	//background-color: #eeeef4; /* Match this background color to #fpc_effect-back */
+	background-color: @accentColor;
+}
+#fpc_corner-box, #fpc_corner-contents, #fpc_page-tip {
+	-webkit-transition-property: all;
+	-webkit-transition-duration: .3s;
+	-webkit-transition-timing-function: cubic-bezier(0, 0.35, .5, 1.7);
+}
+#fpc_corner-button strong {
+	font-size: 13px;
+	font-weight: bold;
+	display: block;
+}

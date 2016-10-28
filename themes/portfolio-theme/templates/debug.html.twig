@@ -3,18 +3,22 @@
 {% set mainId = "debug" %}
 
 {% block content %}
-<ul
-	style="
+    <ul style="
 		text-align: left;
 	">
-	{% for taxCategory,taxValues in taxonomy.taxonomy() %}
-	<li>{{ taxCategory }}
-		<ul>
-			{% for value,pages in taxValues %}
-			<li>{{ value }}: {{ themeConfig.tagMapping[value].title|default(value|capitalize) }}</li>
-			{% endfor %}
-		</ul>
-	</li>
-	{% endfor %}
-</ul>
+        {% set tagPage = page.find("/tag") %}
+        {% for taxCategory,taxValues in taxonomy.taxonomy() %}
+            <li>{{ taxCategory }}
+                <ul>
+                    {% for value,pages in taxValues %}
+                        <li>{{ value }}:
+                            <a href="{{ tagPage.url ~ '/:' ~ value }}" class="tag" style="float: none">
+                                {{ themeConfig.tagMapping[value].title|default(value|capitalize) }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
 {% endblock %}

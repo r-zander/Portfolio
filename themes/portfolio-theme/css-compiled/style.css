@@ -1083,33 +1083,27 @@ h1 a {
   border-bottom: none;
   display: table;
 }
-#contact .front > .leftSide,
-#contact .back > .leftSide,
-#contact .front > .rightSide,
-#contact .back > .rightSide {
+#contact .leftSide,
+#contact .rightSide {
   display: table-cell;
   vertical-align: top;
   position: relative;
 }
-#contact .front > .leftSide,
-#contact .back > .leftSide {
+#contact .leftSide {
   position: relative;
   width: 35%;
   padding-bottom: 16px;
   border-bottom: 16px solid #000;
 }
-#contact .front > .rightSide,
-#contact .back > .rightSide {
+#contact .rightSide {
   padding-left: 16px;
   padding-bottom: 64px;
 }
-#contact .front > .rightSide > p,
-#contact .back > .rightSide > p {
+#contact .rightSide > p {
   margin-top: 16px;
   margin-bottom: 0;
 }
-#contact .front .portrait,
-#contact .back .portrait {
+#contact .portrait {
   overflow: hidden;
   border-top-left-radius: 16px;
   border-bottom-right-radius: 32px;
@@ -1117,12 +1111,10 @@ h1 a {
   font-size: 0;
   position: relative;
 }
-#contact .front .portrait img,
-#contact .back .portrait img {
+#contact .portrait img {
   width: 100%;
 }
-#contact .front .portrait::after,
-#contact .back .portrait::after {
+#contact .portrait::after {
   content: "";
   display: block;
   position: absolute;
@@ -1134,25 +1126,20 @@ h1 a {
   border-top-left-radius: 16px;
   border-bottom-right-radius: 32px;
 }
-#contact .front h2,
-#contact .back h2,
-#contact .front h3,
-#contact .back h3 {
+#contact h2,
+#contact h3 {
   display: table;
   margin: 0 auto;
 }
-#contact .front h2,
-#contact .back h2 {
+#contact h2 {
   color: DeepSkyBlue;
 }
-#contact .front h3,
-#contact .back h3 {
+#contact h3 {
   font-style: italic;
   font-size: 1.3em;
   margin-bottom: 32px;
 }
-#contact .front .tableContainer,
-#contact .back .tableContainer {
+#contact .tableContainer {
   padding-top: 0.65em;
   padding-bottom: 0.8em;
   border: 1px solid DeepSkyBlue;
@@ -1160,57 +1147,46 @@ h1 a {
   border-right: none;
   background: #222222;
 }
-#contact .front .skills,
-#contact .back .skills {
-  margin: 0 auto;
+#contact .skills {
+  width: 100%;
 }
-#contact .front .skills > caption,
-#contact .back .skills > caption {
+#contact .skills > caption {
   font-size: 1.15em;
   text-align: left;
   margin-bottom: 8px;
   font-weight: 700;
 }
-#contact .front .skills .skillRow:hover .tooltip,
-#contact .back .skills .skillRow:hover .tooltip {
+#contact .skills .skillRow:hover .tooltip {
   color: inherit;
 }
-#contact .front .skills .barContainer,
-#contact .back .skills .barContainer {
+#contact .skills .barContainer {
   height: 0.25em;
   width: 100%;
   background-color: #ffffff;
   border-radius: 0.25em 0;
 }
-#contact .front .skills .barContainer > .filledBar,
-#contact .back .skills .barContainer > .filledBar {
+#contact .skills .barContainer > .filledBar {
   height: 100%;
   background-color: DeepSkyBlue;
   border-radius: 0.25em 0;
 }
-#contact .front .skills .language,
-#contact .back .skills .language {
+#contact .skills .language {
   white-space: nowrap;
 }
-#contact .front .skills .languageTag,
-#contact .back .skills .languageTag {
+#contact .skills .languageTag {
   text-decoration: none;
 }
-#contact .front .skills .underline,
-#contact .back .skills .underline {
+#contact .skills .underline {
   text-decoration: underline;
 }
-#contact .front .skills .bar,
-#contact .back .skills .bar {
+#contact .skills .bar {
   width: 100%;
   padding: 0 16px;
 }
-#contact .front .skills .level > .tooltip,
-#contact .back .skills .level > .tooltip {
+#contact .skills .level > .tooltip {
   color: transparent;
 }
-#contact .front footer,
-#contact .back footer {
+#contact footer {
   position: absolute;
   bottom: 0;
   left: 32px;
@@ -1221,8 +1197,7 @@ h1 a {
   color: #dddddd;
   border-bottom-right-radius: 16px;
 }
-#contact .front footer::before,
-#contact .back footer::before {
+#contact footer::before {
   content: "";
   position: absolute;
   right: 100%;
@@ -1231,23 +1206,18 @@ h1 a {
   width: 66px;
   height: 100%;
 }
-#contact .front .glas,
-#contact .back .glas {
+#contact .glas {
   cursor: pointer;
 }
-#contact .front .glas:after,
-#contact .back .glas:after {
+#contact .glas:after {
   content: '@rza.io';
 }
-#contact .front .glas:before,
-#contact .back .glas:before {
+#contact .glas:before {
   vertical-align: sub;
   margin-right: 0.3em;
 }
-#contact .front .glas:hover,
-#contact .back .glas:hover,
-#contact .front .glas:active,
-#contact .back .glas:active {
+#contact .glas:hover,
+#contact .glas:active {
   color: DeepSkyBlue;
 }
 #contact .front h2,
@@ -1356,6 +1326,140 @@ h1 a {
 }
 .flipper.flipped .front {
   transform: rotateY(180deg);
+}
+#fpc_effect-back {
+  background-color: DeepSkyBlue;
+}
+#fpc_box {
+  position: relative;
+  background-color: #222222;
+}
+#fpc_page-tip:before,
+#fpc_page-tip:after {
+  background-color: #222222;
+  position: absolute;
+  display: block;
+  z-index: 2;
+  border-top-right-radius: 60%;
+  width: 50%;
+  height: 50%;
+  content: "";
+}
+#fpc_page-tip:before {
+  right: 100%;
+  top: 0%;
+  background: -webkit-radial-gradient(-180% 200%, circle, rgba(34, 34, 34, 0) 80%, rgba(0, 0, 0, 0.2) 100%);
+  background: radial-gradient(-180% 200%, circle, rgba(34, 34, 34, 0) 80%, rgba(0, 0, 0, 0.2) 100%);
+}
+#fpc_box:hover #fpc_page-tip:before {
+  border-right: solid 1px #222222;
+}
+#fpc_box div#fpc_corner-box:hover #fpc_page-tip:before {
+  border-right: solid 2px #222222;
+}
+#fpc_page-tip:after {
+  top: 100%;
+  right: 0%;
+  background: -webkit-radial-gradient(-250% 320%, circle, rgba(34, 34, 34, 0) 80%, rgba(0, 0, 0, 0.2) 100%);
+  background: radial-gradient(-250% 320%, circle, rgba(34, 34, 34, 0) 80%, rgba(0, 0, 0, 0.2) 100%);
+}
+#fpc_box:hover #fpc_page-tip:after {
+  border-top: solid 1px #222222;
+}
+#fpc_box div#fpc_corner-box:hover #fpc_page-tip:after {
+  border-top: solid 2px #222222;
+}
+#fpc_corner-box {
+  /* edit these sizes for the default revealing corner size */
+  height: 20px;
+  width: 20px;
+  right: 0;
+  top: 0;
+  position: absolute;
+  overflow: visible;
+}
+#fpc_box:hover #fpc_corner-box {
+  /* edit corner size (First animation, when the whole page is rollovered) */
+  height: 50px;
+  width: 50px;
+}
+#fpc_box div#fpc_corner-box:hover {
+  /* edit corner size (Second animation, when the corner itself is rollovered) */
+  height: 100px;
+  width: 100px;
+}
+#fpc_corner-box:before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  content: "";
+  display: block;
+  width: 133%;
+  height: 133%;
+}
+#fpc_corner-contents:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  content: "";
+  background: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0) 37%, #dcdcdc 62%, #e5e5e5 64%, rgba(255, 255, 255, 0) 67%), -webkit-radial-gradient(-50% 150%, circle, transparent 74%, rgba(0, 0, 0, 0.2) 74%, transparent 81%);
+  display: block;
+  width: 133%;
+  height: 133%;
+}
+#fpc_page-tip {
+  position: absolute;
+  top: 0;
+  right: 0;
+  content: "";
+  background: -webkit-linear-gradient(45deg, #dcdcdc 17%, #dedede 18%, #f4f4f4 30%, #f7f7f7 34%, #ededed 39%, rgba(199, 199, 199, 0) 41%);
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+#fpc_corner-button {
+  position: absolute;
+  width: 7em;
+  top: 0;
+  right: 0;
+  color: #ffffff;
+  text-align: center;
+  padding: 8px 5px;
+  border-radius: 5px;
+  display: inline-block;
+  font-size: 11px;
+}
+#fpc_corner-contents {
+  width: 125%;
+  position: absolute;
+  display: block;
+  overflow: hidden;
+  -webkit-mask: -webkit-linear-gradient(45deg, transparent 49%, #000 53%);
+  top: 0;
+  right: 0;
+  height: 125%;
+}
+#fpc_corner-contents:before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: DeepSkyBlue;
+}
+#fpc_corner-box,
+#fpc_corner-contents,
+#fpc_page-tip {
+  -webkit-transition-property: all;
+  -webkit-transition-duration: .3s;
+  -webkit-transition-timing-function: cubic-bezier(0, 0.35, 0.5, 1.7);
+}
+#fpc_corner-button strong {
+  font-size: 13px;
+  font-weight: bold;
+  display: block;
 }
 a.tag {
   float: left;

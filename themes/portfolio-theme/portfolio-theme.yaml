@@ -27,6 +27,8 @@ tagMapping:
     title: "SQL"
   webapplication:
     title: "Web application"
+  website:
+    title: "Websites"
 
 tagCategoryMapping:
   tagLvl0:

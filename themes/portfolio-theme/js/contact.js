@@ -7,8 +7,8 @@ $(function(){
 	});
 
 	// Enable contact card flip button
-	$('#contact > .icon-flip').click(function(event) {
-		$(this).parent().toggleClass('flipped');
+	$('#contact .folded-corner').click(function(event) {
+		$(this).parents("#contact").toggleClass('flipped');
 		$('.featherlight-close').hide(0).delay(600).show(0);
 	});
 });

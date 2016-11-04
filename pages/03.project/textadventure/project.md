@@ -1,5 +1,5 @@
 ---
-title: 'TextAdventure'
+title: 'Text<wbr />Adventure'
 taxonomy:
   tagLvl0: game
   tag: [app, webapplication]
@@ -28,6 +28,7 @@ displayTypes:
   logo:
 thumbnail:
   extension: thumbnail.jpg
+  class: notHighEnough centered
 ---
 
 A modern interpretation of the classic gamebook approach: Instead of presenting the consumer with a linear story, he/she makes choices to influence the progression and ending of the story.

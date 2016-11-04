@@ -5,7 +5,7 @@
 {% set themeConfig = config.themes["portfolio-theme"] %}
 
 {% if pageTitle is not defined %}
-    {% set pageTitle = page.title %}
+    {% set pageTitle = page.title|striptags %}
 {% endif %}
 
 {% block head %}

@@ -10,6 +10,7 @@ taxonomy:
   promoted: frontpage
 thumbnail:
   start: 4
+  class: notHighEnough centered
 displayTypes:
   webmRender:
   liveRender:

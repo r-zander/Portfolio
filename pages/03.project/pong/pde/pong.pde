@@ -98,6 +98,7 @@ public void keyPressed() {
             console.info("AI Level", aiLevel);
             break;
         default:
+            console.info("KeyPressed: " + key + " | " + keyCode);
             break;
     }
 }
@@ -121,6 +122,11 @@ public void draw() {
         textAlign(CENTER);
         textSize(FontUtil.relativeSize(this, NORMAL_CANVAS_HEIGHT, 60));
         text(keyboardPlayer.score + " : " + mousePlayer.score, centerX, 200);
+    }
+
+
+    if (keyPressed) {
+            console.info("KeyPressed: " + key + " | " + keyCode);
     }
 
     if (gamePaused) {

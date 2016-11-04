@@ -2,7 +2,6 @@
 structure:
   game:
     - project textadventure
-    - project arcade
     - project pong
   interactive:
     - project generative-city

@@ -2068,14 +2068,13 @@ a.tag:last-child {
 .grid-sizer {
   width: 20%;
 }
+.grid-sizer > .aspect-ratio {
+  padding-bottom: 46.875%;
+}
 .grid-item {
   padding: 8px;
   width: 20%;
   float: left;
-}
-.grid-item.promoted {
-  /* Double size! */
-  width: 40%;
 }
 .grid-item:hover,
 .grid-item:active,
@@ -2084,26 +2083,69 @@ a.tag:last-child {
   padding: 6px;
   border: 2px solid DeepSkyBlue;
 }
-.grid-item:hover > a > video,
-.grid-item:active > a > video,
-.grid-item:focus > a > video,
-.grid-item:hover > a > img,
-.grid-item:active > a > img,
-.grid-item:focus > a > img {
-  opacity: 1;
-  transition-delay: 0.18s;
+.grid-item:hover video,
+.grid-item:active video,
+.grid-item:focus video,
+.grid-item:hover img,
+.grid-item:active img,
+.grid-item:focus img {
+  opacity: 1 !important;
+  transition-delay: 0.18s !important;
 }
-.grid-item > a {
+.grid-item > .projectLink {
   display: block;
   background-color: #222222;
   position: relative;
+  padding-bottom: 46.875%;
+  overflow: hidden;
 }
-.grid-item > a > video,
-.grid-item > a > img {
-  display: block;
-  width: 100%;
-  opacity: 0.5;
+.grid-item > .projectLink > .mediaContainer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.grid-item > .projectLink > .mediaContainer > video,
+.grid-item > .projectLink > .mediaContainer > img {
+  opacity: 0.1;
   transition: opacity 0.5s 0.3s;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.grid-item.promoted > .projectLink {
+  padding-bottom: 100%;
+}
+.grid-item.highlight > .projectLink {
+  border: 2px solid White;
+}
+.grid-item.highlight > .projectLink::after {
+  content: "Highlighted Project";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-bottom-right-radius: 24px 100%;
+  background-color: White;
+  color: #222222;
+  font-size: 0.7em;
+  padding: 0.4em 16px;
+}
+.grid-item.frontpage > .projectLink {
+  border: 2px solid #FFB600;
+}
+.grid-item.frontpage > .projectLink::after {
+  content: "Front Page Project";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-bottom-right-radius: 24px 100%;
+  background-color: #FFB600;
+  color: #000;
+  font-size: 0.7em;
+  padding: 0.4em 16px;
 }
 @media all and (max-width: 1600px) {
   .grid-sizer {

@@ -11,9 +11,12 @@ $(function () {
 		masonry: {
 			columnWidth: '.grid-sizer'
 		},
-		packery: {
-		  columnWidth: '.grid-sizer'
-		},
+		// packery: {
+		// 	columnWidth: '.grid-sizer'
+		// },
+		// masonryHorizontal: {
+		// 	rowHeight: 50//'.grid-sizer'
+		// },
 		transitionDuration: 0
 	});
 

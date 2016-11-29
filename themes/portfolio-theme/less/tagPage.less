@@ -24,25 +24,20 @@
 }
 
 @itemsPerRow: 5;
+@aspectRatio: percentage(7.5 / 16);
 
 .grid-sizer {
 	width: (100% / @itemsPerRow);
+
+	> .aspect-ratio {
+		padding-bottom: @aspectRatio;
+	}
 }
 
 .grid-item {
 	padding: (@gridPadding / 2);
 	width: (100% / @itemsPerRow);
-	// outline: 1px solid white;
 	float: left;
-
-	&.promoted {
-		/* Double size! */
-		width: (100% / @itemsPerRow * 2);
-
-		&.square {
-			// width: (100% / 6);
-		}
-	}
 
 	&:hover,
 	&:active,
@@ -55,48 +50,94 @@
 	&:hover,
 	&:active,
 	&:focus {
-		> a {
+		video,
+		img {
+			opacity: 1 !important;
+			transition-delay: 0.18s !important;
+		}
+	}
+
+	> .projectLink {
+		display: block;
+		background-color: @panelBackgroundColor;
+		position: relative;
+		padding-bottom: @aspectRatio;
+		overflow: hidden;
+
+		> .mediaContainer {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+
 			> video,
-			> img { // Mockup
-				opacity: 1;
-				transition-delay: 0.18s;
+			> img {
+				opacity: 0.1;
+				transition: opacity 0.5s 0.3s;
+				object-fit: cover;
+				width: 100%;
+				height: 100%;
 			}
 		}
 	}
 
-	> a {
-		display: block;
-		background-color: @panelBackgroundColor;
-		position: relative;
-
-		> video,
-		> img { // Mockup
-			display: block;
-			// max-width: 100%;
-			width: 100%;
-			opacity: 0.5;
-			transition: opacity 0.5s 0.3s;
+	&.promoted {
+		> .projectLink {
+			padding-bottom: 100%;
 		}
+	}
+
+	.marking(@color, @text, @textColor){
+		> .projectLink {
+			border: 2px solid @color;
+
+			&::after {
+				content: @text;
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+
+				border-bottom-right-radius: (0.75 * @gridDistance) 100%;
+
+				background-color: @color;
+				color: @textColor;
+
+				font-size: 0.7em;
+				padding: 0.4em (@gridPadding);
+			}
+		}
+	}
+
+	&.highlight {
+		.marking(@highlightColor, "Highlighted Project", @panelBackgroundColor);
+	}
+
+	&.frontpage {
+		.marking(@promotedColor, "Front Page Project", @backgroundColor);
 	}
 }
 
-@media all and (max-width: 1600px){
+@media all and (max-width: 1600px) {
 	@itemsPerRow: 4;
 
 	.grid-sizer {
 		width: (100% / @itemsPerRow);
 	}
+
 	.grid-item {
 		width: (100% / @itemsPerRow);
 	}
 }
 
-@media all and (max-width: 1000px){
+@media all and (max-width: 1000px) {
 	@itemsPerRow: 3;
 
 	.grid-sizer {
 		width: (100% / @itemsPerRow);
 	}
+
 	.grid-item {
 		width: (100% / @itemsPerRow);
 	}

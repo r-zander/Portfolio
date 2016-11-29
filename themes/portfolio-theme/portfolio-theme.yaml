@@ -128,7 +128,6 @@ projectDisplay:
     p5js:
       category: language
       displayTypes:
-        - 
     game:
       category: tagLvl0
       displayTypes:

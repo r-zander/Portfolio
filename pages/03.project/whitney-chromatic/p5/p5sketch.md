@@ -2,6 +2,8 @@
 title: "Whitney Chromatic"
 p5addons:
   - dom
+libraries:
+	- p5domUtils
 jsFiles:
   - _WhitneyChromatic
 assets:

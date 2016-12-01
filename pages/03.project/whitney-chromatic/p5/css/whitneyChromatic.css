@@ -22,6 +22,17 @@ h2 {
     display: block;
 }
 
+.inputs > .forRadio,
+.inputs > .checkbox {
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
+.inputs > .forSlider {
+    margin-top: 1em;
+    margin-bottom: -0.7em;
+}
+
 .inputs > input {
     width: 100%;
     margin: 0;

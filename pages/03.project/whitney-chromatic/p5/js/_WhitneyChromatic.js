@@ -7,12 +7,10 @@ function Ball() {
  * Enum
  */
 var Mode = {
-	BALLS: 0,
-	LINES: 1,
-	BALLS_AND_LINES: 2
+	BALLS: '0',
+	LINES: '1',
+	BALLS_AND_LINES: '2'
 };
-
-var MODE = Mode.BALLS;
 
 var NUMBER_OF_ELEMENTS = 36;
 
@@ -24,9 +22,8 @@ var MIN_SIZE = 7;
 
 var MAX_SIZE = 30;
 
-var BACKGROUND_COLOR = 0;
+var BACKGROUND_COLOR;
 
-var RERENDER_BACKGROUND = true;
 
 /**
  * In seconds.
@@ -37,23 +34,101 @@ var centerX;
 
 var centerY;
 
-var balls = new Array(NUMBER_OF_ELEMENTS);
+var balls;
 
 var counter = 0;
+var rotation = 0;
 
+var dimension;
+var radius;
+
+var elementTypeSelector;
+var redrawBackgroundToggle;
+var speedSlider;
+var ballCountSlider;
 
 function setup() {
-	createCanvas(windowWidth, windowHeight);
+	dimension = min(windowWidth, windowHeight);
+	var canvas = createCanvas(dimension, dimension);
 	smooth();
 
+	BACKGROUND_COLOR = color('#222222');
 	colorMode(HSB);
 	background(BACKGROUND_COLOR);
 
 	centerX = width / 2;
 	centerY = height / 2;
 
-	var radius = min(height, width) / 2 * .95;
-	for (var ballIndex = 0; ballIndex < NUMBER_OF_ELEMENTS; ballIndex++) {
+	radius = dimension / 2 * .95;
+
+	createBalls(NUMBER_OF_ELEMENTS);
+
+	var wrapper = createDiv('');
+	wrapper.id('wrapper');
+	wrapper.style('width', dimension * 1.5 + "px");
+
+	wrapper.child(createInputs());
+
+	wrapper.child(canvas);
+}
+
+function createInputs() {
+	var inputContainer = createDiv('');
+	inputContainer.class('inputs');
+	inputContainer.style('width', dimension / 2 + "px");
+
+	inputContainer.child(createElement('h2', 'Manipulate Animation'));
+
+	/*
+	 * Mode Selector
+	 */
+	var label = createElement('label', 'Elements');
+	label.parent(inputContainer);
+	label.class('forRadio');
+	label.attribute('for', 'elements');
+
+	elementTypeSelector = createRadio();
+	elementTypeSelector.parent(inputContainer);
+	elementTypeSelector.id('elements');
+	elementTypeSelector.option('Orbs', 0);
+	elementTypeSelector.option('Rays', 1);
+	elementTypeSelector.option('Orbs & Rays', 2);
+	elementTypeSelector.value(Mode.BALLS);
+
+	ballCountSlider = createLabeledSlider({
+		container: inputContainer,
+		id: 'count',
+		labelText: 'Count',
+		min: 3,
+		max: 45,
+		value: NUMBER_OF_ELEMENTS,
+		step: 1
+	});
+
+	/*
+	 * Re-render background toggle
+	 */
+	redrawBackgroundToggle = createCheckbox('Redraw Background?', true);
+	redrawBackgroundToggle.class('checkbox');
+	redrawBackgroundToggle.parent(inputContainer);
+
+	var baseSpeed = 2 * PI / FULL_DURATION / 60;
+	speedSlider = createLabeledSlider({
+		container: inputContainer,
+		id: 'speed',
+		labelText: 'Speed',
+		min: -baseSpeed * 2,
+		max: baseSpeed * 2,
+		value: baseSpeed,
+		step: baseSpeed / 15
+	});
+
+	return inputContainer;
+}
+
+function createBalls(count) {
+	balls = new Array(count);
+	for (var ballIndex = 0; ballIndex < count; ballIndex++) {
 		balls[ballIndex] = createBall(ballIndex, radius);
 	}
 }
@@ -68,40 +143,43 @@ function createBall(ballIndex, radius) {
 	return ball;
 }
 
-function draw() {
-	if (mouseIsPressed) {
-		counter--;
-	} else {
-		counter++;
-	}
+function getBallValue(minValue, maxValue, ballIndex) {
+	return minValue + (maxValue - minValue) / balls.length * ballIndex;
+}
 
-	if (RERENDER_BACKGROUND) {
+function draw() {
+	if (redrawBackgroundToggle.checked()) {
 		background(BACKGROUND_COLOR);
 		noStroke();
 		fill(BACKGROUND_COLOR, 20);
 		rect(0, 0, width, height);
 	}
 
-	for (var ballIndex = 0; ballIndex < NUMBER_OF_ELEMENTS; ballIndex++) {
+	rotation += speedSlider.value();
 
-		var angle =
-			2 * PI / FULL_DURATION * (counter / 60 /* should be frameRate */)
-			* balls[ballIndex].speed;
+	checkBallCountSlider();
 
-		switch (MODE) {
+	balls.forEach(function (ball) {
+		var angle = rotation * ball.speed;
+
+		switch (elementTypeSelector.value()) {
 			case Mode.BALLS:
-				drawBall(balls[ballIndex], angle);
+				drawBall(ball, angle);
 				break;
 			case Mode.LINES:
-				drawLine(balls[ballIndex], angle);
+				drawLine(ball, angle);
 				break;
 			case Mode.BALLS_AND_LINES:
-				drawBall(balls[ballIndex], angle);
-				drawLine(balls[ballIndex], angle);
+				drawBall(ball, angle);
+				drawLine(ball, angle);
 				break;
-
 		}
+	});
+}
 
+function checkBallCountSlider(){
+	if (ballCountSlider.value() != balls.length){
+		createBalls(ballCountSlider.value());
 	}
 }
 
@@ -117,8 +195,4 @@ function drawLine(ball, angle) {
 	strokeWeight(10);
 	line(centerX, centerY, centerX + cos(angle) * ball.centerDistance, centerY
 		+ sin(angle) * ball.centerDistance);
-}
-
-function getBallValue(minValue, maxValue, ballIndex) {
-	return minValue + (maxValue - minValue) / NUMBER_OF_ELEMENTS * ballIndex;
 }

@@ -6,7 +6,7 @@ taxonomy:
   language:
     - p5js
     - processing
-    - java
+    - javascript
   promoted: frontpage
 displayTypes:
   embeddedSite:

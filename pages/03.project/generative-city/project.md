@@ -10,8 +10,8 @@ taxonomy:
   promoted: highlight
 displayTypes:
   embeddedLiveSite:
-    title: "Play it!"
     url: "http://www.rza.io/projects/sound-of-the-city"
+  webmRender:
 ---
 Brush a city map and listen to its generated soundtrack.
 

@@ -12,6 +12,9 @@ displayTypes:
   embeddedSite:
     title: "Live"
     file: "p5"
+  screenshot:
+thumbnail:
+  extension: png
 ---
 "Everything was better in the old days.", a sentence a lot of people use and agree with. Target of this little interactive project was to show the opposite: The world is getting better.
 

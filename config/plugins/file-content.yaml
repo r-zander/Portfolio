@@ -1,0 +1,11 @@
+enabled: true
+allow_in_page: true
+allow_in_grav: true
+allow_in_filesystem: false
+allowed_extensions:
+  - txt
+  - html
+  - java
+  - pde
+  - less
+  - svg

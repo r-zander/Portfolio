@@ -63,4 +63,5 @@ themes/*/
 
 assets/readme_1.png
 config/security.yaml
+config/plugins/private.yaml
 data/CV Raoul Zander.pdf

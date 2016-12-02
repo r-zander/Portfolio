@@ -160,7 +160,7 @@
 					{# Handle some special cases #}
 					{% if displayType == "zipDownload" %}
 						{% set fileName = page.slug ~ "." ~ display.file %}
-						<a href="{{ page.media[fileName].url }}" download="{{ fileName }}">{{display.title}}</a>
+						<a href="{{ page.media[fileName].url }}" download="{{ fileName }}" title="Sketch for Processing 3">{{display.title}}</a>
 					{% elseif displayType == "storyboard" %}
 						{% set fileName = page.slug ~ display.file %}
 						<a href="{{ page.media[fileName].url }}" class="pdf" target="_blank">{{display.title}}</a>

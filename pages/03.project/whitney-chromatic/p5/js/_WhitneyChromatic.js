@@ -12,7 +12,7 @@ var Mode = {
 	BALLS_AND_LINES: '2'
 };
 
-var NUMBER_OF_ELEMENTS = 36;
+var NUMBER_OF_ELEMENTS = 48;
 
 var MIN_HUE = 0;
 
@@ -28,7 +28,7 @@ var BACKGROUND_COLOR;
 /**
  * In seconds.
  */
-var FULL_DURATION = 60;
+var FULL_DURATION = 180;
 
 var centerX;
 
@@ -100,7 +100,7 @@ function createInputs() {
 		id: 'count',
 		labelText: 'Count',
 		min: 3,
-		max: 45,
+		max: NUMBER_OF_ELEMENTS * 1.5,
 		value: NUMBER_OF_ELEMENTS,
 		step: 1
 	});

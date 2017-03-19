@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Cracking Passwords Guide</title>
+
+        <link rel="stylesheet" type="text/css" href="../css/normalize.css" />
+
+        <style type="text/css" media="screen">
+            @import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700|Droid+Sans+Mono|Droid+Serif:400,700);
+
+            body {
+                margin: 2em;
+                background-color: #eeeef0;
+                color: #111;
+                font-family: 'Droid Sans', sans-serif;
+            }
+
+            header {
+                /*text-align: center;*/
+            }
+
+            h1, h2, h3, h4, h5, h6 {
+                font-family: 'Droid Serif', serif;
+            }
+
+            header, p {
+                width: 30em;
+            }
+
+            h1 {
+                margin-left: 2em;
+                text-indent: -2em;
+                font-size: 1.618em;
+            }
+
+            h2, h3, h4, h5, h6 {
+                font-size: 1.5em;
+                margin: 0.83em 0;
+            }
+
+            h3.date {
+                font-size: 1.236em;
+            }
+
+            h2 {
+                margin-left: 64px;
+                text-indent: -32px;
+            }
+            h2 + .wrapper {
+                margin-left: 64px;
+            }
+
+            h3 {
+                margin-left: 96px;
+                text-indent: -32px;
+            }
+            h3 + .wrapper {
+                margin-left: 96px;
+            }
+
+            h4 {
+                margin-left: 128px;
+                text-indent: -32px;
+            }
+            h4 + .wrapper {
+                margin-left: 128px;
+            }
+
+            h5 {
+                margin-left: 160px;
+                text-indent: -32px;
+            }
+            h5 + .wrapper {
+                margin-left: 160px;
+            }
+
+            h6 {
+                margin-left: 192px;
+                text-indent: -32px;
+            }
+            h6 + .wrapper {
+                margin-left: 192px;
+            }
+
+            ol, ul, p {
+                line-height: 160%;
+            }
+
+            #toc, p {
+                /*                margin: 1em 0 1em 1em;*/
+                margin-top: 1em;
+                margin-bottom: 1em;
+            }
+
+            /*p {
+             margin-bottom: 0;
+             }
+
+             p + p {
+             text-indent: 2em;
+             margin-top: 0;
+             }*/
+
+            a:link {
+                color: darkblue;
+                text-decoration: none;
+            }
+            a:visited {
+                color: blue;
+                text-decoration: none;
+            }
+            a:focus, a:hover, a:active {
+                text-decoration: underline;
+            }
+
+            ol#toc {
+                padding: 0;
+            }
+
+            /* hide original list counter */
+            ol#toc, ol#toc ol {
+                list-style: none;
+            }
+            /* reset counter */
+            ol#toc li:first-child {
+                counter-reset: item;
+            }
+            /* increment counter */
+            ol#toc li {
+                counter-increment: item;
+            }
+            /* print counter */
+            ol#toc li:before {
+                content: counters(item, ".");
+            }
+
+            mark {
+                display: block;
+                background: none;
+                margin-left: 2em;
+            }
+
+            mark:before {
+                content: attr(class) ": ";
+                text-transform: capitalize;
+                display: block;
+                text-indent: -2em;
+            }
+
+            code, pre {
+                font-family: 'Droid Sans Mono', monospace;
+            }
+
+            pre {
+                margin-left: 2em;
+            }
+
+            code {
+            }
+
+            abbr {
+                font-variant: small-caps;
+                text-transform: lowercase;
+                font-size: 1.1em;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <h1>Cracking Passwords Version 1.1</h1>
+
+            <h2 class="author">by: J. Dravet</h2>
+
+            <h3 class="date">February 15, 2010</h3>
+        </header>
+
+        <h2>Abstract</h2>
+
+        <div class="wrapper">
+            <p>
+                This document is for people who want to learn to the how and why of password cracking. There is
+
+                a lot of information being presented and you should <strong>read it all before</strong> you attempted
+
+                doing anything documented here. I do my best to provide step by step instructions along with the
+
+                reasons for doing it this way. Other times I will point to a particular website where you find the
+
+                information. In those cases someone else has done what I attempting and did a good or great job
+
+                and I did not want to steal their hard work. These instructions have several excerpts from a
+
+                combination of posts from
+                <span class="pseudonym">
+                    pureh@te
+                </span>
+                ,
+                <span class="pseudonym">
+                    granger53
+                </span>
+                ,
+                <span class="pseudonym">
+                    irongeek
+                </span>
+                ,
+                <span class="pseudonym">
+                    PrairieFire
+                </span>
+                ,
+                <span class="pseudonym">
+                    RaginRob
+                </span>
+                ,
+                <span class="pseudonym">
+                    stasik
+                </span>, and
+
+                <span class="pseudonym">
+                    Solar Designer
+                </span>. I would also like to thank each of them and others for the help they have provided
+
+                me on the BackTrack forum.
+            </p>
+
+            <p>
+                I will cover both getting the <abbr title="Security Accounts Manager database">SAM</abbr> from inside windows and from the BackTrack CD, DVD, or
+
+                USB flash drive. The <abbr title="Security Accounts Manager database">SAM</abbr> is the Security Accounts Manager database where local usernames and
+
+                passwords are stored. For legal purposes I am using my own system for this article. The first step
+
+                is to get a copy of pwdump. You can choose one from <a href="http://en.wikipedia.org/wiki/Pwdump">http://en.wikipedia.org/wiki/Pwdump</a>.
+            </p>
+            <p>
+                <mark class="update">
+                    I used to use
+                    <span class="program">
+                        pwdump7
+                    </span> to dump my passwords, however I have come across a new utility
+
+                    called
+                    <span class="program">
+                        fgdump
+                    </span>
+                    from <a href="http://www.foofus.net/fizzgig/fgdump/">http://www.foofus.net/fizzgig/fgdump/</a> This new utility will dump passwords
+
+                    from clients and Active Directory (Windows 2000 and 2003 for sure, not sure about Windows
+
+                    2008) where
+                    <span class="program">
+                        pwdump7
+                    </span> only dumps client passwords. I have included a sample hash.txt that has
+
+                    simple passwords and should be cracked very easily.
+                </mark>
+            </p>
+
+            <p>
+                <mark class="note">
+                    Some anti-virus software packages
+
+                    flag
+                    <span class="program">
+                        pwdump*
+                    </span>
+                    and
+                    <span class="program">
+                        fgdump
+                    </span> as trojan horse programs or some other unwanted program. If
+
+                    necessary, you can add an exclusion for
+                    <span class="program">
+                        fgdump
+                    </span>
+                    and/or
+                    <span class="program">
+                        pwdump
+                    </span> to your anti-virus package so it
+
+                    won't flag them. However it is better for the community if you contact your anti-virus vendor and
+
+                    ask them to not flag the tool as a virus/malware/trojan horse.
+                </mark>
+            </p>
+
+            <p>
+                You can find the latest version of this document at <a href="http://www.backtrack-linux.org/">http://www.backtrack-linux.org/</a>
+            </p>
+        </div>
+        <h2>Contents</h2>
+
+        <div class="wrapper">
+            <ol id="toc">
+                <li>
+                    <a href="#1">LM vs. NTLM</a>
+                </li>
+
+                <li>
+                    <a href="#2">Syskey</a>
+                </li>
+
+                <li>
+                    <a href="#3">Cracking Windows Passwords</a>
+                    <ol>
+
+                        <li>
+                            <a href="#3_1">Extracting the hashes from the Windows SAM</a>
+                            <ol>
+                                <li>
+                                    <a href="#3_1_1">Using BackTrack Tools</a>
+
+                                    <ol>
+                                        <li>
+                                            <a href="#3_1_1_1">Using bkhive and samdump v1.1.1 (BT2 and BT3)</a>
+                                        </li>
+
+                                        <li>
+                                            Using samdump2 v2.0.1 (BT4)
+                                        </li>
+
+                                        <li>
+                                            Cached Credentials
+                                        </li>
+                                    </ol>
+
+                                </li>
+                                <li>
+                                    Using Windows Tools
+
+                                    <ol>
+                                        <li>
+                                            Using fgdump
+                                        </li>
+
+                                        <li>
+                                            Using gsecdump
+                                        </li>
+
+                                        <li>
+                                            Using pwdump7
+                                        </li>
+
+                                        <li>
+                                            Cached Credentials
+                                        </li>
+                                    </ol>
+                                </li>
+                            </ol>
+                        </li>
+
+                        <li>
+                            Extracting the hashes from the Windows SAM remotely
+
+                            <ol>
+                                <li>
+                                    Using BackTrack Tools
+
+                                    <ol>
+                                        <li>
+                                            ettercap
+                                        </li>
+                                    </ol>
+                                </li>
+
+                                <li>
+                                    Using Windows Tools
+
+                                    <ol>
+                                        <li>
+                                            Using fgdump
+                                        </li>
+                                    </ol>
+                                </li>
+                            </ol>
+                        </li>
+
+                        <li>
+                            Cracking Windows Passwords
+                            <ol>
+                                <li>
+                                    Using BackTrack Tools
+
+                                    <ol>
+                                        <li>
+                                            John the Ripper BT3 and BT4
+
+                                            <ol>
+                                                <li>
+                                                    Cracking the LM hash
+                                                </li>
+
+                                                <li>
+                                                    Cracking the NTLM hash
+                                                </li>
+
+                                                <li>
+                                                    <a href="#3_3_1_1_3">Cracking the NTLM using the cracked LM hash</a>
+                                                </li>
+
+                                                <li>
+                                                    Cracking cached credentials
+                                                </li>
+                                            </ol>
+                                        </li>
+
+                                        <li>
+                                            John the Ripper - current
+
+                                            <ol>
+                                                <li>
+                                                    Get and Compile
+                                                </li>
+
+                                                <li>
+                                                    Cracking the LM hash
+                                                </li>
+
+                                                <li>
+                                                    Cracking the LM hash using known letter(s) in known location(s) (knownforce)
+                                                </li>
+
+                                                <li>
+                                                    Cracking the NTLM hash
+                                                </li>
+
+                                                <li>
+                                                    Cracking the NTLM hash using the cracked LM hash (dumbforce)
+                                                </li>
+
+                                                <li>
+                                                    Cracking cached credentials
+                                                </li>
+                                            </ol>
+                                        </li>
+
+                                        <li>
+                                            Using MDCrack
+
+                                            <ol>
+                                                <li>
+                                                    Cracking the LM hash
+                                                </li>
+
+                                                <li>
+                                                    Cracking the NTLM hash
+                                                </li>
+
+                                                <li>
+                                                    Cracking the NTLM hash using the cracked LM hash
+                                                </li>
+                                            </ol>
+                                        </li>
+
+                                        <li>
+                                            Using Ophcrack
+
+                                            <ol>
+                                                <li>
+                                                    Cracking the LM hash
+                                                </li>
+
+                                                <li>
+                                                    Cracking the NTLM hash
+                                                </li>
+
+                                                <li>
+                                                    Cracking the NTLM hash using the cracked LM hash
+                                                </li>
+                                            </ol>
+                                        </li>
+                                    </ol>
+                                </li>
+                                <li>
+                                    Using Windows Tools
+
+                                    <ol>
+                                        <li>
+                                            John the Ripper
+
+                                            <ol>
+                                                <li>
+                                                    Cracking the LM hash
+                                                </li>
+
+                                                <li>
+                                                    Cracking the NTLM hash
+                                                </li>
+
+                                                <li>
+                                                    Cracking the NTLM hash using the cracked LM hash
+                                                </li>
+
+                                                <li>
+                                                    Cracking cached credentials
+                                                </li>
+                                            </ol>
+                                        </li>
+
+                                        <li>
+                                            Using MDCrack
+
+                                            <ol>
+                                                <li>
+                                                    Cracking the LM hash
+                                                </li>
+
+                                                <li>
+                                                    Cracking the NTLM hash
+                                                </li>
+
+                                                <li>
+                                                    Cracking the NTLM hash using the cracked LM hash
+                                                </li>
+                                            </ol>
+                                        </li>
+
+                                        <li>
+                                            Using Ophcrack
+
+                                            <ol>
+                                                <li>
+                                                    Cracking the LM hash
+                                                </li>
+
+                                                <li>
+                                                    Cracking the NTLM hash
+                                                </li>
+
+                                                <li>
+                                                    Cracking the NTLM hash using the cracked LM hash
+                                                </li>
+                                            </ol>
+                                        </li>
+
+                                        <li>
+                                            Using Cain and Abel
+                                        </li>
+                                    </ol>
+                                </li>
+
+                                <li>
+                                    Using a Live CD
+
+                                    <ol>
+                                        <li>
+                                            Ophcrack
+                                        </li>
+                                    </ol>
+                                </li>
+                            </ol>
+                        </li>
+
+                    </ol>
+                </li>
+                <li>
+                    Changing Windows Passwords
+
+                    <ol>
+                        <li>
+                            Changing Local User Passwords
+
+                            <ol>
+                                <li>
+                                    Using BackTrack Tools
+
+                                    <ol>
+                                        <li>
+                                            chntpw
+                                        </li>
+                                    </ol>
+                                </li>
+
+                                <li>
+                                    Using a Live CD
+
+                                    <ol>
+                                        <li>
+                                            chntpw
+                                        </li>
+
+                                        <li>
+                                            System Rescue CD
+                                        </li>
+                                    </ol>
+                                </li>
+                            </ol>
+                        </li>
+
+                        <li>
+                            Changing Active Directory Passwords
+                        </li>
+                    </ol>
+                </li>
+
+                <li>
+                    plain-text.info
+                </li>
+
+                <li>
+                    Cracking Novell NetWare Passwords
+                </li>
+
+                <li>
+                    Cracking Linux/Unix Passwords
+                </li>
+
+                <li>
+                    Cracking networking equipment passwords
+
+                    <ol>
+                        <li>
+                            Using BackTrack tools
+
+                            <ol>
+                                <li>
+                                    Using Hydra
+                                </li>
+
+                                <li>
+                                    Using Xhydra
+                                </li>
+
+                                <li>
+                                    Using Medusa
+                                </li>
+
+                                <li>
+                                    Using John the Ripper to crack a Cisco hash
+                                </li>
+                            </ol>
+                        </li>
+
+                        <li>
+                            Using Windows tools
+
+                            <ol>
+                                <li>
+                                    Using Brutus
+                                </li>
+                            </ol>
+                        </li>
+                    </ol>
+                </li>
+
+                <li>
+                    Cracking Applications
+
+                    <ol>
+                        <li>
+                            Cracking Oracle 11g (sha1)
+                        </li>
+
+                        <li>
+                            Cracking Oracle passwords over the wire
+                        </li>
+
+                        <li>
+                            Cracking Office passwords
+                        </li>
+
+                        <li>
+                            Cracking tar passwords
+                        </li>
+
+                        <li>
+                            Cracking zip passwords
+                        </li>
+
+                        <li>
+                            Cracking pdf passwords
+                        </li>
+                    </ol>
+                </li>
+
+                <li>
+                    Wordlists aka Dictionary attack
+
+                    <ol>
+                        <li>
+                            Using John the Ripper to generate a wordlist
+                        </li>
+
+                        <li>
+                            Configuring John the Ripper to use a wordlist
+                        </li>
+
+                        <li>
+                            Using crunch to generate a wordlist
+                        </li>
+
+                        <li>
+                            Generate a wordlist from a textfile or website
+                        </li>
+
+                        <li>
+                            Using premade wordlists
+                        </li>
+
+                        <li>
+                            Other wordlist generators
+                        </li>
+
+                        <li>
+                            Manipulating your wordlist
+                        </li>
+                    </ol>
+                </li>
+
+                <li>
+                    Rainbow Tables
+
+                    <ol>
+                        <li>
+                            What are they?
+                        </li>
+
+                        <li>
+                            Generating your own
+
+                            <ol>
+                                <li>
+                                    rcrack - obsolete but works
+                                </li>
+
+                                <li>
+                                    rcracki
+                                </li>
+
+                                <li>
+                                    rcracki - boinc client
+                                </li>
+
+                                <li>
+                                    Generating a rainbow table
+                                </li>
+                            </ol>
+                        </li>
+
+                        <li>
+                            WEP cracking
+                        </li>
+
+                        <li>
+                            WPA-PSK
+
+                            <ol>
+                                <li>
+                                    airolib
+                                </li>
+
+                                <li>
+                                    pyrit
+                                </li>
+                            </ol>
+                        </li>
+                    </ol>
+                </li>
+
+                <li>
+                    Distributed Password cracking
+
+                    <ol>
+                        <li>
+                            john
+                        </li>
+
+                        <li>
+                            medussa (not a typo this is not medusa)
+                        </li>
+                    </ol>
+
+                </li>
+
+                <li>
+                    using a GPU
+
+                    <ol>
+                        <li>
+                            cuda - nvidia
+                        </li>
+
+                        <li>
+                            stream - ati
+                        </li>
+                    </ol>
+                </li>
+
+                <li>
+                    example hash.txt
+                </li>
+
+                <li>
+                    Version history
+                </li>
+            </ol>
+        </div>
+
+        <h2 id="1">1 <abbr>LM</abbr> vs. <abbr>NTLM</abbr></h2>
+
+        <div class="wrapper">
+            <p>
+                The <abbr>LM</abbr> hash is the old style hash used in MS operating systems before NT 3.1. It converts the password to
+
+                uppercase, null-pads or truncates the password to 14 characters. The password is split into two 7 character
+
+                halves and uses the <abbr>DES</abbr> algorithm. NT 3.1 to XP SP2 supports LM hashes for backward compatibility and is
+
+                enabled by default. Vista supports <abbr>LM</abbr> hashes but is disabled by default. Given the weaknesses in the <abbr>LM</abbr>
+
+                hash it is recommended to disable using <abbr>LM</abbr> hashes for all MS operating systems using the steps in
+
+                <a href="http://support.microsoft.com/kb/299656">http://support.microsoft.com/kb/299656</a>
+            </p>
+
+            <p>
+                <abbr>NTLM</abbr> was introduced in NT 3.1 and does not convert the password to uppercase, does not break the password
+
+                apart, and supports password lengths greater than 14. There are two versions of <abbr>NTLM</abbr> v1 and v2. Due to a
+
+                weakness in <abbr>NTLM</abbr> v1 is should not be used. Microsoft has included support for <abbr>NTLM</abbr> v2 for all of its
+
+                operating systems either via service pack or the Directory Services client (for windows 9X). You enable
+
+                <abbr>NTLM</abbr> v2 by following the instructions at <a href="http://support.microsoft.com/kb/239869öööFor">http://support.microsoft.com/kb/239869</a>. For maximum security
+
+                you should set the
+                <code>
+                    LMCompatibility
+                </code>
+                to 3 for Windows 9X and
+                <code>
+                    LMCompatibilityLevel
+                </code> to 5 for NT, 2000, XP,
+
+                and 2003. Of course you should test these changes <strong>before</strong> you put them into a production environment.
+            </p>
+
+            <p>
+                If <abbr>LM</abbr> hashes are disabled on your system the output of
+                <span class="program">
+                    pwdump
+                </span> and/or the 127.0.0.1.pwdump text file will
+
+                look like:
+            </p>
+            <pre>
+Administrator:500:NO PASSWORD*********************:00AB1D1285F410C30A83B435F2CA798D:::
+Guest:501:NO PASSWORD*********************:31A6CAE0D36AD931B76C59D7E1C039C0:::
+HelpAssistant:1000:NO PASSWORD*********************:BF23C2595478A6279F7CB53EF76E601F:::
+SUPPORT_3845a0:1002:NO
+PASSWORD*********************:0C8D62E10A6240BACD910C8AB295BB79:::
+ASPNET:1005:9F07AE96CA4310752BDC083AAC960496:A99C1C3DB39E3C732EF5C2F63579AF96:::
+        </pre>
+            <p>
+                The first field is the username. The second field is the last four numbers of the <abbr title="security identifier">SID</abbr> for that username. The
+
+                <abbr title="security identifier">SID</abbr> is a security identifier that is unique to each username. The third field is the <abbr>LM</abbr> hash. The forth field is
+
+                the <abbr>NTLM</abbr> hash.
+            </p>
+
+            <p>
+                If you do not have a ASPNET user account do not worry about it. If you do have a ASPNET user account do
+
+                <strong>not</strong> change the password as I am told that will break something. What I did was delete the account and then
+
+                recreate it using:
+                <code>
+                    %systemroot%\Microsoft.NET\Framework\v1.1.4322\aspnet_regiis.exe /i
+                </code>
+            </p>
+        </div>
+
+        <h2 id="2">2 Syskey</h2>
+
+        <div class="wrapper">
+            <p>
+                To make it more difficult to crack your passwords, use syskey. For more information on syskey see
+
+                <a href="http://support.microsoft.com/kb/310105öööThe">http://support.microsoft.com/kb/310105</a>. The short version is syskey encrypts the <abbr>SAM</abbr>. The weakest option
+
+                but most convenient is to store a system generated password locally; locally means the registry. The up side is
+
+                the <abbr>SAM</abbr> gets encrypted and you can reboot the server remotely without extra equipment. The next option is
+
+                password startup. This is slightly more difficult to get around, but if you remotely reboot the server, it will
+
+                stop and wait for someone to enter the password. You will need a <abbr>KVM</abbr> over IP or a serial port concentrator
+
+                so you can enter the password remotely. The most secure option is the system generated password stored on a
+
+                floppy disk. The downside to this option is floppy disks fail, you misplace the floppy disk, newer equipment
+
+                does not have a floppy disk drive, no remote reboots, and you will probably leave the floppy in the drive so
+
+                you can remote reboot and that defeats security. I use a system generated password stored locally, weak but
+
+                better than not doing it. To disable syskey use
+                <span class="programm">
+                    chntpw
+                </span>
+                and follow its instructions.
+            </p>
+        </div>
+        <h2 id="3">3 Cracking Windows Passwords</h2>
+
+        <h3 id="3_1">3.1 Extracting the hashes from the Windows SAM</h3>
+
+        <h4 id="3_1_1">3.1.1 Using BackTrack Tools</h4>
+
+        <h5 id="3_1_1_1">3.1.1.1 Using bkhive and samdump2 v1.1.1 (BT2 and BT3)</h5>
+
+        <div class="wrapper">
+            <ol>
+                <li>
+                    <pre># mount /dev/hda1 /mnt/XXX</pre>
+                    <p>
+                        mount your windows partition substituting hda1 for whatever your windows partition is
+                    </p>
+
+                </li>
+
+                <li>
+                    <p>
+                        if the syskey password is stored locally you need to extract it from the registry so you can decrypt the
+
+                        <abbr>SAM</abbr>. If syskey is setup to prompt for a password or the password is on a floppy, stop now and read the
+
+                        syskey documentation in this document for more information about syskey. If you installed windows to
+
+                        something other
+                        <code>
+                            C:\WINDOWS
+                        </code>
+                        please substitute the correct path.
+                    </p>
+                    <p>
+                        <mark class="warning">
+                            the path is case
+
+                            sensitive. The filenames of sam, security, and system are case sensitive. On my system these files are
+
+                            lowercase. I have come across other XP systems where they are uppercase. On the Vista system I have
+
+                            used the filenames are uppercase.
+                        </mark>
+                    </p>
+
+                    <p>
+                        BackTrack 2 users use the following:
+                        <pre># bkhive-linux /mnt/XXX/WINDOWS/system32/config/system syskey.txt</pre>
+                    </p>
+                    <p>
+                        BackTrack 3 users use the following:
+                        <pre># bkhive /mnt/XXX/WINDOWS/system32/config/system syskey.txt</pre>
+                    </p>
+                </li>
+
+                <li>
+                    <pre># samdump2 /mnt/XXX/WINDOWS/system32/config/sam syskey.txt >hash.txt</pre>
+                    <p>
+                        <span class="program">
+                            samdump2
+                        </span>
+                        will dump the <abbr>SAM</abbr> to the screen and the > character redirects the output to a file called
+
+                        <code>
+                            hash.txt
+                        </code>
+
+                        you can also run
+                        <span class="program">
+                            samdump2
+                        </span>
+                        with the -o parameter to write the output to a file
+                    </p>
+                    <pre># samdump2 -o hash.txt /mnt/XXX/WINDOWS/system32/config/sam syskey.txt</pre>
+                </li>
+            </ol>
+        </div>
+
+        <h6 id="3_3_1_1_3">3.3.1.1.3 Cracking the NTLM hash using the cracked LM hash</h6>
+
+        <div class="wrapper">
+            <p>
+                <span class="pseudonym">
+                    Stasik
+                </span>
+                told me it is much easier to crack the <abbr>NTLM</abbr> hash if you know the character set. This way you do not
+
+                need to bruteforce all possible characters combinations. Once you have TESTTEST, feed a custom character
+
+                set of tesTES to
+                <span class="program">
+                    john
+                </span> and it will return the proper case password much faster than if you did not limit the
+
+                character set. The issue is
+                <span class="program">
+                    john
+                </span> has no easy way to limit the character set. You will have to modify the
+
+                john.conf file and include the following code that
+                <span>
+                    Solar Designer
+                </span> has kindly published to the john-users mail
+
+                list:
+            </p>
+            <pre style='color:#000000; background:#f1f0f0; '>
+<span style='color:#806030; '>[</span>List<span style='color:#806030; '>.</span>External<span style='color:#806030; '>:</span>customcharset<span style='color:#806030; '>]</span>
+        
+    <span style='color:#400000; font-weight:bold; '>int</span> running<span style='color:#806030; '>;</span>        <span style='color:#c34e00; '>// Are we already running?</span>
+    <span style='color:#400000; font-weight:bold; '>int</span> last<span style='color:#806030; '>;</span>       <span style='color:#c34e00; '>// Last character position, zero-based</span>
+    <span style='color:#400000; font-weight:bold; '>int</span> c0<span style='color:#806030; '>,</span> c<span style='color:#806030; '>[</span><span style='color:#c00000; '>0x100</span><span style='color:#806030; '>]</span><span style='color:#806030; '>;</span>   <span style='color:#c34e00; '>// Cyclic charset</span>
+
+    <span style='color:#400000; font-weight:bold; '>void</span> init<span style='color:#806030; '>(</span><span style='color:#806030; '>)</span>    
+    <span style='color:#806030; '>{</span>
+        <span style='color:#400000; font-weight:bold; '>int</span> length<span style='color:#806030; '>,</span> cm<span style='color:#806030; '>,</span> i<span style='color:#806030; '>;</span>
+
+        length <span style='color:#806030; '>=</span> <span style='color:#c00000; '>10</span><span style='color:#806030; '>;</span>         <span style='color:#c34e00; '>// password length</span>
+        c<span style='color:#806030; '>[</span>c0 <span style='color:#806030; '>=</span> <span style='color:#008000; '>'t'</span><span style='color:#806030; '>]</span> <span style='color:#806030; '>=</span> <span style='color:#008000; '>'e'</span><span style='color:#806030; '>;</span>   <span style='color:#c34e00; '>// change the t and the e to the first and second letters of the custom character set</span>
+        c<span style='color:#806030; '>[</span><span style='color:#008000; '>'e'</span><span style='color:#806030; '>]</span> <span style='color:#806030; '>=</span> <span style='color:#008000; '>'s'</span><span style='color:#806030; '>;</span>         <span style='color:#c34e00; '>// change the e and the s to the second and third letters of the character set</span>
+        c<span style='color:#806030; '>[</span><span style='color:#008000; '>'s'</span><span style='color:#806030; '>]</span> <span style='color:#806030; '>=</span> <span style='color:#008000; '>'T'</span><span style='color:#806030; '>;</span>         <span style='color:#c34e00; '>// change the s and T to the third and fourth letters</span>
+        c<span style='color:#806030; '>[</span><span style='color:#008000; '>'T'</span><span style='color:#806030; '>]</span> <span style='color:#806030; '>=</span> <span style='color:#008000; '>'E'</span><span style='color:#806030; '>;</span>         <span style='color:#c34e00; '>// etc</span>
+        c<span style='color:#806030; '>[</span><span style='color:#008000; '>'E'</span><span style='color:#806030; '>]</span> <span style='color:#806030; '>=</span> <span style='color:#008000; '>'S'</span><span style='color:#806030; '>;</span>         <span style='color:#c34e00; '>// etc</span>
+        c<span style='color:#806030; '>[</span>cm <span style='color:#806030; '>=</span> <span style='color:#008000; '>'S'</span><span style='color:#806030; '>]</span> <span style='color:#806030; '>=</span> c0<span style='color:#806030; '>;</span>     <span style='color:#c34e00; '>// change the S to the last letter of the character set</span>
+
+        <span style='color:#c34e00; '>// If you cannot see the pattern then do not bother with this trick.</span>
+        <span style='color:#c34e00; '>// If you can make the necessary changes to suit you environment.</span>
+
+        running <span style='color:#806030; '>=</span> <span style='color:#c00000; '>0</span><span style='color:#806030; '>;</span>
+
+        last <span style='color:#806030; '>=</span> length <span style='color:#806030; '>-</span> <span style='color:#c00000; '>1</span><span style='color:#806030; '>;</span>
+
+        i <span style='color:#806030; '>=</span> <span style='color:#c00000; '>0</span><span style='color:#806030; '>;</span>
+
+        <span style='color:#400000; font-weight:bold; '>while</span> <span style='color:#806030; '>(</span>i <span style='color:#806030; '>&lt;</span> length<span style='color:#806030; '>)</span> word<span style='color:#806030; '>[</span>i<span style='color:#806030; '>+</span><span style='color:#806030; '>+</span><span style='color:#806030; '>]</span> <span style='color:#806030; '>=</span> cm<span style='color:#806030; '>;</span> word<span style='color:#806030; '>[</span>i<span style='color:#806030; '>]</span> <span style='color:#806030; '>=</span> <span style='color:#c00000; '>0</span><span style='color:#806030; '>;</span>
+
+    <span style='color:#806030; '>}</span>
+
+    <span style='color:#400000; font-weight:bold; '>void</span> <span style='color:#800040; '>generate</span><span style='color:#806030; '>(</span><span style='color:#806030; '>)</span>
+    <span style='color:#806030; '>{</span>
+        <span style='color:#400000; font-weight:bold; '>int</span> i<span style='color:#806030; '>;</span>
+        i <span style='color:#806030; '>=</span> last<span style='color:#806030; '>;</span>
+        <span style='color:#400000; font-weight:bold; '>while</span> <span style='color:#806030; '>(</span><span style='color:#806030; '>(</span>word<span style='color:#806030; '>[</span>i<span style='color:#806030; '>]</span> <span style='color:#806030; '>=</span> c<span style='color:#806030; '>[</span>word<span style='color:#806030; '>[</span>i<span style='color:#806030; '>]</span><span style='color:#806030; '>]</span><span style='color:#806030; '>)</span> <span style='color:#806030; '>=</span><span style='color:#806030; '>=</span> c0<span style='color:#806030; '>)</span>
+            <span style='color:#400000; font-weight:bold; '>if</span> <span style='color:#806030; '>(</span><span style='color:#806030; '>!</span>i<span style='color:#806030; '>-</span><span style='color:#806030; '>-</span><span style='color:#806030; '>)</span> <span style='color:#806030; '>{</span>
+                <span style='color:#400000; font-weight:bold; '>if</span> <span style='color:#806030; '>(</span>running<span style='color:#806030; '>+</span><span style='color:#806030; '>+</span><span style='color:#806030; '>)</span> word <span style='color:#806030; '>=</span> <span style='color:#c00000; '>0</span><span style='color:#806030; '>;</span>
+                <span style='color:#400000; font-weight:bold; '>return</span><span style='color:#806030; '>;</span>
+            <span style='color:#806030; '>}</span>
+    <span style='color:#806030; '>}</span>
+</pre>
+            <p>
+                Once you make the necessary changes begin cracking using:
+            </p>
+            <pre># /usr/local/john/john -external=customcharset --format:NT hash.txt</pre>
+            <p>
+                Some notes from
+
+                <span class="name">
+                    Solar Designer
+                </span>
+                :
+            </p>
+
+            <ul>
+                <li>
+                    <p>
+                        Being an external mode, this is not the fastest way to generate candidate passwords, although its
+
+                        performance is acceptable. Some further optimizations are possible (e.g., cache the last character
+
+                        outside of the
+                        <code>
+                            word[] array
+                        </code>). Also, be careful when you edit it (such as for a different charset) - errors
+
+                        in the way the cyclic charset is defined may result in the "while" loop in generate() becoming endless.
+                    </p>
+                </li>
+
+                <li>
+                    <p>
+                        In order to actually crack an <abbr>NTLM</abbr> hash with this, you need a build of <abbr>JtR</abbr> with support for <abbr>NTLM</abbr>
+
+                        hashes. You may do a custom build with the latest jumbo patch (john-1.7.2-all-9.diff.gz), which means
+
+                        that you will need to install Cygwin on your Windows system, or you can download such a build made
+
+                        by someone else (one is linked from the <abbr>JtR</abbr> homepage - it is for an older version of the patch, though,
+
+                        so it is many times slower at <abbr>NTLM</abbr> hashes).
+                    </p>
+                </li>
+
+                <li>
+                    <p>
+                        On a modern system, with a recent jumbo patch, and with the proper "make" target for your system,
+
+                        this should complete its work against an <abbr>NTLM</abbr> hash (or against many such hashes) in just a few
+
+                        minutes.
+                    </p>
+                </li>
+            </ul>
+        </div>
+
+        <h2 id="15">15 Version History</h2>
+
+        <h3>Changes from version 1.0</h3>
+
+        <div class="wrapper">
+            <ul>
+                <li>
+                    removed references to old remote-exploit.org website
+                </li>
+            </ul>
+        </div>
+
+        <h3>Changes from version 0.9</h3>
+
+        <div class="wrapper">
+            <ul>
+                <li>
+                    updated the guide to support BT4 Final
+                </li>
+
+                <li>
+                    fixed links to pureh@te's videos
+                </li>
+
+                <li>
+                    added instructions to update flash so you can watch videos clearly
+                </li>
+
+                <li>
+                    updated the john the ripper section to current versions
+                </li>
+
+                <li>
+                    added instructions for using rainbow tables for WPA cracking
+                </li>
+
+                <li>
+                    added two new leetifing scripts
+                </li>
+
+                <li>
+                    added a small cupp discussion
+                </li>
+
+                <li>
+                    added a section on pyrit
+                </li>
+
+                <li>
+                    added a section on distributed password cracking using john and medussa
+                </li>
+
+                <li>
+                    added a section on cuda and stream
+                </li>
+
+                <li>
+                    fixed typo in hash.txt
+                </li>
+            </ul>
+        </div>
+
+        <h3>Changes from version 0.8</h3>
+
+        <div class="wrapper">
+            <ul>
+                <li>
+                    updated the guide to support BT4-Pre-Final
+                </li>
+
+                <li>
+                    switched from transitional html to strict html
+                </li>
+
+                <li>
+                    added a section on cracking office passwords
+                </li>
+
+                <li>
+                    added a section on cracking rar passwords
+                </li>
+
+                <li>
+                    added a section on cracking zip passwords
+                </li>
+
+                <li>
+                    added a section on cracking pdf passwords
+                </li>
+
+                <li>
+                    added instructions for remote password dumping for fgdump
+                </li>
+
+                <li>
+                    point users to john the ripper wiki for dumbforce and knownforce usage
+                </li>
+
+                <li>
+                    convert text urls to links
+                </li>
+
+                <li>
+                    updated links
+                </li>
+
+                <li>
+                    update versions of software (wine and rcrack)
+                </li>
+
+                <li>
+                    fixed several spelling mistakes
+                </li>
+            </ul>
+        </div>
+
+        <h3>Changes from version 0.7</h3>
+
+        <div class="wrapper">
+            <ul>
+                <li>
+                    Fixed john --incremental=All --stdout | aircrack-ng -b 00:11:22:33:44:55 -w --test.cap
+                </li>
+
+                <li>
+                    missing a - Thanks to roblad for pointing it out.
+                </li>
+            </ul>
+        </div>
+
+        <h3>Changes from version 0.6</h3>
+
+        <div class="wrapper">
+            <ul>
+                <li>
+                    added a section on generating a wordlist from a website
+                </li>
+
+                <li>
+                    added head, tail, and sed commands to wordlist manipulation
+                </li>
+
+                <li>
+                    added a section on Xhydra (pointing to Pureh@te's video)
+                </li>
+
+                <li>
+                    added a section on gsecdump
+                </li>
+
+                <li>
+                    added a section on medusa
+                </li>
+
+                <li>
+                    added a section on Cisco
+                </li>
+
+                <li>
+                    expanded the crunch section
+                </li>
+
+                <li>
+                    moved everything around in an effort to make things easier to find
+                </li>
+
+                <li>
+                    the dumbforce and knownforce are not finished
+                </li>
+            </ul>
+        </div>
+
+        <h3>Changes from version 0.5</h3>
+
+        <div class="wrapper">
+            <ul>
+                <li>
+                    added wpa pw-inspector command
+                </li>
+
+                <li>
+                    added a wordlist manipulation section
+                </li>
+
+                <li>
+                    added usage of fgdump
+                </li>
+
+                <li>
+                    added rcracki section
+                </li>
+
+                <li>
+                    added a sample hash.txt to play with
+                </li>
+
+                <li>
+                    moved a few things around for a better flow
+                </li>
+            </ul>
+        </div>
+        <h3>Changes from version 0.4</h3>
+
+        <div class="wrapper">
+            <ul>
+                <li>
+                    Added a section on cached credentials
+                </li>
+
+                <li>
+                    Expanded the Novell section
+                </li>
+
+                <li>
+                    Fixed typos
+                </li>
+
+                <li>
+                    Fixed a couple of html errors
+                </li>
+
+                <li>
+                    Moved some things around
+                </li>
+
+                <li>
+                    New utility to dump passwords
+                </li>
+            </ul>
+        </div>
+
+        <h3>Changes from version 0.3</h3>
+
+        <div class="wrapper">
+            <ul>
+                <li>
+                    Moved some content to where it should have been
+                </li>
+
+                <li>
+                    Added a section on crunch
+                </li>
+
+                <li>
+                    Fixed typos
+                </li>
+
+                <li>
+                    Fixed a whole lot of html errors
+                </li>
+
+                <li>
+                    Slightly rearranged things to flow better
+                </li>
+            </ul>
+        </div>
+
+        <h3>Changes from version 0.2</h3>
+
+        <div class="wrapper">
+            <ul>
+                <li>
+                    Added sections on using Ophcrack
+                </li>
+
+                <li>
+                    Added sections on Cain and Abel under windows
+                </li>
+
+                <li>
+                    Fixed a typo
+                </li>
+
+                <li>
+                    New html format
+                </li>
+            </ul>
+        </div>
+
+        <h3>Changes from version 0.1</h3>
+
+        <div class="wrapper">
+            <ul>
+                <li>
+                    Added a section on plain-text.info
+                </li>
+
+                <li>
+                    Added a section on using john the ripper with a custom character list
+                </li>
+
+                <li>
+                    Added
+                    <span class="pseudonym">
+                        Xploitz
+                    </span>
+                    's and
+                    <span class="pseudonym">
+                        pureh@te
+                    </span>
+                    's wordlists
+                </li>
+            </ul>
+        </div>
+
+    </body>
+</html>

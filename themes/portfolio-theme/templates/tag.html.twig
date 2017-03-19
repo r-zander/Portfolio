@@ -36,7 +36,11 @@
 {% endblock %}
 
 {% set taxMap = {} %}
+
+{# Tags that are defined in the portfolio-theme.yaml #}
 {% set knownTags = [] %}
+
+{# Tags that are in the URL param, but are not in portfolio-theme.yaml #}
 {% set unknownTags = [] %}
 {% set hasUnknownTags = false %}
 
@@ -141,6 +145,35 @@
 						{# <div>{{ item.title }} related tags: {{ relatedTags|json_encode }}</div> #}
 					{% endfor %}
 
+					{#
+					 Filter out relatedTags that are present on every listed project
+					 and thus would NOT narrow the selection
+					 #}
+					{% set narrowingTags = [] %}
+
+					{% for tag in relatedTags|sort %}
+						{% set attributedTag = attributedTags[tag] %}
+
+						{% if taxMap[attributedTags[tag].category] is empty %}
+							{% set narrowedTaxMap = taxMap|merge({(attributedTag.category): [tag] }) %}
+						{% else %}
+							{% set narrowedTaxMap = taxMap|merge({(attributedTag.category): taxMap[(attributedTag.category)]|merge([tag]) }) %}
+						{% endif %}
+
+						{% set projectCount = taxonomy.findTaxonomy( narrowedTaxMap )|length %}
+
+						{# Would there be a narrowing or do ALL project match the related tag? #}
+						{% if projectCount < projects|length %}
+							{% set narrowingTags = narrowingTags|merge([{
+								'tag': tag
+								'title': attributedTag.title
+								'projectCount': projectCount
+							}]) %}
+						{% endif %}
+					{% endfor %}
+
+					TODO use narrowingTags
+
 					<dt class="tags" title="Showing all tags also contained in the current selection">Narrow</dt>
 					<dd class="tags" id="relatedTags">
 						{% for tag in relatedTags|sort %}
@@ -228,7 +261,8 @@
 							<h3 class="projectTitle"><span class="centered">{{ project.title }}</span></h3>
 							<div class="mediaContainer {{ project.header.thumbnail.class }}">
 								{% if thumbnailType == "webm" %}
-									<video src="{{ itemMedia.url }}{{ mediaFragment }}" preload="auto" muted="muted" loop="loop"></video>
+									<video src="{{ itemMedia.url }}{{ mediaFragment }}" preload="auto" muted="muted"
+									       loop="loop"></video>
 								{% else %}
 									{{ itemMedia }}
 								{% endif %}

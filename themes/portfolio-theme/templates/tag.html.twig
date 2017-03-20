@@ -165,31 +165,32 @@
 						{# Would there be a narrowing or do ALL project match the related tag? #}
 						{% if projectCount < projects|length %}
 							{% set narrowingTags = narrowingTags|merge([{
-								'tag': tag
-								'title': attributedTag.title
+								'tag': tag,
+								'title': attributedTag.title,
+								'category': attributedTag.category,
 								'projectCount': projectCount
 							}]) %}
 						{% endif %}
 					{% endfor %}
 
-					TODO use narrowingTags
+					{% if narrowingTags is not empty %}
+						<dt class="tags" title="Showing all tags also contained in the current selection">Narrow</dt>
+						<dd class="tags" id="relatedTags">
+							{% for tag in narrowingTags %}
+								<a href="{{ page.url ~ "/:" ~ tagParam ~ "+" ~ tag.tag }}" class="tag" data-tag="{{ tag.tag }}">
+									+ {{ tag.title }}
 
-					<dt class="tags" title="Showing all tags also contained in the current selection">Narrow</dt>
-					<dd class="tags" id="relatedTags">
-						{% for tag in relatedTags|sort %}
-							<a href="{{ page.url ~ "/:" ~ tagParam ~ "+" ~ tag }}" class="tag" data-tag="{{ tag }}">
-								+ {{ attributedTags[tag].title }}
+									{% if taxMap[tag.category] is empty %}
+										{% set narrowedTaxMap = taxMap|merge({(tag.category): [tag.tag] }) %}
+									{% else %}
+										{% set narrowedTaxMap = taxMap|merge({(tag.category): taxMap[(tag.category)]|merge([tag.tag]) }) %}
+									{% endif %}
 
-								{% if taxMap[attributedTags[tag].category] is empty %}
-									{% set narrowedTaxMap = taxMap|merge({(attributedTags[tag].category): [tag] }) %}
-								{% else %}
-									{% set narrowedTaxMap = taxMap|merge({(attributedTags[tag].category): taxMap[(attributedTags[tag].category)]|merge([tag]) }) %}
-								{% endif %}
-
-								<small class="numberOfProjects">{{ taxonomy.findTaxonomy( narrowedTaxMap )|length }}</small>
-							</a>
-						{% endfor %}
-					</dd>
+									<small class="numberOfProjects">{{ taxonomy.findTaxonomy( narrowedTaxMap )|length }}</small>
+								</a>
+							{% endfor %}
+						</dd>
+					{% endif %}
 				{% endif %}
 
 				{% for taxCategory,taxTags in taxMap if taxCategory != "tag" %}

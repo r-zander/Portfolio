@@ -10,6 +10,7 @@ taxonomy:
   promoted: frontpage
 thumbnail:
   class: notHighEnough centered
+  start: 4
 displayTypes:
   promoVideo:
     vimeoId: 164823660

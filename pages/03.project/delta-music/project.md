@@ -9,6 +9,7 @@ taxonomy:
     - html
 thumbnail:
   class: notHighEnough centered
+  extension: jpg
 displayTypes:
   screenshot:
     file: jpg

@@ -1,0 +1,49 @@
+Legende:
+[x] Bekommen
+[ ] Noch offen
+[-] Gestrichen
+[?] Vlt nochmal drüber reden
+
+ToDo
+	[x] GRÖSSENVERHÄTLNISSE! --> alle bilder voll darstellen
+	[x] Myriad Pro --> Open Sans
+	[?] 1px Linie unterm Header (selbe Farbe, grade so sichtbar, 40-50% transparent)
+
+
+Noch benötigt:
+	[x] Favicon
+	[x] Logo als Vektor
+	Links
+	[x]	Video
+	[-]	itunes
+			"Available on iTunes" muss laut 
+			http://www.apple.com/itunes/affiliates/resources/blog/affiliate-logo-guidelines-and-art.html
+			genau von 
+			https://www.apple.com/itunes/affiliates/resources/badges.html
+			verwendet werden. Ausserdem haben sie ne SVG Version.
+	[ ]	Tickets
+	
+Klären:
+	[x] GRÖSSENVERHÄTLNISSE!
+	[x] Lizenz Myriad Pro: Illegal laut http://www.adobe.com/products/type/font-licensing/licensing-faq.html #1
+	[x] Farbstich aller Elemente im Vergleich zur Vorlage.
+	Meta-Inhalte
+	[x]	Title
+	[x]	Description
+	[x]	Keywords (Band Name, Mitglieder, Genre)
+	[x] Es gibt den Menüpunkt "Contact" aber keinen Inhalt dazu.
+	[x] Es gibt die Section mit der Band, aber keinen Menüpunkt dazu.	
+	[x] 1px Linie unter dem Header? Schatten? Invertierte Farbe?
+	
+	[x] Social Icons
+	[-] Kontaktformular
+	[ ] Impressum
+	
+
+Mögliches:
+	https://github.com/alvarotrigo/fullPage.js (oder simpler: https://github.com/wtm/jquery.snapscroll)
+	http://ihatetomatoes.net/how-to-create-a-parallax-scrolling-website
+
+
+http://www.pootlepress.com/2013/02/video-tutorial-a-beginners-guide-on-how-to-create-a-single-page-wordpress-website/
+http://stackoverflow.com/questions/19405017/how-create-responsive-one-page-wordpress-theme-with-scrollable-effects

@@ -262,8 +262,10 @@
 							<h3 class="projectTitle"><span class="centered">{{ project.title }}</span></h3>
 							<div class="mediaContainer {{ project.header.thumbnail.class }}">
 								{% if thumbnailType == "webm" %}
-									<video src="{{ itemMedia.url }}{{ mediaFragment }}" preload="auto" muted="muted"
-									       loop="loop"></video>
+									<video preload="auto" muted="muted"
+									       loop="loop">
+										<source src="{{ itemMedia.url }}{{ mediaFragment }}" type="video/webm">
+									</video>
 								{% else %}
 									{{ itemMedia }}
 								{% endif %}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<title>Spinning Spiral</title>
+
+	<style type="text/css" media="screen">
+		html, body {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+		}
+
+		html {
+			overflow: hidden;
+			background-color: #222;
+		}
+
+		#spinning {
+			height: 100vmin;
+			width: 100vmin;
+			margin: 0 auto;
+		}
+
+		@-webkit-keyframes spin {
+			to {
+				-webkit-transform: rotate(360deg);
+				transform: rotate(360deg);
+			}
+		}
+
+		@keyframes spin {
+			to {
+				-webkit-transform: rotate(360deg);
+				transform: rotate(360deg);
+			}
+		}
+
+		@-webkit-keyframes shifting {
+			from {
+				top: 8%;
+			}
+			to {
+				top: -2%;
+			}
+		}
+
+		@keyframes shifting {
+			from {
+				top: 8%;
+			}
+			to {
+				top: -2%;
+			}
+		}
+
+		#spinning div {
+			height: 84%;
+			width: 84%;
+			position: relative;
+			top: 8%;
+			left: 8%;
+			background-color: #222;
+			-webkit-animation:
+					spin 20s infinite linear,
+					shifting 40s linear infinite alternate;
+			animation:
+					spin 20s infinite linear,
+					shifting 40s linear infinite alternate;
+			border-radius: 800px;
+		}
+
+		#spinning:hover div {
+			-webkit-animation-play-state: paused;
+			animation-play-state: paused;
+		}
+
+		.black {
+			background-color: DeepSkyBlue !important;
+		}
+	</style>
+</head>
+
+<body id="spinning">
+<div class="black">
+	<div>
+		<div class="black">
+			<div>
+				<div class="black">
+					<div>
+						<div class="black">
+							<div>
+								<div class="black">
+									<div>
+										<div class="black">
+											<div>
+												<div class="black">
+													<div>
+														<div class="black"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

@@ -16,53 +16,55 @@ var Game = {
         this.unit.resetPosition();
 
         this.blocks = [];
-        this.blocks.push(LevelGenerator.createFirstBlock(GroundBlock.Position.FLOOR));
+        // this.blocks.push(LevelGenerator.createFirstBlock(GroundBlock.Position.FLOOR));
 
         this.levelMeters = [];
 
         this.floatingSpawned = false;
         this.ceilingSpawned = false;
 
-        this.couldCreateInitialBlocks();
+        // this.couldCreateInitialBlocks();
+
+	    LevelGeneratorV2.onStart();
     },
 
-    /**
-     * Creates floating and ceiling blocks if level requirements are met
-     */
-    couldCreateInitialBlocks: function () {
-        if (this.ceilingSpawned === false && Figures.getLevelMajor() >= 2) {
-            this.blocks.push(LevelGenerator.createFirstBlock(GroundBlock.Position.CEILING));
-            this.ceilingSpawned = true;
-        }
-
-        if (this.floatingSpawned === false && Figures.getLevelMajor() >= 3) {
-            this.blocks.push(LevelGenerator.createFirstBlock(GroundBlock.Position.FLOATING));
-            this.floatingSpawned = true;
-        }
-    },
+    // /**
+    //  * Creates floating and ceiling blocks if level requirements are met
+    //  */
+    // couldCreateInitialBlocks: function () {
+    //     if (this.ceilingSpawned === false && Figures.getLevelMajor() >= 2) {
+    //         this.blocks.push(LevelGenerator.createFirstBlock(GroundBlock.Position.CEILING));
+    //         this.ceilingSpawned = true;
+    //     }
+    //
+    //     if (this.floatingSpawned === false && Figures.getLevelMajor() >= 3) {
+    //         this.blocks.push(LevelGenerator.createFirstBlock(GroundBlock.Position.FLOATING));
+    //         this.floatingSpawned = true;
+    //     }
+    // },
 
     draw: function (isLandscape) {
-
+        LevelGeneratorV2.tick(Figures.getLevelMajor());
 
         for (var i = this.blocks.length - 1; i >= 0; i--) {
             var block = this.blocks[i];
 
             if (block.move(Figures.speed, Direction.LEFT) === Position.OUTSIDE) {
                 // If it's a ground block, only remove it when its successor already spawned
-                if (block.hasNextSpawned === true) {
+                // if (block.hasNextSpawned === true) {
                     block._sprite.remove();
                     this.blocks.splice(i, 1);
-                }
+                // }
             }
 
-            if (block.hasNextSpawned === false) {
-                var gap = width - block.right();
-                if (gap >= block.gapSize) {
-                    this.blocks.push(LevelGenerator.createNextBlock(block.position));
-                    block.hasNextSpawned = true;
-                    break;
-                }
-            }
+            // if (block.hasNextSpawned === false) {
+            //     var gap = width - block.right();
+            //     if (gap >= block.gapSize) {
+            //         this.blocks.push(LevelGenerator.createNextBlock(block.position));
+            //         block.hasNextSpawned = true;
+            //         break;
+            //     }
+            // }
         }
 
         for (i = this.levelMeters.length - 1; i >= 0; i--) {
@@ -193,7 +195,7 @@ var Game = {
     },
 
     onLevelUp: function (newLevel) {
-        this.couldCreateInitialBlocks();
+        // this.couldCreateInitialBlocks();
         this.levelMeterSpawned = false;
     },
 
@@ -211,6 +213,8 @@ var Game = {
                 levelMeter._sprite.remove();
             });
         }
+
+        LevelGeneratorV2.onDeath();
     }
 
 };

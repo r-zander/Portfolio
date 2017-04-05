@@ -20,6 +20,7 @@ jsFiles:
   - Figures
   - GroundBlock
   - LevelGenerator
+  - LevelGeneratorV2
   - LevelMeter
   - Screens
   - _Arcade

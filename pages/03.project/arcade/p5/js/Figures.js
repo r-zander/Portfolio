@@ -52,6 +52,10 @@ var Figures = {
         this.nextLevelMeter = (n + 1) * (ArcadeConstants.START_SPEED + this.SPEED_INCREASEMENT * n / 2);
     },
 
+    getTicksFromLength: function (length) {
+	    return length / this.speed;
+    },
+
     getLevelMajor: function () {
         return floor(this.level);
     },

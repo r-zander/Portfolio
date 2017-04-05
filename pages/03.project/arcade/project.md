@@ -1,11 +1,11 @@
 ---
 title: 'Arcade'
 taxonomy:
-  tagLvl0: game
-  tag: app
-  typeOfWork: studies
-  language: processing
-  promoted: frontpage
+#  tagLvl0: game
+#  tag: app
+#  typeOfWork: studies
+#  language: processing
+#  promoted: frontpage
 thumbnail:
   class: notHighEnough
   start: 0.7

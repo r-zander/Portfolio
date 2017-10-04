@@ -1,6 +1,6 @@
 "use strict";
 
-var size;
+var dimensions;
 var centerX, centerY;
 var p1, p2, p3, pullFactor;
 var GOLDEN_NUMBER = 0.6180339887;
@@ -11,17 +11,17 @@ var animationFrame = 0;
 var animationFrame2 = 60;
 
 function setup() {
-	size = min(windowWidth, windowHeight);
-	createCanvas(size, size);
+	dimensions = min(windowWidth, windowHeight);
+	createCanvas(dimensions, dimensions);
 	// createCanvas(100, 100);
 
 
 	centerX = width / 2;
 	centerY = height / 2;
 
-	lineWeight = size / 100;
+	lineWeight = dimensions / 100;
 	// Linewidth gets substracted
-	radius = size * 0.99 * 0.5;
+	radius = dimensions * 0.99 * 0.5;
 
 
 	// Spitze des Dreiecks
@@ -57,7 +57,7 @@ function draw() {
 	push();
 	translate(centerX, centerY);
 	rotate(PI / 2.0);
-	rotate(-rotation);
+	rotate(rotation);
 	translate(-centerX, -centerY);
 
 	stroke('black');
@@ -80,10 +80,10 @@ function draw() {
 	drawTriangle();
 	noFill();
 
-	ellipse(centerX, centerY, radius * 2 * GOLDEN_NUMBER * (1 - GOLDEN_NUMBER));
+	// ellipse(centerX, centerY, radius * 2 * GOLDEN_NUMBER * (1 - GOLDEN_NUMBER));
 
-	// fill('black');
-	// ellipse(centerX, centerY, radius * 2 * GOLDEN_NUMBER * (1 - GOLDEN_NUMBER) * (1 - GOLDEN_NUMBER));
+	fill('black');
+	ellipse(centerX, centerY, radius * 2 * GOLDEN_NUMBER * (1 - GOLDEN_NUMBER) * (1 - GOLDEN_NUMBER));
 	pop();
 
 	push();
@@ -111,8 +111,8 @@ function draw() {
 	pop();
 	pop();
 
-	// rotation += 0.01;
-	// rotation %= TWO_PI;
+	rotation += 0.01;
+	rotation %= TWO_PI;
 
 	animationFrame += 1;
 	animationFrame %= 120;

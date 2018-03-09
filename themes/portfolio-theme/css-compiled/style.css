@@ -1563,6 +1563,9 @@ a.tag:last-child {
   text-align: left;
   top: auto !important;
 }
+.content > .media aside:empty {
+  display: none;
+}
 .content > .media aside.affix {
   position: fixed;
   bottom: 16px;

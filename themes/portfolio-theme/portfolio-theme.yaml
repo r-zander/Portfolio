@@ -49,11 +49,11 @@ projectDisplay:
   # Order here == display order on project page
     liveRender:
       id: render
-      title: "Live Render"
+      title: "Play it!"
       showMediaContainer: true
     liveRenderP5:
       id: render
-      title: "Live Render"
+      title: "Play it!"
       showMediaContainer: true
     promoVideo:
       id: video
@@ -85,10 +85,10 @@ projectDisplay:
       file: png
       showMediaContainer: true
     liveSite:
-      title: "Live App"
+      title: "Play it!"
     embeddedLiveSite:
       id: embeddedSite
-      title: "Live App"
+      title: "Play it!"
       showMediaContainer: true
     localSite:
       title: "Live Site"

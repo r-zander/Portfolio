@@ -147,6 +147,11 @@ projectDisplay:
         - localSite
         - screenshots
         - sourceCode
+    static:
+      category: tagLvl0
+      displayTypes:
+        - embeddedSite
+        - screenshot
     css:
       category: language
       displayTypes:
@@ -171,8 +176,3 @@ projectDisplay:
         - screenshot
         - sourceCode
         - zipDownload
-    static:
-      category: tagLvl0
-      displayTypes:
-        - embeddedSite
-        - screenshot

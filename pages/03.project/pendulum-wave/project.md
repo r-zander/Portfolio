@@ -9,6 +9,10 @@ taxonomy:
 related_pages:
   - /project/whitney-chromatic
 date: 23-10-2015
+displayTypes:
+  embeddedSite:
+  webmRender:
+  screenshot:
 ---
 Futuristic loading animation based on the "Wavemachine of Mach" by [Ernst Mach](https://en.wikipedia.org/wiki/Ernst_Mach).
 

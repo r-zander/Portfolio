@@ -11,7 +11,6 @@ thumbnail:
 displayTypes:
   embeddedSite:
   webmRender:
-  gifRender:
   screenshot:
 related_pages:
   - /project/div-compositions/spinning-squares

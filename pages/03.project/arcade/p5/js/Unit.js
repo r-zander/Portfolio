@@ -153,7 +153,7 @@ Unit.prototype = Object.create(Block.prototype, {
              */
             var newPosition = false;
             switch (blockSprite.gamePosition) {
-                case GroundBlock.Position.FLOOR:
+                case BlockPosition.FLOOR:
                     newPosition = createVector(
                         this.preCollisionX,
                         blockSprite.collider.top() - unitSprite.collider.radius
@@ -162,7 +162,7 @@ Unit.prototype = Object.create(Block.prototype, {
                         this.updateState(Unit.State.WALKING);
                     }
                     break;
-                case GroundBlock.Position.CEILING:
+                case BlockPosition.CEILING:
                     newPosition = createVector(
                         this.preCollisionX,
                         blockSprite.collider.bottom() + unitSprite.collider.radius

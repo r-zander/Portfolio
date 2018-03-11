@@ -1,5 +1,8 @@
 var Figures = {
 
+	// TODO for debugging
+	START_LEVEL: 3,
+
     SPEED_NORMATOR: 1,
 
     distanceTraveled: 0,
@@ -13,8 +16,7 @@ var Figures = {
     newHighscore: false,
 
     setup: function () {
-        // FIXME
-        this.speed = ArcadeConstants.START_SPEED * 3;
+	    this.speed = ArcadeConstants.START_SPEED * this.START_LEVEL;
         this.levelSpeed = this.speed;
 
         this.SPEED_INCREASEMENT = ArcadeConstants.START_SPEED / 1000;
@@ -24,7 +26,7 @@ var Figures = {
         this.tickedFrames++;
         this.distanceTraveled += this.speed;
         // FIXME
-        // this.speed += this.SPEED_INCREASEMENT;
+        this.speed += this.SPEED_INCREASEMENT;
         this.calculateLevel();
     },
 
@@ -126,7 +128,7 @@ var Figures = {
     },
 
     reset: function () {
-        this.speed = ArcadeConstants.START_SPEED;
+	    this.speed = ArcadeConstants.START_SPEED * this.START_LEVEL;
         this.levelSpeed = this.speed;
     }
 

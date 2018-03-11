@@ -9,6 +9,7 @@ jsFiles:
   - enums/Direction
   - enums/Corner
   - enums/Position
+  - enums/BlockPosition
   - Block
   - Unit
   - Game
@@ -19,7 +20,6 @@ jsFiles:
   - Button
   - Figures
   - GroundBlock
-  - LevelGenerator
   - LevelGeneratorV2
   - LevelMeter
   - Screens

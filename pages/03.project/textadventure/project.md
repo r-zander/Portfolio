@@ -10,7 +10,7 @@ taxonomy:
     - html
     - sql
     - css
-  promoted: highlight
+  promoted: frontpage
 displayTypes:
   screenshots:
     00.promo: "Promo Illustration by [Nessi](http://shabbyschick.deviantart.com/)<br /><small>[Character stock](http://faestock.deviantart.com/art/Alanna12-368799100) by [faestock](http://faestock.deviantart.com/).<br />[Background photography](https://www.flickr.com/photos/boscdanjou/6884491041/) by [Bosc d'Anjou](https://www.flickr.com/photos/boscdanjou/).</small>"

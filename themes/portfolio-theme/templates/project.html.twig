@@ -164,9 +164,11 @@
 					{% elseif displayType == "storyboard" %}
 						{% set fileName = page.slug ~ display.file %}
 						<a href="{{ page.media[fileName].url }}" class="pdf" target="_blank">{{display.title}}</a>
-					{% elseif displayType == "localSite" %}
-						{% set fileName = page.slug ~ "/" ~ display.file %}
+                    {% elseif displayType == "localSite" %}
+                        {% set fileName = page.slug ~ "/" ~ display.file %}
 						<a href="{{ fileName }}" target="_blank">{{display.title}}</a>
+                    {% elseif displayType == "liveSite" %}
+						<a href="{{ display.url }}" target="_blank">{{display.title}}</a>
 					{% else %}
 				    	<a href="#{{ display.id }}">{{ display.title }}</a>
 					{% endif %}

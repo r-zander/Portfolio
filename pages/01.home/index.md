@@ -1,6 +1,7 @@
 ---
 structure:
   game:
+    - project berryhunter
     - project textadventure
     - project pong
   interactive:

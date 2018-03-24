@@ -19,7 +19,6 @@ displayTypes:
     url: "https://berryhunter.io/"
 thumbnail:
   extension: jpg
-  class: notHighEnough centered
 ---
 
 [BerryHunter](https://berryhunter.io/) is a 2D stone age survival game, playable directly in the browser.

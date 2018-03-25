@@ -26,7 +26,7 @@ Goal of the game is to survive coldness, hunger, animals and other players for a
 To help with this task the player can gather resources and craft tools and buildings.
 
 **Team:**  
-[Thomas Richner](trichner.ch): Back end development  
+[Thomas Richner](http://trichner.ch): Back end development
 Xyckno: Graphics  
 Me: Front end development, project coordination
 

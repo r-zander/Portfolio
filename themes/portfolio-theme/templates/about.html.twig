@@ -6,7 +6,7 @@
 	{{ parent() }}
 
 	{% do assets.addJs('theme://vendor/bootstrap/scrollspy.js', {'group': 'bottom'}) %}
-	{# 
+	{#
 	{% do assets.addJs('theme://vendor/bootstrap/affix.js', {'group': 'bottom'}) %}
 	#}
 
@@ -18,9 +18,7 @@
 	{% do assets.addJs('theme://vendor/sly-1.6.1.min.js', {'group': 'bottom'}) %}
 	{% do assets.addJs('theme://js/project/slyUtils.js', {'group': 'bottom'}) %}
 
-	{# 
 	{% do assets.addJs('theme://js/about.js', {'group': 'bottom'}) %}
-	#}
 {% endblock %}
 
 {% set bodyAttributes %}
@@ -92,12 +90,34 @@ class="spyScroll" data-spy="scroll" data-target="#sideNav"
 		</section>
 
 		<section class="aboutSection right">
-			<h4 id="credits_fonts" class="contentHeading">Fonts</h4>
-			<ul class="content">
-				<li><a href="https://www.theleagueofmoveabletype.com/orbitron">Orbitron</a> by <a href="matt.cc">Matt McInerney</a> - default font</li>
-				<li class="exo"><a href="https://www.theleagueofmoveabletype.com/orbitron">Exo</a> by <a href="http://ndiscovered.com/">Natanael Gama</a> - text font</li>
-				<li class="telegrama"><a href="http://www.yoworks.com/telegrama/index.html">Telegrama (Raw)</a> by <a href="http://www.yoworks.com/index.html">Yamaoka Yasuhiro</a> - source code</li>
-			</ul>
+			<h4 id="credits_fonts" class="contentHeading">
+				<table>
+					<tr>
+						<th>Fonts</th>
+						<td>Author</td>
+						<td>used as</td>
+					</tr>
+				</table>
+			</h4>
+			<div class="content">
+				<table>
+					<tr class="orbitron">
+						<td><a href="https://www.theleagueofmoveabletype.com/orbitron">Orbitron</a></td>
+						<td>by <a href="http://matt.cc">Matt McInerney</a></td>
+						<td>headlines</td>
+					</tr>
+					<tr class="exo">
+						<td><a href="https://www.theleagueofmoveabletype.com/orbitron">Exo</a></td>
+						<td>by <a href="http://ndiscovered.com/">Natanael Gama</a></td>
+						<td>text font</td>
+					</tr>
+					<tr class="telegrama">
+						<td><a href="http://www.yoworks.com/telegrama/index.html">Telegrama (Raw)</a></td>
+						<td>by <a href="http://www.yoworks.com/index.html">Yamaoka Yasuhiro</a></td>
+						<td>source code</td>
+					</tr>
+				</table>
+			</div>
 		</section>
 
 		<h3 id="sources" class="superHeading contentHeading">Source</h3>
@@ -158,7 +178,7 @@ class="spyScroll" data-spy="scroll" data-target="#sideNav"
 						Switch File
 					</div>
 				</div>
-			</div> 
+			</div>
 		</section> -->
 	</div>
 {% endblock %}

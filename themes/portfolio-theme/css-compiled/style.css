@@ -484,7 +484,7 @@ body {
   text-align: center;
   letter-spacing: 0.1em;
   color: #dddddd;
-  background-color: #000;
+  background-color: #000000;
   height: 100%;
   padding: 16px;
   margin: 0;
@@ -727,7 +727,7 @@ h1 a {
 .numberOfProjects {
   margin-top: 0.5em;
   font-size: 60%;
-  color: #999;
+  color: #999999;
 }
 .numberOfProjects:before {
   content: "(";
@@ -1116,7 +1116,7 @@ h1 a {
   left: 0;
   bottom: 0;
   right: 0;
-  background: linear-gradient(135deg, #222, #ccc 40%, #666 50%, rgba(102, 102, 102, 0) 50%);
+  background: linear-gradient(135deg, #222222, #cccccc 40%, #666666 50%, rgba(102, 102, 102, 0) 50%);
 }
 #contact .front > .folded-corner:hover,
 #contact .back > .folded-corner:hover {
@@ -1138,7 +1138,7 @@ h1 a {
   position: relative;
   width: 35%;
   padding-bottom: 16px;
-  border-bottom: 16px solid #000;
+  border-bottom: 16px solid #000000;
 }
 #contact .rightSide {
   padding-left: 16px;
@@ -1238,7 +1238,7 @@ h1 a {
   right: 0;
   line-height: 48px;
   padding: 0 16px;
-  background-color: #000;
+  background-color: #000000;
   color: #dddddd;
   border-bottom-right-radius: 16px;
 }
@@ -1509,7 +1509,7 @@ a.tag:last-child {
   border: 4px solid #222222;
   /* compensate bigger borders of inactive elements */
   padding: 6px 30px;
-  background-color: #000;
+  background-color: #000000;
 }
 .content nav a:link,
 .content nav a:visited {
@@ -1762,7 +1762,7 @@ a.tag:last-child {
 }
 .interactionTips > div {
   float: left;
-  background-color: #000;
+  background-color: #000000;
   padding: 16px;
   margin-right: 16px;
 }
@@ -1834,10 +1834,10 @@ a.tag:last-child {
 .slyTabs.inPanel .frame a {
   font-size: 1.125rem;
   background-color: #222222;
-  border-color: #000;
+  border-color: #000000;
 }
 .slyTabs.inPanel .frame a.active {
-  background-color: #000;
+  background-color: #000000;
 }
 .slyTabs.inPanel > .prev,
 .slyTabs.inPanel > .next {
@@ -1845,7 +1845,7 @@ a.tag:last-child {
 }
 .slyTabs.inPanel > .prev.disabled,
 .slyTabs.inPanel > .next.disabled {
-  color: #000;
+  color: #000000;
 }
 .slyTabs.inPanel > .prev:before,
 .slyTabs.inPanel > .next:before {
@@ -1887,7 +1887,7 @@ a.tag:last-child {
 }
 .hljs {
   background: none;
-  font-family: 'Telegrama';
+  font-family: 'Telegrama', monospace;
   font-size: 0.9em;
   padding: 0;
 }
@@ -1915,7 +1915,23 @@ a.tag:last-child {
   padding: 16px 32px;
   border-top-left-radius: 0;
   margin: 0;
+  font-family: 'Exo', sans-serif;
+  font-weight: 200;
+  letter-spacing: 0;
   list-style: none;
+}
+#aboutPage .content b,
+#aboutPage .content strong {
+  font-weight: 400;
+}
+#aboutPage .content h2 {
+  -moz-font-feature-settings: "smcp" 1;
+  -ms-font-feature-settings: "smcp" 1;
+  -o-font-feature-settings: "smcp" 1;
+  -webkit-font-feature-settings: "smcp" 1;
+  font-feature-settings: "smcp" 1;
+  font-variant: normal;
+  font-weight: 400;
 }
 #aboutPage .content.icons > dt {
   clear: left;
@@ -1951,6 +1967,20 @@ a.tag:last-child {
   margin-top: 0;
   bottom: 0;
   right: 48px;
+}
+#aboutPage table {
+  width: 100%;
+}
+#aboutPage table td {
+  vertical-align: top;
+  padding-top: 16px;
+  padding-left: 16px;
+}
+#aboutPage table td:first-child {
+  padding-left: 0;
+}
+#aboutPage table tr:first-of-type > td {
+  padding-top: 0;
 }
 #sideNav {
   position: fixed;
@@ -2024,6 +2054,14 @@ a.tag:last-child {
   border-bottom-right-radius: 0;
   margin-bottom: 8px;
 }
+.contentHeading td {
+  font-weight: normal;
+}
+.orbitron {
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 0.1em;
+  font-weight: normal;
+}
 .exo {
   font-family: 'Exo', sans-serif;
   font-weight: 200;
@@ -2043,7 +2081,7 @@ a.tag:last-child {
   font-weight: 400;
 }
 .telegrama {
-  font-family: 'Telegrama';
+  font-family: 'Telegrama', monospace;
 }
 .aboutSection {
   width: 26em;
@@ -2147,7 +2185,7 @@ a.tag:last-child {
   padding: 0.4em 16px;
 }
 .grid-item.frontpage > .projectLink {
-  border: 2px solid #FFB600;
+  border: 2px solid #ffb600;
 }
 .grid-item.frontpage > .projectLink::after {
   content: "Front Page Project";
@@ -2156,8 +2194,8 @@ a.tag:last-child {
   top: 0;
   left: 0;
   border-bottom-right-radius: 24px 100%;
-  background-color: #FFB600;
-  color: #000;
+  background-color: #ffb600;
+  color: #000000;
   font-size: 0.7em;
   padding: 0.4em 16px;
 }

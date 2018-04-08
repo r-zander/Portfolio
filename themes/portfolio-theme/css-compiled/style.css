@@ -1418,7 +1418,17 @@ a.tag:last-child {
   width: 26em;
   margin-right: 32px;
 }
-.description > h2,
+.layout-medium .description {
+  width: 100%;
+  margin-right: 0;
+  margin-top: 32px;
+}
+.layout-medium .description > article {
+  float: right;
+  clear: right;
+  width: 50%;
+  border-left: 8px solid #000;
+}
 .description > .infoBox,
 .description > article {
   background-color: #222222;
@@ -1429,19 +1439,19 @@ a.tag:last-child {
   margin: 0;
   margin-bottom: 16px;
 }
-.description > h2:last-child,
 .description > .infoBox:last-child,
 .description > article:last-child {
   margin-bottom: 0;
-}
-.description > h2 {
-  padding-top: 16px;
-  padding-bottom: 16px;
 }
 .description > .infoBox {
   border-left: 2px solid DeepSkyBlue;
   overflow: hidden;
   font-size: 0.9em;
+}
+.layout-medium .description > .infoBox {
+  float: left;
+  width: 50%;
+  border-right: 8px solid #000;
 }
 .description > .infoBox dt {
   font-weight: 700;
@@ -1512,9 +1522,14 @@ a.tag:last-child {
   display: block;
 }
 .content {
-  /* Activate Block Formattig Context to span the
+  /* Activate Block Formatting Context to span the
 	 * complete remaining width */
   overflow: hidden;
+}
+.layout-medium .content {
+  overflow: visible;
+  float: left;
+  width: 100%;
 }
 .content nav a {
   float: left;

@@ -36,7 +36,20 @@ a.tag {
 	width: @textWidth;
 	margin-right: @gridDistance;
 
-	> h2,
+	.layout-medium & {
+		width: 100%;
+		margin-right: 0;
+		margin-top: 32px;
+
+		> article {
+			float: right;
+			clear: right; // keep multiple articles underneath each other
+			width: 50%;
+			// Fake margin
+			border-left: (@gridPadding / 2) solid @backgroundColor;
+		}
+	}
+
 	> .infoBox,
 	> article {
 		.panel;
@@ -49,15 +62,17 @@ a.tag {
 		}
 	}
 
-	> h2 {
-		padding-top: @gridPadding;
-		padding-bottom: @gridPadding; 
-	}
-
 	> .infoBox {
 		border-left: 2px solid @accentColor;
 		.containFloats;
 		font-size: 0.9em;
+
+		.layout-medium & {
+			float: left;
+			width: 50%;
+			// Fake margin
+			border-right: (@gridPadding / 2) solid @backgroundColor;
+		}
 
 		dt {
 			font-weight: 700;
@@ -118,12 +133,20 @@ a.tag {
 			}
 		}
 	}
+
+
 }
 
 .content {
-	/* Activate Block Formattig Context to span the
+	/* Activate Block Formatting Context to span the
 	 * complete remaining width */
 	overflow: hidden;
+
+	.layout-medium & {
+		overflow: visible;
+		float: left;
+		width: 100%;
+	}
 		
 	nav {
 		a {

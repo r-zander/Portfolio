@@ -21,4 +21,4 @@ First website for the band **[delta. music](http://www.delta-music.de/)**.
 The band has since been rebranded into **FAID**:
 [homepage](http://www.faidmusic.com/), [facebook](https://www.facebook.com/faidband/).
 
-Design by **Fräulein Egg**, implementation as one-page by me.
+Design by **Fräulein Egg**, implementation as one-page by <a href="#contact" data-featherlight="#contact">me</a>.

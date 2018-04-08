@@ -28,7 +28,7 @@ To help with this task the player can gather resources and craft tools and build
 **Team:**  
 [Thomas Richner](http://trichner.ch): Back end development  
 Xyckno: Graphics  
-Me: Front end development, project coordination
+<a href="#contact" data-featherlight="#contact">Me</a>: Front end development, project coordination
 
 **Technology:**  
 We did not use any pre-existing game engine but rather wrote our own tick based engine and network layer.  

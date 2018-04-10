@@ -5,7 +5,7 @@ structure:
     - project textadventure
     - project pong
   interactive:
-    - project generative-city
+    - project sound-of-the-city
     - project adclear-ui
     - language processing
     - tag website

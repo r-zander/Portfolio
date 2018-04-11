@@ -8,9 +8,9 @@ taxonomy:
     - p5js
     - javascript
   promoted: highlight
+thumbnail:
+  class: notHighEnough centered
 displayTypes:
-  embeddedLiveSite:
-    url: "http://www.rza.io/projects/sound-of-the-city"
   webmRender:
 ---
 Brush a city map and listen to its generated soundtrack.

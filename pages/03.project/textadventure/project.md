@@ -21,7 +21,7 @@ displayTypes:
     05.game: "Typical in-game screen with a story section and 3 possible actions for the player"
     06.character-canvas: "The character can be checked throughout the game via an off canvas"
     07.before-roll: "Special action: will require a successful die role to continue"
-    08.after-roll: "Die role screen - success! Role animation can be seen in the tab 'WebM'"
+    08.roll: "Animated die role - success!"
     09.end: "End of the adventure"
   embeddedLiveSite:
     url: http://taktik-dsaworld.rhcloud.com/guest

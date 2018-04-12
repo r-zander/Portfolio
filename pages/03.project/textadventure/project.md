@@ -1,5 +1,6 @@
 ---
 title: 'Text<wbr />Adventure'
+date: 03-07-2016
 taxonomy:
   tagLvl0: game
   tag: [app, webapplication]

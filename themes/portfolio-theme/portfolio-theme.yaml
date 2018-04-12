@@ -59,6 +59,10 @@ projectDisplay:
       id: video
       title: Teaser
       showMediaContainer: true
+    promoVideo2:
+      id: video2
+      title: "Teaser 2"
+      showMediaContainer: true
     embeddedSite:
       id: embeddedSite
       title: "Embedded"
@@ -101,6 +105,12 @@ projectDisplay:
     storyboard:
       title: "Storyboard"
       file: _storyboard.pdf
+    video:
+      id: genericVideo
+      title: "Video"
+      file: video.webm
+      showMediaContainer: true
+      muted: false
     conceptPng:
       id: concept
       title: "Concept"

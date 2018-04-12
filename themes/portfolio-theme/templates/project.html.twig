@@ -3,7 +3,7 @@
 {% set slugParts = page.slug|split('-') %}
 {% set mainId = slugParts|first %}
 {% for part in slugParts if part != slugParts|first %}
-	{% set mainId = mainId ~ part|capitalize %}    
+	{% set mainId = mainId ~ part|capitalize %}
 {% endfor %}
 
 {% block assets %}
@@ -40,7 +40,7 @@
 
 		{% for tagCategory,categoryTags in page.taxonomy
 			if tagCategory not in ["promoted", "language", "series"] %}
-		    
+
 		    {% for tag in categoryTags %}
 		    	{% set tags = tags|merge([ tag ]) %}
 		    	{% set tagAttributes = tagAttributes|merge({ (tag): tagCategory}) %}
@@ -115,7 +115,7 @@
 	{% set displayTypesUnsorted = themeConfig.projectDisplay.projectTypes[header.projectType].displayTypes %}
 {% else %}
 	{{ dump("Using automatic displayTypes") }}
-	{% for key,projectType in themeConfig.projectDisplay.projectTypes 
+	{% for key,projectType in themeConfig.projectDisplay.projectTypes
 		if displayTypesUnsorted is empty %}
 		{% if key in page.taxonomy[projectType.category] %}
 			{{ dump("Found a '" ~ key ~ "' project") }}
@@ -131,7 +131,7 @@
 {% else %}
 	{% set displayTypes = [] %}
 	{# Sort the determined displayTypes according to site configuration #}
-	    
+
 	{% for displayType in themeConfig.projectDisplay.displayTypes|keys %}
 	    {% if displayType in displayTypesUnsorted %}
 	    	{% set displayTypes = displayTypes|merge([ displayType ]) %}
@@ -146,7 +146,7 @@
 		{% set mergedDisplayTypes = mergedDisplayTypes|merge({ (displayType): display}) %}
     {% else %}
 		{% set mergedDisplay = display|merge(header.displayTypes[displayType]) %}
-		{% set mergedDisplayTypes = mergedDisplayTypes|merge({ (displayType): mergedDisplay}) %}        
+		{% set mergedDisplayTypes = mergedDisplayTypes|merge({ (displayType): mergedDisplay}) %}
 	{% endif %}
 {% endfor %}
 
@@ -183,7 +183,7 @@
 	{% set firstDisplay = true %}
 	{% for displayType in displayTypes %}
 		{% set display = mergedDisplayTypes[displayType] %}
-		
+
 		{% if display.showMediaContainer %}
 			<div id="{{ display.id }}" class="media">
 				{# Handle all the cases #}
@@ -206,7 +206,7 @@
 					{% endif %}
 
 
-				{% elseif displayType == "promoVideo" %}
+				{% elseif displayType starts with "promoVideo" %}
 					<div class="aspect-ratio" style="padding-bottom: {{ (display.height / display.width * 100)|round(2) }}%">
 						<iframe src="https://player.vimeo.com/video/{{ display.vimeoId }}?title=0&byline=0&portrait=0" width="{{display.width}}" height="{{display.height}}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 					</div>
@@ -230,10 +230,13 @@
 
 				{% elseif displayType == "screenshot" %}
 					<img src="{{ page.media[page.slug ~ "." ~ display.file].url }}" />
-					
+
 					{% if display.caption is defined %}
 						<aside>{{ display.caption|markdown }}</aside>
 					{% endif %}
+
+				{% elseif displayType == "video" %}
+					<video src="{{ page.slug ~ "/" ~ display.file }}" preload="auto" {% if display.muted %} muted="muted"{% endif %}controls="controls" loop="loop"{% if firstDisplay %} autoplay="autoplay"{% endif %}></video>
 
 				{% elseif (displayType == "conceptPng") or (displayType == "conceptJpg") %}
 					<img src="{{ page.media[page.slug ~ display.file].url }}" />
@@ -243,7 +246,7 @@
 						<div class="size{{i}}">
 							{{ filecontent(page.slug ~ "." ~ display.file) }}
 						</div>
-					{% endfor %} 
+					{% endfor %}
 
 				{% elseif displayType == "screenshots" %}
 					{% set screenshots = listfiles(page.relativePagePath ~ "/screenshots", '/.\.' ~ displayType.file ~ '$/i') %}
@@ -270,7 +273,7 @@
 
 					<a href="#" class="prev icon-prev"></a>
 					<a href="#" class="next icon-next"></a>
-					
+
 					<div class="scrollbar">
 						<div class="handle">
 							<div class="mousearea"></div>
@@ -287,7 +290,7 @@
 							Navigate Screenshots
 						</div>
 					</div>
-					
+
 				{% elseif displayType == "sourceCode" %}
 					{% set pdeFiles = [ "/" ~ page.relativePagePath ~ "/pde/" ~ page.slug ~ ".pde" ] %}
 					{% set pdeFiles = pdeFiles|merge(listfiles(page.relativePagePath ~ "/pde", '/.\.java$/i')) %}

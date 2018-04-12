@@ -11,7 +11,16 @@ taxonomy:
 thumbnail:
   class: notHighEnough centered
 displayTypes:
-  webmRender:
+  promoVideo:
+    title: "Gameplay Trailer 1"
+    vimeoId: 264421396
+    width: 640
+    height: 360
+  promoVideo2:
+    title: "Gameplay Trailer 2"
+    vimeoId: 264422193
+    width: 640
+    height: 360
 ---
 Brush a city map and listen to its generated soundtrack.
 

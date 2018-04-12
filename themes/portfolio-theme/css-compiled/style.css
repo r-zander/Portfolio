@@ -484,7 +484,7 @@ body {
   text-align: center;
   letter-spacing: 0.1em;
   color: #dddddd;
-  background-color: #000;
+  background-color: #000000;
   height: 100%;
   padding: 16px;
   margin: 0;
@@ -727,7 +727,7 @@ h1 a {
 .numberOfProjects {
   margin-top: 0.5em;
   font-size: 60%;
-  color: #999;
+  color: #999999;
 }
 .numberOfProjects:before {
   content: "(";
@@ -1116,7 +1116,7 @@ h1 a {
   left: 0;
   bottom: 0;
   right: 0;
-  background: linear-gradient(135deg, #222, #ccc 40%, #666 50%, rgba(102, 102, 102, 0) 50%);
+  background: linear-gradient(135deg, #222222, #cccccc 40%, #666666 50%, rgba(102, 102, 102, 0) 50%);
 }
 #contact .front > .folded-corner:hover,
 #contact .back > .folded-corner:hover {
@@ -1138,7 +1138,7 @@ h1 a {
   position: relative;
   width: 35%;
   padding-bottom: 16px;
-  border-bottom: 16px solid #000;
+  border-bottom: 16px solid #000000;
 }
 #contact .rightSide {
   padding-left: 16px;
@@ -1238,7 +1238,7 @@ h1 a {
   right: 0;
   line-height: 48px;
   padding: 0 16px;
-  background-color: #000;
+  background-color: #000000;
   color: #dddddd;
   border-bottom-right-radius: 16px;
 }
@@ -1427,7 +1427,7 @@ a.tag:last-child {
   float: right;
   clear: right;
   width: 50%;
-  border-left: 8px solid #000;
+  border-left: 8px solid #000000;
 }
 .description > .infoBox,
 .description > article {
@@ -1451,7 +1451,7 @@ a.tag:last-child {
 .layout-medium .description > .infoBox {
   float: left;
   width: 50%;
-  border-right: 8px solid #000;
+  border-right: 8px solid #000000;
 }
 .description > .infoBox dt {
   font-weight: 700;
@@ -1542,7 +1542,7 @@ a.tag:last-child {
   border: 4px solid #222222;
   /* compensate bigger borders of inactive elements */
   padding: 6px 30px;
-  background-color: #000;
+  background-color: #000000;
 }
 .content nav a:link,
 .content nav a:visited {
@@ -1637,10 +1637,12 @@ a.tag:last-child {
   max-width: 100%;
   margin: 0 auto;
 }
-.content #webm {
+.content #webm,
+.content #genericVideo {
   border: 4px solid #222222;
 }
-.content #webm > video {
+.content #webm > video,
+.content #genericVideo > video {
   max-width: 100%;
   display: block;
 }
@@ -1795,7 +1797,7 @@ a.tag:last-child {
 }
 .interactionTips > div {
   float: left;
-  background-color: #000;
+  background-color: #000000;
   padding: 16px;
   margin-right: 16px;
 }
@@ -1867,10 +1869,10 @@ a.tag:last-child {
 .slyTabs.inPanel .frame a {
   font-size: 1.125rem;
   background-color: #222222;
-  border-color: #000;
+  border-color: #000000;
 }
 .slyTabs.inPanel .frame a.active {
-  background-color: #000;
+  background-color: #000000;
 }
 .slyTabs.inPanel > .prev,
 .slyTabs.inPanel > .next {
@@ -1878,7 +1880,7 @@ a.tag:last-child {
 }
 .slyTabs.inPanel > .prev.disabled,
 .slyTabs.inPanel > .next.disabled {
-  color: #000;
+  color: #000000;
 }
 .slyTabs.inPanel > .prev:before,
 .slyTabs.inPanel > .next:before {
@@ -2218,7 +2220,7 @@ a.tag:last-child {
   padding: 0.4em 16px;
 }
 .grid-item.frontpage > .projectLink {
-  border: 2px solid #FFB600;
+  border: 2px solid #ffb600;
 }
 .grid-item.frontpage > .projectLink::after {
   content: "Front Page Project";
@@ -2227,8 +2229,8 @@ a.tag:last-child {
   top: 0;
   left: 0;
   border-bottom-right-radius: 24px 100%;
-  background-color: #FFB600;
-  color: #000;
+  background-color: #ffb600;
+  color: #000000;
   font-size: 0.7em;
   padding: 0.4em 16px;
 }

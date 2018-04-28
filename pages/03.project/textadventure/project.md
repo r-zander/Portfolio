@@ -21,18 +21,18 @@ displayTypes:
     04.generierung: "Creating a new character"
     05.game: "Typical in-game screen with a story section and 3 possible actions for the player"
     06.character-canvas: "The character can be checked throughout the game via an off canvas"
-    07.before-roll: "Special action: will require a successful die role to continue"
-    08.roll: "Animated die role - success!"
+    07.before-roll: "Special action: will require a successful dice role to continue"
+    08.roll: "Animated dice role - success!"
     09.end: "End of the adventure"
   embeddedLiveSite:
-    url: http://taktik-dsaworld.rhcloud.com/guest
+    url: http://server.rza.io/guest
   logo:
 thumbnail:
   extension: thumbnail.jpg
   class: notHighEnough centered
 ---
 
-A modern interpretation of the classic gamebook approach: Instead of presenting the consumer with a linear story, he/she makes choices to influence the progression and ending of the story.
+A modern interpretation of the classic gamebook approach: Instead of presenting the reader with a linear story, he/she makes choices to influence the progression and ending of the story.
 
 The app can present endless adventures, takes care of character values and value checks and character progression throughout his/her career.
 

@@ -19,6 +19,7 @@ displayTypes:
   localSite:
   storyboard:
   screenshots:
+date: 14-04-2013
 ---
 Head truth, freedom and some cats: A colorful journey through moving mindscapes. Meet some memes and take a breath of doublethink.
 

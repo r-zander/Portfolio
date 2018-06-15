@@ -1,0 +1,94 @@
+enabled: true
+route: '/sitemap'
+ignores:
+  - /debug
+  - /project/arcade/p5
+  - /project/arcade/p5/do
+  - /project/arcade/p5/size
+  - /project/arcade/p5/transformation
+  - /project/better-world/p5
+  - /project/circle-flower/p5
+  - /project/whitney-chromatic/p5
+  - /tag
+additions:
+  -
+    location: /tag/:animation
+    lastmod: '2018-06-15'
+  -
+    location: /tag/:interactive
+    lastmod: '2018-06-15'
+  -
+    location: /tag/:game
+    lastmod: '2018-06-15'
+  -
+    location: /tag/:static
+    lastmod: '2018-06-15'
+  -
+    location: /tag/:professional
+    lastmod: '2018-06-15'
+  -
+    location: /tag/:unpaid
+    lastmod: '2018-06-15'
+  -
+    location: /tag/:studies
+    lastmod: '2018-06-15'
+  -
+    location: /tag/:css
+    lastmod: '2018-06-15'
+  -
+    location: /tag/:wicket
+    lastmod: '2018-06-15'
+  -
+    location: /tag/:html
+    lastmod: '2018-06-15'
+  -
+    location: /tag/:sql
+    lastmod: '2018-06-15'
+  -
+    location: /tag/:java
+    lastmod: '2018-06-15'
+  -
+    location: /tag/:processing
+    lastmod: '2018-06-15'
+  -
+    location: /tag/:javascript
+    lastmod: '2018-06-15'
+  -
+    location: /tag/:pixi.js
+    lastmod: '2018-06-15'
+  -
+    location: /tag/:p5js
+    lastmod: '2018-06-15'
+  -
+    location: /tag/:webapplication
+    lastmod: '2018-06-15'
+  -
+    location: /tag/:experimental
+    lastmod: '2018-06-15'
+  -
+    location: /tag/:typography
+    lastmod: '2018-06-15'
+  -
+    location: /tag/:website
+    lastmod: '2018-06-15'
+  -
+    location: /tag/:abstract
+    lastmod: '2018-06-15'
+  -
+    location: /tag/:opart
+    lastmod: '2018-06-15'
+  -
+    location: /tag/:loadinganimation
+    lastmod: '2018-06-15'
+  -
+    location: /tag/:app
+    lastmod: '2018-06-15'
+  -
+    location: /tag/:frontpage
+    lastmod: '2018-06-15'
+  -
+    location: /tag/:highlight
+    lastmod: '2018-06-15'
+  -
+    location: /tag/:divcomposition
+    lastmod: '2018-06-15'

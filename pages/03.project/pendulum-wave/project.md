@@ -6,6 +6,8 @@ taxonomy:
   typeOfWork: unpaid
   language: css
   promoted: frontpage
+thumbnail:
+  class: notHighEnough centered
 related_pages:
   - /project/whitney-chromatic
 date: 23-10-2015

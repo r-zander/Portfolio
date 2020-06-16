@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmation for the undecided :: Pattern :: Raoul Zander</title>
+
+    <style>
+        html, body {
+            background: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        main {
+            position: relative;
+            width: 15em;
+            margin: 0 auto;
+
+            background-color: white;
+            border: 2px solid black;
+            box-shadow: 4px 4px 5px 0 rgba(0, 0, 0, 0.5);
+
+            font-family: sans-serif;
+            font-size: 24px;
+        }
+
+        .result {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .repeat {
+            display: none;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, 0);
+            padding: 1em;
+        }
+
+        .repeat-button {
+            display: inline-block;
+            opacity: 0;
+            width: auto;
+            padding-left: 0.5em;
+            padding-right: 0.5em;
+            animation: fade-in 0.3s ease-in 1s forwards;
+        }
+
+        @keyframes fade-in {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .show-result .result,
+        .show-result .repeat {
+            display: block;
+        }
+
+        .show-result .dialog {
+            visibility: hidden; /* keep content height */
+        }
+
+        .result > .message.confirmed {
+            color: hsl(105, 75%, 40%);
+        }
+
+        .result > .message.declined {
+            color: hsl(0, 75%, 40%);
+        }
+
+        header {
+            background-color: #DDD;
+            text-align: center;
+        }
+
+        h2 {
+            margin: 0;
+
+            font-size: 1em;
+            font-weight: bold;
+            line-height: 150%;
+        }
+
+        p {
+            margin: 1em;
+        }
+
+        footer {
+            padding: 0 1em 1em;
+        }
+
+        button {
+            position: relative;
+            width: 70%;
+            margin: 0 auto;
+            border: 2px solid black;
+            box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.5);
+            font: inherit;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            transition: box-shadow 0.15s;
+        }
+
+        button > span {
+            padding: 0 0.5em;
+        }
+
+        button:hover {
+            box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.5);
+        }
+
+        button:active {
+            background-color: #DDD;
+        }
+
+        button:focus {
+            outline: none !important;
+        }
+
+        .click-feedback {
+            position: absolute;
+            top: 0;
+            opacity: 0;
+            font-style: normal;
+            transform: translate(-50%, 0);
+            transition: none 0s;
+            transition-property: opacity, transform;
+        }
+
+        /*button:active > .click-feedback,*/
+        .click-feedback.active {
+            opacity: 1;
+            transform: translate(-50%, -1.5em);
+            transition: none 0.15s cubic-bezier(0, 0.55, 0.45, 1);
+            transition-property: opacity, transform;
+        }
+    </style>
+</head>
+<body>
+
+<main>
+    <div class="dialog">
+        <header>
+            <h2>Confirm</h2>
+        </header>
+
+        <p>
+            Would you like to confirm this overly complicated, but yet very necessary question?
+        </p>
+
+        <footer>
+            <button>
+                <span>No</span>
+                <span>Yes</span>
+                <i class="click-feedback">75%!</i>
+            </button>
+        </footer>
+    </div>
+
+    <div class="result">
+        <p class="message">Confirmed! / Declined!</p>
+    </div>
+    <div class="repeat">
+        <button class="repeat-button">Again</button>
+    </div>
+</main>
+
+
+<script type="text/javascript">
+    let button = document.querySelector('button');
+    let clickFeedback = document.querySelector('.click-feedback');
+    let result = document.querySelector('.result > .message');
+    let rect = button.getBoundingClientRect();
+
+    function relativePosition(clientX) {
+        let x = clientX - rect.left;
+        return x / rect.width;
+    }
+
+    function updateButton(event) {
+        let rawPercent = relativePosition(event.clientX);
+        let percent = ((rawPercent) * 100).toFixed(0) + '%';
+        let color = 'hsl(' + (105 * rawPercent).toFixed(0) + ', 34%, 62%)';
+        button.style.backgroundImage = 'linear-gradient(to right, ' + color + ' ' + percent + ', #EFEFEF ' + percent + ', #EFEFEF)';
+    }
+
+    button.addEventListener('mousemove', event => {
+        updateButton(event);
+    });
+    button.addEventListener('mouseleave', () => {
+        button.style.removeProperty('background-image');
+    });
+
+    button.addEventListener('click', event => {
+        if (clickFeedback.classList.contains('active')) return;
+
+        let rawPercent = relativePosition(event.clientX);
+        let percent = ((rawPercent) * 100).toFixed(0) + '%';
+        clickFeedback.style.color = 'hsl(' + (105 * rawPercent).toFixed(0) + ', 60%, 62%)';
+        clickFeedback.style.left = percent;
+        clickFeedback.textContent = percent;
+        clickFeedback.classList.add('active');
+        setTimeout(() => {
+            clickFeedback.classList.remove('active');
+            document.body.classList.add('show-result');
+            let rnd = Math.random();
+            let confirmed = rnd < rawPercent;
+            result.textContent = confirmed ? 'Confirmed!' : 'Declined!';
+            result.classList.toggle('confirmed', confirmed);
+            result.classList.toggle('declined', !confirmed);
+        }, 1000);
+    });
+
+    document.querySelector('.repeat-button').addEventListener('click', (event) => {
+        document.body.classList.remove('show-result');
+        // In case the mouse is still over the confirmation button, update it
+        updateButton(event);
+    });
+</script>
+
+</body>
+</html>

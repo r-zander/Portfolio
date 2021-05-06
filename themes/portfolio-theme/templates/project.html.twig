@@ -108,23 +108,17 @@
  #}
 {% set displayTypesUnsorted = [] %}
 {% if (header.autoDectectDisplayTypes == false) and (header.displayTypes is defined) %}
-	{{ dump("Using header.displayTypes") }}
 	{% set displayTypesUnsorted = header.displayTypes|keys %}
 {% elseif (header.autoDectectDisplayTypes == false) and (header.projectType is defined) %}
-	{{ dump("Using header.projectType") }}
 	{% set displayTypesUnsorted = themeConfig.projectDisplay.projectTypes[header.projectType].displayTypes %}
 {% else %}
-	{{ dump("Using automatic displayTypes") }}
 	{% for key,projectType in themeConfig.projectDisplay.projectTypes
 		if displayTypesUnsorted is empty %}
 		{% if key in page.taxonomy[projectType.category] %}
-			{{ dump("Found a '" ~ key ~ "' project") }}
 		    {% set displayTypesUnsorted = projectType.displayTypes %}
 		{% endif %}
 	{% endfor %}
 {% endif %}
-
-{{ dump("displayTypesUnsorted:", displayTypesUnsorted) }}
 
 {% if header.displayTypesSorting == "custom" %}
 	{% set displayTypes = displayTypesUnsorted %}
@@ -149,8 +143,6 @@
 		{% set mergedDisplayTypes = mergedDisplayTypes|merge({ (displayType): mergedDisplay}) %}
 	{% endif %}
 {% endfor %}
-
-{{ dump(mergedDisplayTypes) }}
 
 <section class="content">
 	<div id="contentTabs" class="slyTabs">

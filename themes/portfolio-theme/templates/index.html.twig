@@ -97,7 +97,7 @@
 						<!-- CMS generated numbers -->
 						<li>{{ page.find('/project').children.count }} projects total</li>
 						<li>13,942 lines of code</li>
-						{% set lastUpdate = admin.latestPages(1).modified %}
+						{% set lastUpdate = page.find('/project').children.order('modified', 'desc')|first %}
 						<li>Last updated on <time datetime="{{ lastUpdate|date("Y-m-d") }}">{{ lastUpdate|date("d M Y") }}</time>.</li>
 					</ul>
 				</div>

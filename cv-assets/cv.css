@@ -1,0 +1,107 @@
+.rounded {
+  border-radius: 16px;
+}
+body {
+  font-family: 'Exo', sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+h1,
+h2,
+h3,
+header {
+  text-align: center;
+}
+p {
+  margin: 0;
+}
+header > p {
+  background-color: #000;
+  color: White;
+  line-height: 2;
+  text-transform: uppercase;
+  border-radius: 16px;
+}
+section {
+  display: flex;
+  justify-content: space-between;
+  margin: 16px 0;
+}
+section > .left {
+  flex: 0 1 32%;
+}
+section > .right {
+  flex: 0 1 66%;
+}
+.profile {
+  border-radius: 16px;
+  padding: 16px;
+  background-color: #999;
+}
+.image-border {
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 50%;
+  border: 2px solid DeepSkyBlue;
+  float: right;
+}
+.image-border > img {
+  position: absolute;
+  display: block;
+  left: -25%;
+  width: 150%;
+}
+.speech-bubble {
+  border-radius: 16px;
+  padding: 16px;
+  background-color: #222222;
+  color: White;
+}
+h3 {
+  border-radius: 16px;
+  line-height: 2;
+  background-color: DeepSkyBlue;
+  color: White;
+}
+.block {
+  border-radius: 16px;
+  background-color: #999;
+  padding: 8px;
+}
+.block > h3 {
+  margin: -8px;
+}
+.block > h4 {
+  border-radius: 16px;
+  padding: 8px 16px;
+  background-color: #222222;
+  color: White;
+}
+.block.portfolio {
+  background-color: DeepSkyBlue;
+  text-align: center;
+  padding: 8px;
+  padding-bottom: 16px;
+}
+.block.portfolio > h3 {
+  margin: 0;
+  margin-bottom: 16px;
+  background-color: White;
+  color: DeepSkyBlue;
+}
+.block.portfolio a:link,
+.block.portfolio a:visited {
+  color: White;
+  text-decoration: none;
+}
+.block.portfolio a:hover,
+.block.portfolio a:active {
+  text-decoration: underline;
+}
+.block + .block {
+  margin-top: 16px;
+}
+/*# sourceMappingURL=cv.css.map */

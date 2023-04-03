@@ -1,0 +1,148 @@
+@backgroundColor: #000;
+@panelBackgroundColor: (@backgroundColor + #222);
+@fontColor: (#ddd - @backgroundColor);
+@panelFontColor: (@fontColor + #222);
+@accentColor: DeepSkyBlue;
+@highlightColor: White;
+//@promotedColor: #FFB600;
+@promotedColor: DeepSkyBlue;
+@passiveColor: #999;
+
+.rounded {
+  border-radius: 16px;
+}
+
+//html {
+//  filter: invert(1);
+//
+//  body {
+//    background-color: white;
+//  }
+//}
+
+body {
+  font-family: 'Exo', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, header {
+  text-align: center;
+}
+
+p {
+  margin: 0;
+}
+
+header {
+  > p {
+    background-color: @backgroundColor;
+    color: @highlightColor;
+    line-height: 2;
+    text-transform: uppercase;
+    .rounded;
+  }
+}
+
+section {
+  display: flex;
+  justify-content: space-between;
+  margin: 16px 0;
+
+  > .left {
+    flex: 0 1 32%;
+  }
+
+  > .right {
+    flex: 0 1 66%;
+  }
+}
+
+.profile {
+  .rounded;
+  padding: 16px;
+  background-color: @passiveColor;
+}
+
+.image-border {
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 50%;
+  border: 2px solid @accentColor;
+  float: right;
+
+  > img {
+    position: absolute;
+    display: block;
+    left: -25%;
+    width: 150%;
+  }
+}
+
+.speech-bubble {
+  .rounded;
+  padding: 16px;
+  background-color: @panelBackgroundColor;
+  color: @highlightColor;
+}
+
+h3 {
+  .rounded;
+  line-height: 2;
+  background-color: @accentColor;
+  color: @highlightColor;
+}
+
+.block {
+  .rounded;
+  background-color: @passiveColor;
+  padding: 8px;
+
+  > h3 {
+    margin: -8px;
+  }
+
+  > h4 {
+    .rounded;
+    padding: 8px 16px;
+    background-color: @panelBackgroundColor;
+    color: @highlightColor;
+  }
+
+  &.portfolio {
+    background-color: @promotedColor;
+    text-align: center;
+    padding: 8px;
+    padding-bottom: 16px;
+
+    > h3 {
+      margin: 0;
+      margin-bottom: 16px;
+      background-color: @highlightColor;
+      color: @promotedColor;
+    }
+
+    //> p {
+    //  margin: 16px 0;
+    //}
+
+    a:link,
+    a:visited {
+      color: @highlightColor;
+      text-decoration: none;
+    }
+
+    a:hover,
+    a:active {
+      text-decoration: underline;
+    }
+  }
+
+  + .block {
+    margin-top: 16px;
+  }
+}

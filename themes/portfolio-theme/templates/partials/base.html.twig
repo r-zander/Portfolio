@@ -53,7 +53,9 @@
 </head>
 <body {{ bodyAttributes }}>
 	<header>
-		<a href="#contact" data-featherlight="#contact" class="contactLink icon-contact button">Me</a>
+		<a href="#contact" data-featherlight="#contact" class="headerLink contactLink icon-contact button">Me</a>
+{#		TODO CV Link #}
+{#		<a href="{{ url('user://data/CV Raoul Zander.pdf') }}" class="headerLink cvLink pdf-icon">CV</a>#}
 		<div class="headline">
 			<h1>
 				<a href="{{ base_url == '' ? '/' : base_url }}">

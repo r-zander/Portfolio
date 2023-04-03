@@ -10,8 +10,6 @@
 			<h3>Coder</h3>
 			<div class="tableContainer">
 				<table class="skills">
-					<caption>Skill Levels</caption>
-
 					{% macro skillRow(tagPageUrl, language, title, rating, taxonomy) %}
 						<tr class="skillRow">
 							{% set numberOfProjects = taxonomy.findTaxonomy({'language': language})|length %}
@@ -51,7 +49,7 @@
 			<h2>Raoul Zander</h2>
 			<h3>Coder</h3>
 			<p>
-				I'm a 32 year-old from Berlin and into coding since I was 14.
+				I'm a {{ date('1989-08-14').diff(date('now')).y }} year-old from Berlin and into coding since I was 14.
 			</p>
 			<p>
 				I enjoy creating both, interactive visuals and abstract software architecture.

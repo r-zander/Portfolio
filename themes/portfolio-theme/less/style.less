@@ -61,7 +61,7 @@ header {
 		}
 	}
 
-	> .contactLink {
+	> .headerLink {
 		float: right;
 		.panel;
 		background: none;
@@ -69,9 +69,7 @@ header {
 		border-bottom-left-radius: 0;
 		line-height: 2em;
 		margin-left: @gridPadding;
-		border-left: 2px solid @accentColor;
-		border-right: 2px solid @accentColor;
-		border: 2px solid @accentColor;
+		border: 2px solid currentColor;
 		padding-top: (@gridPadding - 2px);
 		padding-bottom: (@gridPadding - 2px);
 
@@ -79,6 +77,18 @@ header {
 			margin-right: 0.5em;
 			font-size: 1.5em;
 			vertical-align: middle;
+		}
+
+		&.cvLink {
+			color: @panelBackgroundColor;
+			border-top-right-radius: 0;
+
+			&.hover,
+			&:hover,
+			&:focus,
+			&:active {
+				animation: pulsating-dark 1.2s ease-in-out infinite alternate;
+			}
 		}
 	}
 }
@@ -387,6 +397,15 @@ h1 a {
 	}
 	to {
 		box-shadow: 0 0 @insideGlowRadius 0 @accentColor inset;
+	}
+}
+
+@keyframes pulsating-dark {
+	from {
+		box-shadow: 0 0 (@insideGlowRadius * @pulseFactor) 0 @panelBackgroundColor inset;
+	}
+	to {
+		box-shadow: 0 0 @insideGlowRadius 0 @panelBackgroundColor inset;
 	}
 }
 

@@ -511,7 +511,7 @@ header > .headline > h2::before {
   content: "::";
   margin: 0 0.5em;
 }
-header > .contactLink {
+header > .headerLink {
   float: right;
   background-color: #222222;
   color: #ffffff;
@@ -522,16 +522,25 @@ header > .contactLink {
   border-bottom-left-radius: 0;
   line-height: 2em;
   margin-left: 16px;
-  border-left: 2px solid DeepSkyBlue;
-  border-right: 2px solid DeepSkyBlue;
-  border: 2px solid DeepSkyBlue;
+  border: 2px solid currentColor;
   padding-top: 14px;
   padding-bottom: 14px;
 }
-header > .contactLink:before {
+header > .headerLink:before {
   margin-right: 0.5em;
   font-size: 1.5em;
   vertical-align: middle;
+}
+header > .headerLink.cvLink {
+  color: #222222;
+  border-top-right-radius: 0;
+}
+
+header > .headerLink.cvLink.hover,
+header > .headerLink.cvLink:hover,
+header > .headerLink.cvLink:focus,
+header > .headerLink.cvLink:active {
+  animation: pulsating-dark 1.2s ease-in-out infinite alternate;
 }
 main {
   padding: 16px 32px;
@@ -771,6 +780,14 @@ h1 a {
   }
   to {
     box-shadow: 0 0 1em 0 DeepSkyBlue inset;
+  }
+}
+@keyframes pulsating-dark {
+  from {
+    box-shadow: 0 0 0.75em 0 #222 inset;
+  }
+  to {
+    box-shadow: 0 0 1em 0 #222 inset;
   }
 }
 .insideGlow {
@@ -1187,7 +1204,7 @@ h1 a {
 #contact .tableContainer {
   padding-top: 0.65em;
   padding-bottom: 0.8em;
-  border: 1px solid DeepSkyBlue;
+  border: 3px solid DeepSkyBlue;
   border-left: none;
   border-right: none;
   background: #222222;
@@ -1283,7 +1300,7 @@ h1 a {
   position: absolute;
   left: 0;
   top: 0.75em;
-  border: 0.2em solid DeepSkyBlue;
+  border: 3px solid DeepSkyBlue;
   border-left: none;
   border-bottom: none;
   height: 16em;

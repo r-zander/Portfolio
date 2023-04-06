@@ -535,7 +535,6 @@ header > .headerLink.cvLink {
   color: #222222;
   border-top-right-radius: 0;
 }
-
 header > .headerLink.cvLink.hover,
 header > .headerLink.cvLink:hover,
 header > .headerLink.cvLink:focus,
@@ -784,10 +783,10 @@ h1 a {
 }
 @keyframes pulsating-dark {
   from {
-    box-shadow: 0 0 0.75em 0 #222 inset;
+    box-shadow: 0 0 0.75em 0 #222222 inset;
   }
   to {
-    box-shadow: 0 0 1em 0 #222 inset;
+    box-shadow: 0 0 1em 0 #222222 inset;
   }
 }
 .insideGlow {

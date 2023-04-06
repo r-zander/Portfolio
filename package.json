@@ -1,0 +1,17 @@
+{
+  "name": "rza-portfolio",
+  "version": "1.1.0",
+  "description": "Source code of my personal portfolio website.",
+  "scripts": {
+    "build-css": "lessc themes/portfolio-theme/less/style.less themes/portfolio-theme/css-compiled/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/r-zander/Portfolio.git"
+  },
+  "author": "Raoul Zander",
+  "homepage": "http://rza.io",
+  "devDependencies": {
+    "less": "^4.1.3"
+  }
+}

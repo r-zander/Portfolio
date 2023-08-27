@@ -3,7 +3,8 @@
   "version": "1.1.0",
   "description": "Source code of my personal portfolio website.",
   "scripts": {
-    "build-css": "lessc themes/portfolio-theme/less/style.less themes/portfolio-theme/css-compiled/style.css"
+    "build-css": "lessc themes/portfolio-theme/less/style.less themes/portfolio-theme/css-compiled/style.css",
+    "build-mini-blog": "lessc mini-blog/css/mini-blog.less mini-blog/css/mini-blog.css"
   },
   "repository": {
     "type": "git",

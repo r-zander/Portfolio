@@ -53,17 +53,19 @@ Temporary Items
 # ==================================
 # Custom ignores
 # ==================================
-.idea/
-node_modules/
-accounts/
-localhost/
-plugins/*/
-!plugins/list-files/
-themes/*/
-!themes/portfolio-theme/
+/.idea/
+/accounts/
+/data/feed/
+/data/notifications/
+/localhost/
+/node_modules/
+/plugins/*/
+/!plugins/list-files/
+/themes/*/
+!/themes/portfolio-theme/
 
-assets/readme_1.png
-config/security.yaml
-config/plugins/private.yaml
-data/CV Raoul Zander.pdf
+/assets/readme_1.png
+/config/security.yaml
+/config/plugins/private.yaml
+/data/CV Raoul Zander.pdf
 /cv-assets/cv.css.map

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Raoul Zander :: Micro Blog</title>
+    <title>Mini Blog :: Raoul Zander</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Fondamento&family=Metamorphous&display=swap" rel="stylesheet">
     <link href="embeds/fonts/summertime/stylesheet.css" rel="stylesheet">
@@ -19,7 +19,7 @@
         <div class="article-time">
             <time datetime="2019-07-15">15. Jul 2019</time>
         </div>
-        <h2>Fonts, Part 1</h2> <!-- Parts could be added automatically for each headline with the same name -->
+        <h2>Fonts, Part 1</h2> <!-- TODO Parts could be added automatically for each headline with the same name -->
         <p>
             Two nice fonts for medieval fantasy settings are
             <a href="https://fonts.google.com/specimen/Metamorphous" target="_blank">Metamorphous</a>
@@ -46,13 +46,15 @@
             </dd>
         </dl>
 
-        <div>
+        <div class="tags">
             <strong>Tags</strong>
             <a href="#" class="tag category">Font <small class="numberOfProjects">3</small></a>
             <a href="#" class="tag">Fantasy <small class="numberOfProjects">1</small></a>
             <a href="#" class="tag">Medieval <small class="numberOfProjects">1</small></a>
         </div>
     </article>
+
+    <hr class="article-separator"/>
 
     <!-- https://trello.com/c/Q8m4IIbn/188-confirmation-for-the-undecided -->
     <article>
@@ -70,8 +72,10 @@
         <!--        </div>-->
 
         <!--        https://dopiaza.org/tools/datauri/index.php -->
-        <iframe src="assets/confirmation-for-the-undecided.html" allowtransparency="true"
-                height="250"></iframe>
+        <iframe src="embeds/confirmation-for-the-undecided.html"
+                allowtransparency="true"
+                height="250">
+        </iframe>
         <!--        <iframe src="data:text/html;base64,PCFET0NUWVBFIGh0bWw+DQo8aHRtbCBsYW5nPSJlbiI+DQo8aGVhZD4NCiAgICA8bWV0YSBjaGFyc2V0PSJVVEYtOCI+DQogICAgPHRpdGxlPkNvbmZpcm1hdGlvbiBmb3IgdGhlIHVuZGVjaWRlZCA6OiBQYXR0ZXJuIDo6IFJhb3VsIFphbmRlcjwvdGl0bGU+DQoNCiAgICA8c3R5bGU+DQogICAgICAgIGh0bWwsIGJvZHkgew0KICAgICAgICAgICAgYmFja2dyb3VuZDogbm9uZTsNCiAgICAgICAgICAgIG1hcmdpbjogMDsNCiAgICAgICAgICAgIHBhZGRpbmc6IDA7DQogICAgICAgIH0NCg0KICAgICAgICBtYWluIHsNCiAgICAgICAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTsNCiAgICAgICAgICAgIHdpZHRoOiAxNWVtOw0KICAgICAgICAgICAgbWFyZ2luOiAwIGF1dG87DQoNCiAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6IHdoaXRlOw0KICAgICAgICAgICAgYm9yZGVyOiAycHggc29saWQgYmxhY2s7DQogICAgICAgICAgICBib3gtc2hhZG93OiA0cHggNHB4IDVweCAwIHJnYmEoMCwgMCwgMCwgMC41KTsNCg0KICAgICAgICAgICAgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWY7DQogICAgICAgICAgICBmb250LXNpemU6IDI0cHg7DQogICAgICAgIH0NCg0KICAgICAgICAucmVzdWx0IHsNCiAgICAgICAgICAgIGRpc3BsYXk6IG5vbmU7DQogICAgICAgICAgICBwb3NpdGlvbjogYWJzb2x1dGU7DQogICAgICAgICAgICB0b3A6IDUwJTsNCiAgICAgICAgICAgIGxlZnQ6IDUwJTsNCiAgICAgICAgICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlKC01MCUsIC01MCUpOw0KICAgICAgICB9DQoNCiAgICAgICAgLnJlcGVhdCB7DQogICAgICAgICAgICBkaXNwbGF5OiBub25lOw0KICAgICAgICAgICAgcG9zaXRpb246IGFic29sdXRlOw0KICAgICAgICAgICAgYm90dG9tOiAwOw0KICAgICAgICAgICAgbGVmdDogNTAlOw0KICAgICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgMCk7DQogICAgICAgICAgICBwYWRkaW5nOiAxZW07DQogICAgICAgIH0NCg0KICAgICAgICAucmVwZWF0LWJ1dHRvbiB7DQogICAgICAgICAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7DQogICAgICAgICAgICBvcGFjaXR5OiAwOw0KICAgICAgICAgICAgd2lkdGg6IGF1dG87DQogICAgICAgICAgICBwYWRkaW5nLWxlZnQ6IDAuNWVtOw0KICAgICAgICAgICAgcGFkZGluZy1yaWdodDogMC41ZW07DQogICAgICAgICAgICBhbmltYXRpb246IGZhZGUtaW4gMC4zcyBlYXNlLWluIDFzIGZvcndhcmRzOw0KICAgICAgICB9DQoNCiAgICAgICAgQGtleWZyYW1lcyBmYWRlLWluIHsNCiAgICAgICAgICAgIHRvIHsNCiAgICAgICAgICAgICAgICBvcGFjaXR5OiAxOw0KICAgICAgICAgICAgfQ0KICAgICAgICB9DQoNCiAgICAgICAgLnNob3ctcmVzdWx0IC5yZXN1bHQsDQogICAgICAgIC5zaG93LXJlc3VsdCAucmVwZWF0IHsNCiAgICAgICAgICAgIGRpc3BsYXk6IGJsb2NrOw0KICAgICAgICB9DQoNCiAgICAgICAgLnNob3ctcmVzdWx0IC5kaWFsb2cgew0KICAgICAgICAgICAgdmlzaWJpbGl0eTogaGlkZGVuOyAvKiBrZWVwIGNvbnRlbnQgaGVpZ2h0ICovDQogICAgICAgIH0NCg0KICAgICAgICAucmVzdWx0ID4gLm1lc3NhZ2UuY29uZmlybWVkIHsNCiAgICAgICAgICAgIGNvbG9yOiBoc2woMTA1LCA3NSUsIDQwJSk7DQogICAgICAgIH0NCg0KICAgICAgICAucmVzdWx0ID4gLm1lc3NhZ2UuZGVjbGluZWQgew0KICAgICAgICAgICAgY29sb3I6IGhzbCgwLCA3NSUsIDQwJSk7DQogICAgICAgIH0NCg0KICAgICAgICBoZWFkZXIgew0KICAgICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogI0RERDsNCiAgICAgICAgICAgIHRleHQtYWxpZ246IGNlbnRlcjsNCiAgICAgICAgfQ0KDQogICAgICAgIGgyIHsNCiAgICAgICAgICAgIG1hcmdpbjogMDsNCg0KICAgICAgICAgICAgZm9udC1zaXplOiAxZW07DQogICAgICAgICAgICBmb250LXdlaWdodDogYm9sZDsNCiAgICAgICAgICAgIGxpbmUtaGVpZ2h0OiAxNTAlOw0KICAgICAgICB9DQoNCiAgICAgICAgcCB7DQogICAgICAgICAgICBtYXJnaW46IDFlbTsNCiAgICAgICAgfQ0KDQogICAgICAgIGZvb3RlciB7DQogICAgICAgICAgICBwYWRkaW5nOiAwIDFlbSAxZW07DQogICAgICAgIH0NCg0KICAgICAgICBidXR0b24gew0KICAgICAgICAgICAgcG9zaXRpb246IHJlbGF0aXZlOw0KICAgICAgICAgICAgd2lkdGg6IDcwJTsNCiAgICAgICAgICAgIG1hcmdpbjogMCBhdXRvOw0KICAgICAgICAgICAgYm9yZGVyOiAycHggc29saWQgYmxhY2s7DQogICAgICAgICAgICBib3gtc2hhZG93OiAycHggMnB4IDNweCAwIHJnYmEoMCwgMCwgMCwgMC41KTsNCiAgICAgICAgICAgIGZvbnQ6IGluaGVyaXQ7DQogICAgICAgICAgICBkaXNwbGF5OiBmbGV4Ow0KICAgICAgICAgICAgZmxleC1kaXJlY3Rpb246IHJvdzsNCiAgICAgICAgICAgIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjsNCiAgICAgICAgICAgIHRyYW5zaXRpb246IGJveC1zaGFkb3cgMC4xNXM7DQogICAgICAgIH0NCg0KICAgICAgICBidXR0b24gPiBzcGFuIHsNCiAgICAgICAgICAgIHBhZGRpbmc6IDAgMC41ZW07DQogICAgICAgIH0NCg0KICAgICAgICBidXR0b246aG92ZXIgew0KICAgICAgICAgICAgYm94LXNoYWRvdzogMXB4IDFweCAzcHggMCByZ2JhKDAsIDAsIDAsIDAuNSk7DQogICAgICAgIH0NCg0KICAgICAgICBidXR0b246YWN0aXZlIHsNCiAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6ICNEREQ7DQogICAgICAgIH0NCg0KICAgICAgICBidXR0b246Zm9jdXMgew0KICAgICAgICAgICAgb3V0bGluZTogbm9uZSAhaW1wb3J0YW50Ow0KICAgICAgICB9DQoNCiAgICAgICAgLmNsaWNrLWZlZWRiYWNrIHsNCiAgICAgICAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTsNCiAgICAgICAgICAgIHRvcDogMDsNCiAgICAgICAgICAgIG9wYWNpdHk6IDA7DQogICAgICAgICAgICBmb250LXN0eWxlOiBub3JtYWw7DQogICAgICAgICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlLCAwKTsNCiAgICAgICAgICAgIHRyYW5zaXRpb246IG5vbmUgMHM7DQogICAgICAgICAgICB0cmFuc2l0aW9uLXByb3BlcnR5OiBvcGFjaXR5LCB0cmFuc2Zvcm07DQogICAgICAgIH0NCg0KICAgICAgICAvKmJ1dHRvbjphY3RpdmUgPiAuY2xpY2stZmVlZGJhY2ssKi8NCiAgICAgICAgLmNsaWNrLWZlZWRiYWNrLmFjdGl2ZSB7DQogICAgICAgICAgICBvcGFjaXR5OiAxOw0KICAgICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTEuNWVtKTsNCiAgICAgICAgICAgIHRyYW5zaXRpb246IG5vbmUgMC4xNXMgY3ViaWMtYmV6aWVyKDAsIDAuNTUsIDAuNDUsIDEpOw0KICAgICAgICAgICAgdHJhbnNpdGlvbi1wcm9wZXJ0eTogb3BhY2l0eSwgdHJhbnNmb3JtOw0KICAgICAgICB9DQogICAgPC9zdHlsZT4NCjwvaGVhZD4NCjxib2R5Pg0KDQo8bWFpbj4NCiAgICA8ZGl2IGNsYXNzPSJkaWFsb2ciPg0KICAgICAgICA8aGVhZGVyPg0KICAgICAgICAgICAgPGgyPkNvbmZpcm08L2gyPg0KICAgICAgICA8L2hlYWRlcj4NCg0KICAgICAgICA8cD4NCiAgICAgICAgICAgIFdvdWxkIHlvdSBsaWtlIHRvIGNvbmZpcm0gdGhpcyBvdmVybHkgY29tcGxpY2F0ZWQsIGJ1dCB5ZXQgdmVyeSBuZWNlc3NhcnkgcXVlc3Rpb24/DQogICAgICAgIDwvcD4NCg0KICAgICAgICA8Zm9vdGVyPg0KICAgICAgICAgICAgPGJ1dHRvbj4NCiAgICAgICAgICAgICAgICA8c3Bhbj5Obzwvc3Bhbj4NCiAgICAgICAgICAgICAgICA8c3Bhbj5ZZXM8L3NwYW4+DQogICAgICAgICAgICAgICAgPGkgY2xhc3M9ImNsaWNrLWZlZWRiYWNrIj43NSUhPC9pPg0KICAgICAgICAgICAgPC9idXR0b24+DQogICAgICAgIDwvZm9vdGVyPg0KICAgIDwvZGl2Pg0KDQogICAgPGRpdiBjbGFzcz0icmVzdWx0Ij4NCiAgICAgICAgPHAgY2xhc3M9Im1lc3NhZ2UiPkNvbmZpcm1lZCEgLyBEZWNsaW5lZCE8L3A+DQogICAgPC9kaXY+DQogICAgPGRpdiBjbGFzcz0icmVwZWF0Ij4NCiAgICAgICAgPGJ1dHRvbiBjbGFzcz0icmVwZWF0LWJ1dHRvbiI+QWdhaW48L2J1dHRvbj4NCiAgICA8L2Rpdj4NCjwvbWFpbj4NCg0KDQo8c2NyaXB0IHR5cGU9InRleHQvamF2YXNjcmlwdCI+DQogICAgbGV0IGJ1dHRvbiA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoJ2J1dHRvbicpOw0KICAgIGxldCBjbGlja0ZlZWRiYWNrID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcignLmNsaWNrLWZlZWRiYWNrJyk7DQogICAgbGV0IHJlc3VsdCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoJy5yZXN1bHQgPiAubWVzc2FnZScpOw0KICAgIGxldCByZWN0ID0gYnV0dG9uLmdldEJvdW5kaW5nQ2xpZW50UmVjdCgpOw0KDQogICAgZnVuY3Rpb24gcmVsYXRpdmVQb3NpdGlvbihjbGllbnRYKSB7DQogICAgICAgIGxldCB4ID0gY2xpZW50WCAtIHJlY3QubGVmdDsNCiAgICAgICAgcmV0dXJuIHggLyByZWN0LndpZHRoOw0KICAgIH0NCg0KICAgIGZ1bmN0aW9uIHVwZGF0ZUJ1dHRvbihldmVudCkgew0KICAgICAgICBsZXQgcmF3UGVyY2VudCA9IHJlbGF0aXZlUG9zaXRpb24oZXZlbnQuY2xpZW50WCk7DQogICAgICAgIGxldCBwZXJjZW50ID0gKChyYXdQZXJjZW50KSAqIDEwMCkudG9GaXhlZCgwKSArICclJzsNCiAgICAgICAgbGV0IGNvbG9yID0gJ2hzbCgnICsgKDEwNSAqIHJhd1BlcmNlbnQpLnRvRml4ZWQoMCkgKyAnLCAzNCUsIDYyJSknOw0KICAgICAgICBidXR0b24uc3R5bGUuYmFja2dyb3VuZEltYWdlID0gJ2xpbmVhci1ncmFkaWVudCh0byByaWdodCwgJyArIGNvbG9yICsgJyAnICsgcGVyY2VudCArICcsICNFRkVGRUYgJyArIHBlcmNlbnQgKyAnLCAjRUZFRkVGKSc7DQogICAgfQ0KDQogICAgYnV0dG9uLmFkZEV2ZW50TGlzdGVuZXIoJ21vdXNlbW92ZScsIGV2ZW50ID0+IHsNCiAgICAgICAgdXBkYXRlQnV0dG9uKGV2ZW50KTsNCiAgICB9KTsNCiAgICBidXR0b24uYWRkRXZlbnRMaXN0ZW5lcignbW91c2VsZWF2ZScsICgpID0+IHsNCiAgICAgICAgYnV0dG9uLnN0eWxlLnJlbW92ZVByb3BlcnR5KCdiYWNrZ3JvdW5kLWltYWdlJyk7DQogICAgfSk7DQoNCiAgICBidXR0b24uYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCBldmVudCA9PiB7DQogICAgICAgIGlmIChjbGlja0ZlZWRiYWNrLmNsYXNzTGlzdC5jb250YWlucygnYWN0aXZlJykpIHJldHVybjsNCg0KICAgICAgICBsZXQgcmF3UGVyY2VudCA9IHJlbGF0aXZlUG9zaXRpb24oZXZlbnQuY2xpZW50WCk7DQogICAgICAgIGxldCBwZXJjZW50ID0gKChyYXdQZXJjZW50KSAqIDEwMCkudG9GaXhlZCgwKSArICclJzsNCiAgICAgICAgY2xpY2tGZWVkYmFjay5zdHlsZS5jb2xvciA9ICdoc2woJyArICgxMDUgKiByYXdQZXJjZW50KS50b0ZpeGVkKDApICsgJywgNjAlLCA2MiUpJzsNCiAgICAgICAgY2xpY2tGZWVkYmFjay5zdHlsZS5sZWZ0ID0gcGVyY2VudDsNCiAgICAgICAgY2xpY2tGZWVkYmFjay50ZXh0Q29udGVudCA9IHBlcmNlbnQ7DQogICAgICAgIGNsaWNrRmVlZGJhY2suY2xhc3NMaXN0LmFkZCgnYWN0aXZlJyk7DQogICAgICAgIHNldFRpbWVvdXQoKCkgPT4gew0KICAgICAgICAgICAgY2xpY2tGZWVkYmFjay5jbGFzc0xpc3QucmVtb3ZlKCdhY3RpdmUnKTsNCiAgICAgICAgICAgIGRvY3VtZW50LmJvZHkuY2xhc3NMaXN0LmFkZCgnc2hvdy1yZXN1bHQnKTsNCiAgICAgICAgICAgIGxldCBybmQgPSBNYXRoLnJhbmRvbSgpOw0KICAgICAgICAgICAgbGV0IGNvbmZpcm1lZCA9IHJuZCA8IHJhd1BlcmNlbnQ7DQogICAgICAgICAgICByZXN1bHQudGV4dENvbnRlbnQgPSBjb25maXJtZWQgPyAnQ29uZmlybWVkIScgOiAnRGVjbGluZWQhJzsNCiAgICAgICAgICAgIHJlc3VsdC5jbGFzc0xpc3QudG9nZ2xlKCdjb25maXJtZWQnLCBjb25maXJtZWQpOw0KICAgICAgICAgICAgcmVzdWx0LmNsYXNzTGlzdC50b2dnbGUoJ2RlY2xpbmVkJywgIWNvbmZpcm1lZCk7DQogICAgICAgIH0sIDEwMDApOw0KICAgIH0pOw0KDQogICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcignLnJlcGVhdC1idXR0b24nKS5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsIChldmVudCkgPT4gew0KICAgICAgICBkb2N1bWVudC5ib2R5LmNsYXNzTGlzdC5yZW1vdmUoJ3Nob3ctcmVzdWx0Jyk7DQogICAgICAgIC8vIEluIGNhc2UgdGhlIG1vdXNlIGlzIHN0aWxsIG92ZXIgdGhlIGNvbmZpcm1hdGlvbiBidXR0b24sIHVwZGF0ZSBpdA0KICAgICAgICB1cGRhdGVCdXR0b24oZXZlbnQpOw0KICAgIH0pOw0KPC9zY3JpcHQ+DQoNCjwvYm9keT4NCjwvaHRtbD4NCg==" allowtransparency="true" height="250"></iframe>-->
 
         <p>Both answers form a single button, the cursor position on the button is shown as relatve filling and a click
@@ -82,12 +86,14 @@
         <p class="separated">But seriously, what you should do is label your buttons with clear verbs that indicate what
             the user can do, e.g. "Confirm" &amp; "Cancel".</p>
 
-        <div>
+        <div class="tags">
             <strong>Tags</strong>
             <a href="#" class="tag category">UX Pattern <small class="numberOfProjects">3</small></a>
             <a href="#" class="tag">Playful <small class="numberOfProjects">1</small></a>
         </div>
     </article>
+
+    <hr class="article-separator"/>
 
     <!-- https://trello.com/c/5RxfeEAY/121-schriftarten -->
     <article>
@@ -97,7 +103,8 @@
         <h2>Fonts, Part 2</h2> <!-- Parts could be added automatically for each headline with the same name -->
         <p>
             This time I'd like to highlight two fonts that catched my eye while watching a rather unknown movie called
-            <a href="https://en.wikipedia.org/wiki/Jack_and_the_Cuckoo-Clock_Heart">"Jack and the Cuckoo-Clock Heart"</a>
+            <a href="https://en.wikipedia.org/wiki/Jack_and_the_Cuckoo-Clock_Heart">"Jack and the Cuckoo-Clock
+                Heart"</a>
             (orig. fr. "Jack et la mécanique du coeur", ger. "Jack und das Kuckucksuhrherz").
             <!-- Die Übersetzungen könnten als Hover/Tooltip implementiert werden -->
             The movie was shown at the 64th Berlin International Film Festival and later on released directly to Blu-Ray.
@@ -106,8 +113,6 @@
             The intro of the movie already starts out with two playful, old-timey but still nicely readable fonts forming
             the main credits of the production.
         </p>
-
-
 
         <dl class="font-preview">
             <dt>Landsdowne</dt>
@@ -152,24 +157,31 @@
             of those alphabet styles, which hold special summertime memories for me from my childhood.
         </blockquote>
 
-        <div>
+        <div class="tags">
             <strong>Tags</strong>
             <a href="#" class="tag category">Font <small class="numberOfProjects">3</small></a>
             <a href="#" class="tag">Movies <small class="numberOfProjects">1</small></a>
         </div>
     </article>
 
+    <hr class="article-separator"/>
+
     <article>
         <p><a href="https://trianglify.io/">Triangle Pattern Generator</a></p>
         <p><a href="http://matthew.wagerfield.com/flat-surface-shader/">Flat Surface Shader</a></p>
 
-        <p><strong>Keywords</strong></p>
-        <ul>
-            <li>Trianglify</li>
-            <li>Low Poly</li>
-            <li>Background Generator</li>
-        </ul>
+        <div class="tags">
+            <p><strong>Keywords</strong></p>
+            <ul>
+                <li>Trianglify</li>
+                <li>Low Poly</li>
+                <li>Background Generator</li>
+            </ul>
+        </div>
     </article>
+
+    <hr class="article-separator"/>
+
     <article>
         <h2><i>Offene Fragen</i></h2>
 

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Gamescom :: Raouls Mini Blog</title>
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale " content="de_DE">
+    <meta property="og:url" content="http://rza.io/mini-blog/gamescom-2023.html">
+    <meta property="og:title" content="Gamescom :: Raouls Mini Blog">
+    <meta property="og:description"
+          content="Gamescom 2023 - Spiele die mir gefallen haben und Erkenntnisse über gutes Standdesign.">
+    <meta property="og:image" content="http://rza.io/mini-blog/embeds/images/2023-08-27/gamescom-2023.png">
+
+    <link href="css/mini-blog.css" rel="stylesheet">
+    <style>
+        main {
+            font-size: 20px;
+        }
+
+        [data-added] {
+            opacity: 0.6;
+        }
+
+        [data-added]::before {
+            content: "[" attr(data-added) "]";
+            font-family: monospace;
+            margin-right: 0.3em;
+            color: #AAAAAA;
+        }
+
+        [data-added="2023"] {
+            opacity: 1;
+        }
+
+        [data-added="2023"]::before {
+            color: deepskyblue;
+        }
+
+        .gamescom-timetable {
+            table-layout: fixed;
+            background-color: black;
+            font-size: 80%;
+            text-align: center;
+            border: 2px dashed white;
+            border-spacing: 0 1em;
+        }
+
+        .gamescom-timetable th,
+        .gamescom-timetable td {
+            width: 20%;
+            padding: 0.5em;
+        }
+
+        .gamescom-timetable th {
+            border-left: 2px dashed white;
+        }
+
+        .gamescom-timetable th:first-of-type {
+            border-left: none;
+        }
+
+        .gamescom-timetable td.business,
+        .gamescom-timetable td.public,
+        .gamescom-timetable td.raoul {
+            border: 2px solid currentColor;
+            border-top-width: 22px;
+        }
+
+        .gamescom-timetable td.business {
+            color: #8400FF;
+        }
+
+        .gamescom-timetable td.public {
+            color: #01BAFD;
+        }
+
+        .gamescom-timetable td.raoul {
+            color: #D00030;
+        }
+
+        .gamescom-timetable td.raoul:not(:first-of-type) {
+            border-left: none;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <h1>Raouls Mini Blog</h1>
+
+    <article id="intro">
+        <div class="article-time">
+            <time datetime="2023-08-27">27. Aug 2023</time>
+        </div>
+        <h2><a href="./gamescom-2023">Gamescom 2023</a></h2>
+        <div class="image-container centered">
+            <img src="embeds/images/2023-08-27/gamescom-2023.png"/>
+        </div>
+        <table class="gamescom-timetable">
+            <tr>
+                <th>Wednesday<br/>23.08.</th>
+                <th>Thursday<br/>24.08.</th>
+                <th>Friday<br/>25.08.</th>
+                <th>Saturday<br/>26.08.</th>
+                <th>Sunday<br/>27.08.</th>
+            </tr>
+            <tr>
+                <td class="business"><strong>Open for trade visitors & media</strong></td>
+                <td class="public" colspan="4">
+                    <strong>entertainment area</strong><br/>
+                    open for everyone
+                </td>
+            </tr>
+            <tr>
+                <td class="business" colspan="3">
+                    <strong>business area</strong><br/>
+                    open for trade visitors and media exclusively
+                </td>
+                <td class="empty" colspan="2"></td>
+            </tr>
+            <tr>
+                <td class="raoul">
+                    Anreise<br/>
+                    Tag 1
+                </td>
+                <td class="raoul">
+                    Tag 2
+                </td>
+                <td class="raoul">
+                    Tag 3
+                </td>
+                <td class="raoul">
+                    Tag 4<br/>
+                    Abreise
+                </td>
+                <td class="empty"></td>
+            </tr>
+        </table>
+
+        <p>
+            Vom 23. Aug bis 26. Aug war ich dieses Jahr auf der Gamescom.
+            Zwei Dinge möchte ich in Form eines kleinen Blogeintrags festhalten:
+        </p>
+        <nav class="table-of-contents">
+            <ol>
+                <li>
+                    <a href="#games">Coole Spiele</a>
+                </li>
+                <li>
+                    <a href="#exhibit">Spiele erfolgreich ausstellen</a>
+                    <ol type="a">
+                        <li><a href="#exhibit_ingame">Ingame</a></li>
+                        <li><a href="#exhibit_booth">Standdesign</a></li>
+                    </ol>
+                </li>
+            </ol>
+        </nav>
+    </article>
+
+    <hr class="article-separator"/>
+
+    <article id="games">
+        <div class="article-time">
+            <time datetime="2023-08-27">27. Aug 2023</time>
+        </div>
+        <h2><a href="#games">Part 1: Coole Spiele</a></h2>
+
+        <section class="alternating-paragraphs">
+            <p>
+                <iframe src="https://store.steampowered.com/widget/1424860/" class="steam-embed"></iframe>
+                <span class="description">
+                    Couch-Coop Tower-Defense mit der richtigen Mischung aus fordernd und chaotisch. Die Version vom letzten
+                    Jahr hat sich noch sehr roh angefühlt, aber dieses Jahr konnte ich mich kaum von dem Spiel trennen.
+                </span>
+            </p>
+
+            <p>
+                <iframe src="https://store.steampowered.com/widget/1989070/" class="steam-embed"></iframe>
+                <span class="description">
+                    Immer auf der Suche nach süßen Strategiespielen ist mir <u>Synergy</u>s Pastel-Artstyle ins Auge
+                    gefallen. Ob das Gameplay gut ist, wird sich erst noch zeigen müssen, da ich es nicht anspielen konnte.
+                </span>
+            </p>
+
+            <p>
+                <iframe src="https://store.steampowered.com/widget/2495350/" class="steam-embed"></iframe>
+                <span class="description">
+                    Bashtronaut ist alles, was man von einem Indie-Spiel wollen könnte: Straight-to-the-point Gameplay, unique
+                    Artstyle, quirky Humor. Definitiv ein Top-Down Hack'n'Slash auf das ich mich sehr freue.
+                </span>
+            </p>
+
+            <p>
+                <iframe src="https://store.steampowered.com/widget/1956770/" class="steam-embed"></iframe>
+                <span class="description">
+                    Twin-Stick-Shooter der einerseits grafisch und featuremäßig sehr ausgereift aussieht.<br/>
+                    Andererseits scheint es einen interessanten Twist zu geben, durch den man Roboter spielt, die aber
+                    Emotionen haben. Oder die Gegner-Roboter haben Emotionen und man versucht sie auszumerzen?<br/>
+                    Jedenfalls etwas in der Art. Gameplay sieht einfach smooth & juicy aus.
+                </span>
+            </p>
+
+            <p>
+                <iframe src="https://store.steampowered.com/widget/1123240/" class="steam-embed"></iframe>
+                <span class="description">
+                    Im Prinzip dieselben Punkte wie zu M.O.O.D.S. - nur dass man eine Ratte spielt. Aber gibt sicherlich
+                    nicht zu genug high-polished Twin-Stick-Shooter.
+                </span>
+            </p>
+
+            <p>
+                <iframe src="https://store.steampowered.com/widget/2155180/" class="steam-embed"></iframe>
+                <span class="description">
+                    Zur <u>Siedler</u>-Reihe habe ich eine spezielle Verbindung, war <u>Siedler 1</u> doch das erste
+                    Computerspiel das ich je gespielt habe. Ich hatte mich ziemlich auf <u>Siedler 8</u> gefreut, aber
+                    das war mehr als enttäuschend. Und jetzt ist <u>Volker Wertich</u> zurück mit einem neuen Wusel-Simulator.<br/>
+                    Ich bin sehr gespannt!
+                </span>
+            </p>
+
+            <p>
+                <iframe src="https://store.steampowered.com/widget/1960070/" class="steam-embed"></iframe>
+                <span class="description">
+                    Ein gut-gemachter <u>Ori</u>-Klon? Sieht jedenfalls schon sehr gut aus.
+                </span>
+            </p>
+
+            <p>
+                <iframe src="https://store.steampowered.com/widget/1898500/" class="steam-embed"></iframe>
+                <span class="description">
+                    Noch ein Platformer, allerdings mit rundenbasiertem Kampf. Und was für einer einzigartigen Optik!
+                </span>
+            </p>
+
+            <p>
+                <iframe src="https://store.steampowered.com/widget/1260320/" class="steam-embed"></iframe>
+                <span class="description">
+                    Zum Abschluss der Liste ein niedliches Couch-PvP. Die Steuerung fühlt sich sehr wie <u>Gang Beasts</u>
+                    an, aber die Objectives sind vielfältiger als nur "fall nicht aus der Arena".
+                </span>
+            </p>
+        </section>
+
+        <div class="tags">
+            <strong>Tags</strong>
+            <a href="#" class="tag category">Event</a>
+            <a href="#" class="tag">Gamescom</a>
+            <a href="#" class="tag">Games</a>
+            <a href="#" class="tag">Industry</a>
+        </div>
+    </article>
+
+    <hr class="article-separator"/>
+
+    <article id="exhibit">
+        <div class="article-time">
+            <time datetime="2023-08-27">27. Aug 2023</time>
+        </div>
+        <h2><a href="#exhibit">Gamescom 2023 - Part II: Spiele erfolgreich ausstellen</a></h2>
+        <p>
+            Die folgenden Punkte bauen teilweise auf Erkenntnissen der Gamescom 2022 auf.
+            Neue Punkte von 2023 sind entsprechend markiert.
+        </p>
+        <h3 id="exhibit_ingame"><a href="#exhibit_ingame">Ingame</a></h3>
+        <p>
+            Extra-Features in Spielen, die mir positiv aufgefallen sind, um das Spiel erfolgreich zu
+            präsentieren. <b>Wichtig:</b> Nichts davon bleibt in der Release-Version! Sondern ist
+            nur zu Demozwecken.
+        </p>
+        <ul>
+            <li data-added="2023">
+                <b>Controls:</b> Die Main-Controls (die man evtl in einem Tutorial oder den ersten Minuten
+                des Spiels erklären würde) simpel als Floating UI im HUD anzeigen. Einfacher zu implementieren
+                als ein vollständiges Tutorial und erlaubt es Testern, sofort ins Spiel einzusteigen.
+            </li>
+            <li data-added="2023">
+                <b>Pseudo-Launcher:</b> Wenn euer Stand mehr als ein Spiel präsentiert, bietet es sich an nach jeder
+                Demo zurück in einen Auswahlbildschirm mit allen Spielen zurückzugehen. So zeigt theoretisch jedes
+                Gerät alle eure Spiele an und jeder Interessierte kann an jedem Gerät auch jedes Spiel ausprobieren.
+            </li>
+            <li data-added="2023">
+                <b>Demo-Timer:</b> Falls euer Spiel keinen abgrenzten Demo-Mode hat, kann eine einfache Lösung ein
+                Demo-Timer sein. Im HUD wird ein Countdown von 10 bis 15 Minuten angezeigt. Wenn dieser Countdown
+                ausläuft, ist die Demo zu Ende. Sinn und Zweck ist es zu verhindern, dass einzelne Spieler eure
+                begrenzten Geräte zu lange belegen und damit andere Interessierte von einer Testrunde abhalten.
+            </li>
+        </ul>
+
+        <h3 id="exhibit_booth"><a href="#exhibit_booth">Standdesign</a></h3>
+        <ul>
+            <li data-added="2022">
+                <b>Uniformen:</b> Um die Entwickler bzw. Aussteller schnell zu erkennen und auch in der
+                Menschenmenge herauszustechen, ist es sinnvoll wenn alle zum Spiel gehörenden Personen,
+                dasselbe Outfit tragen.<br/>
+                Das kann mit einem gemeinsamen Shirt beginnen, aber durchaus auch das gesamte Outfit
+                inkl. Accessoires wie Hüte oder Schlüsselband umfassen.
+            </li>
+            <li data-added="2023">
+                <b>Cosplay:</b> Wenig hat meinen Blick in der Indie-Booth so sehr gefangen wie Cosplays -
+                zu ihren entsprechenden Booths. Wenn man so möchte ist das eine Steigerung des vorherigen
+                Punktes, jedoch sehe ich den Sinn von Cosplays weniger in der Erkennbarkeit des Teams
+                als mehr im Blickfang.
+            </li>
+            <li>
+                <span data-added="2022">
+                    <b>Interessierte ansprechen:</b> Es ist wichtig, zögerliche Besucher anzusprechen
+                    und sie zu ermutigen, entweder Fragen zu stellen oder das Spiel auszuprobieren.
+                </span>
+                <span data-added="2023">
+                    Allerdings sollte man es nicht übertreiben. Gamer sind ein schüchternes
+                    Völkchen und es wirkt schnell scammy, wenn man Leute wie ein
+                    <a href="https://de.wikipedia.org/wiki/Koberer" class="external" target="_blank">Koberer</a> an
+                    seinen Stand drängt. Lustigerweise sind es eben auch oft "Nicht-Spiele" oder Web3-"Spiele" die
+                    auf genau solche Methoden zurückgreifen.
+                </span>
+            </li>
+        </ul>
+
+        <div class="tags">
+            <strong>Tags</strong>
+            <a href="#" class="tag category">Event</a>
+            <a href="#" class="tag">Gamescom</a>
+            <a href="#" class="tag">Games</a>
+            <a href="#" class="tag">Industry</a>
+        </div>
+    </article>
+</main>
+</body>
+</html>

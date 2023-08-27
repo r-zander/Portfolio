@@ -3,45 +3,32 @@ html {
     background-color: #000000;
     background-image: linear-gradient(147deg, #000000 0%, #2C3E50 74%);
     color: rgba(255, 255, 255, 0.9);
+
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: sans-serif;
+    font-family: "Open Sans", "Noto Sans", Roboto, Helvetica, Verdana, sans-serif;
 }
 
+@mainPadding: 30px;
+
 main {
-    background-color: rgba(34, 34, 34, 0.65);
     /*background-image: linear-gradient(to left, rgba(34,34,34,0) 30px, #222, rgba(34,34,34,0) 30px);*/
     max-width: 900px;
     margin: 0 auto;
     border-top: none;
     border-bottom: none;
-    padding: 30px;
+    padding: @mainPadding 0;
     font-size: 24px;
     min-height: 100vh;
 }
 
 article {
-    border-top: 1px solid rgba(255, 255, 255, 0.9);
     position: relative;
-    padding-top: 20px;
-    margin-top: 90px;
+    background-color: rgba(34, 34, 34, 0.65);
 
-    &::before {
-        content: "";
-
-        position: absolute;
-        top: 0;
-        left: 50%;
-        width: 15px;
-        height: 15px;
-
-        transform: translate(-50%, -50%);
-
-        background-color: rgba(255, 255, 255, 0.9);
-        border-radius: 50%;
-        border: 15px solid #222222;
-    }
+    padding: (@mainPadding / 3 * 2) @mainPadding @mainPadding;
 
     a {
         transition: text-shadow 0.3s;
@@ -73,6 +60,21 @@ article {
         }
     }
 
+    h2 > a,
+    h3 > a,
+    h4 > a,
+    h5 > a,
+    h6 > a {
+        &:link,
+        &:visited,
+        &:hover,
+        &:active,
+        &:focus {
+            color: inherit;
+            text-decoration: none;
+        }
+    }
+
     .example {
         font-style: italic;
     }
@@ -81,9 +83,26 @@ article {
         border: none;
         display: block;
         width: 100%;
+
+        &.steam-embed {
+            width: 646px;
+            height: 190px;
+            margin-bottom: 0.7em;
+
+            &.centered {
+                margin: 0 auto;
+            }
+        }
     }
 }
 
+h1 + article {
+    margin-top: 60px;
+}
+
+nav li {
+    line-height: 2;
+}
 
 .article-time {
     > time {
@@ -92,9 +111,11 @@ article {
         color: rgba(255, 255, 255, 0.7);
         border: 2px solid currentColor;
         border-radius: 1em 0 0 1em;
-        padding: 8px;
+        padding-left: 0.8em;
+        padding-right: 0.8em;
         font-size: 80%;
-        margin: 30px 0; /* match h2 outer height */
+        line-height: 2;
+        margin: 1.55em 0; /* match h2 outer height */
 
         position: relative;
     }
@@ -107,7 +128,7 @@ article {
         left: 100%;
         margin: -1px 0 0 2px;
         height: 2px;
-        width: 30px; /* match <main> padding */
+        width: @mainPadding;
         background-color: currentColor;
     }
 }
@@ -117,12 +138,14 @@ p.separated {
 }
 
 .image-container {
+    margin: 1em 0;
+
     > img {
         display: block;
         max-width: 100%;
     }
 
-    &.center > img {
+    &.centered > img {
         margin: 0 auto;
     }
 }
@@ -150,15 +173,33 @@ p.separated {
     }
 }
 
+.tags {
+    margin-top: 4em;
+    font-size: 80%;
+
+    > strong {
+        margin-right: 16px;
+    }
+}
+
 a.tag {
     display: inline-block;
-    line-height: 1.5;
-    text-decoration: none;
+
+    margin-right: 16px;
+    padding: .1em 16px;
+
     border: 1px solid DeepSkyBlue;
     border-top-right-radius: 16px;
     border-bottom-left-radius: 16px;
-    padding: .1em 16px;
-    margin-right: 16px;
+
+    line-height: 1.5;
+
+    text-transform: lowercase;
+    text-decoration: none;
+
+    &::before {
+        content: "#";
+    }
 
     &:link {
         color: inherit;
@@ -212,5 +253,77 @@ p.comment {
 
     &.todo::before {
         content: "// TODO "
+    }
+}
+
+.alternating-paragraphs {
+    > p {
+        position: relative;
+
+        display: flex;
+        flex-direction: column;
+
+        z-index: 1;
+
+        margin: 0;
+        padding-top: (@mainPadding * 1.5);
+        padding-bottom: (@mainPadding * 1.5);
+    }
+
+    > p:nth-of-type(2n) {
+        align-items: flex-end;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: -@mainPadding;
+            right: -@mainPadding;
+            z-index: -1;
+
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        iframe {
+            float: right;
+        }
+    }
+
+    > .description {
+        width: 100%;
+    }
+}
+
+hr.article-separator {
+    position: relative;
+
+    margin: 60px 0;
+    border: none;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.9);
+    width: calc(50% - 24px);
+    overflow: visible;
+
+    &::before {
+        content: "";
+
+        position: absolute;
+        right: -32px;
+        top: -8px;
+        background-color: inherit;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+    }
+
+    &::after {
+        content: "";
+
+        position: absolute;
+        left: calc(100% + 48px);
+        background-color: inherit;
+        width: 100%;
+        height: 100%;
     }
 }

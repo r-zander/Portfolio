@@ -18,7 +18,7 @@
 		{% for item,subItems in page.header.structure %}
 		<li>
 			<div class="itemWrapper">
-				<a href="#" class="categoryLink">
+				<a href="{{ page.find("/tag").url ~ "/:" ~ item }}" class="categoryLink">
 					<h2>
 						{{ themeConfig.tagMapping[item].title|default(item|capitalize) }}
 						<small class="numberOfProjects">{{ taxonomy.findTaxonomy({'tagLvl0':item})|length }} Projects</small>

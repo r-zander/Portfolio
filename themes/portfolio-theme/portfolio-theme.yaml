@@ -38,8 +38,8 @@ tagCategoryMapping:
     inline: language
     inlinePlural: languages
   typeOfWork:
-    inline: project framework
-    inlinePlural: project frameworks
+    inline: project context
+    inlinePlural: project contexts
   series:
     inline: series
     inlinePlural: series

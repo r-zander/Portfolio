@@ -200,7 +200,19 @@
 
 				{% elseif displayType starts with "promoVideo" %}
 					<div class="aspect-ratio" style="padding-bottom: {{ (display.height / display.width * 100)|round(2) }}%">
-						<iframe src="https://player.vimeo.com/video/{{ display.vimeoId }}?title=0&byline=0&portrait=0" width="{{display.width}}" height="{{display.height}}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+						{% if display.vimeoId is defined -%}
+							<iframe src="https://player.vimeo.com/video/{{ display.vimeoId }}?title=0&byline=0&portrait=0"
+									width="{{ display.width }}" height="{{ display.height }}"
+									frameborder="0"
+									webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+						{%- elseif display.youtubeId is defined -%}
+							<iframe src="https://www.youtube-nocookie.com/embed/{{ display.youtubeId }}"
+									width="{{ display.width }}" height="{{ display.height }}"
+									frameborder="0"
+									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+									referrerpolicy="strict-origin-when-cross-origin"
+									allowfullscreen></iframe>
+						{% endif %}
 					</div>
 
 				{% elseif displayType == "embeddedSite" %}

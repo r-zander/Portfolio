@@ -7,7 +7,6 @@ taxonomy:
   language:
     - processing
     - java
-  promoted: frontpage
 thumbnail:
   start: 4
   class: notHighEnough centered

@@ -3,7 +3,7 @@ structure:
   game:
     - project berryhunter
     - project textadventure
-    - project pong
+    - project progress-station
   interactive:
     - project sound-of-the-city
     - project adclear-ui

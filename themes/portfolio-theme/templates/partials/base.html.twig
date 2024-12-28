@@ -53,14 +53,19 @@
 </head>
 <body {{ bodyAttributes }}>
 	<header>
-		<a href="#contact" data-featherlight="#contact" class="headerLink contactLink icon-contact button">Me</a>
+		<a href="#contact"
+		   data-featherlight="#contact"
+		   class="headerLink contactLink icon-contact button">
+			<span>Me</span>
+		</a>
 {#		TODO CV Link #}
 {#		<a href="{{ url('user://data/CV Raoul Zander.pdf') }}" class="headerLink cvLink pdf-icon">CV</a>#}
 		<div class="headline">
 			<h1>
 				<a href="{{ base_url == '' ? '/' : base_url }}">
-					<span class="logo">RZ</span>
-					Portfolio
+					<img src="{{ url('theme://images/logo.svg') }}" class="logo" alt="Logo" />
+					{#                    <span class="logo">RZ</span> #}
+					<span>Portfolio</span>
 				</a>
 			</h1>
 			{% block pageTitle %}

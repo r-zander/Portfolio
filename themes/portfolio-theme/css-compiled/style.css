@@ -433,55 +433,55 @@ th {
 @font-face {
   font-display: swap;
   /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Orbitron';
+  font-family: "Orbitron";
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/orbitron-v29-latin-regular.eot');
+  src: url("../fonts/orbitron-v29-latin-regular.eot");
   /* IE9 Compat Modes */
-  src: url('../fonts/orbitron-v29-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../fonts/orbitron-v29-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */ url('../fonts/orbitron-v29-latin-regular.woff') format('woff'), /* Modern Browsers */ url('../fonts/orbitron-v29-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */ url('../fonts/orbitron-v29-latin-regular.svg#Orbitron') format('svg');
+  src: url("../fonts/orbitron-v29-latin-regular.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */ url("../fonts/orbitron-v29-latin-regular.woff2") format("woff2"), /* Super Modern Browsers */ url("../fonts/orbitron-v29-latin-regular.woff") format("woff"), /* Modern Browsers */ url("../fonts/orbitron-v29-latin-regular.ttf") format("truetype"), /* Safari, Android, iOS */ url("../fonts/orbitron-v29-latin-regular.svg#Orbitron") format("svg");
   /* Legacy iOS */
 }
 /* orbitron-700 - latin */
 @font-face {
   font-display: swap;
   /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Orbitron';
+  font-family: "Orbitron";
   font-style: normal;
   font-weight: 700;
-  src: url('../fonts/orbitron-v29-latin-700.eot');
+  src: url("../fonts/orbitron-v29-latin-700.eot");
   /* IE9 Compat Modes */
-  src: url('../fonts/orbitron-v29-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../fonts/orbitron-v29-latin-700.woff2') format('woff2'), /* Super Modern Browsers */ url('../fonts/orbitron-v29-latin-700.woff') format('woff'), /* Modern Browsers */ url('../fonts/orbitron-v29-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */ url('../fonts/orbitron-v29-latin-700.svg#Orbitron') format('svg');
+  src: url("../fonts/orbitron-v29-latin-700.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */ url("../fonts/orbitron-v29-latin-700.woff2") format("woff2"), /* Super Modern Browsers */ url("../fonts/orbitron-v29-latin-700.woff") format("woff"), /* Modern Browsers */ url("../fonts/orbitron-v29-latin-700.ttf") format("truetype"), /* Safari, Android, iOS */ url("../fonts/orbitron-v29-latin-700.svg#Orbitron") format("svg");
   /* Legacy iOS */
 }
 /* exo-200 - latin */
 @font-face {
   font-display: swap;
   /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Exo';
+  font-family: "Exo";
   font-style: normal;
   font-weight: 200;
-  src: url('../fonts/exo-v20-latin-200.eot');
+  src: url("../fonts/exo-v20-latin-200.eot");
   /* IE9 Compat Modes */
-  src: url('../fonts/exo-v20-latin-200.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../fonts/exo-v20-latin-200.woff2') format('woff2'), /* Super Modern Browsers */ url('../fonts/exo-v20-latin-200.woff') format('woff'), /* Modern Browsers */ url('../fonts/exo-v20-latin-200.ttf') format('truetype'), /* Safari, Android, iOS */ url('../fonts/exo-v20-latin-200.svg#Exo') format('svg');
+  src: url("../fonts/exo-v20-latin-200.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */ url("../fonts/exo-v20-latin-200.woff2") format("woff2"), /* Super Modern Browsers */ url("../fonts/exo-v20-latin-200.woff") format("woff"), /* Modern Browsers */ url("../fonts/exo-v20-latin-200.ttf") format("truetype"), /* Safari, Android, iOS */ url("../fonts/exo-v20-latin-200.svg#Exo") format("svg");
   /* Legacy iOS */
 }
 /* exo-regular - latin */
 @font-face {
   font-display: swap;
   /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Exo';
+  font-family: "Exo";
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/exo-v20-latin-regular.eot');
+  src: url("../fonts/exo-v20-latin-regular.eot");
   /* IE9 Compat Modes */
-  src: url('../fonts/exo-v20-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../fonts/exo-v20-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */ url('../fonts/exo-v20-latin-regular.woff') format('woff'), /* Modern Browsers */ url('../fonts/exo-v20-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */ url('../fonts/exo-v20-latin-regular.svg#Exo') format('svg');
+  src: url("../fonts/exo-v20-latin-regular.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */ url("../fonts/exo-v20-latin-regular.woff2") format("woff2"), /* Super Modern Browsers */ url("../fonts/exo-v20-latin-regular.woff") format("woff"), /* Modern Browsers */ url("../fonts/exo-v20-latin-regular.ttf") format("truetype"), /* Safari, Android, iOS */ url("../fonts/exo-v20-latin-regular.svg#Exo") format("svg");
   /* Legacy iOS */
 }
 /* Telegrama */
 @font-face {
-  font-family: 'Telegrama';
-  src: url('../fonts/telegrama_render-webfont.eot');
-  src: url('../fonts/telegrama_render-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/telegrama_render-webfont.woff2') format('woff2'), url('../fonts/telegrama_render-webfont.woff') format('woff'), url('../fonts/telegrama_render-webfont.ttf') format('truetype'), url('../fonts/telegrama_render-webfont.svg#telegramarender') format('svg');
+  font-family: "Telegrama";
+  src: url("../fonts/telegrama_render-webfont.eot");
+  src: url("../fonts/telegrama_render-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/telegrama_render-webfont.woff2") format("woff2"), url("../fonts/telegrama_render-webfont.woff") format("woff"), url("../fonts/telegrama_render-webfont.ttf") format("truetype"), url("../fonts/telegrama_render-webfont.svg#telegramarender") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -489,7 +489,7 @@ th {
   box-sizing: border-box;
 }
 body {
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   text-rendering: optimizeLegibility;
   font-size: 1.25em;
   text-align: center;
@@ -502,16 +502,21 @@ body {
 }
 header {
   text-align: left;
+  font-size: min(1em, 4vw);
 }
 header > .headline {
   background-color: #222222;
   color: #ffffff;
   border-radius: 0 32px;
   padding: 16px;
-  padding: 16px 32px;
+  padding-top: 16px;
+  padding-right: 32px;
+  padding-bottom: 16px;
+  padding-left: 72px;
   font-size: 2em;
   overflow: hidden;
   border-top-right-radius: 0;
+  position: relative;
 }
 header > .headline > h1,
 header > .headline h2 {
@@ -542,6 +547,20 @@ header > .headerLink:before {
   font-size: 1.5em;
   vertical-align: middle;
 }
+
+@media (max-width: 560px) {
+  header > .headerLink:before {
+    margin-left: 0.25em;
+    margin-right: 0.25em;
+  }
+}
+
+@media (max-width: 523px) {
+  header > .headerLink:before {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
 header > .headerLink.cvLink {
   color: #222222;
   border-top-right-radius: 0;
@@ -551,6 +570,16 @@ header > .headerLink.cvLink:hover,
 header > .headerLink.cvLink:focus,
 header > .headerLink.cvLink:active {
   animation: pulsating-dark 1.2s ease-in-out infinite alternate;
+}
+
+header > .headerLink > span {
+  float: right;
+}
+
+@media (max-width: 560px) {
+  header > .headerLink > span {
+    display: none;
+  }
 }
 main {
   padding: 16px 32px;
@@ -677,7 +706,7 @@ h1 a {
   padding: 8px;
 }
 .text {
-  font-family: 'Exo', sans-serif;
+  font-family: "Exo", sans-serif;
   font-weight: 200;
   letter-spacing: 0;
   line-height: 1.8;
@@ -803,13 +832,21 @@ h1 a {
 .insideGlow {
   animation: pulsating 1.2s ease-in-out infinite alternate;
 }
-.logo {
+
+span.logo {
   border: 0.1em solid DeepSkyBlue;
   border-bottom-left-radius: 32px;
   border-top-right-radius: 32px;
   margin-left: -24px;
   padding: 0 16px;
   color: DeepSkyBlue;
+}
+
+img.logo {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  height: 1.4em;
 }
 #index {
   position: absolute;
@@ -821,6 +858,13 @@ h1 a {
   overflow: visible;
   /* Adjust padding for tiles */
   padding: 8px 24px 8px;
+}
+
+@media (max-width: 600px) {
+  #index {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 #indexNavigation {
   float: left;
@@ -1067,6 +1111,20 @@ h1 a {
 #indexNavigation > li.simpleLink:focus .categoryLink {
   height: 100%;
 }
+
+@media (max-width: 950px) {
+  #indexNavigation > li {
+    width: 50%;
+    font-size: 3.5vw;
+  }
+}
+
+@media (max-width: 600px) {
+  #indexNavigation > li {
+    width: 100%;
+    font-size: 7vw;
+  }
+}
 #indexNavigation .subItem:hover,
 #indexNavigation .subItem:active,
 #indexNavigation .subItem.focus {
@@ -1080,18 +1138,6 @@ h1 a {
 #indexNavigation .subItem.focus > div > img {
   opacity: 1;
   transition-delay: 0.18s;
-}
-@media (max-width: 950px) {
-  #indexNavigation > li {
-    width: 50%;
-    font-size: 3.5vw;
-  }
-}
-@media (max-width: 600px) {
-  #indexNavigation > li {
-    width: 100%;
-    font-size: 7vw;
-  }
 }
 #contact {
   display: none;
@@ -1136,7 +1182,7 @@ h1 a {
 }
 #contact .front > .folded-corner:after,
 #contact .back > .folded-corner:after {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   top: 0;
@@ -1280,7 +1326,7 @@ h1 a {
   cursor: pointer;
 }
 #contact .glas:after {
-  content: '@rza.io';
+  content: "@rza.io";
 }
 #contact .glas:before {
   vertical-align: sub;
@@ -1319,7 +1365,7 @@ h1 a {
   padding-right: 16px;
 }
 #contact .back p {
-  font-family: 'Exo', sans-serif;
+  font-family: "Exo", sans-serif;
   font-weight: 200;
   letter-spacing: 0;
 }
@@ -1525,7 +1571,7 @@ a.tag:last-child {
   margin-top: -21px;
 }
 .description > .infoBox.tabular > dd.projects {
-  font-family: 'Exo', sans-serif;
+  font-family: "Exo", sans-serif;
   font-weight: 200;
   letter-spacing: 0;
   color: #ffffff;
@@ -1947,7 +1993,7 @@ a.tag:last-child {
 }
 .hljs {
   background: none;
-  font-family: 'Telegrama', monospace;
+  font-family: "Telegrama", monospace;
   font-size: 0.9em;
   padding: 0;
 }
@@ -1975,7 +2021,7 @@ a.tag:last-child {
   padding: 16px 32px;
   border-top-left-radius: 0;
   margin: 0;
-  font-family: 'Exo', sans-serif;
+  font-family: "Exo", sans-serif;
   font-weight: 200;
   letter-spacing: 0;
   list-style: none;
@@ -2118,12 +2164,12 @@ a.tag:last-child {
   font-weight: normal;
 }
 .orbitron {
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   letter-spacing: 0.1em;
   font-weight: normal;
 }
 .exo {
-  font-family: 'Exo', sans-serif;
+  font-family: "Exo", sans-serif;
   font-weight: 200;
   letter-spacing: 0;
 }
@@ -2141,7 +2187,7 @@ a.tag:last-child {
   font-weight: 400;
 }
 .telegrama {
-  font-family: 'Telegrama', monospace;
+  font-family: "Telegrama", monospace;
 }
 .aboutSection {
   width: 26em;

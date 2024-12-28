@@ -28,7 +28,7 @@
 }
 
 body {
-	font-family: 'Orbitron', sans-serif;
+	font-family: "Orbitron", sans-serif;
 	text-rendering: optimizeLegibility;
 	font-size: 1.25em;
 	text-align: center;
@@ -43,13 +43,18 @@ body {
 
 header {
 	text-align: left;
+	font-size: min(1em, 4vw);
 
 	> .headline {
 		.panel;
-		padding: @gridPadding @gridDistance;
+		padding-top: @gridPadding;
+		padding-right: @gridDistance;
+		padding-bottom: @gridPadding;
+		padding-left: (2 * @gridDistance + 2 * @gridBase);
 		font-size: 2em;
 		overflow: hidden;
 		border-top-right-radius: 0;
+		position: relative; // Contain logo
 
 		> h1, h2 {
 			font-size: inherit;
@@ -78,6 +83,16 @@ header {
 			margin-right: 0.5em;
 			font-size: 1.5em;
 			vertical-align: middle;
+
+			@media (max-width: 560px) {
+				margin-left: 0.25em;
+				margin-right: 0.25em;
+			}
+
+			@media (max-width: 523px) {
+				margin-left: 0;
+				margin-right: 0;
+			}
 		}
 
 		&.cvLink {
@@ -89,6 +104,14 @@ header {
 			&:focus,
 			&:active {
 				animation: pulsating-dark 1.2s ease-in-out infinite alternate;
+			}
+		}
+
+		> span {
+			float: right;
+
+			@media (max-width: 560px) {
+				display: none;
 			}
 		}
 	}
@@ -215,7 +238,7 @@ h1 a {
 }
 
 .textFont(){
-	font-family: 'Exo', sans-serif;
+	font-family: "Exo", sans-serif;
 	font-weight: 200;
 	letter-spacing: 0;
 
@@ -415,7 +438,7 @@ h1 a {
 }
 
 
-.logo {
+span.logo {
 	@logoColor: @fontColor;
 	@logoColor: @accentColor;
 
@@ -425,6 +448,13 @@ h1 a {
 	margin-left: (-@gridDistance * 0.75);
 	padding: 0 @gridPadding;
 	color: @logoColor;
+}
+
+img.logo {
+	position: absolute;
+	left: (2 * @gridBase);
+	bottom: (2 * @gridBase);
+	height: 1.4em;
 }
 
 @import "index.less";

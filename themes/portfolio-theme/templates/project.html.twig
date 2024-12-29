@@ -66,8 +66,17 @@
 			{% endfor %}
 		</dd>
 
-		<dt>Date</dt>
-		<dd><time datetime="{{ page.date|date("Y-m-d") }}">{{ page.date|date("d M Y") }}</time></dd>
+		{% if page.isOngoing == true -%}
+			<dt>Start Date</dt>
+			<dd>
+				<time datetime="{{ page.date|date("Y-m-d") }}">{{ page.date|date("d M Y") }}</time>
+			</dd>
+		{% else -%}
+			<dt>Date</dt>
+			<dd>
+				<time datetime="{{ page.date|date("Y-m-d") }}">{{ page.date|date("d M Y") }}</time>
+			</dd>
+		{%- endif %}
 
 		{% if related_pages is not empty %}
 			<dt>Related Projects</dt>
@@ -107,9 +116,9 @@
 	3. Automatically determined projectType based on taxonomy
  #}
 {% set displayTypesUnsorted = [] %}
-{% if (header.autoDectectDisplayTypes == false) and (header.displayTypes is defined) %}
+	{% if (header.autoDetectDisplayTypes == false) and (header.displayTypes is defined) %}
 	{% set displayTypesUnsorted = header.displayTypes|keys %}
-{% elseif (header.autoDectectDisplayTypes == false) and (header.projectType is defined) %}
+	{% elseif (header.autoDetectDisplayTypes == false) and (header.projectType is defined) %}
 	{% set displayTypesUnsorted = themeConfig.projectDisplay.projectTypes[header.projectType].displayTypes %}
 {% else %}
 	{% for key,projectType in themeConfig.projectDisplay.projectTypes

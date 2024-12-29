@@ -8,7 +8,7 @@ taxonomy:
     - processing
     - java
   promoted: highlight
-autoDectectDisplayTypes: true
+autoDetectDisplayTypes: true
 displayTypes:
   screenshot:
     caption: "Displaying 04:14"

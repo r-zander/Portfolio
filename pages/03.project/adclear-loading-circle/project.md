@@ -5,7 +5,7 @@ taxonomy:
   typeOfWork: professional
   language: css
 date: 18-09-2013
-autoDectectDisplayTypes: true
+autoDetectDisplayTypes: true
 displayTypes:
   embeddedSite:
     title: "CSS3"

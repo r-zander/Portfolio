@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Unity Developer Resume</title>
+    <!-- Example of a Google font that has a bit of a techy vibe -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+            rel="stylesheet">
+    <style>
+        /* PAGE & PRINT SETTINGS */
+        @page {
+            size: A4;
+            margin: 1.5cm;
+        }
+
+        @media print {
+            .page-break {
+                page-break-before: always;
+            }
+        }
+
+        /* GLOBAL STYLES */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Montserrat", sans-serif;
+            color: #333333;
+            background: #FFFFFF;
+        }
+
+        h1, h2, h3, h4, h5, h6, p, li {
+            margin: 0;
+            padding: 0;
+        }
+
+        .page {
+            width: 210mm; /* A4 width */
+            min-height: 297mm; /* A4 height */
+            margin: 0 auto;
+            padding: 20px 40px;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        /* HEADERS / TITLE */
+        .title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            display: inline-block;
+            background-color: #4B4B4B;
+            color: #FFFFFF;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        /* TOP SECTION (PAGE 1) */
+        .top-section {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .profile-box {
+            width: 30%;
+            background: #F0F0F0;
+            border-radius: 12px;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        .profile-box h3 {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .profile-box .profile-image {
+            width: 70px;
+            height: 70px;
+            float: left;
+            margin-right: 10px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .profile-details {
+            font-size: 12px;
+            line-height: 1.4em;
+        }
+
+        .speech-bubble {
+            width: 65%;
+            background: #9E9E9E;
+            border-radius: 8px;
+            position: relative;
+            color: #FFFFFF;
+            padding: 20px;
+            font-size: 14px;
+            line-height: 1.4em;
+        }
+
+        .speech-bubble:after {
+            content: "";
+            position: absolute;
+            left: 10px;
+            top: 20px;
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
+            border-right-color: #9E9E9E;
+            border-left: 0;
+            margin-top: -10px;
+            margin-left: -20px;
+        }
+
+        /* SECTION HEADINGS (like “Key Skills” / “Experience”) */
+        .section-heading {
+            display: inline-block;
+            background: #FFA400;
+            color: #FFFFFF;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        /* TWO-COLUMN LAYOUT FOR KEY SKILLS & EXPERIENCE */
+        .two-col {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .left-col,
+        .right-col {
+            box-sizing: border-box;
+        }
+
+        .left-col {
+            width: 30%;
+        }
+
+        .right-col {
+            width: 65%;
+        }
+
+        /* KEY SKILLS BOX */
+        .skills-box {
+            background: #FFFFFF;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #DDDDDD;
+            font-size: 14px;
+        }
+
+        .skills-box h4 {
+            font-weight: 700;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+
+        .skills-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 0 0 10px 0;
+        }
+
+        .skills-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            font-size: 13px;
+        }
+
+        .skills-list li::before {
+            content: "•";
+            margin-right: 8px;
+            color: #333333;
+        }
+
+        .portfolio-link {
+            display: inline-block;
+            background: #FF3939;
+            color: #FFFFFF;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        /* EXPERIENCE SECTION */
+        .experience-box {
+            margin-top: 10px;
+        }
+
+        .experience-item {
+            background: #FFFFFF;
+            border-radius: 8px;
+            border: 1px solid #DDDDDD;
+            padding: 15px 15px;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .year-circle {
+            background: #BDBDBD;
+            color: #FFFFFF;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 14px;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        .experience-title {
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .experience-meta {
+            font-size: 12px;
+            color: #555555;
+            margin-bottom: 5px;
+        }
+
+        .experience-description {
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .tasks-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .tasks-list li {
+            font-size: 13px;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .tasks-list li::before {
+            content: "•";
+            margin-right: 8px;
+            color: #000000;
+        }
+
+        /* PAGE 2 SPECIFIC STYLES */
+        .education-languages {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .education-box,
+        .languages-box {
+            width: 48%;
+            background: #FFFFFF;
+            border: 1px solid #DDDDDD;
+            border-radius: 8px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .education-heading,
+        .languages-heading,
+        .interests-heading {
+            display: inline-block;
+            background: #FFA400;
+            color: #FFFFFF;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+
+        .education-item {
+            background: #F9F9F9;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            padding: 8px;
+            position: relative;
+            border-left: 4px solid #FFA400;
+        }
+
+        .education-year {
+            background: #BDBDBD;
+            color: #FFFFFF;
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 12px;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        .education-title {
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 3px;
+        }
+
+        .education-subtitle {
+            font-size: 12px;
+        }
+
+        .language-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .language-list li {
+            margin-bottom: 8px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .dot-rating {
+            display: flex;
+            gap: 4px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #CCCCCC;
+        }
+
+        .dot.filled {
+            background: #333333;
+        }
+
+        .interests-box {
+            background: #FFFFFF;
+            border: 1px solid #DDDDDD;
+            border-radius: 8px;
+            padding: 10px;
+            margin-top: 15px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .page-number {
+            position: absolute;
+            bottom: 20px;
+            right: 40px;
+            font-size: 12px;
+            color: #666666;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div class="page">
+    <div class="title">Unity Developer</div>
+    <div class="subtitle">Resume</div>
+
+    <div class="top-section">
+        <!-- Left Profile Box -->
+        <div class="profile-box">
+            <!-- If you have a real portrait, swap in that src below -->
+            <img class="profile-image" src="https://via.placeholder.com/70" alt="Profile Image" />
+            <h3>Andrej Grek (RAYDEN)</h3>
+            <div class="profile-details">
+                +421 940 640 046 <br>
+                +1 (628) 895-8086 <br>
+                rayden@raydentek.com <br>
+                Moskovska 15, Bratislava, Slovakia
+            </div>
+        </div>
+
+        <!-- Right Speech Bubble -->
+        <div class="speech-bubble">
+            <p>
+                I’m a creator of video games and experiences for 3D, AR & VR.
+                Looking for a great opportunity to apply my skills to your
+                challenging and creatively rewarding projects.
+            </p>
+            <p>
+                From our collaboration you can expect exceptional results
+                and a dedicated teammate. My salary expectation is 48,000 €.
+            </p>
+        </div>
+    </div>
+
+    <!-- KEY SKILLS / EXPERIENCE -->
+    <div class="two-col">
+        <!-- Left Column (Key Skills) -->
+        <div class="left-col">
+            <h2 class="section-heading">Key Skills</h2>
+            <div class="skills-box">
+                <h4>Software Development</h4>
+                <ul class="skills-list">
+                    <li>Unity</li>
+                    <li>C# Programming</li>
+                    <li>Backend (AWS, Playfab)</li>
+                    <li>Python (Blender Add-ons)</li>
+                    <li>Version Control (Git, SVN, Plastic)</li>
+                    <li>AR, VR (OVR, SteamVR, Vuforia)</li>
+                    <li>UI Design</li>
+                </ul>
+                <h4>3D Graphics</h4>
+                <ul class="skills-list">
+                    <li>Modeling (Maya, Blender, Modo, ZBrush)</li>
+                    <li>Motion Capture (OptiTrack Motive, MotionBuilder, Data Cleanup)</li>
+                    <li>Texturing (Mari, Marmoset, Adobe CC, Substance)</li>
+                    <li>Photogrammetry (Scanning & Processing)</li>
+                </ul>
+                <h4>Production</h4>
+                <ul class="skills-list">
+                    <li>Project Management (Jira, Open Project, ftrack, Assembla)</li>
+                </ul>
+                <a class="portfolio-link" href="https://youtu.be/uHZSEH76ndQ" target="_blank">
+                    Portfolio Video
+                </a>
+            </div>
+        </div>
+
+        <!-- Right Column (Experience) -->
+        <div class="right-col">
+            <h2 class="section-heading">Experience</h2>
+            <div class="experience-box">
+                <!-- 2021 Killhouse -->
+                <div class="experience-item">
+                    <div class="year-circle">2021</div>
+                    <div class="experience-title">Killhouse</div>
+                    <div class="experience-meta">
+                        Company: Personal project (Bratislava, Slovakia) &nbsp; | &nbsp;
+                        Position: Lead Developer
+                    </div>
+                    <div class="experience-description">
+                        I developed a Virtual Reality Combat Training game demo.
+                    </div>
+                    <ul class="tasks-list">
+                        <li>Develop the game demo using Unity and C#</li>
+                        <li>Design and create all modular 3D content</li>
+                        <li>Record and process all animation for the game demo</li>
+                    </ul>
+                </div>
+
+                <!-- 2020 REAP -->
+                <div class="experience-item">
+                    <div class="year-circle">2020</div>
+                    <div class="experience-title">REAP (Real Estate App Platform)</div>
+                    <div class="experience-meta">
+                        Company: SYNTHETIC INC. (Manila, Philippines) &nbsp; | &nbsp;
+                        Position: Lead Developer - C#, Unity, AWS
+                    </div>
+                    <div class="experience-description">
+                        I developed a framework for interactive real-estate apps and implemented
+                        it in 4 projects. I also built and led the production team for 3D content.
+                    </div>
+                    <ul class="tasks-list">
+                        <li>Develop an app framework in C#, Unity and AWS</li>
+                        <li>Optimize and build apps for PC, Mac, iOS and Android</li>
+                        <li>Design and build UI</li>
+                        <li>Develop Editor Tools for setting up and exporting content, independently of the app</li>
+                        <li>Set up all graphics in the apps, including lighting, texturing and shaders</li>
+                        <li>Communicate with the client to meet milestone expectations</li>
+                    </ul>
+                </div>
+
+                <!-- 2019 OSCE Virtual Training Centre -->
+                <div class="experience-item">
+                    <div class="year-circle">2019</div>
+                    <div class="experience-title">OSCE Virtual Training Centre</div>
+                    <div class="experience-meta">
+                        Company: Kurzor s.r.o. (Bratislava, Slovakia) &nbsp; | &nbsp;
+                        Position: 3D Artist
+                    </div>
+                    <div class="experience-description">
+                        I created an animated presentation that served as a basis for
+                        fundraising for the Virtual Training Centre for OSCE
+                    </div>
+                    <ul class="tasks-list">
+                        <li>Create all 3D Content & Animation and publish on VR</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE NUMBER -->
+    <div class="page-number">Page 1/2</div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page page-break">
+    <div class="education-languages">
+        <!-- Education -->
+        <div class="education-box">
+            <h2 class="education-heading">Education</h2>
+
+            <div class="education-item">
+                <div class="education-year">2010-2012</div>
+                <div class="education-title">
+                    Faculty of Architecture <br>
+                    Slovak University of Technology
+                </div>
+                <div class="education-subtitle">
+                    Architectural Design <br>
+                    Generative Architecture
+                </div>
+            </div>
+
+            <div class="education-item">
+                <div class="education-year">2006-2008</div>
+                <div class="education-title">
+                    Academy of Fine Arts and Design <br>
+                    Architecture Studio
+                </div>
+                <div class="education-subtitle">
+                    Architectural Design <br>
+                    Data Visualization <br>
+                    Procedural Generation
+                </div>
+            </div>
+
+            <div class="education-item">
+                <div class="education-year">2004-2006</div>
+                <div class="education-title">
+                    Faculty of Architecture <br>
+                    Slovak University of Technology
+                </div>
+                <div class="education-subtitle">
+                    Architectural Design <br>
+                    Structural Engineering
+                </div>
+            </div>
+
+            <div class="education-item">
+                <div class="education-year">1996-2004</div>
+                <div class="education-title">
+                    High School
+                </div>
+                <div class="education-subtitle">
+                    Programming <br>
+                    IT <br>
+                    Literature <br>
+                    Arts
+                </div>
+            </div>
+        </div>
+
+        <!-- Languages -->
+        <div class="languages-box">
+            <h2 class="languages-heading">Languages</h2>
+            <ul class="language-list">
+                <li>
+                    English
+                    <div class="dot-rating">
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                    </div>
+                </li>
+                <li>
+                    Russian
+                    <div class="dot-rating">
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot"></div>
+                    </div>
+                </li>
+                <li>
+                    Slovak
+                    <div class="dot-rating">
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot"></div>
+                    </div>
+                </li>
+                <li>
+                    German
+                    <div class="dot-rating">
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                </li>
+            </ul>
+
+            <!-- Interests -->
+            <h2 class="interests-heading" style="margin-top: 20px;">Interests</h2>
+            <div class="interests-box">
+                VR <br>
+                3D Art &amp; Animation <br>
+                Architectural Design <br>
+                Photogrammetry
+            </div>
+        </div>
+    </div>
+
+    <!-- Additional Experience -->
+    <h2 class="section-heading">Experience</h2>
+    <div class="experience-box">
+        <div class="experience-item">
+            <div class="year-circle">2017-2019</div>
+            <div class="experience-title">Figurama App</div>
+            <div class="experience-meta">
+                Company: FIGURAMA (Bratislava, Slovakia) &nbsp; | &nbsp;
+                Position: Producer, Lead Developer - C#, Unity, AWS
+            </div>
+            <div class="experience-description">
+                We developed an 3D / VR interactive story & experience platform
+                & demo content. The app was accessible on PC, Mac, iOS, Android
+                and VR goggles.
+            </div>
+            <ul class="tasks-list">
+                <li>Develop the app framework using Unity, C# and AWS</li>
+                <li>Design and execute the whole UI & controls of the app</li>
+                <li>Setup & run production using Jira for project management, Git for code and SVN for art teams</li>
+                <li>Hire employees to the team, train & mentor them</li>
+                <li>Production of our demo content in an 8 member team</li>
+                <li>Lead a team of 3 developers to build features for the app, including various tools and a Unity plugin for artists</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <div class="year-circle">2015-2016</div>
+            <div class="experience-title">3D Scanning & Motion Capture Studio</div>
+            <div class="experience-meta">
+                Company: Kurzor s.r.o. (Bratislava, Slovakia) &nbsp; | &nbsp;
+                Position: Technical Director
+            </div>
+            <div class="experience-description">
+                We built a full body 3D Scanner studio based on my design and our Motion
+                Capture studio. I also set up software workflows and managed production.
+            </div>
+            <ul class="tasks-list">
+                <li>Design, build and operate our 80 camera full body photogrammetry 3D scanning rig</li>
+                <li>Setup and operate our own motion capture studio</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <div class="year-circle">2014</div>
+            <div class="experience-title">CARTONEROS</div>
+            <div class="experience-meta">
+                Company: ANTROPO LLC (San Francisco, USA) &nbsp; | &nbsp;
+                Position: Lead Developer - C#, Unity
+            </div>
+            <div class="experience-description">
+                I developed a prototype for an e-sports system and game that involves
+                skill-based cash competition.
+            </div>
+            <ul class="tasks-list">
+                <li>Develop prototype of a multiplayer 3D video game using Unity, C#, Playfab backend and Photon networking</li>
+                <li>Create all 2D & 3D graphical content for the prototype</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <div class="year-circle">2013</div>
+            <div class="experience-title">ESPIONAG3: Berlin Files</div>
+            <div class="experience-meta">
+                Company: boARd 3D s.r.o. (Bratislava, Slovakia) &nbsp; | &nbsp;
+                Position: Producer, Prototype Developer
+            </div>
+            <div class="experience-description">
+                I founded boARd 3D with the aim of creating an augmented reality game
+                publishing platform. We developed an innovative prototype for an AR game,
+                that remains unique to this day.
+            </div>
+            <ul class="tasks-list">
+                <li>Lead a team of 9 people to build a vertical slice of a game</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer">Thank You!</div>
+
+    <div class="page-number">Page 2/2</div>
+</div>
+
+</body>
+</html>

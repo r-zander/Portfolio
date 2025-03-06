@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Raoul Zander :: CV</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;700&family=Alegreya+Sans+SC:wght@400;500&display=swap"
+          rel="stylesheet">
+
+    <link href="./base.css" rel="stylesheet" />
+    <link href="./portrait.css" rel="stylesheet" />
+    <style>
+        :root {
+            --dark-grey: #3E3E3F;
+            --medium-grey: #939598;
+            --light-grey: #E6E7E9;
+            --white: #FFFFFF;
+            --primary-color: #FBB03F;
+        }
+
+        @page {
+            margin-top: var(--minimum-page-margin);
+            margin-bottom: var(--minimum-page-margin);
+        }
+
+        body {
+            height: auto;
+
+            > h1 {
+                margin-top: 0;
+                text-align: center;
+            }
+
+            > h2 {
+                text-align: center;
+                background-color: var(--dark-grey);
+                color: var(--white);
+                border-radius: 1em;
+            }
+        }
+
+        @media print {
+            body {
+                padding: 0 var(--minimum-page-margin);
+            }
+        }
+
+
+        /**
+         * https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Multiple-column_Layout
+         * https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_paged_media
+         */
+
+        main {
+            display: flex;
+            flex-direction: row;
+            hyphens: auto;
+
+            > .left-column {
+                flex: 0 0 33%;
+            }
+
+            > .right-column {
+                flex: 0 0 67%;
+            }
+        }
+
+
+        section {
+            > p {
+                break-inside: avoid;
+            }
+
+            th, td {
+                break-inside: avoid;
+            }
+
+            > h2 {
+                break-after: avoid;
+                break-inside: avoid;
+            }
+
+            > h3 {
+                background-color: var(--primary-color);
+                color: var(--white);
+                border-radius: 1em;
+                padding: 0.25em 0.5em;
+
+                text-align: center;
+            }
+
+            > h4 {
+                background-color: var(--medium-grey);
+                color: var(--white);
+                border-radius: 1em;
+                padding: 0.25em 0.5em;
+            }
+        }
+
+        article {
+            > h4 {
+                background-color: var(--light-grey);
+                border-radius: 1em;
+                padding: 0.25em 0.5em;
+
+                > span.date {
+                    background-color: var(--medium-grey);
+                    color: var(--white);
+                    border-radius: 1em;
+                    padding: 0.25em 0.5em;
+
+                    margin-inline-end: 1em;
+                }
+            }
+        }
+
+        p {
+            margin: 0.5rem 0;
+            text-align: justify;
+        }
+
+        blockquote {
+            background-color: var(--medium-grey);
+            color: var(--white);
+        }
+
+        table.experience {
+            > tbody {
+                > tr {
+                    > th {
+                        text-align: left;
+                        vertical-align: top;
+
+                        &:after {
+                            content: ":";
+                        }
+
+                        &.description {
+                            font-style: italic;
+                            padding-block: 0.5em;
+
+                            &:after {
+                                content: "";
+                            }
+                        }
+                    }
+
+                    > td {
+                        vertical-align: top;
+
+                        > ul {
+                            margin-block: 0;
+                            padding-inline-start: 1em;
+                        }
+                    }
+                }
+            }
+        }
+
+        #contact {
+            > .left-column {
+                background-color: var(--light-grey);
+            }
+
+            .portrait-container {
+                float: right;
+                border-radius: 50px;
+                border: 3px solid var(--primary-color);
+                overflow: hidden;
+
+                > img {
+                    display: block;
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+<h1>Unity Developer</h1>
+<h2 class="wrapper-block">
+    Resume
+</h2>
+<main id="contact">
+    <div class="left-column">
+        <div class="portrait-container">
+            <img class="portrait" src="portrait.jpg" width="100" />
+        </div>
+        <h3>Raoul Zander</h3>
+        <table>
+            <tr>
+                <th>📞</th>
+                <td>+49 178 790 26 93</td>
+            </tr>
+            <tr>
+                <th>📧</th>
+                <td>hello@rza.io</td>
+            </tr>
+            <tr>
+                <th>📍</th>
+                <td>Berlin</td>
+            </tr>
+        </table>
+        <dl>
+            <dt></dt>
+        </dl>
+    </div>
+
+    <div class="right-column">
+        <blockquote>
+            I’m a creator of video games and experiences for 3D, AR & VR.
+            Looking for a great opportunity to apply my skills to your
+            challenging and creatively rewarding projects.<br />
+            From our collaboration you can expect exceptional results
+            and a dedicated teammate. My salary expectation is 48,000 €.
+        </blockquote>
+    </div>
+</main>
+
+<main>
+    <div class="left-column">
+        <section id="skills">
+            <h3 class="section-heading">Key Skills</h3>
+            <h4>Software Development</h4>
+            <ul class="skills-list">
+                <li>Unity</li>
+                <li>C# Programming</li>
+                <li>Backend (AWS, Playfab)</li>
+                <li>Python (Blender Add-ons)</li>
+                <li>Version Control (Git, SVN, Plastic)</li>
+                <li>AR, VR (OVR, SteamVR, Vuforia)</li>
+                <li>UI Design</li>
+            </ul>
+            <h4>3D Graphics</h4>
+            <ul class="skills-list">
+                <li>Modeling (Maya, Blender, Modo, ZBrush)</li>
+                <li>Motion Capture (OptiTrack Motive, MotionBuilder, Data Cleanup)</li>
+                <li>Texturing (Mari, Marmoset, Adobe CC, Substance)</li>
+                <li>Photogrammetry (Scanning & Processing)</li>
+            </ul>
+            <h4>Production</h4>
+            <ul class="skills-list">
+                <li>Project Management (Jira, Open Project, ftrack, Assembla)</li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="right-column">
+        <section id="experience">
+            <h3>Experience</h3>
+
+            <article>
+                <h4>
+                    <span class="date">2021</span>
+                    <span class="title">Killhouse</span>
+                </h4>
+
+                <table class="experience">
+                    <tr>
+
+                        <th>Company</th>
+                        <td>Personal project</td>
+                    </tr>
+                    <tr>
+                        <th>Position</th>
+                        <td>Lead Developer</td>
+                    </tr>
+                    <tr>
+                        <th colspan="2" class="description">
+                            I developed a Virtual Reality Combat Training game demo.
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>Tasks</th>
+                        <td>
+                            <ul>
+                                <li>Develop the game demo using Unity and C#</li>
+                                <li>Design and create all modular 3D content</li>
+                                <li>Record and process all animation for the game demo.</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+
+                <dl>
+                </dl>
+
+                <p class="description"></p>
+
+            </article>
+        </section>
+
+    </div>
+</main>
+
+<h2>Thank you!</h2>
+</body>
+</html>

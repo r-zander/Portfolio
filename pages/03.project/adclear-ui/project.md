@@ -60,6 +60,9 @@ displayTypesSorting: custom
 related_pages:
   - /project/adclear-loading-circle
 ---
-For nearly 4 years I have been **Lead Front End Developer** at [AdClear](https://www.adclear.de/). In this position I developed, implemented and managed three major versions of the companies data dashboard, called 'AdClear UI'. The latest re-design is documented on the right.
+
+I joined [AdClear](https://www.adclear.de/) as **Junior Front End Developer** and within 4 years worked my way up to *
+*Lead Front End Developer**. In this time I developed, implemented and managed three major versions of the companies
+data dashboard, called 'AdClear UI'. The latest re-design is documented on the right.
 
 'AdClear UI' is the main access points for company clients to check their online marketing performance and customer journey analysis.

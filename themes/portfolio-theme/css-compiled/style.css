@@ -547,14 +547,12 @@ header > .headerLink:before {
   font-size: 1.5em;
   vertical-align: middle;
 }
-
 @media (max-width: 560px) {
   header > .headerLink:before {
     margin-left: 0.25em;
     margin-right: 0.25em;
   }
 }
-
 @media (max-width: 523px) {
   header > .headerLink:before {
     margin-left: 0;
@@ -571,11 +569,9 @@ header > .headerLink.cvLink:focus,
 header > .headerLink.cvLink:active {
   animation: pulsating-dark 1.2s ease-in-out infinite alternate;
 }
-
 header > .headerLink > span {
   float: right;
 }
-
 @media (max-width: 560px) {
   header > .headerLink > span {
     display: none;
@@ -832,7 +828,6 @@ h1 a {
 .insideGlow {
   animation: pulsating 1.2s ease-in-out infinite alternate;
 }
-
 span.logo {
   border: 0.1em solid DeepSkyBlue;
   border-bottom-left-radius: 32px;
@@ -841,7 +836,6 @@ span.logo {
   padding: 0 16px;
   color: DeepSkyBlue;
 }
-
 img.logo {
   position: absolute;
   left: 8px;
@@ -859,7 +853,6 @@ img.logo {
   /* Adjust padding for tiles */
   padding: 8px 24px 8px;
 }
-
 @media (max-width: 600px) {
   #index {
     padding-left: 0;
@@ -1111,14 +1104,12 @@ img.logo {
 #indexNavigation > li.simpleLink:focus .categoryLink {
   height: 100%;
 }
-
 @media (max-width: 950px) {
   #indexNavigation > li {
     width: 50%;
     font-size: 3.5vw;
   }
 }
-
 @media (max-width: 600px) {
   #indexNavigation > li {
     width: 100%;
@@ -1488,9 +1479,11 @@ a.tag:last-child {
   text-align: left;
   width: 26em;
   margin-right: 32px;
+  max-width: 33vw;
 }
 .layout-medium .description {
   width: 100%;
+  max-width: none;
   margin-right: 0;
   margin-top: 32px;
 }
@@ -1499,6 +1492,11 @@ a.tag:last-child {
   clear: right;
   width: 50%;
   border-left: 8px solid #000;
+}
+
+.layout-small .description {
+  width: 100%;
+  max-width: 100%;
 }
 .description > .infoBox,
 .description > article {
@@ -1560,6 +1558,10 @@ a.tag:last-child {
   margin-right: 16px;
 }
 .description > .infoBox.tabular > dt.tags {
+  width: auto;
+}
+
+.layout-small .description > .infoBox.tabular > dt {
   width: auto;
 }
 .description > .infoBox.tabular > dd.tags {

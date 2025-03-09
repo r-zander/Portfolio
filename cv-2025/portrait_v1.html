@@ -21,8 +21,8 @@
             --white: #FFFFFF;
             --primary-color: #FBB03F;
 
-            --border-radius: 16px;
-            --border-radius-inner: 13px;
+            --border-radius: 19px;
+            --border-radius-inner: 15px;
 
             --v-spacing: 1.0;
             --h-spacing: 1.0;
@@ -38,13 +38,13 @@
 
         body {
             height: auto;
-            font-family: "Industry",sans-serif;
+            font-family: "Industry", sans-serif;
             font-size: 14px;
 
             > h1 {
                 margin-top: 0;
                 text-align: center;
-                font-family: "Video Cond Med",sans-serif;
+                font-family: "Video Cond Med", sans-serif;
                 color: var(--dark-grey);
                 font-size: 50px;
                 font-weight: normal;
@@ -55,8 +55,11 @@
                 text-align: center;
                 background-color: var(--dark-grey);
                 color: var(--white);
+
                 border-radius: var(--border-radius);
                 line-height: 38px;
+
+                font-family: "Video Cond Med", sans-serif;
                 font-weight: normal;
                 margin-block-start: 2px;
                 margin-block-end: 0;
@@ -109,32 +112,54 @@
                 background-color: var(--primary-color);
                 color: var(--white);
                 border-radius: var(--border-radius);
-                padding: 0.25em 0.5em;
+                line-height: 38px;
+                padding-inline: calc(var(--h-padding) * 0.5em);
 
+                font-family: "Video Cond Med", sans-serif;
+                font-weight: normal;
+                font-size: 21px;
                 text-align: center;
-            }
-
-            > h4 {
-                background-color: var(--medium-grey);
-                color: var(--white);
-                border-radius: var(--border-radius-inner);
-                padding: 0.25em 0.5em;
             }
         }
 
-        article {
-            > h4 {
+        .left-column {
+            > section {
                 background-color: var(--light-grey);
                 border-radius: var(--border-radius);
-                padding: 0.25em 0.5em;
 
-                > span.date {
-                    background-color: var(--medium-grey);
-                    color: var(--white);
-                    border-radius: var(--border-radius-inner);
+                > article {
+                    padding-inline: calc(var(--v-padding) * 7px);
+
+                    > h4 {
+                        background-color: var(--medium-grey);
+                        color: var(--white);
+                        border-radius: var(--border-radius-inner);
+                        padding-inline: 0.75em;
+                        padding-block-start: 2px;
+
+                        line-height: 28px;
+                        font-size: 16px;
+                        font-weight: normal;
+                    }
+                }
+            }
+        }
+
+        .right-column {
+            article {
+                > h4 {
+                    background-color: var(--light-grey);
+                    border-radius: var(--border-radius);
                     padding: 0.25em 0.5em;
 
-                    margin-inline-end: 1em;
+                    > span.date {
+                        background-color: var(--medium-grey);
+                        color: var(--white);
+                        border-radius: var(--border-radius-inner);
+                        padding: 0.25em 0.5em;
+
+                        margin-inline-end: 1em;
+                    }
                 }
             }
         }
@@ -301,27 +326,33 @@
     <div class="left-column">
         <section id="skills">
             <h3 class="section-heading">Key Skills</h3>
-            <h4>Software Development</h4>
-            <ul class="skills-list">
-                <li>Unity</li>
-                <li>C# Programming</li>
-                <li>Backend (AWS, Playfab)</li>
-                <li>Python (Blender Add-ons)</li>
-                <li>Version Control (Git, SVN, Plastic)</li>
-                <li>AR, VR (OVR, SteamVR, Vuforia)</li>
-                <li>UI Design</li>
-            </ul>
-            <h4>3D Graphics</h4>
-            <ul class="skills-list">
-                <li>Modeling (Maya, Blender, Modo, ZBrush)</li>
-                <li>Motion Capture (OptiTrack Motive, MotionBuilder, Data Cleanup)</li>
-                <li>Texturing (Mari, Marmoset, Adobe CC, Substance)</li>
-                <li>Photogrammetry (Scanning & Processing)</li>
-            </ul>
-            <h4>Production</h4>
-            <ul class="skills-list">
-                <li>Project Management (Jira, Open Project, ftrack, Assembla)</li>
-            </ul>
+            <article>
+                <h4>Software Development</h4>
+                <ul class="skills-list">
+                    <li>Unity</li>
+                    <li>C# Programming</li>
+                    <li>Backend (AWS, Playfab)</li>
+                    <li>Python (Blender Add-ons)</li>
+                    <li>Version Control (Git, SVN, Plastic)</li>
+                    <li>AR, VR (OVR, SteamVR, Vuforia)</li>
+                    <li>UI Design</li>
+                </ul>
+            </article>
+            <article>
+                <h4>3D Graphics</h4>
+                <ul class="skills-list">
+                    <li>Modeling (Maya, Blender, Modo, ZBrush)</li>
+                    <li>Motion Capture (OptiTrack Motive, MotionBuilder, Data Cleanup)</li>
+                    <li>Texturing (Mari, Marmoset, Adobe CC, Substance)</li>
+                    <li>Photogrammetry (Scanning & Processing)</li>
+                </ul>
+            </article>
+            <article>
+                <h4>Production</h4>
+                <ul class="skills-list">
+                    <li>Project Management (Jira, Open Project, ftrack, Assembla)</li>
+                </ul>
+            </article>
         </section>
     </div>
 

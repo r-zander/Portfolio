@@ -13,7 +13,7 @@
     <link href="./portrait.css" rel="stylesheet" />
     <style>
         :root {
-            --nearly-black: #231F20;
+            --nearly-black: rgba(0, 0, 0, 0.86);
             --dark-grey: #3E3E3F;
             --medium-grey: #939598;
             --medium-grey-font: #848384;
@@ -24,11 +24,11 @@
             --border-radius: 19px;
             --border-radius-inner: 15px;
 
-            --v-spacing: 1.0;
-            --h-spacing: 1.0;
+            --block-spacing: 1.0;
+            --inline-spacing: 1.0;
 
-            --v-padding: 1.0;
-            --h-padding: 1.0;
+            --block-padding: 1.0;
+            --inline-padding: 1.0;
         }
 
         @page {
@@ -40,6 +40,8 @@
             height: auto;
             font-family: "Industry", sans-serif;
             font-size: 14px;
+
+            color: var(--nearly-black);
 
             > h1 {
                 margin-top: 0;
@@ -82,7 +84,7 @@
             display: flex;
             flex-direction: row;
             hyphens: auto;
-            column-gap: calc(var(--h-spacing) * 18px);
+            column-gap: calc(var(--inline-spacing) * 18px);
 
             > .left-column {
                 flex: 1 1 33%;
@@ -113,7 +115,7 @@
                 color: var(--white);
                 border-radius: var(--border-radius);
                 line-height: 38px;
-                padding-inline: calc(var(--h-padding) * 0.5em);
+                padding-inline: calc(var(--inline-padding) * 0.5em);
 
                 font-family: "Video Cond Med", sans-serif;
                 font-weight: normal;
@@ -124,22 +126,54 @@
 
         .left-column {
             > section {
+                margin-block-end: calc(var(--block-spacing) * 16px);
                 background-color: var(--light-grey);
                 border-radius: var(--border-radius);
+                padding-block-end: calc(var(--block-padding) * 10px);
 
                 > article {
-                    padding-inline: calc(var(--v-padding) * 7px);
+                    padding-inline: calc(var(--block-padding) * 7px);
 
                     > h4 {
+                        margin-block-start: calc(var(--block-spacing) * 16px);
+                        margin-block-end: calc(var(--block-spacing) * 8px);
+
                         background-color: var(--medium-grey);
                         color: var(--white);
                         border-radius: var(--border-radius-inner);
-                        padding-inline: 0.75em;
-                        padding-block-start: 2px;
+                        padding-inline: calc(var(--inline-padding) * 12px);
 
-                        line-height: 28px;
+                        padding-block-start: 3px;
+                        line-height: 27px;
+
                         font-size: 16px;
                         font-weight: normal;
+                    }
+
+                    > ul {
+                        margin-block: 0;
+                        padding-inline-start: calc(12px + (var(--inline-padding) * 12px));
+                        list-style-type: "\25CF";
+
+                        > li {
+                            padding-inline-start: calc(var(--inline-padding) * 6px);
+                            margin-block-end: calc(var(--block-spacing) * 6px);
+
+                            > small {
+                                font-size: 100%;
+                                color: var(--medium-grey-font);
+                                display: block;
+                                hyphens: manual;
+
+                                &::before {
+                                    content: "(";
+                                }
+
+                                &::after {
+                                    content: ")";
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -148,18 +182,43 @@
         .right-column {
             article {
                 > h4 {
+                    display: flex;
+                    flex-direction: row;
+
+                    margin-block-start: calc(var(--block-spacing) * 16px - var(--block-padding) * 4px);
+                    margin-block-end: calc(var(--block-spacing) * 8px);
+
                     background-color: var(--light-grey);
                     border-radius: var(--border-radius);
-                    padding: 0.25em 0.5em;
+                    padding-block: calc(var(--block-padding) * 4px);
+                    padding-inline-start: calc(var(--block-padding) * 4px);
+
+
+                    font-size: 16px;
+                    font-weight: normal;
+
+                    > span {
+                        padding-block-start: 4px;
+                        line-height: 26px;
+                    }
 
                     > span.date {
                         background-color: var(--medium-grey);
                         color: var(--white);
                         border-radius: var(--border-radius-inner);
-                        padding: 0.25em 0.5em;
 
-                        margin-inline-end: 1em;
+                        margin-inline-end: calc(var(--block-spacing) * 14px);
+                        width: calc(6 * 19px);
+                        text-align: center;
+
+                        font-size: 19px;
                     }
+                }
+
+                > table {
+                    margin-inline-start: calc(var(--block-padding) * 12px);
+
+
                 }
             }
         }
@@ -174,12 +233,12 @@
         }
 
         #contact {
-            margin-block: calc(var(--v-spacing) * 16px);
+            margin-block: calc(var(--block-spacing) * 16px);
             align-items: stretch;
 
             > .left-column {
-                padding-block: calc(var(--v-padding) * 16px);
-                padding-inline: calc(var(--h-padding) * 14px);
+                padding-block: calc(var(--block-padding) * 16px);
+                padding-inline: calc(var(--inline-padding) * 14px);
 
                 background-color: var(--light-grey);
                 color: var(--medium-grey-font);
@@ -202,8 +261,8 @@
 
             .portrait-container {
                 position: absolute;
-                top: calc(var(--v-padding) * 16px);
-                right: calc(var(--h-padding) * 14px);
+                top: calc(var(--block-padding) * 16px);
+                right: calc(var(--inline-padding) * 14px);
 
                 border-radius: 50px;
                 border: 3px solid var(--primary-color);
@@ -219,9 +278,9 @@
 
                 > blockquote {
                     margin: 0;
-                    margin-inline-start: calc(var(--h-spacing) * 18px);
-                    padding-block: calc(var(--v-padding) * 17px);
-                    padding-inline: calc(var(--h-padding) * 32px);
+                    margin-inline-start: calc(var(--inline-spacing) * 18px);
+                    padding-block: calc(var(--block-padding) * 17px);
+                    padding-inline: calc(var(--inline-padding) * 32px);
 
                     border-radius: var(--border-radius);
 
@@ -251,9 +310,15 @@
         table.experience {
             > tbody {
                 > tr {
+                    --row-spacing: 8px;
+
                     > th {
                         text-align: left;
                         vertical-align: top;
+                        /* offset + width of h4 date + margin to XP title - our inline start padding */
+                        width: calc(4px + (6 * 19px) + 14px - (var(--block-padding) * 12px));
+                        padding-inline: 0;
+                        padding-block-end: calc(var(--block-padding) * var(--row-spacing));
 
                         &:after {
                             content: ":";
@@ -261,7 +326,8 @@
 
                         &.description {
                             font-style: italic;
-                            padding-block: 0.5em;
+                            padding-block-start: calc(var(--block-padding) * 7px);
+                            padding-block-end: calc(var(--block-padding) * (7px + var(--row-spacing)));
 
                             &:after {
                                 content: "";
@@ -271,10 +337,20 @@
 
                     > td {
                         vertical-align: top;
+                        padding-inline: 0;
+                        padding-block-end: calc(var(--block-padding) * var(--row-spacing));
 
                         > ul {
                             margin-block: 0;
-                            padding-inline-start: 1em;
+                            /* Move bullet points outside */
+                            margin-inline-start: calc(var(--inline-padding) * -6px);
+                            padding-inline-start: 0;
+                            list-style-type: "\25CF";
+
+                            > li {
+                                padding-inline-start: calc(var(--inline-padding) * 6px);
+                                margin-block-end: calc(var(--block-spacing) * 6px);
+                            }
                         }
                     }
                 }
@@ -331,28 +407,35 @@
                 <ul class="skills-list">
                     <li>Unity</li>
                     <li>C# Programming</li>
-                    <li>Backend (AWS, Playfab)</li>
-                    <li>Python (Blender Add-ons)</li>
-                    <li>Version Control (Git, SVN, Plastic)</li>
-                    <li>AR, VR (OVR, SteamVR, Vuforia)</li>
+                    <li>Backend <small>AWS, Playfab</small></li>
+                    <li>Python <small>Blender Add-ons</small></li>
+                    <li>Version Control <small>Git, SVN, Plastic</small></li>
+                    <li>AR, VR <small>OVR, SteamVR, Vuforia</small></li>
                     <li>UI Design</li>
                 </ul>
             </article>
             <article>
                 <h4>3D Graphics</h4>
                 <ul class="skills-list">
-                    <li>Modeling (Maya, Blender, Modo, ZBrush)</li>
-                    <li>Motion Capture (OptiTrack Motive, MotionBuilder, Data Cleanup)</li>
-                    <li>Texturing (Mari, Marmoset, Adobe CC, Substance)</li>
-                    <li>Photogrammetry (Scanning & Processing)</li>
+                    <li>Modeling <small>Maya, Blender, Modo, ZBrush</small></li>
+                    <li>Motion Capture <small>OptiTrack Motive, MotionBuilder, Data Cleanup</small></li>
+                    <li>Texturing <small>Mari, Marmoset, Adobe CC, Substance</small></li>
+                    <li>Photogrammetry <small>Scanning & Processing</small></li>
                 </ul>
             </article>
             <article>
                 <h4>Production</h4>
                 <ul class="skills-list">
-                    <li>Project Management (Jira, Open Project, ftrack, Assembla)</li>
+                    <li>Project Management <small>Jira, Open Project, ftrack, Assembla</small></li>
                 </ul>
             </article>
+        </section>
+
+        <section id="portfolioVideo">
+            <h3>Portfolio Video</h3>
+            <p>
+                <a href="https://youtu.be/uHZSEH76ndQ" target="_blank">https://youtu.be/uHZSEH76ndQ</a>
+            </p>
         </section>
     </div>
 
@@ -392,11 +475,6 @@
                         </td>
                     </tr>
                 </table>
-
-                <dl>
-                </dl>
-
-                <p class="description"></p>
 
             </article>
         </section>

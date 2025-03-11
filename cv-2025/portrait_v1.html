@@ -19,16 +19,23 @@
             --medium-grey-font: #848384;
             --light-grey: #E6E7E9;
             --white: #FFFFFF;
-            --primary-color: #FBB03F;
+            --primary-color: #00BFFF;
+            --secondary-color: #FFB600;
 
             --border-radius: 19px;
             --border-radius-inner: 15px;
+            --border-radius-inner-inner: 13px;
 
             --block-spacing: 1.0;
             --inline-spacing: 1.0;
 
             --block-padding: 1.0;
             --inline-padding: 1.0;
+        }
+
+        :root.alternative {
+            --primary-color: #FBB03F;
+            --secondary-color: #BE1F2D;
         }
 
         @page {
@@ -87,11 +94,13 @@
             column-gap: calc(var(--inline-spacing) * 18px);
 
             > .left-column {
-                flex: 1 1 33%;
+                /*flex: 1 1 33%;*/
+                flex: 0 0 calc(33% - (var(--inline-spacing) * (18px / 2)));
             }
 
             > .right-column {
-                flex: 1 1 67%;
+                /*flex: 1 1 67%;*/
+                flex: 0 0 calc(67% - (var(--inline-spacing) * (18px / 2)));
             }
         }
 
@@ -235,6 +244,7 @@
         #contact {
             margin-block: calc(var(--block-spacing) * 16px);
             align-items: stretch;
+            /*flex-wrap: wrap;*/
 
             > .left-column {
                 padding-block: calc(var(--block-padding) * 16px);
@@ -306,6 +316,63 @@
                 }
             }
         }
+
+        #links {
+            display: flex;
+            flex: 0 0 100%;
+            margin-block-end: calc(var(--block-spacing) * 16px);
+
+            > .link-container {
+                display: flex;
+                flex: 0 0 calc(33% - (var(--inline-spacing) * (18px / 2)));
+                align-items: center;
+                background-color: var(--secondary-color);
+
+                border-radius: var(--border-radius-inner);
+                padding-inline: calc(var(--inline-padding) * 2px);
+
+                font-size: 16px;
+                font-weight: normal;
+
+                /*&:not(:first-child) {*/
+                /*    flex: 0 0 33%;*/
+                /*}*/
+
+                > b {
+                    background-color: var(--white);
+                    width: 50%;
+                    padding-inline: calc(var(--inline-padding) * 10px);
+                    margin-inline-end: calc(var(--inline-spacing) * 14px);
+
+                    padding-block-start: 3px;
+                    line-height: 23px;
+
+                    border-radius: var(--border-radius-inner-inner);
+
+                    text-align: center;
+                    font-weight: normal;
+                }
+
+                > a {
+                    flex: 1 0 0;
+                    padding-block-start: 3px;
+                    line-height: 27px;
+
+                    &:link,
+                    &:visited {
+                        color: var(--white);
+                        text-decoration: none;
+                    }
+
+                    &:hover,
+                    &:active,
+                    &:focus {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+
 
         table.experience {
             > tbody {
@@ -395,6 +462,30 @@
             From our collaboration you can expect exceptional results
             and a dedicated teammate. My salary expectation is 48,000 €.
         </blockquote>
+    </div>
+</main>
+
+<main id="links">
+    <div class="link-container">
+        <b>
+            <span class="icon">🔗</span>
+            Portfolio
+        </b>
+        <a href="https://rza.io" target="_blank">rza.io</a>
+    </div>
+    <div class="link-container">
+        <b>
+            <span class="icon">🔗</span>
+            LinkedIn
+        </b>
+        <a href="https://www.linkedin.com/in/r-zander/" target="_blank">r-zander</a>
+    </div>
+    <div class="link-container">
+        <b>
+            <span class="icon">🔗</span>
+            GitHub
+        </b>
+        <a href="https://github.com/r-zander/" target="_blank">r-zander</a>
     </div>
 </main>
 

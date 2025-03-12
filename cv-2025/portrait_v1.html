@@ -133,12 +133,43 @@
             }
         }
 
+        a {
+            &:link,
+            &:visited {
+                color: inherit;
+                text-decoration: none;
+            }
+
+            &:hover,
+            &:active,
+            &:focus {
+                text-decoration: underline;
+            }
+
+            &.underlined {
+                &:link,
+                &:visited {
+                    text-decoration: underline;
+                }
+
+                &:hover,
+                &:active,
+                &:focus {
+                    text-decoration: none;
+                }
+            }
+        }
+
         .left-column {
             > section {
                 margin-block-end: calc(var(--block-spacing) * 16px);
                 background-color: var(--light-grey);
                 border-radius: var(--border-radius);
                 padding-block-end: calc(var(--block-padding) * 10px);
+
+                > h3 {
+                    margin-block-end: calc(var(--block-spacing) * 8px);
+                }
 
                 > article {
                     padding-inline: calc(var(--block-padding) * 7px);
@@ -186,6 +217,13 @@
                     }
                 }
             }
+
+            article {
+                > table {
+                    margin-inline-start: calc(var(--block-padding) * 12px);
+                    width: calc(100% - var(--block-padding) * 12px);
+                }
+            }
         }
 
         .right-column {
@@ -201,7 +239,6 @@
                     border-radius: var(--border-radius);
                     padding-block: calc(var(--block-padding) * 4px);
                     padding-inline-start: calc(var(--block-padding) * 4px);
-
 
                     font-size: 16px;
                     font-weight: normal;
@@ -226,8 +263,7 @@
 
                 > table {
                     margin-inline-start: calc(var(--block-padding) * 12px);
-
-
+                    width: calc(100% - var(--block-padding) * 12px);
                 }
             }
         }
@@ -297,8 +333,6 @@
                     background-color: var(--medium-grey);
                     color: var(--white);
 
-                    font-style: italic;
-
                     position: relative;
 
                     &::before {
@@ -313,41 +347,46 @@
                         border-width: 12px 18px 12px 0;;
                         border-color: transparent var(--medium-grey) transparent transparent;
                     }
+
+                    > p {
+                        &.highlight {
+                            font-weight: 500;
+                            text-align: center;
+                        }
+                    }
                 }
             }
         }
 
-        #links {
+        #links2 {
             display: flex;
-            flex: 0 0 100%;
             margin-block-end: calc(var(--block-spacing) * 16px);
+            background-color: var(--secondary-color);
+            border-radius: var(--border-radius);
+            padding-block: calc(var(--block-padding) * 4px);
+            padding-inline-start: calc(var(--block-padding) * 4px);
+
 
             > .link-container {
                 display: flex;
                 flex: 0 0 calc(33% - (var(--inline-spacing) * (18px / 2)));
                 align-items: center;
-                background-color: var(--secondary-color);
-
-                border-radius: var(--border-radius-inner);
-                padding-inline: calc(var(--inline-padding) * 2px);
 
                 font-size: 16px;
                 font-weight: normal;
 
-                /*&:not(:first-child) {*/
-                /*    flex: 0 0 33%;*/
-                /*}*/
+
+                > b, a {
+                    padding-block-start: 4px;
+                    line-height: 26px;
+                }
 
                 > b {
                     background-color: var(--white);
                     width: 50%;
+                    border-radius: var(--border-radius-inner);
                     padding-inline: calc(var(--inline-padding) * 10px);
                     margin-inline-end: calc(var(--inline-spacing) * 14px);
-
-                    padding-block-start: 3px;
-                    line-height: 23px;
-
-                    border-radius: var(--border-radius-inner-inner);
 
                     text-align: center;
                     font-weight: normal;
@@ -361,18 +400,49 @@
                     &:link,
                     &:visited {
                         color: var(--white);
-                        text-decoration: none;
-                    }
-
-                    &:hover,
-                    &:active,
-                    &:focus {
-                        text-decoration: underline;
                     }
                 }
+
             }
         }
 
+        table.languages {
+            td {
+                /*vertical-align: bottom;*/
+                white-space: nowrap;
+            }
+
+            .language {
+                font-weight: bold;
+            }
+
+            .proficiency {
+                width: 100%;
+                padding-inline-end: calc(var(--inline-padding) * 6px);
+
+                text-align: right;
+                text-transform: lowercase;
+                font-variant: small-caps;
+            }
+
+            .level {
+                text-align: right;
+                font-size: 0;
+
+                > span {
+                    font-size: 16px;
+                    line-height: 16px;
+                }
+
+                .filled {
+                    color: var(--primary-color);
+                }
+
+                .empty {
+                    color: var(--medium-grey);
+                }
+            }
+        }
 
         table.experience {
             > tbody {
@@ -419,6 +489,22 @@
                                 margin-block-end: calc(var(--block-spacing) * 6px);
                             }
                         }
+
+                        > small.formerly {
+                            &::before {
+                                content: "formerly: ";
+                            }
+
+                            display: block;
+                            /*font-size: 100%;*/
+                            color: var(--medium-grey-font);
+
+                            margin-block-start: calc(var(--block-spacing) * 4px);
+
+                            > span {
+                                white-space: nowrap;
+                            }
+                        }
                     }
                 }
             }
@@ -428,16 +514,16 @@
     </style>
 </head>
 <body>
-<h1>Unity Developer</h1>
+<h1>Raoul Zander</h1>
 <h2 class="wrapper-block all-caps">
-    Resume
+    UI Lead
 </h2>
 <main id="contact">
     <div class="left-column">
         <div class="portrait-container">
             <img class="portrait" src="portrait.jpg" width="68" />
         </div>
-        <h3>Raoul Zander</h3>
+        <!--        <h3>Raoul Zander</h3>-->
         <table>
             <tr>
                 <th>📧</th>
@@ -456,16 +542,20 @@
 
     <div class="right-column">
         <blockquote>
-            I’m a creator of video games and experiences for 3D, AR & VR.
-            Looking for a great opportunity to apply my skills to your
-            challenging and creatively rewarding projects.<br /><br />
-            From our collaboration you can expect exceptional results
-            and a dedicated teammate. My salary expectation is 48,000 €.
+            <p>
+                Players deserve UIs that look amazing, feel immersive and otherwise get
+                out of their ways. As a
+                <a href="https://www.linkedin.com/in/melmuellerart/" class="underlined" target="_blank">good friend</a>
+                of mine likes to put it:
+            </p>
+            <p class="highlight">
+                It's 2025, there is no reason for bad UIs anymore.
+            </p>
         </blockquote>
     </div>
 </main>
 
-<main id="links">
+<main id="links2">
     <div class="link-container">
         <b>
             <span class="icon">🔗</span>
@@ -522,46 +612,78 @@
             </article>
         </section>
 
+        <section id="languages">
+            <h3>Languages</h3>
+            <article>
+                <table class="languages">
+                    <tr>
+                        <td class="language">German</td>
+                        <td class="proficiency">Native</td>
+                        <td class="level">
+                            <span class="filled">&#x25CF;&#x25CF;&#x25CF;&#x25CF;&#x25CF;</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="language">English</td>
+                        <td class="proficiency">Proficient</td>
+                        <td class="level">
+                            <span class="filled">&#x25CF;&#x25CF;&#x25CF;&#x25CF;</span>
+                            <span class="empty">&#x25CF;</span>
+                        </td>
+                    </tr>
+                </table>
+            </article>
+        </section>
+
         <section id="portfolioVideo">
             <h3>Portfolio Video</h3>
-            <p>
-                <a href="https://youtu.be/uHZSEH76ndQ" target="_blank">https://youtu.be/uHZSEH76ndQ</a>
-            </p>
+            <article>
+                <p>
+                    <a href="https://youtu.be/uHZSEH76ndQ" target="_blank">https://youtu.be/uHZSEH76ndQ</a>
+                </p>
+            </article>
         </section>
     </div>
 
     <div class="right-column">
         <section id="experience">
-            <h3>Experience</h3>
+            <h3>Professional XP</h3>
 
             <article>
                 <h4>
-                    <span class="date">2021</span>
-                    <span class="title">Killhouse</span>
+                    <span class="date">Mar 2019</span>
+                    <span class="title">Albion Online</span>
                 </h4>
 
                 <table class="experience">
                     <tr>
 
                         <th>Company</th>
-                        <td>Personal project</td>
+                        <td><a href="https://albiononline.com" target="_blank">Sandbox Interactive</a></td>
                     </tr>
                     <tr>
                         <th>Position</th>
-                        <td>Lead Developer</td>
+                        <td>
+                            <span>UI Lead</span>
+                            <small class="formerly">
+                                <span>Product Owner Web</span>,
+                                <span>Web Lead Developer</span>,
+                                <span>Junior Game Developer</span>
+                            </small>
+                        </td>
                     </tr>
                     <tr>
                         <th colspan="2" class="description">
-                            I developed a Virtual Reality Combat Training game demo.
+                            I managed the User Interface for a Sandbox MMORPG with >180 menus.
                         </th>
                     </tr>
                     <tr>
                         <th>Tasks</th>
                         <td>
                             <ul>
-                                <li>Develop the game demo using Unity and C#</li>
-                                <li>Design and create all modular 3D content</li>
-                                <li>Record and process all animation for the game demo.</li>
+                                <li>Managed User Interface of 4 major game updates</li>
+                                <li>Built up web team from 1 to 6 employees</li>
+                                <li>Managed 3rd party payment and analytics integrations</li>
                             </ul>
                         </td>
                     </tr>

@@ -166,6 +166,7 @@
                 background-color: var(--light-grey);
                 border-radius: var(--border-radius);
                 padding-block-end: calc(var(--block-padding) * 10px);
+                break-inside: avoid;
 
                 > h3 {
                     margin-block-end: calc(var(--block-spacing) * 8px);
@@ -223,6 +224,10 @@
                     margin-inline-start: calc(var(--block-padding) * 12px);
                     width: calc(100% - var(--block-padding) * 12px);
                 }
+
+                > p {
+                    padding-inline: calc(var(--block-padding)* 12px);
+                }
             }
         }
 
@@ -258,6 +263,20 @@
                         text-align: center;
 
                         font-size: 19px;
+                    }
+
+                    span.status {
+                        margin-left: auto;
+                        margin-right: 14px;
+                        color: var(--medium-grey-font);
+
+                        &::before {
+                            content: "(";
+                        }
+
+                        &::after {
+                            content: ")";
+                        }
                     }
                 }
 
@@ -358,7 +377,7 @@
             }
         }
 
-        #links2 {
+        #links {
             display: flex;
             margin-block-end: calc(var(--block-spacing) * 16px);
             background-color: var(--secondary-color);
@@ -403,6 +422,20 @@
                     }
                 }
 
+            }
+        }
+
+        #education {
+            .course {
+                color: var(--medium-grey-font);
+            }
+
+            ul.content {
+                padding-inline-start: calc(12px + (var(--inline-padding)* 12px));
+            }
+
+            p.grade {
+                font-size: 12px;
             }
         }
 
@@ -496,7 +529,7 @@
                             }
 
                             display: block;
-                            /*font-size: 100%;*/
+                            font-size: 12px;
                             color: var(--medium-grey-font);
 
                             margin-block-start: calc(var(--block-spacing) * 4px);
@@ -508,9 +541,12 @@
                     }
                 }
             }
+
+            em {
+                font-style: normal;
+                font-variant: small-caps;
+            }
         }
-
-
     </style>
 </head>
 <body>
@@ -555,7 +591,7 @@
     </div>
 </main>
 
-<main id="links2">
+<main id="links">
     <div class="link-container">
         <b>
             <span class="icon">🔗</span>
@@ -584,30 +620,35 @@
         <section id="skills">
             <h3 class="section-heading">Key Skills</h3>
             <article>
+                <h4>Management</h4>
+                <ul class="skills-list">
+                    <li>Team Development</li>
+                    <li>Mentoring</li>
+                    <li>Scrum Roadmapping</li>
+                    <li>Project Management</li>
+                </ul>
+            </article>
+            <article>
                 <h4>Software Development</h4>
                 <ul class="skills-list">
+                    <li>C#</li>
                     <li>Unity</li>
-                    <li>C# Programming</li>
-                    <li>Backend <small>AWS, Playfab</small></li>
-                    <li>Python <small>Blender Add-ons</small></li>
-                    <li>Version Control <small>Git, SVN, Plastic</small></li>
-                    <li>AR, VR <small>OVR, SteamVR, Vuforia</small></li>
-                    <li>UI Design</li>
+                    <li>Unity UI</li>
+                    <li>Java (8 / 21)</li>
+                    <li>Spring Boot</li>
+                    <li>HTML5</li>
+                    <li>CSS3</li>
+                    <li>JavaScript / TypeScript</li>
+                    <li>PostgreSQL / MySQL</li>
                 </ul>
             </article>
             <article>
-                <h4>3D Graphics</h4>
+                <h4>UI/UX Design</h4>
                 <ul class="skills-list">
-                    <li>Modeling <small>Maya, Blender, Modo, ZBrush</small></li>
-                    <li>Motion Capture <small>OptiTrack Motive, MotionBuilder, Data Cleanup</small></li>
-                    <li>Texturing <small>Mari, Marmoset, Adobe CC, Substance</small></li>
-                    <li>Photogrammetry <small>Scanning & Processing</small></li>
-                </ul>
-            </article>
-            <article>
-                <h4>Production</h4>
-                <ul class="skills-list">
-                    <li>Project Management <small>Jira, Open Project, ftrack, Assembla</small></li>
+                    <li>Adobe XD</li>
+                    <li>Figma</li>
+                    <li>Balsamiq</li>
+                    <li>Illustrator</li>
                 </ul>
             </article>
         </section>
@@ -635,12 +676,32 @@
             </article>
         </section>
 
-        <section id="portfolioVideo">
+   <!--     <section id="portfolioVideo">
             <h3>Portfolio Video</h3>
             <article>
                 <p>
                     <a href="https://youtu.be/uHZSEH76ndQ" target="_blank">https://youtu.be/uHZSEH76ndQ</a>
                 </p>
+            </article>
+        </section>-->
+
+        <section id="education">
+            <h3 class="section-heading">Education</h3>
+            <article>
+                <h4>Oct 2021 - Apr 2015</h4>
+                <p class="institute">SRH Berlin School of Popular Arts</p>
+                <p class="course">Studies in Interaction Design</p>
+                <ul class="content">
+                    <li>User experience & usability</li>
+                    <li>Screen design</li>
+                    <li>App creation</li>
+                </ul>
+            </article>
+            <article>
+                <h4>Aug 2007 - May 2011</h4>
+                <p class="institute">Technical University of Applied Sciences Wildau</p>
+                <p class="course">B.Sc. in Business Computing</p>
+                <p class="grade">Grade 1.8 (&wedgeq; top 15%)</p>
             </article>
         </section>
     </div>
@@ -652,12 +713,11 @@
             <article>
                 <h4>
                     <span class="date">Mar 2019</span>
-                    <span class="title">Albion Online</span>
+                    <span class="title"><a href="https://albiononline.com" target="_blank">Albion Online</a></span>
                 </h4>
 
                 <table class="experience">
                     <tr>
-
                         <th>Company</th>
                         <td><a href="https://albiononline.com" target="_blank">Sandbox Interactive</a></td>
                     </tr>
@@ -687,11 +747,244 @@
                             </ul>
                         </td>
                     </tr>
+                    <tr>
+                        <th>Technologies</th>
+                        <td>C#, Unity, NGUI, Java, Spring Boot, PostgreSQL</td>
+                    </tr>
                 </table>
+            </article>
 
+            <article>
+                <h4>
+                    <span class="date">Feb 2017</span>
+                    <span class="title"><a href="https://oviva.com/de/de/" target="_blank">Oviva</a></span>
+                </h4>
+
+                <table class="experience">
+                    <tr>
+                        <th>Company</th>
+                        <td><a href="https://oviva.com/global/en/" target="_blank">Oviva AG</a></td>
+                    </tr>
+                    <tr>
+                        <th>Position</th>
+                        <td>
+                            <span>Full Stack Software Engineer</span>
+                        </td>
+                    </tr>
+                    <!-- <tr>
+                         <th colspan="2" class="description">
+                         </th>
+                     </tr>-->
+                    <tr>
+                        <th>Tasks</th>
+                        <td>
+                            <ul>
+                                <li>Development of an enterprise web application to let dietitians coach patients</li>
+                                <li>Top projects: Chat + Video Chat, Quiz Frontend, Highly performant coaching dashboard</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Technologies</th>
+                        <td>Angular JS, JEE</td>
+                    </tr>
+                </table>
+            </article>
+
+            <article>
+                <h4>
+                    <span class="date">Oct 2015</span>
+                    <span class="title">Career Break</span>
+                </h4>
+
+                <table class="experience">
+                    <tr>
+                        <th>Activities</th>
+                        <td>
+                            <ul>
+                                <li>Portfolio creation</li>
+                                <li>Reorientated myself</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Technologies</th>
+                        <td>GravCMS, Less, Twig, jQuery</td>
+                    </tr>
+                </table>
+            </article>
+
+            <article>
+                <h4>
+                    <span class="date">Jan 2012</span>
+                    <span class="title">AdClear</span>
+                </h4>
+
+                <table class="experience">
+                    <tr>
+                        <th>Company</th>
+                        <td>AdClear GmbH</td>
+                    </tr>
+                    <tr>
+                        <th>Position</th>
+                        <td>
+                            <span>Lead Front End Developer</span>
+                            <small class="formerly">
+                                <span>Junior Java Developer</span>,
+                            </small>
+                        </td>
+                    </tr>
+                    <!-- <tr>
+                         <th colspan="2" class="description">
+                         </th>
+                     </tr>-->
+                    <tr>
+                        <th>Tasks</th>
+                        <td>
+                            <ul>
+                                <li>Development of a Java web application to analyze online marketing
+                                    activities and customer journeys
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Technologies</th>
+                        <td>Apache Wicket, HTML5 and CSS3</td>
+                    </tr>
+                </table>
+            </article>
+
+            <article>
+                <h4>
+                    <span class="date">Oct 2009</span>
+                    <span class="title">Digitalization of Global Billing</span>
+                </h4>
+
+                <table class="experience">
+                    <tr>
+                        <th>Company</th>
+                        <td>Deutsche Bank AG - Global Sourcing</td>
+                    </tr>
+                    <tr>
+                        <th>Position</th>
+                        <td>
+                            <span>Freelance Developer</span>
+                            <small class="formerly">
+                                <span>Intern</span>
+                            </small>
+                        </td>
+                    </tr>
+                    <!-- <tr>
+                         <th colspan="2" class="description">
+                         </th>
+                     </tr>-->
+                    <tr>
+                        <th>Tasks</th>
+                        <td>
+                            <ul>
+                                <li>Development of VBA application in consultation with head of project
+                                    to establish paperless billing
+                                </li>
+                                <li>Created and maintained databases of vendors, order catalogs and
+                                    billing methods
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
             </article>
         </section>
 
+        <section id="sideProjects">
+            <h3>Side Projects</h3>
+
+            <article>
+                <h4>
+                    <span class="date">Sep 2021</span>
+                    <span class="title"><a href="https://kringel.games" target="_blank">Kringel Games</a></span>
+                    <span class="status">Ongoing</span>
+                </h4>
+
+                <table class="experience">
+                    <tr>
+                        <th colspan="2" class="description">
+                            Berlin-based Games Collective
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>What we do</th>
+                        <td>
+                            <ul>
+                                <li>Trying out game development and production methods</li>
+                                <li>9 hobbyists</li>
+                                <li>delivered 3 games: Progress Station, Runebreaker, BerryHunter.io</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Link</th>
+                        <td><a href="https://kringel.games" target="_blank">https://kringel.games</a></td>
+                    </tr>
+                </table>
+            </article>
+
+            <article>
+                <h4>
+                    <span class="date">Apr 2021</span>
+                    <span class="title"><a href="https://casualchallenge.gg" target="_blank">Casual Challenge</a></span>
+                    <span class="status">Ongoing</span>
+                </h4>
+
+                <table class="experience">
+                    <tr>
+                        <th colspan="2" class="description">
+                            Custom <em>Magic: the Gathering</em> Format and Event Series
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>What we do</th>
+                        <td>
+                            <ul>
+                                <li>Accessible via a budget limit</li>
+                                <li>Unique decks due to meta bans</li>
+                                <li>Organized with two friends</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Link</th>
+                        <td><a href="https://casualchallenge.gg" target="_blank">https://casualchallenge.gg</a></td>
+                    </tr>
+                </table>
+            </article>
+
+            <article>
+                <h4>
+                    <span class="date">Feb 2022</span>
+                    <span class="title">Beyond Humanity</span>
+                    <span class="status">Game ready</span>
+                </h4>
+
+                <table class="experience">
+                    <tr>
+                        <th colspan="2" class="description">
+                            Homebrew TTRPG System
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>What we do</th>
+                        <td>
+                            <ul>
+                                <li>Fate Core hack with narrative dice system</li>
+                                <li>Hard Sci-Fi setting placed on Earth in year 2867</li>
+                                <li>Fully laid out player manual and documents</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </article>
+        </section>
     </div>
 </main>
 

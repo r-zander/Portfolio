@@ -222,17 +222,34 @@
             article {
                 > table {
                     margin-inline-start: calc(var(--block-padding) * 12px);
-                    width: calc(100% - var(--block-padding) * 12px);
+                    width: calc(100% - var(--block-padding) * 2 * 12px);
+                }
+
+                th {
+                    text-align: left;
+                }
+
+                th, td {
+                    vertical-align: bottom;
+                    padding-block-end: calc(var(--block-padding) * 8px);
+                }
+
+                tr:last-of-type {
+                    > th, td {
+                        padding-block-end: calc(var(--block-padding) * 6px);
+                    }
                 }
 
                 > p {
-                    padding-inline: calc(var(--block-padding)* 12px);
+                    padding-inline: calc(var(--block-padding) * 12px);
                 }
             }
         }
 
         .right-column {
             article {
+                break-inside: avoid;
+
                 > h4 {
                     display: flex;
                     flex-direction: row;
@@ -377,51 +394,66 @@
             }
         }
 
-        #links {
-            display: flex;
-            margin-block-end: calc(var(--block-spacing) * 16px);
-            background-color: var(--secondary-color);
-            border-radius: var(--border-radius);
-            padding-block: calc(var(--block-padding) * 4px);
-            padding-inline-start: calc(var(--block-padding) * 4px);
+        /*
+                main#links {
+                    display: flex;
+                    margin-block-end: calc(var(--block-spacing) * 16px);
+                    background-color: var(--secondary-color);
+                    border-radius: var(--border-radius);
+                    padding-block: calc(var(--block-padding) * 4px);
+                    padding-inline-start: calc(var(--block-padding) * 4px);
 
 
-            > .link-container {
-                display: flex;
-                flex: 0 0 calc(33% - (var(--inline-spacing) * (18px / 2)));
-                align-items: center;
+                    > .link-container {
+                        display: flex;
+                        flex: 0 0 calc(33% - (var(--inline-spacing) * (18px / 2)));
+                        align-items: center;
 
-                font-size: 16px;
-                font-weight: normal;
+                        font-size: 16px;
+                        font-weight: normal;
 
 
-                > b, a {
-                    padding-block-start: 4px;
-                    line-height: 26px;
-                }
+                        > b, a {
+                            padding-block-start: 4px;
+                            line-height: 26px;
+                        }
 
-                > b {
-                    background-color: var(--white);
-                    width: 50%;
-                    border-radius: var(--border-radius-inner);
-                    padding-inline: calc(var(--inline-padding) * 10px);
-                    margin-inline-end: calc(var(--inline-spacing) * 14px);
+                        > b {
+                            background-color: var(--white);
+                            width: 50%;
+                            border-radius: var(--border-radius-inner);
+                            padding-inline: calc(var(--inline-padding) * 10px);
+                            margin-inline-end: calc(var(--inline-spacing) * 14px);
 
-                    text-align: center;
-                    font-weight: normal;
-                }
+                            text-align: center;
+                            font-weight: normal;
+                        }
 
-                > a {
-                    flex: 1 0 0;
-                    padding-block-start: 3px;
-                    line-height: 27px;
+                        > a {
+                            flex: 1 0 0;
+                            padding-block-start: 3px;
+                            line-height: 27px;
 
-                    &:link,
-                    &:visited {
-                        color: var(--white);
+                            &:link,
+                            &:visited {
+                                color: var(--white);
+                            }
+                        }
+
                     }
-                }
+                }*/
 
+        section#links {
+            > h3 {
+                background-color: var(--secondary-color);
+            }
+
+            table {
+                width: auto;
+            }
+
+            th {
+                padding-inline-end: calc(var(--inline-padding) * 6px);
             }
         }
 
@@ -431,7 +463,7 @@
             }
 
             ul.content {
-                padding-inline-start: calc(12px + (var(--inline-padding)* 12px));
+                padding-inline-start: calc(12px + (var(--inline-padding) * 12px));
             }
 
             p.grade {
@@ -439,14 +471,20 @@
             }
         }
 
-        table.languages {
-            td {
-                /*vertical-align: bottom;*/
-                white-space: nowrap;
+        #certificates {
+            article:not(:last-of-type) {
+                margin-block-end: calc(var(--block-spacing) * 16px);
             }
 
-            .language {
-                font-weight: bold;
+            .institute {
+                color: var(--medium-grey-font);
+            }
+
+        }
+
+        table.languages {
+            th, td {
+                white-space: nowrap;
             }
 
             .proficiency {
@@ -591,7 +629,7 @@
     </div>
 </main>
 
-<main id="links">
+<!--<main id="links">
     <div class="link-container">
         <b>
             <span class="icon">🔗</span>
@@ -613,10 +651,46 @@
         </b>
         <a href="https://github.com/r-zander/" target="_blank">r-zander</a>
     </div>
-</main>
+</main>-->
 
 <main>
     <div class="left-column">
+        <section id="links">
+            <h3 class="section-heading">Links</h3>
+            <article>
+                <table>
+                    <tr>
+                        <th>
+                            <span class="icon">🔗</span>
+                            Portfolio
+                        </th>
+                        <td>
+                            <a href="https://rza.io" target="_blank">rza.io</a>
+                        </td>
+                    </tr>
+                    <tr class="link-container">
+                        <th>
+                            <span class="icon">🔗</span>
+                            LinkedIn
+                        </th>
+                        <td>
+                            <a href="https://www.linkedin.com/in/r-zander/" target="_blank">r-zander</a>
+                        </td>
+                    </tr>
+                    <tr class="link-container">
+                        <th>
+                            <span class="icon">🔗</span>
+                            GitHub
+                        </th>
+                        <td>
+                            <a href="https://github.com/r-zander/" target="_blank">r-zander</a>
+                        </td>
+                    </tr>
+                </table>
+            </article>
+
+        </section>
+
         <section id="skills">
             <h3 class="section-heading">Key Skills</h3>
             <article>
@@ -634,11 +708,11 @@
                     <li>C#</li>
                     <li>Unity</li>
                     <li>Unity UI</li>
+                    <li>JavaScript / TypeScript</li>
                     <li>Java (8 / 21)</li>
                     <li>Spring Boot</li>
                     <li>HTML5</li>
                     <li>CSS3</li>
-                    <li>JavaScript / TypeScript</li>
                     <li>PostgreSQL / MySQL</li>
                 </ul>
             </article>
@@ -658,37 +732,45 @@
             <article>
                 <table class="languages">
                     <tr>
-                        <td class="language">German</td>
+                        <th class="language">German</th>
                         <td class="proficiency">Native</td>
                         <td class="level">
                             <span class="filled">&#x25CF;&#x25CF;&#x25CF;&#x25CF;&#x25CF;</span>
                         </td>
                     </tr>
                     <tr>
-                        <td class="language">English</td>
+                        <th class="language">English</th>
                         <td class="proficiency">Proficient</td>
                         <td class="level">
                             <span class="filled">&#x25CF;&#x25CF;&#x25CF;&#x25CF;</span>
                             <span class="empty">&#x25CF;</span>
                         </td>
                     </tr>
+                    <tr>
+                        <th class="language">Swiss German</th>
+                        <td class="proficiency">Beginner</td>
+                        <td class="level">
+                            <span class="filled">&#x25CF;</span>
+                            <span class="empty">&#x25CF;&#x25CF;&#x25CF;&#x25CF;</span>
+                        </td>
+                    </tr>
                 </table>
             </article>
         </section>
 
-   <!--     <section id="portfolioVideo">
-            <h3>Portfolio Video</h3>
-            <article>
-                <p>
-                    <a href="https://youtu.be/uHZSEH76ndQ" target="_blank">https://youtu.be/uHZSEH76ndQ</a>
-                </p>
-            </article>
-        </section>-->
+        <!--     <section id="portfolioVideo">
+                 <h3>Portfolio Video</h3>
+                 <article>
+                     <p>
+                         <a href="https://youtu.be/uHZSEH76ndQ" target="_blank">https://youtu.be/uHZSEH76ndQ</a>
+                     </p>
+                 </article>
+             </section>-->
 
         <section id="education">
             <h3 class="section-heading">Education</h3>
             <article>
-                <h4>Oct 2021 - Apr 2015</h4>
+                <h4>Oct 2012 - Apr 2015</h4>
                 <p class="institute">SRH Berlin School of Popular Arts</p>
                 <p class="course">Studies in Interaction Design</p>
                 <ul class="content">
@@ -702,6 +784,18 @@
                 <p class="institute">Technical University of Applied Sciences Wildau</p>
                 <p class="course">B.Sc. in Business Computing</p>
                 <p class="grade">Grade 1.8 (&wedgeq; top 15%)</p>
+            </article>
+        </section>
+
+        <section id="certificates">
+            <h3 class="section-heading">Certification</h3>
+            <article>
+                <p class="certificate">Employee Appraisal</p>
+                <p class="institute">Dr. G. Kitzmann Akademie</p>
+            </article>
+            <article>
+                <p class="certificate">Employee Management</p>
+                <p class="institute">Dr. G. Kitzmann Akademie</p>
             </article>
         </section>
     </div>

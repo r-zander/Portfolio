@@ -2,8 +2,8 @@
 title: 'Orbit Clock'
 date: 21-07-2014
 taxonomy:
-  tagLvl0: animation
-  typeOfWork: studies
+  tag: animation
+  typeOfWork: academic
   language:
     - processing
     - java

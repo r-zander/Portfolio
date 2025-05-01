@@ -7,6 +7,9 @@
 {% set tags = tagParam|split('+') %}
 {% set attributedTags = {} %}
 
+{# detect magic "all" tag #}
+{% set isAllTag = 'all' in tags %}
+
 {% for tag in tags %}
 	{% set attributedTags = attributedTags|merge({ (tag): {
 	'found': false,
@@ -74,7 +77,9 @@
 	{% endif %}
 {% endfor %}
 
-{% if hasUnknownTags %}
+{% if isAllTag %}
+	{% set projects = pages.collection( {items: {'@page.descendants': '/project'}, filter: {'type': 'project'} }) %}
+{% elseif hasUnknownTags %}
 	{% set projects = {} %}
 {% else %}
 	{% set projects = taxonomy.findTaxonomy(taxMap) %}
@@ -83,7 +88,7 @@
 {% set knownTags = knownTags|sort %}
 
 {% block pageTitle %}
-	<h2>{{ pageTitle }}
+	<h2>{{ isAllTag ? 'All Projects' : pageTitle }}
 		<small class="numberOfProjects">{{ projects|length }}</small>
 	</h2>
 {% endblock %}
@@ -160,7 +165,11 @@
 							{% set narrowedTaxMap = taxMap|merge({(attributedTag.category): taxMap[(attributedTag.category)]|merge([tag]) }) %}
 						{% endif %}
 
-						{% set projectCount = taxonomy.findTaxonomy( narrowedTaxMap )|length %}
+						{% if isAllTag %}
+							{% set projectCount = taxonomy.findTaxonomy( {(attributedTag.category): [tag] } )|length %}
+						{% else %}
+							{% set projectCount = taxonomy.findTaxonomy( narrowedTaxMap )|length %}
+						{% endif %}
 
 						{# Would there be a narrowing or do ALL project match the related tag? #}
 						{% if projectCount < projects|length %}
@@ -177,7 +186,7 @@
 						<dt class="tags" title="Showing all tags also contained in the current selection">Narrow</dt>
 						<dd class="tags" id="relatedTags">
 							{% for tag in narrowingTags %}
-								<a href="{{ page.url ~ "/:" ~ tagParam ~ "+" ~ tag.tag }}" class="tag" data-tag="{{ tag.tag }}">
+								<a href="{{ page.url ~ "/:" ~ (isAllTag ? "" : (tagParam ~ "+")) ~ tag.tag }}" class="tag" data-tag="{{ tag.tag }}">
 									+ {{ tag.title }}
 
 									{% if taxMap[tag.category] is empty %}
@@ -186,7 +195,7 @@
 										{% set narrowedTaxMap = taxMap|merge({(tag.category): taxMap[(tag.category)]|merge([tag.tag]) }) %}
 									{% endif %}
 
-									<small class="numberOfProjects">{{ taxonomy.findTaxonomy( narrowedTaxMap )|length }}</small>
+									<small class="numberOfProjects">{{ tag.projectCount }}</small>
 								</a>
 							{% endfor %}
 						</dd>

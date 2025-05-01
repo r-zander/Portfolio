@@ -433,55 +433,55 @@ th {
 @font-face {
   font-display: swap;
   /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: "Orbitron";
+  font-family: 'Orbitron';
   font-style: normal;
   font-weight: 400;
-  src: url("../fonts/orbitron-v29-latin-regular.eot");
+  src: url('../fonts/orbitron-v29-latin-regular.eot');
   /* IE9 Compat Modes */
-  src: url("../fonts/orbitron-v29-latin-regular.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */ url("../fonts/orbitron-v29-latin-regular.woff2") format("woff2"), /* Super Modern Browsers */ url("../fonts/orbitron-v29-latin-regular.woff") format("woff"), /* Modern Browsers */ url("../fonts/orbitron-v29-latin-regular.ttf") format("truetype"), /* Safari, Android, iOS */ url("../fonts/orbitron-v29-latin-regular.svg#Orbitron") format("svg");
+  src: url('../fonts/orbitron-v29-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../fonts/orbitron-v29-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */ url('../fonts/orbitron-v29-latin-regular.woff') format('woff'), /* Modern Browsers */ url('../fonts/orbitron-v29-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */ url('../fonts/orbitron-v29-latin-regular.svg#Orbitron') format('svg');
   /* Legacy iOS */
 }
 /* orbitron-700 - latin */
 @font-face {
   font-display: swap;
   /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: "Orbitron";
+  font-family: 'Orbitron';
   font-style: normal;
   font-weight: 700;
-  src: url("../fonts/orbitron-v29-latin-700.eot");
+  src: url('../fonts/orbitron-v29-latin-700.eot');
   /* IE9 Compat Modes */
-  src: url("../fonts/orbitron-v29-latin-700.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */ url("../fonts/orbitron-v29-latin-700.woff2") format("woff2"), /* Super Modern Browsers */ url("../fonts/orbitron-v29-latin-700.woff") format("woff"), /* Modern Browsers */ url("../fonts/orbitron-v29-latin-700.ttf") format("truetype"), /* Safari, Android, iOS */ url("../fonts/orbitron-v29-latin-700.svg#Orbitron") format("svg");
+  src: url('../fonts/orbitron-v29-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../fonts/orbitron-v29-latin-700.woff2') format('woff2'), /* Super Modern Browsers */ url('../fonts/orbitron-v29-latin-700.woff') format('woff'), /* Modern Browsers */ url('../fonts/orbitron-v29-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */ url('../fonts/orbitron-v29-latin-700.svg#Orbitron') format('svg');
   /* Legacy iOS */
 }
 /* exo-200 - latin */
 @font-face {
   font-display: swap;
   /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: "Exo";
+  font-family: 'Exo';
   font-style: normal;
   font-weight: 200;
-  src: url("../fonts/exo-v20-latin-200.eot");
+  src: url('../fonts/exo-v20-latin-200.eot');
   /* IE9 Compat Modes */
-  src: url("../fonts/exo-v20-latin-200.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */ url("../fonts/exo-v20-latin-200.woff2") format("woff2"), /* Super Modern Browsers */ url("../fonts/exo-v20-latin-200.woff") format("woff"), /* Modern Browsers */ url("../fonts/exo-v20-latin-200.ttf") format("truetype"), /* Safari, Android, iOS */ url("../fonts/exo-v20-latin-200.svg#Exo") format("svg");
+  src: url('../fonts/exo-v20-latin-200.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../fonts/exo-v20-latin-200.woff2') format('woff2'), /* Super Modern Browsers */ url('../fonts/exo-v20-latin-200.woff') format('woff'), /* Modern Browsers */ url('../fonts/exo-v20-latin-200.ttf') format('truetype'), /* Safari, Android, iOS */ url('../fonts/exo-v20-latin-200.svg#Exo') format('svg');
   /* Legacy iOS */
 }
 /* exo-regular - latin */
 @font-face {
   font-display: swap;
   /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: "Exo";
+  font-family: 'Exo';
   font-style: normal;
   font-weight: 400;
-  src: url("../fonts/exo-v20-latin-regular.eot");
+  src: url('../fonts/exo-v20-latin-regular.eot');
   /* IE9 Compat Modes */
-  src: url("../fonts/exo-v20-latin-regular.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */ url("../fonts/exo-v20-latin-regular.woff2") format("woff2"), /* Super Modern Browsers */ url("../fonts/exo-v20-latin-regular.woff") format("woff"), /* Modern Browsers */ url("../fonts/exo-v20-latin-regular.ttf") format("truetype"), /* Safari, Android, iOS */ url("../fonts/exo-v20-latin-regular.svg#Exo") format("svg");
+  src: url('../fonts/exo-v20-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../fonts/exo-v20-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */ url('../fonts/exo-v20-latin-regular.woff') format('woff'), /* Modern Browsers */ url('../fonts/exo-v20-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */ url('../fonts/exo-v20-latin-regular.svg#Exo') format('svg');
   /* Legacy iOS */
 }
 /* Telegrama */
 @font-face {
-  font-family: "Telegrama";
-  src: url("../fonts/telegrama_render-webfont.eot");
-  src: url("../fonts/telegrama_render-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/telegrama_render-webfont.woff2") format("woff2"), url("../fonts/telegrama_render-webfont.woff") format("woff"), url("../fonts/telegrama_render-webfont.ttf") format("truetype"), url("../fonts/telegrama_render-webfont.svg#telegramarender") format("svg");
+  font-family: 'Telegrama';
+  src: url('../fonts/telegrama_render-webfont.eot');
+  src: url('../fonts/telegrama_render-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/telegrama_render-webfont.woff2') format('woff2'), url('../fonts/telegrama_render-webfont.woff') format('woff'), url('../fonts/telegrama_render-webfont.ttf') format('truetype'), url('../fonts/telegrama_render-webfont.svg#telegramarender') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -591,6 +591,7 @@ a:visited {
   color: inherit;
 }
 a:hover,
+a.hover,
 a:active,
 a:focus {
   text-decoration: none;
@@ -782,7 +783,7 @@ h1 a {
 .projectTitle {
   position: absolute;
   top: 50%;
-  margin-top: -0.5em;
+  transform: translateY(-50%);
   width: 100%;
   z-index: 1;
   padding: 0 16px;
@@ -1004,29 +1005,12 @@ img.logo {
 }
 #indexNavigation .subItem > div > video,
 #indexNavigation .subItem > div > img {
+  object-fit: cover;
   display: block;
-  margin: 0 auto;
-  max-width: 100%;
+  width: 100%;
+  height: 100%;
   opacity: 0.1;
   transition: opacity 0.5s 0.3s;
-}
-#indexNavigation .subItem > div.notHighEnough {
-  flex-direction: column;
-}
-#indexNavigation .subItem > div.notHighEnough > video,
-#indexNavigation .subItem > div.notHighEnough > img {
-  flex-basis: 100%;
-  max-width: none;
-  height: 100%;
-}
-#indexNavigation .subItem > div.notHighEnough.centered > video,
-#indexNavigation .subItem > div.notHighEnough.centered > img {
-  margin: 0;
-}
-#indexNavigation .subItem > div.tooHigh > video,
-#indexNavigation .subItem > div.tooHigh > img {
-  align-self: flex-start;
-  flex-basis: 100%;
 }
 #indexNavigation .subItem.promoted > div {
   border: 2px solid White;
@@ -1051,67 +1035,67 @@ img.logo {
 #indexNavigation .projectTitle {
   font-size: 0.64em;
 }
-#indexNavigation > li.hover,
-#indexNavigation > li:hover,
-#indexNavigation > li.active,
-#indexNavigation > li:focus {
+#indexNavigation > li:not(.placeholder).hover,
+#indexNavigation > li:not(.placeholder):hover,
+#indexNavigation > li:not(.placeholder).active,
+#indexNavigation > li:not(.placeholder):focus {
   padding: 6px;
   border: 2px solid DeepSkyBlue;
 }
-#indexNavigation > li.hover .categoryLink,
-#indexNavigation > li:hover .categoryLink,
-#indexNavigation > li.active .categoryLink,
-#indexNavigation > li:focus .categoryLink {
+#indexNavigation > li:not(.placeholder).hover .categoryLink,
+#indexNavigation > li:not(.placeholder):hover .categoryLink,
+#indexNavigation > li:not(.placeholder).active .categoryLink,
+#indexNavigation > li:not(.placeholder):focus .categoryLink {
   height: 3.5vw;
   transition-delay: 0.18s;
 }
-#indexNavigation > li.hover .categoryLink.doubleLine,
-#indexNavigation > li:hover .categoryLink.doubleLine,
-#indexNavigation > li.active .categoryLink.doubleLine,
-#indexNavigation > li:focus .categoryLink.doubleLine {
+#indexNavigation > li:not(.placeholder).hover .categoryLink.doubleLine,
+#indexNavigation > li:not(.placeholder):hover .categoryLink.doubleLine,
+#indexNavigation > li:not(.placeholder).active .categoryLink.doubleLine,
+#indexNavigation > li:not(.placeholder):focus .categoryLink.doubleLine {
   height: 7vw;
 }
-#indexNavigation > li.hover .categoryLink .numberOfProjects,
-#indexNavigation > li:hover .categoryLink .numberOfProjects,
-#indexNavigation > li.active .categoryLink .numberOfProjects,
-#indexNavigation > li:focus .categoryLink .numberOfProjects {
+#indexNavigation > li:not(.placeholder).hover .categoryLink .numberOfProjects,
+#indexNavigation > li:not(.placeholder):hover .categoryLink .numberOfProjects,
+#indexNavigation > li:not(.placeholder).active .categoryLink .numberOfProjects,
+#indexNavigation > li:not(.placeholder):focus .categoryLink .numberOfProjects {
   transform: scale(1, 0);
   transition-delay: 0.18s;
 }
-#indexNavigation > li.hover > .itemWrapper,
-#indexNavigation > li:hover > .itemWrapper,
-#indexNavigation > li.active > .itemWrapper,
-#indexNavigation > li:focus > .itemWrapper {
+#indexNavigation > li:not(.placeholder).hover > .itemWrapper,
+#indexNavigation > li:not(.placeholder):hover > .itemWrapper,
+#indexNavigation > li:not(.placeholder).active > .itemWrapper,
+#indexNavigation > li:not(.placeholder):focus > .itemWrapper {
   transition-delay: 0.18s;
 }
-#indexNavigation > li.hover .subItems,
-#indexNavigation > li:hover .subItems,
-#indexNavigation > li.active .subItems,
-#indexNavigation > li:focus .subItems {
+#indexNavigation > li:not(.placeholder).hover .subItems,
+#indexNavigation > li:not(.placeholder):hover .subItems,
+#indexNavigation > li:not(.placeholder).active .subItems,
+#indexNavigation > li:not(.placeholder):focus .subItems {
   top: 3.5vw;
   bottom: 0;
   transition-delay: 0.18s;
 }
-#indexNavigation > li.hover .doubleLine + .subItems,
-#indexNavigation > li:hover .doubleLine + .subItems,
-#indexNavigation > li.active .doubleLine + .subItems,
-#indexNavigation > li:focus .doubleLine + .subItems {
+#indexNavigation > li:not(.placeholder).hover .doubleLine + .subItems,
+#indexNavigation > li:not(.placeholder):hover .doubleLine + .subItems,
+#indexNavigation > li:not(.placeholder).active .doubleLine + .subItems,
+#indexNavigation > li:not(.placeholder):focus .doubleLine + .subItems {
   top: 7vw;
 }
-#indexNavigation > li.simpleLink.hover .categoryLink,
-#indexNavigation > li.simpleLink:hover .categoryLink,
-#indexNavigation > li.simpleLink.active .categoryLink,
-#indexNavigation > li.simpleLink:focus .categoryLink {
+#indexNavigation > li:not(.placeholder).simpleLink.hover .categoryLink,
+#indexNavigation > li:not(.placeholder).simpleLink:hover .categoryLink,
+#indexNavigation > li:not(.placeholder).simpleLink.active .categoryLink,
+#indexNavigation > li:not(.placeholder).simpleLink:focus .categoryLink {
   height: 100%;
 }
 @media (max-width: 950px) {
-  #indexNavigation > li {
+  #indexNavigation > li:not(.placeholder) {
     width: 50%;
     font-size: 3.5vw;
   }
 }
 @media (max-width: 600px) {
-  #indexNavigation > li {
+  #indexNavigation > li:not(.placeholder) {
     width: 100%;
     font-size: 7vw;
   }
@@ -1129,6 +1113,20 @@ img.logo {
 #indexNavigation .subItem.focus > div > img {
   opacity: 1;
   transition-delay: 0.18s;
+}
+#indexNavigation > li.placeholder > .itemWrapper {
+  border: 8px solid #222222;
+}
+#indexNavigation > li.placeholder .categoryLink {
+  background-color: transparent;
+}
+#indexNavigation > li.placeholder .categoryLink > h2 {
+  color: #999;
+}
+#about .subItem:hover > .projectTitle,
+#about .subItem:active > .projectTitle,
+#about .subItem.focus > .projectTitle {
+  color: DeepSkyBlue;
 }
 #contact {
   display: none;
@@ -1173,7 +1171,7 @@ img.logo {
 }
 #contact .front > .folded-corner:after,
 #contact .back > .folded-corner:after {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   top: 0;
@@ -1317,7 +1315,7 @@ img.logo {
   cursor: pointer;
 }
 #contact .glas:after {
-  content: "@rza.io";
+  content: '@rza.io';
 }
 #contact .glas:before {
   vertical-align: sub;
@@ -1493,7 +1491,6 @@ a.tag:last-child {
   width: 50%;
   border-left: 8px solid #000;
 }
-
 .layout-small .description {
   width: 100%;
   max-width: 100%;
@@ -1515,7 +1512,7 @@ a.tag:last-child {
 .description > .infoBox {
   border-left: 2px solid DeepSkyBlue;
   overflow: hidden;
-  font-size: 0.9em;
+  font-size: 0.7em;
 }
 .layout-medium .description > .infoBox {
   float: left;
@@ -1541,7 +1538,7 @@ a.tag:last-child {
   overflow: hidden;
 }
 .description > .infoBox dd.tags > .tag {
-  margin-top: 16px;
+  margin-top: 8px;
 }
 .description > .infoBox.tabular > * {
   float: left;
@@ -1560,7 +1557,6 @@ a.tag:last-child {
 .description > .infoBox.tabular > dt.tags {
   width: auto;
 }
-
 .layout-small .description > .infoBox.tabular > dt {
   width: auto;
 }
@@ -1995,7 +1991,7 @@ a.tag:last-child {
 }
 .hljs {
   background: none;
-  font-family: "Telegrama", monospace;
+  font-family: 'Telegrama', monospace;
   font-size: 0.9em;
   padding: 0;
 }
@@ -2058,6 +2054,10 @@ a.tag:last-child {
 #aboutPage .content > li:first-child,
 #aboutPage .content dt:first-child {
   margin-top: 0;
+}
+#aboutPage .content data,
+#aboutPage .content time {
+  font-weight: bold;
 }
 #aboutPage #source {
   position: relative;
@@ -2166,7 +2166,7 @@ a.tag:last-child {
   font-weight: normal;
 }
 .orbitron {
-  font-family: "Orbitron", sans-serif;
+  font-family: 'Orbitron', sans-serif;
   letter-spacing: 0.1em;
   font-weight: normal;
 }
@@ -2189,7 +2189,7 @@ a.tag:last-child {
   font-weight: 400;
 }
 .telegrama {
-  font-family: "Telegrama", monospace;
+  font-family: 'Telegrama', monospace;
 }
 .aboutSection {
   width: 26em;

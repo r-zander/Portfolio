@@ -27,10 +27,10 @@ additions:
     location: /tag/:professional
     lastmod: '2018-06-15'
   -
-    location: /tag/:unpaid
+    location: /tag/:passion
     lastmod: '2018-06-15'
   -
-    location: /tag/:studies
+    location: /tag/:academic
     lastmod: '2018-06-15'
   -
     location: /tag/:css

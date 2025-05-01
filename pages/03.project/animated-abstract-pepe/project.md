@@ -1,9 +1,10 @@
 ---
 title: 'Animated Abstract Pepe'
 taxonomy:
-  tagLvl0: animation
-  tag: experimental
-  typeOfWork: unpaid
+  tag:
+    - animation
+    - experimental
+  typeOfWork: passion
   language:
     - processing
     - java

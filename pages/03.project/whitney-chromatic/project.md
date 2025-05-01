@@ -1,8 +1,8 @@
 ---
 title: 'Whitney Chromatic'
 taxonomy:
-  tagLvl0: interactive
-  typeOfWork: unpaid
+  tag: interactive
+  typeOfWork: passion
   language:
     - p5js
     - processing

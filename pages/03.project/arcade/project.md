@@ -1,9 +1,9 @@
 ---
 title: 'Arcade'
 taxonomy:
-#  tagLvl0: game
+#  indexTag: game
 #  tag: app
-#  typeOfWork: studies
+#  typeOfWork: academic
 #  language: processing
 #  promoted: frontpage
 thumbnail:
@@ -12,4 +12,3 @@ thumbnail:
 date: 13-07-2015
 visible: false
 ---
-

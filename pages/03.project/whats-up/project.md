@@ -1,9 +1,9 @@
 ---
 title: "What's Up?"
 taxonomy:
-  tagLvl0: interactive
+  indexTag: web
   tag: website
-  typeOfWork: studies
+  typeOfWork: academic
   language:
     - css
     - html

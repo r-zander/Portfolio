@@ -1,8 +1,8 @@
 ---
 title: 'Circle Flower'
 taxonomy:
-  tagLvl0: animation
-  typeOfWork: unpaid
+  tag: animation  
+  typeOfWork: passion
   language:
     - p5js
     - processing

@@ -2,8 +2,8 @@
 title: 'Better World'
 date: 27-07-2015
 taxonomy:
-  tagLvl0: interactive
-  typeOfWork: studies
+  tag: interactive
+  typeOfWork: academic
   language:
     - processing
     - p5js

@@ -2,9 +2,10 @@
 title: '25 Stripes'
 date: 07-01-2013
 taxonomy:
-  tagLvl0: static
-  tag: [abstract]
-  typeOfWork: studies
+  tag:
+    - static
+    - abstract
+  typeOfWork: academic
   language: css
   series: divcomposition
 thumbnail:

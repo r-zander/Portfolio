@@ -1,11 +1,12 @@
 ---
 title: 'Cracking Passwords Guide'
 taxonomy:
-  tagLvl0: static
-  tag: [typography, website]
-  typeOfWork: studies
+  tag: 
+    - static
+    - typography
+    - website
+  typeOfWork: academic
   language: css
-  promoted: frontpage
 date: 30-12-2015
 thumbnail:
   extension: png

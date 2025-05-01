@@ -1,9 +1,9 @@
 ---
-title: 'BerryHunter'
+title: 'Berry&ZeroWidthSpace;Hunter.io'
 taxonomy:
-  tagLvl0: game
-  tag: [webapplication]
-  typeOfWork: unpaid
+  indexTag: game
+  tag: webapplication
+  typeOfWork: passion
   language:
     - css
     - html
@@ -21,7 +21,7 @@ thumbnail:
   extension: jpg
 ---
 
-[BerryHunter](https://berryhunter.io/) is a 2D multiplayer stone age survival game, playable directly in the browser.
+[BerryHunter.io](https://berryhunter.io/) is a 2D multiplayer stone age survival game, playable directly in the browser.
 Goal of the game is to survive coldness, hunger, animals and other players for as long as possible.
 To help with this task the player can gather resources and craft tools and buildings.
 

@@ -50,6 +50,32 @@ class="spyScroll" data-spy="scroll" data-target="#sideNav"
 			<p class="content">This website was designed and implemented by <a href="#contact" data-featherlight="#contact">me</a>. Please have a look at the following resources that I used with kind permission of their respective owners.</p>
 		</section>
 
+		<section class="aboutSection right">
+			<h4 id="sources" class="contentHeading">Open Source</h4>
+			<p class="content">
+				The web should be open source and so is this website.<br />
+				Find my custom Grav theme and the setup for all presented projects
+				in my <a href="https://github.com/r-zander/Portfolio" class="external">GitHub repository</a>.
+			</p>
+		</section>
+
+		<section class="aboutSection left">
+			<h4 id="sources" class="contentHeading">Stats</h4>
+			<ul class="content">
+				<!-- CMS generated numbers -->
+				{% set projects = pages.collection( {items: {'@page.descendants': '/project'}, filter: {'type': 'project'} }) %}
+				<li><data value="{{ projects.count }}">{{ projects.count }}</data> projects total</li>
+				<li>
+					<a href="https://api.codetabs.com/v1/loc/?github=r-zander/Portfolio&ignored=assets,plugins,css-compiled,fonts,vendor,favicon,config" target="_blank">
+						<data value="16132">16,132</data>
+					</a>
+					lines of code
+				</li>
+				{% set lastUpdate = (projects.order('modified', 'desc')|first).modified %}
+				<li>Last updated on <time datetime="{{ lastUpdate|date("Y-m-d") }}">{{ lastUpdate|date("d M Y") }}</time>.</li>
+			</ul>
+		</section>
+
 		<h3 id="credits" class="superHeading">Credits</h3>
 		<section class="aboutSection left">
 			<h4 id="credits_serverSide" class="contentHeading">Server Side</h4>
@@ -95,7 +121,7 @@ class="spyScroll" data-spy="scroll" data-target="#sideNav"
 					<tr>
 						<th>Fonts</th>
 						<td>Author</td>
-						<td>used as</td>
+						<td>used for</td>
 					</tr>
 				</table>
 			</h4>
@@ -109,7 +135,7 @@ class="spyScroll" data-spy="scroll" data-target="#sideNav"
 					<tr class="exo">
 						<td><a href="https://fonts.google.com/specimen/Exo">Exo</a></td>
 						<td>by <a href="http://ndiscovered.com/">Natanael Gama</a></td>
-						<td>text font</td>
+						<td>text</td>
 					</tr>
 					<tr class="telegrama">
 						<td><a href="http://www.yoworks.com/telegrama/index.html">Telegrama (Render)</a></td>
@@ -120,18 +146,6 @@ class="spyScroll" data-spy="scroll" data-target="#sideNav"
 			</div>
 		</section>
 
-		<h3 id="sources" class="superHeading contentHeading">Source</h3>
-		<section class="aboutSection left">
-			<!-- <ul class="content">
-				<li>xx,xxx lines of code</li>
-				<li>HTML + JS source can be viewed with CTRL+U or F12</li>
-				<li>Less source follows</li>
-				<li>Last updated on <time datetime="2016-03-01">01 Mar 2014</time>.</li>
-			</ul> -->
-			<p class="content">
-				Complete source code can be found in the the <a href="https://github.com/r-zander/Portfolio" class="external">GitHub repository</a>.
-			</p>
-		</section>
 		<!-- <section class="aboutSection double">
 			<h4 id="sources_less" class="contentHeading">Less Sources</h4>
 

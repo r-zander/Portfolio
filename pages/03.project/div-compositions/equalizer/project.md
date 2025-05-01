@@ -2,9 +2,10 @@
 title: 'Equalizer'
 date: 07-01-2013
 taxonomy:
-  tagLvl0: animation
-  tag: [abstract]
-  typeOfWork: studies
+  tag:
+    - animation
+    - abstract
+  typeOfWork: academic
   language: css
   series: divcomposition
 thumbnail:

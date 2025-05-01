@@ -2,16 +2,16 @@
 title: 'Text<wbr />Adventure'
 date: 03-07-2016
 taxonomy:
-  tagLvl0: game
-  tag: [app, webapplication]
-  typeOfWork: unpaid
+  indexTag: game
+  tag:
+    - webapplication
+  typeOfWork: passion
   language:
     - wicket
     - java
     - html
     - sql
     - css
-  promoted: frontpage
 displayTypes:
   screenshots:
     00.promo: "Promo Illustration by [Nessi](http://shabbyschick.deviantart.com/)<br /><small>[Character stock](http://faestock.deviantart.com/art/Alanna12-368799100) by [faestock](http://faestock.deviantart.com/).<br />[Background photography](https://www.flickr.com/photos/boscdanjou/6884491041/) by [Bosc d'Anjou](https://www.flickr.com/photos/boscdanjou/).</small>"

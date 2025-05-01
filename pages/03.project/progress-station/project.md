@@ -2,9 +2,9 @@
 title: 'Progress Station'
 date: 30-04-2024
 taxonomy:
-  tagLvl0: game
-  tag: [ webapplication ]
-  typeOfWork: unpaid
+  indexTag: game
+  tag: webapplication
+  typeOfWork: passion
   language:
     - css
     - html

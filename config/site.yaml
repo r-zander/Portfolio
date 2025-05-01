@@ -2,7 +2,7 @@ title: 'Raoul Zander :: Portfolio'
 author:
   name: 'Raoul Zander'
 taxonomies:
-  - tagLvl0
+  - indexTag
   - tag
   - typeOfWork
   - language

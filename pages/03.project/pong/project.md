@@ -1,9 +1,8 @@
 ---
 title: 'Pong'
 taxonomy:
-  tagLvl0: game
-  tag: 
-  typeOfWork: studies
+  indexTag: game
+  typeOfWork: academic
   language:
     - processing
     - java

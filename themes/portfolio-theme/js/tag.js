@@ -28,13 +28,6 @@ $(function () {
 		iso.layout();
 	});
 
-	iso.on( 'layoutComplete', function(){
-		$(".grid .projectTitle").each(function(){
-			var ele = $(this);
-			ele.css("margin-top", ele.outerHeight() / -2);
-		});
-	});
-
 	/*
 	 * Related tags highlighting
 	 */

@@ -1,12 +1,16 @@
 enabled: true
 
 tagMapping:
+  albiononline:
+    title: "Albion Online"
   animation:
     title: Animations
   blackwhite:
     title: "Black and White"
   css:
     title: CSS
+  csharp:
+    title: "C#"
   divcomposition:
     title: "Compositions with Divs"
   game:
@@ -15,12 +19,22 @@ tagMapping:
     title: HTML
   javascript:
     title: JavaScript
+  jquery:
+    title: jQuery
   loadinganimation:
     title: "Loading animation"
+  ngui:
+    title: "NGUI: Next-Gen UI"
   opart:
     title: "Op Art"
   p5js:
     title: "p5.js"
+  passion:
+    title: "Passion Project"
+  php:
+    title: PHP
+  springboot:
+    title: "Spring Boot"
   static:
     title: "Static Work"
   sql:
@@ -31,7 +45,7 @@ tagMapping:
     title: "Websites"
 
 tagCategoryMapping:
-  tagLvl0:
+  indexTag:
     inline: front page category
     inlinePlural: front page categories
   language:
@@ -139,13 +153,16 @@ projectDisplay:
       category: language
       displayTypes:
     game:
-      category: tagLvl0
+      category: indexTag
       displayTypes:
         - liveRender
         - webmRender
         - screenshots
         - sourceCode
         - zipDownload
+    web:
+      category: indexTag
+      displayTypes:
     webapplication:
       category: tag
       displayTypes:
@@ -158,7 +175,7 @@ projectDisplay:
         - screenshots
         - sourceCode
     static:
-      category: tagLvl0
+      category: tag
       displayTypes:
         - embeddedSite
         - screenshot
@@ -170,7 +187,7 @@ projectDisplay:
         - gifRender
         - screenshot
     animation:
-      category: tagLvl0
+      category: tag
       displayTypes:
         - liveRender
         - webmRender

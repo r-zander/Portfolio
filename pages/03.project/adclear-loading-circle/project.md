@@ -1,7 +1,7 @@
 ---
 title: 'AdClear Loading Circle'
 taxonomy:
-  tagLvl0: animation
+  tag: animation
   typeOfWork: professional
   language: css
 date: 18-09-2013

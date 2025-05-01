@@ -2,13 +2,12 @@
 title: 'Sound of the City'
 date: 17-07-2016
 taxonomy:
-  tagLvl0: interactive
-  typeOfWork: studies
+  indexTag: game
+  typeOfWork: academic
   language:
     - processing
     - p5js
     - javascript
-  promoted: highlight
 thumbnail:
   class: notHighEnough centered
 displayTypes:

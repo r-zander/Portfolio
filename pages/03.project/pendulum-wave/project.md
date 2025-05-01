@@ -1,9 +1,10 @@
 ---
 title: 'Pendulum Wave'
 taxonomy:
-  tagLvl0: animation
-  tag: loadinganimation
-  typeOfWork: unpaid
+  tag:
+    - animation
+    - loadinganimation
+  typeOfWork: passion
   language: css
   promoted: frontpage
 thumbnail:

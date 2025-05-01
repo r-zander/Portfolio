@@ -2,7 +2,7 @@
 title: 'AdClear UI'
 date: 30-09-2015
 taxonomy:
-  tagLvl0: interactive
+  indexTag: web
   tag: webapplication
   typeOfWork: professional
   language:

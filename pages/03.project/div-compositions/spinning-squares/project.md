@@ -2,9 +2,11 @@
 title: 'Spinning Squares'
 date: 07-01-2013
 taxonomy:
-  tagLvl0: animation
-  tag: [abstract, opart]
-  typeOfWork: studies
+  tag: 
+    - animation
+    - abstract
+    - opart
+  typeOfWork: academic
   language: css
   series: divcomposition
 thumbnail:

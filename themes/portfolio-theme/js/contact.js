@@ -3,7 +3,7 @@ $(function(){
 	 * Don't say the word ;)
 	 */
 	$('.glas').click(function(){
-		window.location.href='mailto:'+$(this).html()+'@rza.io';
+		window.location.href='\u006d\u0061\u0069\u006c\u0074\u006f\u003a'+$(this).html()+'@rza.io';
 	});
 
 	// Enable contact card flip button
@@ -33,4 +33,31 @@ $(function(){
 		$(document).scrollTop(scrollTop);
 		$(document).scrollLeft(scrollLeft);
 	};
+
+	syncHoverOfAboutMeLinks();
 });
+
+function syncHoverOfAboutMeLinks() {
+	/*
+     * Connect the hover of both 'About Me' links
+     */
+	var links = $('a[href="#contact"]');
+
+	links.hover(function () {
+		links.addClass('hover');
+		links.each(function (index, element) {
+			var hoverTarget = $(element).data('hover');
+			if (typeof(hoverTarget) === 'string') {
+				$(hoverTarget).addClass('hover');
+			}
+		});
+	}, function () {
+		links.removeClass('hover');
+		links.each(function (index, element) {
+			var hoverTarget = $(element).data('hover');
+			if (typeof(hoverTarget) === 'string') {
+				$(hoverTarget).removeClass('hover');
+			}
+		});
+	});
+}

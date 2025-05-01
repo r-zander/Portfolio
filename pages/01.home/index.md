@@ -1,19 +1,20 @@
 ---
 structure:
+  albiononline:
+    - project:albion-online/albion-ui
+    - project:albion-online/albion-web
   game:
-    - project berryhunter
-    - project textadventure
-    - project progress-station
-  interactive:
-    - project sound-of-the-city
-    - project adclear-ui
-    - language processing
-    - tag website
-  animation:
-    - project orbit-clock
-    - language processing
-    - language css
-  static:
-    - series divcomposition
-    - tag typography
+    - project:berryhunter
+    - project:progress-station
+  web:
+    - project:albion-online
+    - tag:webapplication
+    - tag:website
+  community:
+    - placeholder:Under construction
+  all:
+    - project:orbit-clock
+    - project:whitney-chromatic
+    - tag:animation
+    - language:css:pendulum-wave
 ---

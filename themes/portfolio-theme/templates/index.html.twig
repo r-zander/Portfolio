@@ -17,19 +17,37 @@
 {% block content %}
 	<ul id="indexNavigation">
 		{% for item,subItems in page.header.structure %}
+			{# Calculate the number of children for the subItems class. It's the number of configured children + 1 if there are one or more projects (instead of only tags) within the subItems. #}
+			{% set numberOfChildren = subItems|length %}
+			{% set isPlaceholder = (numberOfChildren == 1 and subItems[0] starts with "placeholder:")  %}
+
+			{% if isPlaceholder %}
+		<li class="placeholder">
+			<div class="itemWrapper">
+				<div class="categoryLink">
+					<h2>
+						{{ themeConfig.tagMapping[item].title|default(item|capitalize) }}
+						<small class="numberOfProjects">{{ subItems[0]|split(":")[1] }}</small>
+					</h2>
+				</div>
+			</div>
+		</li>
+			{% else %}
 		<li>
 			<div class="itemWrapper">
 				<a href="{{ page.find("/tag").url ~ "/:" ~ item }}" class="categoryLink">
 					<h2>
 						{{ themeConfig.tagMapping[item].title|default(item|capitalize) }}
-						<small class="numberOfProjects">{{ taxonomy.findTaxonomy({'tagLvl0':item})|length }} Projects</small>
+						{% if item == "all" %}
+							<small class="numberOfProjects">{{ pages.collection( {items: {'@page.descendants': '/project'}, filter: {'type': 'project'} })|length }} Projects</small>
+						{% else %}
+							<small class="numberOfProjects">{{ taxonomy.findTaxonomy({'indexTag':item})|length }} Projects</small>
+						{% endif %}
 					</h2>
 				</a>
-				{# Calculate the number of children for the subItems class. It's the number of configured children + 1 if there are one or more projects (instead of only tags) within the subItems. #}
-				{% set numberOfChildren = subItems|length %}
 				{% set hasProject = false %}
 				{% for subItem in subItems if not hasProject %}
-					{% if subItem starts with "project" %}
+					{% if subItem starts with "project:" %}
 						{% set hasProject = true %}
 					{% endif %}
 				{% endfor %}
@@ -39,8 +57,9 @@
 
 				<div class="subItems with{{ numberOfChildren }}children">
 					{% for subItem in subItems %}
-						{% set itemType = subItem|split(" ")[0] %}
-						{% set itemName = subItem|split(" ")[1] %}
+						{% set subItemSplit = subItem|split(":") %}
+						{% set itemType = subItemSplit[0] %}
+						{% set itemName = subItemSplit[1] %}
 						{% if itemType == "project" %}
 							{% set itemPage = page.find("/project/" ~ itemName) %}
 							{% set itemTitle = itemPage.title %}
@@ -48,67 +67,78 @@
 						{% else %}
 							{% set itemPage = page.find("/tag") %}
 							{% set itemTitle = themeConfig.tagMapping[itemName].title|default(itemName|capitalize) %}
-							{% set mediaPage = taxonomy.findTaxonomy({
-								'tagLvl0': item,
-								(itemType): itemName,
-								'promoted': 'frontpage'
-								})|first %}
+							{% if subItemSplit|length >= 3 %}
+								{% set mediaPage = page.find("/project/" ~ subItemSplit[2]) %}
+							{% else %}
+								{%  if item == "all" %}
+									{% set mediaPage = taxonomy.findTaxonomy({
+										(itemType): itemName,
+										'promoted': 'frontpage'
+									})|first %}
+								{% else %}
+									{% set mediaPage = taxonomy.findTaxonomy({
+										'indexTag': item,
+										(itemType): itemName,
+										'promoted': 'frontpage'
+										})|first %}
+								{% endif %}
+							{% endif %}
 						{% endif %}
 
 
 						{% set thumbnailType = mediaPage.header.thumbnail.extension|default("webm") %}
-						{% set itemMedia = mediaPage.media[mediaPage.slug ~
-											"." ~ thumbnailType] %}
+						{% set itemMedia = mediaPage.media[mediaPage.slug ~ "." ~ thumbnailType] %}
 						{% if not mediaPage.header.thumbnail.start is empty %}
 							{% set mediaFragment = "#t=" ~ mediaPage.header.thumbnail.start %}
 						{% endif %}
 
-					{% if itemType == "project" and itemPage.taxonomy.promoted[0] == "highlight" %}
-						{% set promotedClass = " promoted" %}
-					{% else %}
-						{% set promotedClass = "" %}
-					{% endif %}
-					<a href="{{ itemPage.url }}{{ itemType != "project" ? "/:" ~ item ~ "+" ~ itemName }}" class="subItem{{ promotedClass }}">
-						<h3 class="projectTitle">
-							{{ itemTitle }}
-							{% if not (itemType == "project") %}
-								<small class="numberOfProjects">{{ taxonomy.findTaxonomy({'tagLvl0': item, (itemType): itemName})|length }} Projects</small>
-							{% endif %}
-						</h3>
-						<div class="{{ mediaPage.header.thumbnail.class }}">
-							{% if thumbnailType == "webm" %}
-								<video src="{{ itemMedia.url }}{{ mediaFragment }}" preload="auto" muted="muted" loop="loop"></video>
-							{% else %}
-								{{ itemMedia }}
-							{% endif %}
-						</div>
-					</a>
+						{% if itemType == "project" and itemPage.taxonomy.promoted[0] == "highlight" %}
+							{% set promotedClass = " promoted" %}
+						{% else %}
+							{% set promotedClass = "" %}
+						{% endif %}
+						<a href="{{ itemPage.url }}{{ itemType != "project" ? "/:" ~ (item == "all" ? "" : item ~ "+") ~ itemName }}" class="subItem{{ promotedClass }}">
+							<h3 class="projectTitle">
+								{{ itemTitle }}
+								{% if not (itemType == "project") %}
+									{% if item == "all" %}
+										<small class="numberOfProjects">{{ taxonomy.findTaxonomy({(itemType): itemName})|length }} Projects</small>
+									{% else %}
+										<small class="numberOfProjects">{{ taxonomy.findTaxonomy({'indexTag': item, (itemType): itemName})|length }} Projects</small>
+									{% endif %}
+								{% endif %}
+							</h3>
+							<div class="{{ mediaPage.header.thumbnail.class }}">
+								{% if thumbnailType == "webm" %}
+									<video src="{{ itemMedia.url }}{{ mediaFragment }}" preload="auto" muted="muted" loop="loop"></video>
+								{% else %}
+									{{ itemMedia }}
+								{% endif %}
+							</div>
+						</a>
 					{% endfor %}
 				</div>
 			</div>
 		</li>
+			{% endif %}
 		{% endfor %}
 
-		<li>
-			<a href="{{ page.find("/about").url }}" class="itemWrapper">
-				<div class="categoryLink doubleLine"><h2>About this<br />
-					website</h2></div>
-				<div class="subItems notes">
-					<ul>
-						<!-- CMS generated numbers -->
-						<li>{{ page.find('/project').children.count }} projects total</li>
-						<li>13,942 lines of code</li>
-						{% set lastUpdate = (page.find('/project').children.order('modified', 'desc')|first).modified %}
-						<li>Last updated on <time datetime="{{ lastUpdate|date("Y-m-d") }}">{{ lastUpdate|date("d M Y") }}</time>.</li>
-					</ul>
-				</div>
-			</a>
-		</li>
-		<li id="aboutMe" class="simpleLink">
+		<li id="about">
 			<div class="itemWrapper">
-				<a href="#" class="categoryLink" data-featherlight="#contact" data-featherlight-open-speed="500">
-					<h2>About me</h2>
-				</a>
+				<div class="categoryLink">
+					<h2>About</h2>
+				</div>
+
+				<div class="subItems with3children">
+					<a href="{{ page.find("/about").url }}" class="subItem">
+						<h3 class="projectTitle">this website</h3>
+						<div><!-- no-project backdrop --></div>
+					</a>
+					<a href="#contact" class="subItem" data-featherlight="#contact" data-featherlight-open-speed="500" data-hover="#about">
+						<h3 class="projectTitle">me</h3>
+						<div><!-- no-project backdrop --></div>
+					</a>
+				</div>
 			</div>
 		</li>
 	</ul>

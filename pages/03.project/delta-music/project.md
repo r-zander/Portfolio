@@ -1,7 +1,7 @@
 ---
 title: "delta-music.de"
 taxonomy:
-  tagLvl0: interactive
+  indexTag: web
   tag: website
   typeOfWork: professional
   language:

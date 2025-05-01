@@ -2,9 +2,11 @@
 title: 'Spinning Spiral'
 date: 12-06-2013
 taxonomy:
-  tagLvl0: animation
-  tag: [abstract, opart]
-  typeOfWork: unpaid
+  tag: 
+    - animation
+    - abstract
+    - opart
+  typeOfWork: passion
   language: css
 thumbnail:
   extension: webm

@@ -131,6 +131,10 @@
 				width: 50%;
 				height: 100%;
 
+				&:first-of-type > .thumbnailContainer {
+					border-bottom-left-radius: @gridDistance;
+				}
+
 				&:last-of-type {
 					padding-right: 0;
 				}
@@ -141,6 +145,10 @@
 			> .subItem {
 				width: 50%;
 				height: 50%;
+
+				:nth-of-type(2) > .thumbnailContainer {
+					border-bottom-left-radius: @gridDistance;
+				}
 
 				&:last-of-type {
 					padding-right: 0;
@@ -197,7 +205,7 @@
 		position: relative;
 		padding-right: @gridPadding;
 
-		> div {
+		> .thumbnailContainer {
 			display: flex;
 			align-items: center;
 			height: 100%;
@@ -218,7 +226,7 @@
 		}
 
 		&.promoted {
-			> div {
+			> .thumbnailContainer {
 				border: 2px solid @highlightColor;
 				position: relative;
 				border-top-left-radius: (1.5 * @gridDistance) 0.8em;
@@ -324,10 +332,12 @@
 		&.focus {
 			color: inherit;
 
-			> div > video,
-			> div > img {
-				opacity: 1;
-				transition-delay: 0.18s;
+			> .thumbnailContainer {
+				> video,
+				> img {
+					opacity: 1;
+					transition-delay: 0.18s;
+				}
 			}
 		}
 	}

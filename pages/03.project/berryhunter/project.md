@@ -3,7 +3,7 @@ title: 'Berry&ZeroWidthSpace;Hunter.io'
 taxonomy:
   indexTag: game
   tag: webapplication
-  typeOfWork: passion
+  typeOfWork: personal
   language:
     - css
     - html

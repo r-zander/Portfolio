@@ -947,6 +947,10 @@ img.logo {
   width: 50%;
   height: 100%;
 }
+#indexNavigation .subItems.with2children > .subItem:first-of-type > .thumbnailContainer,
+#indexNavigation .subItems.with3children > .subItem:first-of-type > .thumbnailContainer {
+  border-bottom-left-radius: 32px;
+}
 #indexNavigation .subItems.with2children > .subItem:last-of-type,
 #indexNavigation .subItems.with3children > .subItem:last-of-type {
   padding-right: 0;
@@ -954,6 +958,9 @@ img.logo {
 #indexNavigation .subItems.with4children > .subItem {
   width: 50%;
   height: 50%;
+}
+#indexNavigation .subItems.with4children > .subItem :nth-of-type(2) > .thumbnailContainer {
+  border-bottom-left-radius: 32px;
 }
 #indexNavigation .subItems.with4children > .subItem:last-of-type {
   padding-right: 0;
@@ -992,7 +999,7 @@ img.logo {
   position: relative;
   padding-right: 16px;
 }
-#indexNavigation .subItem > div {
+#indexNavigation .subItem > .thumbnailContainer {
   display: flex;
   align-items: center;
   height: 100%;
@@ -1003,8 +1010,8 @@ img.logo {
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
 }
-#indexNavigation .subItem > div > video,
-#indexNavigation .subItem > div > img {
+#indexNavigation .subItem > .thumbnailContainer > video,
+#indexNavigation .subItem > .thumbnailContainer > img {
   object-fit: cover;
   display: block;
   width: 100%;
@@ -1012,12 +1019,12 @@ img.logo {
   opacity: 0.1;
   transition: opacity 0.5s 0.3s;
 }
-#indexNavigation .subItem.promoted > div {
+#indexNavigation .subItem.promoted > .thumbnailContainer {
   border: 2px solid White;
   position: relative;
   border-top-left-radius: 48px 0.8em;
 }
-#indexNavigation .subItem.promoted > div::after {
+#indexNavigation .subItem.promoted > .thumbnailContainer::after {
   content: "Highlighted Project";
   display: block;
   position: absolute;
@@ -1105,12 +1112,12 @@ img.logo {
 #indexNavigation .subItem.focus {
   color: inherit;
 }
-#indexNavigation .subItem:hover > div > video,
-#indexNavigation .subItem:active > div > video,
-#indexNavigation .subItem.focus > div > video,
-#indexNavigation .subItem:hover > div > img,
-#indexNavigation .subItem:active > div > img,
-#indexNavigation .subItem.focus > div > img {
+#indexNavigation .subItem:hover > .thumbnailContainer > video,
+#indexNavigation .subItem:active > .thumbnailContainer > video,
+#indexNavigation .subItem.focus > .thumbnailContainer > video,
+#indexNavigation .subItem:hover > .thumbnailContainer > img,
+#indexNavigation .subItem:active > .thumbnailContainer > img,
+#indexNavigation .subItem.focus > .thumbnailContainer > img {
   opacity: 1;
   transition-delay: 0.18s;
 }
@@ -1543,10 +1550,10 @@ a.tag:last-child {
 .description > .infoBox.tabular > * {
   float: left;
   margin: 0;
-  margin-top: 32px;
+  margin-top: 23px;
 }
 .description > .infoBox.tabular > *:first-of-type {
-  margin-top: 0;
+  margin-top: -6px;
 }
 .description > .infoBox.tabular > dt {
   width: 9em;

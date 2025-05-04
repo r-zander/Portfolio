@@ -2,7 +2,7 @@
 title: 'Circle Flower'
 taxonomy:
   tag: animation  
-  typeOfWork: passion
+  typeOfWork: personal
   language:
     - p5js
     - processing

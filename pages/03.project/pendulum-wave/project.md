@@ -4,7 +4,7 @@ taxonomy:
   tag:
     - animation
     - loadinganimation
-  typeOfWork: passion
+  typeOfWork: personal
   language: css
   promoted: frontpage
 thumbnail:

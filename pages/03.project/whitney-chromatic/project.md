@@ -2,7 +2,7 @@
 title: 'Whitney Chromatic'
 taxonomy:
   tag: interactive
-  typeOfWork: passion
+  typeOfWork: personal
   language:
     - p5js
     - processing

@@ -91,21 +91,26 @@
 		{% endif %}
 	</dl>
 
-	{% set series = page.taxonomy["series"] %}
-	{% if series is not empty %}
-		{% for tag in series %}
-			<article class="series text collapsed">
-				<h2>Part of the series <a href="{{ tagPage.url ~ '/:' ~ tag }}">{{ themeConfig.tagMapping[tag].title|default(tag|capitalize) }} <small class="numberOfProjects">{{ taxonomy.findTaxonomy({"series": tag})|length }}</small></a></h2>
-
-				{{ page.find("/tag/_" ~ tag).content }}
-			</article>
-		{% endfor %}
-	{% endif %}
-
 	{% if page.content is not empty %}
 		<article class="flavor text">
 			{{ page.content }}
 		</article>
+	{% endif %}
+
+	{% set series = page.taxonomy["series"] %}
+	{% if series is not empty %}
+		{% for tag in series %}
+			<article class="series text collapsed">
+				<h2>Part of <a href="{{ tagPage.url ~ '/:' ~ tag }}">{{ themeConfig.tagMapping[tag].title|default(tag|capitalize) }} <small class="numberOfProjects">{{ taxonomy.findTaxonomy({"series": tag})|length }}</small></a></h2>
+
+				{% set tagPage = page.find("/tag/_" ~ tag) %}
+				{% if tagPage.header.shortContent %}
+					{{ tagPage.header.shortContent|markdown }}
+				{% else %}
+					{{ tagPage.content }}
+				{% endif %}
+			</article>
+		{% endfor %}
 	{% endif %}
 </section>
 
@@ -210,9 +215,10 @@
 				{% elseif displayType starts with "promoVideo" %}
 					<div class="aspect-ratio" style="padding-bottom: {{ (display.height / display.width * 100)|round(2) }}%">
 						{% if display.vimeoId is defined -%}
-							<iframe src="https://player.vimeo.com/video/{{ display.vimeoId }}?title=0&byline=0&portrait=0"
+							<iframe src="https://player.vimeo.com/video/{{ display.vimeoId }}?{{ display.hash ? 'h=' ~ display.hash ~ '&' : ''}}badge=0&title=0&byline=0&portrait=0&player_id=0&app_id=58479"
 									width="{{ display.width }}" height="{{ display.height }}"
 									frameborder="0"
+									allow="fullscreen; picture-in-picture; encrypted-media"
 									webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 						{%- elseif display.youtubeId is defined -%}
 							<iframe src="https://www.youtube-nocookie.com/embed/{{ display.youtubeId }}"
@@ -248,7 +254,7 @@
 						<aside>{{ display.caption|markdown }}</aside>
 					{% endif %}
 
-				{% elseif displayType == "video" %}
+				{% elseif displayType starts with "video" %}
 					<video src="{{ page.slug ~ "/" ~ display.file }}" preload="auto" {% if display.muted %} muted="muted"{% endif %}controls="controls" loop="loop"{% if firstDisplay %} autoplay="autoplay"{% endif %}></video>
 
 				{% elseif (displayType == "conceptPng") or (displayType == "conceptJpg") %}

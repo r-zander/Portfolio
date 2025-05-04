@@ -38,7 +38,10 @@
 				<a href="{{ page.find("/tag").url ~ "/:" ~ item }}" class="categoryLink">
 					<h2>
 						{{ themeConfig.tagMapping[item].title|default(item|capitalize) }}
-						{% if item == "all" %}
+						{% set tagPage = page.find("/tag/_" ~ item) %}
+						{% if tagPage is not null and tagPage.header.index.showYears %}
+							<small class="numberOfProjects">{{ tagPage.date|yearsSince }} {{ 'years'|pluralize(tagPage.date|yearsSince) }}</small>
+						{% elseif item == "all" %}
 							<small class="numberOfProjects">{{ pages.collection( {items: {'@page.descendants': '/project'}, filter: {'type': 'project'} })|length }} Projects</small>
 						{% else %}
 							<small class="numberOfProjects">{{ taxonomy.findTaxonomy({'indexTag':item})|length }} Projects</small>
@@ -108,7 +111,7 @@
 									{% endif %}
 								{% endif %}
 							</h3>
-							<div class="{{ mediaPage.header.thumbnail.class }}">
+							<div class="thumbnailContainer {{ mediaPage.header.thumbnail.class }}">
 								{% if thumbnailType == "webm" %}
 									<video src="{{ itemMedia.url }}{{ mediaFragment }}" preload="auto" muted="muted" loop="loop"></video>
 								{% else %}
@@ -132,11 +135,11 @@
 				<div class="subItems with3children">
 					<a href="{{ page.find("/about").url }}" class="subItem">
 						<h3 class="projectTitle">this website</h3>
-						<div><!-- no-project backdrop --></div>
+						<div class="thumbnailContainer"><!-- no-project backdrop --></div>
 					</a>
 					<a href="#contact" class="subItem" data-featherlight="#contact" data-featherlight-open-speed="500" data-hover="#about">
 						<h3 class="projectTitle">me</h3>
-						<div><!-- no-project backdrop --></div>
+						<div class="thumbnailContainer"><!-- no-project backdrop --></div>
 					</a>
 				</div>
 			</div>

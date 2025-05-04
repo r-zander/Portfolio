@@ -14,6 +14,7 @@ thumbnail:
 displayTypes:
   promoVideo:
     vimeoId: 164823660
+    hash: e316e07361
     width: 640
     height: 315
   localSite:

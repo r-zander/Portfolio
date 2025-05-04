@@ -14,11 +14,13 @@ displayTypes:
   promoVideo:
     title: "Gameplay Trailer 1"
     vimeoId: 264421396
+    hash: 20de727f77
     width: 640
     height: 360
   promoVideo2:
     title: "Gameplay Trailer 2"
     vimeoId: 264422193
+    hash: 80d9198d82
     width: 640
     height: 360
 ---

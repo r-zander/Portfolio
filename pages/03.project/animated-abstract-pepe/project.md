@@ -4,7 +4,7 @@ taxonomy:
   tag:
     - animation
     - experimental
-  typeOfWork: passion
+  typeOfWork: personal
   language:
     - processing
     - java

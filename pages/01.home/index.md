@@ -7,7 +7,6 @@ structure:
     - project:berryhunter
     - project:progress-station
   web:
-    - project:albion-online
     - tag:webapplication
     - tag:website
   community:

@@ -27,7 +27,7 @@ additions:
     location: /tag/:professional
     lastmod: '2018-06-15'
   -
-    location: /tag/:passion
+    location: /tag/:personal
     lastmod: '2018-06-15'
   -
     location: /tag/:academic

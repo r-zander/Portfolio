@@ -6,7 +6,7 @@ taxonomy:
     - animation
     - abstract
     - opart
-  typeOfWork: passion
+  typeOfWork: personal
   language: css
 thumbnail:
   extension: webm

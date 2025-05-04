@@ -29,8 +29,8 @@ tagMapping:
     title: "Op Art"
   p5js:
     title: "p5.js"
-  passion:
-    title: "Passion Project"
+  personal:
+    title: "Personal Project"
   php:
     title: PHP
   springboot:
@@ -40,7 +40,7 @@ tagMapping:
   sql:
     title: "SQL"
   webapplication:
-    title: "Web application"
+    title: "Web applications"
   website:
     title: "Websites"
 
@@ -120,6 +120,12 @@ projectDisplay:
       title: "Storyboard"
       file: _storyboard.pdf
     video:
+      id: genericVideo
+      title: "Video"
+      file: video.webm
+      showMediaContainer: true
+      muted: false
+    video2:
       id: genericVideo
       title: "Video"
       file: video.webm

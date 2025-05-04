@@ -4,7 +4,7 @@ date: 30-04-2024
 taxonomy:
   indexTag: game
   tag: webapplication
-  typeOfWork: passion
+  typeOfWork: personal
   language:
     - css
     - html

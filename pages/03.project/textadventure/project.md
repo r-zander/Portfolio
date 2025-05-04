@@ -5,7 +5,7 @@ taxonomy:
   indexTag: game
   tag:
     - webapplication
-  typeOfWork: passion
+  typeOfWork: personal
   language:
     - wicket
     - java

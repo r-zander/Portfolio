@@ -60,6 +60,12 @@ Now with my team of 6 developers we:
 
 **Result:** DAU went from **245,000** to **358,000**. Revenue increased by 40% year over year.
 
+<!-- - Introduction of S2S tracking, pioneering true cross-platform seamless tracking
+    - Google Ads
+    - Google Analytics 3
+    - Google Analytics 4
+    - Facebook -->
+
 ### Tech Stack clean-up
 
 Apart from the specific launches that brought in thousands of new players and big revenue jumps, my main goal was the future-proofing of the wast infrastructure I inherited. What my team achieved:

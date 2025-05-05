@@ -67,3 +67,7 @@ config/security.yaml
 config/plugins/private.yaml
 data/CV Raoul Zander.pdf
 /cv-assets/cv.css.map
+/data/feed/
+/data/notifications/
+/cv-2025/fonts/
+!/cv-2025/fonts/**.css

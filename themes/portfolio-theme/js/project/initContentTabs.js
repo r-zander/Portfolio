@@ -1,5 +1,5 @@
 /* Init sly */
-$(function() {
+$( window ).on( "load", function() {
 	var $wrap   = $('#contentTabs');
 	var $frame  = $wrap.children('.frame').eq(0);
 	var $slidee = $frame.children('.slidee').eq(0);

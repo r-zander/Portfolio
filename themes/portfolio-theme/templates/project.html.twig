@@ -14,7 +14,7 @@
 	{% do assets.addJs('theme://vendor/processing-1.6.3.min.js', {'group': 'bottom'}) %}
 
 	{% do assets.addJs('theme://vendor/jquery.easing-1.3.2.min.js', {'group': 'bottom'}) %}
-	{% do assets.addJs('theme://vendor/sly-1.6.1.min.js', {'group': 'bottom'}) %}
+	{% do assets.addJs('theme://vendor/sly-1.6.1-fixed.min.js', {'group': 'bottom'}) %}
 
 	{% do assets.addJs('theme://vendor/highlightjs/highlight-2.9.0.pack-css-less-xml-processing-java.js', {'group': 'bottom'}) %}
 	{% do assets.addCss('theme://vendor/highlightjs/monokai.css', 100) %}
@@ -272,7 +272,7 @@
 					{% set screenshots = screenshots|sort %}
 
 					<div class="frame oneperframe">
-						<ul class="clearfix">
+						<ul class="">
 							{% for image in screenshots %}
 								<li>
 									<img src="{{ image }}" />

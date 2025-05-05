@@ -1089,22 +1089,58 @@ img.logo {
 #indexNavigation > li:not(.placeholder):focus .doubleLine + .subItems {
   top: 7vw;
 }
-#indexNavigation > li:not(.placeholder).simpleLink.hover .categoryLink,
-#indexNavigation > li:not(.placeholder).simpleLink:hover .categoryLink,
-#indexNavigation > li:not(.placeholder).simpleLink.active .categoryLink,
-#indexNavigation > li:not(.placeholder).simpleLink:focus .categoryLink {
+#indexNavigation > li.simpleLink.hover .categoryLink,
+#indexNavigation > li.simpleLink:hover .categoryLink,
+#indexNavigation > li.simpleLink.active .categoryLink,
+#indexNavigation > li.simpleLink:focus .categoryLink {
   height: 100%;
 }
 @media (max-width: 950px) {
-  #indexNavigation > li:not(.placeholder) {
+  #indexNavigation > li {
     width: 50%;
     font-size: 3.5vw;
   }
+  #indexNavigation > li:not(.placeholder).hover .categoryLink,
+  #indexNavigation > li:not(.placeholder):hover .categoryLink,
+  #indexNavigation > li:not(.placeholder).active .categoryLink,
+  #indexNavigation > li:not(.placeholder):focus .categoryLink {
+    height: 4.9vw;
+  }
+  #indexNavigation > li:not(.placeholder).hover .categoryLink.doubleLine,
+  #indexNavigation > li:not(.placeholder):hover .categoryLink.doubleLine,
+  #indexNavigation > li:not(.placeholder).active .categoryLink.doubleLine,
+  #indexNavigation > li:not(.placeholder):focus .categoryLink.doubleLine {
+    height: 9.8vw;
+  }
+  #indexNavigation > li:not(.placeholder).hover .subItems,
+  #indexNavigation > li:not(.placeholder):hover .subItems,
+  #indexNavigation > li:not(.placeholder).active .subItems,
+  #indexNavigation > li:not(.placeholder):focus .subItems {
+    top: 4.9vw;
+  }
 }
 @media (max-width: 600px) {
-  #indexNavigation > li:not(.placeholder) {
+  #indexNavigation > li {
     width: 100%;
     font-size: 7vw;
+  }
+  #indexNavigation > li:not(.placeholder).hover .categoryLink,
+  #indexNavigation > li:not(.placeholder):hover .categoryLink,
+  #indexNavigation > li:not(.placeholder).active .categoryLink,
+  #indexNavigation > li:not(.placeholder):focus .categoryLink {
+    height: 9.8vw;
+  }
+  #indexNavigation > li:not(.placeholder).hover .categoryLink.doubleLine,
+  #indexNavigation > li:not(.placeholder):hover .categoryLink.doubleLine,
+  #indexNavigation > li:not(.placeholder).active .categoryLink.doubleLine,
+  #indexNavigation > li:not(.placeholder):focus .categoryLink.doubleLine {
+    height: 19.6vw;
+  }
+  #indexNavigation > li:not(.placeholder).hover .subItems,
+  #indexNavigation > li:not(.placeholder):hover .subItems,
+  #indexNavigation > li:not(.placeholder).active .subItems,
+  #indexNavigation > li:not(.placeholder):focus .subItems {
+    top: 9.8vw;
   }
 }
 #indexNavigation .subItem:hover,
@@ -1733,7 +1769,7 @@ a.tag:last-child {
 .content #screenshots > .frame > ul > li {
   cursor: grab;
   float: left;
-  margin-left: 1px;
+  margin-left: 0px;
   padding: 0;
   text-align: center;
   background-color: #222222;

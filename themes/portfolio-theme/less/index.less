@@ -320,11 +320,49 @@
 		@media (max-width: 950px) {
 			width: 50%;
 			font-size: 3.5vw;
+
+			&:not(.placeholder) {
+				&.hover,
+				&:hover,
+				&.active,
+				&:focus {
+					.categoryLink {
+						height: 4.9vw;
+
+						&.doubleLine {
+							height: (2 * 4.9vw);
+						}
+					}
+
+					.subItems {
+						top: 4.9vw;
+					}
+				}
+			}
 		}
 
 		@media (max-width: 600px) {
 			width: 100%;
 			font-size: 7vw;
+
+			&:not(.placeholder) {
+				&.hover,
+				&:hover,
+				&.active,
+				&:focus {
+					.categoryLink {
+						height: 9.8vw;
+
+						&.doubleLine {
+							height: (2 * 9.8vw);
+						}
+					}
+
+					.subItems {
+						top: 9.8vw;
+					}
+				}
+			}
 		}
 	}
 

@@ -73,7 +73,7 @@
 			{% endblock %}
 		</div>
 	</header>
-	<main id="{{ mainId }}">
+	<main id="{{ mainId }}"{% if mainClass %} class="{{ mainClass }}"{% endif %}>
 		{% block content %}{% endblock %}
 	</main>
 

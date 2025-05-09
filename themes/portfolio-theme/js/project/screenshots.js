@@ -1,18 +1,4 @@
 $(function() {
-	$('#screenshot').bind('initialActivation', function() {
-		$('#screenshot > aside').affix({
-			offset: {
-				bottom: 64 + 16
-				// function(elem){
-				// 	if (elem.hasClass('affix-bottom')){
-				// 		return 32;
-				// 	}
-				// 	return 64 + 16;
-				// }
-			}
-		});
-	});
-
 	var $wrap  = $('#screenshots');
 
 	$wrap.bind('initialActivation', function(){
@@ -54,22 +40,7 @@ $(function() {
 			},
 			// Callbacks
 			{
-				active: function(eventName, itemIndex){
-					$wrap.find('.affixContainer > aside').html($frame.find('li.active > .caption').html());
-				}
 			});
 		}());
-
-		$wrap.children('.affixContainer').affix({
-			offset: {
-				bottom: 64 + 16
-				// function(elem){
-				// 	if (elem.hasClass('affix-bottom')){
-				// 		return 32;
-				// 	}
-				// 	return 64 + 16;
-				// }
-			}
-		});
 	});
 });

@@ -120,6 +120,10 @@ header {
 main {
 	padding: @gridPadding @gridDistance;
 	.containFloats;
+
+	@media all and (max-width: 800px) {
+		padding: 0;
+	}
 }
 
 a {

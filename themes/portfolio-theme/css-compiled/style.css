@@ -581,6 +581,11 @@ main {
   padding: 16px 32px;
   overflow: hidden;
 }
+@media all and (max-width: 800px) {
+  main {
+    padding: 0;
+  }
+}
 a {
   text-decoration-color: DeepSkyBlue;
 }
@@ -1520,15 +1525,15 @@ a.tag:last-child {
   text-align: left;
   width: 26em;
   margin-right: 32px;
-  max-width: 33vw;
+  max-width: 36%;
 }
-.layout-medium .description {
+.layout-medium #project .description {
   width: 100%;
   max-width: none;
   margin-right: 0;
   margin-top: 32px;
 }
-.layout-medium .description > article {
+.layout-medium #project .description > article {
   float: right;
   clear: right;
   width: 50%;
@@ -1557,7 +1562,7 @@ a.tag:last-child {
   overflow: hidden;
   font-size: 0.7em;
 }
-.layout-medium .description > .infoBox {
+.layout-medium #project .description > .infoBox {
   float: left;
   width: 50%;
   border-right: 8px solid #000;
@@ -1638,7 +1643,7 @@ a.tag:last-child {
 	 * complete remaining width */
   overflow: hidden;
 }
-.layout-medium .content {
+.layout-medium #project .content {
   overflow: visible;
   float: left;
   width: 100%;
@@ -1693,7 +1698,7 @@ a.tag:last-child {
   border-radius: 32px 0;
   padding: 16px;
   padding: 0;
-  /* Apply those rounded courners to any content by cutting it */
+  /* Apply rounded corners to any content by cutting it */
   overflow: hidden;
   display: none;
   position: relative;
@@ -1706,21 +1711,15 @@ a.tag:last-child {
   background-color: rgba(0, 0, 0, 0.75);
   color: #dddddd;
   text-align: left;
-  top: auto !important;
 }
 .content > .media aside:empty {
   display: none;
 }
-.content > .media aside.affix {
-  position: fixed;
-  bottom: 16px;
-  left: 26em;
-  margin-left: 96px;
+.content > .media aside > p:first-child {
+  margin-top: 0;
 }
-.content > .media aside.affix-bottom {
-  position: absolute;
-  bottom: 16px;
-  left: 16px;
+.content > .media aside > p:last-child {
+  margin-bottom: 0;
 }
 .content .slyTabs {
   overflow: hidden;
@@ -1750,11 +1749,13 @@ a.tag:last-child {
   margin: 0 auto;
 }
 .content #webm,
-.content #genericVideo {
+.content #genericVideo,
+.content #genericVideo2 {
   border: 4px solid #222222;
 }
 .content #webm > video,
-.content #genericVideo > video {
+.content #genericVideo > video,
+.content #genericVideo2 > video {
   max-width: 100%;
   display: block;
 }
@@ -1769,7 +1770,7 @@ a.tag:last-child {
 .content #screenshots > .frame > ul > li {
   cursor: grab;
   float: left;
-  margin-left: 0px;
+  margin-left: 1px;
   padding: 0;
   text-align: center;
   background-color: #222222;
@@ -1777,24 +1778,8 @@ a.tag:last-child {
   border-radius: 32px 0;
   overflow: hidden;
 }
-.content #screenshots .caption {
-  display: none;
-}
-.content #screenshots > .affixContainer {
-  right: 551px;
-  top: auto !important;
-}
-.content #screenshots > .affixContainer.affix {
-  position: fixed;
-  bottom: 16px;
-  left: 26em;
-  margin-left: 100px;
-  padding-right: 52px;
-}
-.content #screenshots > .affixContainer.affix-bottom {
-  position: absolute;
-  bottom: 16px;
-  left: 16px;
+.content #screenshots aside.caption {
+  background-color: #000;
 }
 .content #screenshots > .prev,
 .content #screenshots > .next {
@@ -2255,9 +2240,27 @@ a.tag:last-child {
   padding-top: 8px;
   padding-right: 24px;
 }
+@media all and (max-width: 800px) {
+  #tag {
+    padding-right: 0;
+  }
+}
 #tag > .description {
   margin-right: 24px;
   margin-top: 8px;
+}
+.layout-medium #tag > .description {
+  max-width: 50%;
+}
+@media all and (max-width: 860px) {
+  #tag > .description {
+    margin-right: 16px;
+    max-width: 75%;
+  }
+}
+.layout-small #tag > .description {
+  max-width: 100%;
+  padding-bottom: 8px;
 }
 #tag .infoBox > h4 {
   font-size: 1.33em;
@@ -2269,14 +2272,14 @@ a.tag:last-child {
   margin-left: 32px;
 }
 .grid-sizer {
-  width: 20%;
+  width: 25%;
 }
 .grid-sizer > .aspect-ratio {
   padding-bottom: 46.875%;
 }
 .grid-item {
   padding: 8px;
-  width: 20%;
+  width: 25%;
   float: left;
 }
 .grid-item:hover,
@@ -2352,17 +2355,59 @@ a.tag:last-child {
 }
 @media all and (max-width: 1600px) {
   .grid-sizer {
-    width: 25%;
+    width: 33.33333333%;
   }
   .grid-item {
-    width: 25%;
+    width: 33.33333333%;
   }
 }
 @media all and (max-width: 1000px) {
   .grid-sizer {
-    width: 33.33333333%;
+    width: 50%;
   }
   .grid-item {
-    width: 33.33333333%;
+    width: 50%;
   }
+}
+#tag.series .grid-sizer {
+  width: 100%;
+}
+#tag.series .grid-sizer > .aspect-ratio {
+  padding-bottom: 35.9375%;
+}
+#tag.series .grid-item {
+  width: 100%;
+}
+#tag.series .grid-item.promoted > .projectLink {
+  padding-bottom: 35.9375%;
+}
+@media all and (max-width: 1600px) {
+  #tag.series .grid-sizer {
+    width: 100%;
+  }
+  #tag.series .grid-item {
+    width: 100%;
+  }
+}
+@media all and (max-width: 1000px) {
+  #tag.series .grid-sizer {
+    width: 100%;
+  }
+  #tag.series .grid-item {
+    width: 100%;
+  }
+}
+@media all and (max-width: 800px) {
+  #tag.series .grid-sizer > .aspect-ratio {
+    padding-bottom: 100%;
+  }
+  #tag.series .grid-item.promoted > .projectLink {
+    padding-bottom: 100%;
+  }
+}
+.layout-small #tag.series .grid-sizer > .aspect-ratio {
+  padding-bottom: 35.9375%;
+}
+.layout-small #tag.series .grid-item.promoted > .projectLink {
+  padding-bottom: 35.9375%;
 }

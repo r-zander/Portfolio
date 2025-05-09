@@ -17,9 +17,9 @@ displayTypes:
   screenshots:
     title: Mobile Pre-Registration
     2021-06-05 Homepage with Mobile Pre-Registration (Desktop): |
-      ### Desktop Homepage
+      Desktop Homepage
     2021-06-05 Homepage with Mobile Pre-Registration (Mobile): |
-      ### Mobile Homepage
+      Mobile Homepage
   video:
     title: Asia Launch Page
     file: 2023-03-19 Asia Launch Page.mp4

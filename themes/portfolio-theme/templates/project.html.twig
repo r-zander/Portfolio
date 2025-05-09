@@ -8,7 +8,6 @@
 
 {% block assets %}
 	{{ parent() }}
-	{% do assets.addJs('theme://vendor/bootstrap/affix.js', {'group': 'bottom'}) %}
 
 	{% do assets.addJs('theme://vendor/sprintf-1.0.3.min.js', {'group': 'bottom'}) %}
 	{% do assets.addJs('theme://vendor/processing-1.6.3.min.js', {'group': 'bottom'}) %}
@@ -19,6 +18,8 @@
 	{% do assets.addJs('theme://vendor/highlightjs/highlight-2.9.0.pack-css-less-xml-processing-java.js', {'group': 'bottom'}) %}
 	{% do assets.addCss('theme://vendor/highlightjs/monokai.css', 100) %}
 
+	{% do assets.addJs('theme://vendor/lodash/_throttle.min.js', {'group': 'bottom'}) %}
+
 	{% do assets.addJs('theme://js/project/processingSetup.js', {'group': 'bottom'}) %}
 	{% do assets.addJs('theme://js/project/slyUtils.js', {'group': 'bottom'}) %}
 	{% do assets.addJs('theme://js/project/sources.js', {'group': 'bottom'}) %}
@@ -26,6 +27,7 @@
 	{% do assets.addJs('theme://js/project/initContentTabs.js', {'group': 'bottom'}) %}
     {% do assets.addJs('theme://js/project/readMore.js', {'group': 'bottom'}) %}
     {% do assets.addJs('theme://js/project/responsive.js', {'group': 'bottom'}) %}
+	{% do assets.addJs('theme://js/shared/responsive.js', {'group': 'bottom'}) %}
 {% endblock %}
 
 {% block content %}
@@ -193,7 +195,6 @@
 		{% if display.showMediaContainer %}
 			<div id="{{ display.id }}" class="media">
 				{# Handle all the cases #}
-				{# TODO: alle verbleibenen Fälle rendern #}
 				{% if displayType == "liveRender" %}
 					{% set pdeFiles = [ page.url ~ "/pde/" ~ page.slug ~ ".pde" ] %}
 					{% set pdeFiles = pdeFiles|merge(listfiles(page.relativePagePath ~ "/pde", '/.\.java$/i')) %}
@@ -283,15 +284,15 @@
 									{% set screenshotName = screenshotName|split('.', -1) %}
 									{% set screenshotName = screenshotName|join('.') %}
 									{% if display[screenshotName] is defined %}
-										<div class="caption">{{ display[screenshotName]|markdown }}</div>
+										<aside class="caption">{{ display[screenshotName]|markdown }}</aside>
 									{% endif %}
 								</li>
 							{% endfor %}
 						</ul>
 					</div>
 
-					<a href="#" class="prev icon-prev"></a>
-					<a href="#" class="next icon-next"></a>
+					<a href="#" class="prev icon-prev" title="Shortcut: Left Arrow Key"></a>
+					<a href="#" class="next icon-next" title="Shortcut: Right Arrow Key"></a>
 
 					<div class="scrollbar">
 						<div class="handle">
@@ -299,16 +300,12 @@
 						</div>
 					</div>
 
-					<div class="affixContainer">
-						<aside></aside>
-					</div>
-
-					<div class="interactionTips">
+					{#<div class="interactionTips">
 						<div>
 							<mark>Left</mark>/<mark>Right Arrow Key</mark>
 							Navigate Screenshots
 						</div>
-					</div>
+					</div>#}
 
 				{% elseif displayType == "sourceCode" %}
 					{% set pdeFiles = [ "/" ~ page.relativePagePath ~ "/pde/" ~ page.slug ~ ".pde" ] %}

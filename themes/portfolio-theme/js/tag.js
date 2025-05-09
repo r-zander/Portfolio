@@ -31,10 +31,30 @@ $(function () {
 	/*
 	 * Related tags highlighting
 	 */
-	 $('#relatedTags > a').hover(function(){
-	 	var tag = $(this).attr('data-tag');
-	 	$('.grid-item[data-tags~="' + tag + '"]').addClass('active');
-	 }, function() {
-	 	$('.grid-item.active').removeClass('active');
-	 });
+	$('#relatedTags > a').hover(function(){
+		var tag = $(this).attr('data-tag');
+		$('.grid-item[data-tags~="' + tag + '"]').addClass('active');
+	}, function() {
+		$('.grid-item.active').removeClass('active');
+	});
+
+	var $infoBox = $('.description > .infoBox');
+	var $preContentDescription = $('main > .description.pre-content');
+	var $postContentDescription = $('main > .description.post-content');
+
+	$(document.body).on('layoutchange.portfolio', function (event, newLayout) {
+		switch (newLayout) {
+			case 'small':
+				$infoBox.appendTo($postContentDescription);
+				$postContentDescription.show();
+				iso.layout();
+				break;
+			case 'medium':
+			case 'large':
+				$infoBox.appendTo($preContentDescription);
+				$postContentDescription.hide();
+				iso.layout();
+				break;
+		}
+	});
 });

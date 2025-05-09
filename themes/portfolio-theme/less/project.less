@@ -33,9 +33,9 @@ a.tag {
 	text-align: left;
 	width: @textWidth;
 	margin-right: @gridDistance;
-	max-width: 33vw;
+	max-width: 36%;
 
-	.layout-medium & {
+	.layout-medium #project & {
 		width: 100%;
 		max-width: none;
 		margin-right: 0;
@@ -72,7 +72,7 @@ a.tag {
 		.containFloats;
 		font-size: 0.7em;
 
-		.layout-medium & {
+		.layout-medium #project & {
 			float: left;
 			width: 50%;
 			// Fake margin
@@ -151,7 +151,7 @@ a.tag {
 	 * complete remaining width */
 	overflow: hidden;
 
-	.layout-medium & {
+	.layout-medium #project & {
 		overflow: visible;
 		float: left;
 		width: 100%;
@@ -204,7 +204,7 @@ a.tag {
 		clear: left;
 		.panel(left);
 		padding: 0;
-		/* Apply those rounded courners to any content by cutting it */
+		/* Apply rounded corners to any content by cutting it */
 		overflow: hidden;
 
 		display: none;
@@ -234,25 +234,17 @@ a.tag {
 			background-color: fade(@backgroundColor, 75%);
 			color: @fontColor;
 			text-align: left;
-			top: auto !important;
 
 			&:empty {
 				display: none;
 			}
 
-			&.affix {
-				position: fixed;
-				// bottom: 1em;
-				// margin-bottom: (2* @gridPadding);
-				bottom: @gridPadding;
-				left: 26em;
-				margin-left: (2 * @gridDistance + 2 * @gridPadding);
+			> p:first-child {
+				margin-top: 0;
 			}
 
-			&.affix-bottom {
-				position: absolute;
-				bottom: (@gridPadding);
-				left: (@gridPadding);
+			> p:last-child {
+				margin-bottom: 0;
 			}
 		}
 	}
@@ -288,7 +280,8 @@ a.tag {
 	}
 
 	#webm,
-	#genericVideo {
+	#genericVideo,
+	#genericVideo2 {
 		border: 4px solid @panelBackgroundColor;
 
 		> video {
@@ -318,29 +311,8 @@ a.tag {
 			}
 		}
 
-		.caption {
-			display: none;
-		}
-
-		> .affixContainer {
-			right: (519px + @gridDistance);
-			top: auto !important;
-
-			&.affix {
-				position: fixed;
-				// bottom: 1em;
-				// margin-bottom: (2* @gridPadding);
-				bottom: @gridPadding;
-				left: 26em;
-				margin-left: (2 * @gridDistance + 2 * @gridPadding + 4px);
-				padding-right: (@gridPadding + @gridDistance + 4px);
-			}
-
-			&.affix-bottom {
-				position: absolute;
-				bottom: (@gridPadding);
-				left: (@gridPadding);
-			}
+		aside.caption {
+			background-color: @backgroundColor;
 		}
 
 		position: relative;
@@ -388,22 +360,6 @@ a.tag {
 
 	#projectLogo {
 		padding: @gridDistance;
-
-		// > .size1 {
-		// 	width: 3%;
-		// }
-		// > .size2 {
-		// 	width: 6%;
-		// }
-		// > .size3 {
-		// 	width: 13%;
-		// }
-		// > .size4 {
-		// 	width: 26%;
-		// }
-		// > .size5 {
-		// 	width: 52%;
-		// }
 
 		> .size1 {
 			width: 7%;

@@ -126,7 +126,7 @@ projectDisplay:
       showMediaContainer: true
       muted: false
     video2:
-      id: genericVideo
+      id: genericVideo2
       title: "Video"
       file: video.webm
       showMediaContainer: true

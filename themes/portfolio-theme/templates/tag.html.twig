@@ -24,9 +24,6 @@
 {% endfor %}
 {% set pageTitle = pageTitle|join(" + ") %}
 
-{# Set the main id #}
-{% set mainId = "tag" %}
-
 {% block assets %}
 	{{ parent() }}
 	{% do assets.addJs('theme://vendor/isotope-2.2.2/isotope.pkgd.min.js', {'group': 'bottom'}) %}
@@ -35,7 +32,10 @@
 	{#{% do assets.addJs('theme://vendor/isotope-3.0.1/isotope.pkgd.min.js', {'group': 'bottom'}) %}#}
 	{#{% do assets.addJs('theme://vendor/isotope-3.0.1/masonry-horizontal.js', {'group': 'bottom'}) %}#}
 
+	{% do assets.addJs('theme://vendor/lodash/_throttle.min.js', {'group': 'bottom'}) %}
+
 	{% do assets.addJs('theme://js/tag.js', {'group': 'bottom'}) %}
+	{% do assets.addJs('theme://js/shared/responsive.js', {'group': 'bottom'}) %}
 {% endblock %}
 
 {% set taxMap = {} %}
@@ -93,10 +93,14 @@
 	</h2>
 {% endblock %}
 
+{% set mainId = "tag" %}
+{% if knownTags|length == 1 %}
+	{% set mainClass = attributedTags[knownTags[0]].category %}
+{% endif %}
 {% block content %}
 	{#{{ dump(attributedTags) }}#}
 
-	<section class="description">
+	<section class="description pre-content">
 		{% set description = "" %}
 		{% for module in page.collection %}
 			{% for tag in knownTags %}
@@ -284,5 +288,8 @@
 				{% endfor %}
 			</div>
 		{% endif %}
+	</section>
+
+	<section class="description post-content">
 	</section>
 {% endblock %}

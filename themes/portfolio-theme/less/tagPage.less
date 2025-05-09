@@ -3,9 +3,27 @@
 	padding-top: (@gridPadding / 2);
 	padding-right: (@gridDistance - (@gridPadding / 2));
 
+	@media all and (max-width: 800px) {
+		padding-right: 0;
+	}
+
 	> .description {
 		margin-right: (@gridDistance - (@gridPadding / 2));
 		margin-top: (@gridPadding / 2);
+
+		.layout-medium & {
+			max-width: 50%;
+		}
+
+		@media all and (max-width: 860px) {
+			margin-right: @gridPadding;
+			max-width: 75%;
+		}
+
+		.layout-small & {
+			max-width: 100%;
+			padding-bottom: (2 * @gridBase);
+		}
 	}
 
 	.infoBox {
@@ -23,7 +41,7 @@
 	}
 }
 
-@itemsPerRow: 5;
+@itemsPerRow: 4;
 @aspectRatio: percentage((7.5 / 16));
 
 .grid-sizer {
@@ -120,7 +138,7 @@
 }
 
 @media all and (max-width: 1600px) {
-	@itemsPerRow: 4;
+	@itemsPerRow: 3;
 
 	.grid-sizer {
 		width: (100% / @itemsPerRow);
@@ -132,7 +150,7 @@
 }
 
 @media all and (max-width: 1000px) {
-	@itemsPerRow: 3;
+	@itemsPerRow: 2;
 
 	.grid-sizer {
 		width: (100% / @itemsPerRow);
@@ -140,5 +158,80 @@
 
 	.grid-item {
 		width: (100% / @itemsPerRow);
+	}
+}
+
+#tag.series {
+	@itemsPerRow: 1;
+	@aspectRatio: percentage((5.75 / 16));
+
+	.grid-sizer {
+		width: (100% / @itemsPerRow);
+
+		> .aspect-ratio {
+			padding-bottom: @aspectRatio;
+		}
+	}
+
+	.grid-item {
+		width: (100% / @itemsPerRow);
+
+		&.promoted {
+			> .projectLink {
+				padding-bottom: @aspectRatio;
+			}
+		}
+	}
+
+	@media all and (max-width: 1600px) {
+		.grid-sizer {
+			width: (100% / @itemsPerRow);
+		}
+
+		.grid-item {
+			width: (100% / @itemsPerRow);
+		}
+	}
+
+	@media all and (max-width: 1000px) {
+		.grid-sizer {
+			width: (100% / @itemsPerRow);
+		}
+
+		.grid-item {
+			width: (100% / @itemsPerRow);
+		}
+	}
+
+	@media all and (max-width: 800px) {
+		.grid-sizer {
+			> .aspect-ratio {
+				padding-bottom: 100%;
+			}
+		}
+
+		.grid-item {
+			&.promoted {
+				> .projectLink {
+					padding-bottom: 100%;
+				}
+			}
+		}
+	}
+
+	.layout-small & {
+		.grid-sizer {
+			> .aspect-ratio {
+				padding-bottom: @aspectRatio;
+			}
+		}
+
+		.grid-item {
+			&.promoted {
+				> .projectLink {
+					padding-bottom: @aspectRatio;
+				}
+			}
+		}
 	}
 }

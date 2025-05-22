@@ -45,7 +45,7 @@ Together with a team of 3 developers at the time, we
 
 I grew the team to 5 developers and together we:
 - reorganized our infrastructure to split between global processing (purchases, accounts) and datacenter processing (characters, game data)
-- set up a second infrastructure shard in Amsterdam (as opposed to our previously existing Washington, DC infrastructure)
+- set up a second infrastructure shard in Singapore (as opposed to our previously existing Washington, DC infrastructure)
 - designed and implemented a launch page
 - implemented shop support for new founder packs
 

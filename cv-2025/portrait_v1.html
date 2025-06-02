@@ -315,14 +315,13 @@
 
         #contact {
             margin-block: calc(var(--block-spacing) * 16px);
-            align-items: stretch;
+            align-items: start;
             /*flex-wrap: wrap;*/
 
             > .left-column {
-                padding-block: calc(var(--block-padding) * 16px);
-                padding-inline: calc(var(--inline-padding) * 14px);
+               /* padding-block: calc(var(--block-padding) * 16px);
+                padding-inline: calc(var(--inline-padding) * 14px);*/
 
-                background-color: var(--light-grey);
                 color: var(--medium-grey-font);
 
                 border-radius: var(--border-radius);
@@ -341,56 +340,73 @@
                 }
             }
 
-            .portrait-container {
-                position: absolute;
-                top: calc(var(--block-padding) * 16px);
-                right: calc(var(--inline-padding) * 14px);
 
-                border-radius: 50px;
-                border: 3px solid var(--primary-color);
-                overflow: hidden;
 
-                > img {
-                    display: block;
-                }
+            #contactDetails {
+                background-color: var(--light-grey);
+                 padding-block: calc(var(--block-padding) * 16px);
+                padding-inline: calc(var(--inline-padding) * 14px);
             }
 
             > .right-column {
                 display: flex;
 
-                > blockquote {
-                    margin: 0;
-                    margin-inline-start: calc(var(--inline-spacing) * 18px);
-                    padding-block: calc(var(--block-padding) * 17px);
-                    padding-inline: calc(var(--inline-padding) * 32px);
+            }
+        }
 
-                    border-radius: var(--border-radius);
+        blockquote {
+            margin: 0;
+            margin-inline-start: calc(var(--inline-spacing) * 18px);
+            padding-block: calc(var(--block-padding) * 17px);
+            padding-inline: calc(var(--inline-padding) * 32px);
 
-                    background-color: var(--medium-grey);
-                    color: var(--white);
+            border-radius: var(--border-radius);
 
-                    position: relative;
+            background-color: var(--medium-grey);
+            color: var(--white);
 
-                    &::before {
-                        content: "";
-                        position: absolute;
-                        right: 100%;
-                        top: 42px;
+            position: relative;
 
-                        width: 0;
-                        height: 0;
-                        border-style: solid;
-                        border-width: 12px 18px 12px 0;;
-                        border-color: transparent var(--medium-grey) transparent transparent;
-                    }
+            &::before {
+                content: "";
+                position: absolute;
+                right: 100%;
+                top: 42px;
 
-                    > p {
-                        &.highlight {
-                            font-weight: 500;
-                            text-align: center;
-                        }
-                    }
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 12px 18px 12px 0;;
+                border-color: transparent var(--medium-grey) transparent transparent;
+            }
+
+            > p {
+                &.highlight {
+                    font-weight: 500;
+                    text-align: center;
                 }
+            }
+        }
+
+        #portrait.portrait-container {
+            /* position: absolute;
+             top: calc(var(--block-padding) * 16px);
+             right: calc(var(--inline-padding) * 14px);*/
+
+            width: 85%;
+            margin-inline: auto;
+
+            padding-block-end: 0;
+
+            /*border-radius: 50px;*/
+            border-radius: 50%;
+            border: 3px solid var(--primary-color);
+            border-color: var(--dark-grey);
+            overflow: hidden;
+
+            > img {
+                width: 100%;
+                display: block;
             }
         }
 
@@ -492,6 +508,9 @@
         }
 
         table.languages {
+            margin-inline-start: 0 !important;
+            width: calc(100% - var(--block-padding) * 1 * 12px) !important;
+
             th, td {
                 white-space: nowrap;
             }
@@ -608,29 +627,30 @@
 <h2 class="wrapper-block all-caps">
     UI Lead
 </h2>
-<main id="contact">
+<!--<main id="contact">
     <div class="left-column">
-        <div class="portrait-container">
-            <img class="portrait" src="portrait.jpg" width="68" />
-        </div>
-        <!--        <h3>Raoul Zander</h3>-->
-        <table>
-            <tr>
-                <th>📧</th>
-                <td>hello@rza.io</td>
-            </tr>
-            <tr>
-                <th>📍</th>
-                <td>Berlin</td>
-            </tr>
-            <tr>
-                <th>📞</th>
-                <td>+49 178 790 26 93</td>
-            </tr>
-            <tr>
-                <td colspan="2">Open to relocation // permit B as EU citizen</td>
-            </tr>
-        </table>
+        <section class="portrait-container">
+            <img class="portrait" src="./portrait.jpg" />
+        </section>
+        <section id="contactDetails">
+            <table>
+                <tr>
+                    <th>📧</th>
+                    <td><a href="mailto:hello@rza.io">hello@rza.io</a></td>
+                </tr>
+                <tr>
+                    <th>📍</th>
+                    <td>Berlin</td>
+                </tr>
+                <tr>
+                    <th>📞</th>
+                    <td>+49 178 790 26 93</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Open to relocation (permit B as EU citizen)</td>
+                </tr>
+            </table>
+        </section>
     </div>
 
     <div class="right-column">
@@ -646,7 +666,7 @@
             </p>
         </blockquote>
     </div>
-</main>
+</main>-->
 
 <!--<main id="links">
     <div class="link-container">
@@ -674,6 +694,30 @@
 
 <main>
     <div class="left-column">
+        <section id="portrait" class="portrait-container">
+            <img class="portrait" src="./portrait.jpg" />
+        </section>
+        <section id="contactDetails">
+            <h3 class="section-heading">Contact</h3>
+            <table>
+                <tr>
+                    <th>📧</th>
+                    <td><a href="mailto:hello@rza.io">hello@rza.io</a></td>
+                </tr>
+                <tr>
+                    <th>📍</th>
+                    <td>Berlin</td>
+                </tr>
+                <tr>
+                    <th>📞</th>
+                    <td>+49 178 790 26 93</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Open to relocation (permit B as EU citizen)</td>
+                </tr>
+            </table>
+        </section>
+
         <section id="links">
             <h3 class="section-heading">Links</h3>
             <article>
@@ -750,6 +794,7 @@
             <article>
                 <table class="languages">
                     <tr>
+                        <td class="flag">🇩🇪</td>
                         <th class="language">German</th>
                         <td class="proficiency">Native</td>
                         <td class="level">
@@ -757,6 +802,7 @@
                         </td>
                     </tr>
                     <tr>
+                        <td class="flag">🇺🇸</td>
                         <th class="language">English</th>
                         <td class="proficiency">Proficient</td>
                         <td class="level">
@@ -765,6 +811,7 @@
                         </td>
                     </tr>
                     <tr>
+                        <td class="flag">🇨🇭</td>
                         <th class="language">Swiss German</th>
                         <td class="proficiency">Beginner</td>
                         <td class="level">
@@ -826,6 +873,20 @@
     </div>
 
     <div class="right-column">
+        <section id="quote">
+            <blockquote>
+                <p>
+                    Players deserve UIs that look amazing, feel immersive and otherwise get
+                    out of their ways. As a
+                    <a href="https://www.linkedin.com/in/melmuellerart/" class="underlined" target="_blank">good friend</a>
+                    of mine likes to put it:
+                </p>
+                <p class="highlight">
+                    It's 2025, there is no reason for bad UIs anymore.
+                </p>
+            </blockquote>
+        </section>
+
         <section id="experience">
             <h3>Professional XP</h3>
 
@@ -949,7 +1010,8 @@
                         <td>
                             <ul>
                                 <li>Portfolio creation</li>
-                                <li>Reorientated myself</li>
+                                <!-- TODO makes sense? -->
+                                <li>Reorientated towards gaming industry, studied C# and Unity</li>
                             </ul>
                         </td>
                     </tr>

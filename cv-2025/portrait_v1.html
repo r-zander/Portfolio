@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Raoul Zander :: CV</title>
@@ -33,20 +33,18 @@
             --inline-padding: 1.0;
         }
 
-        :root.alternative {
-            --primary-color: #FBB03F;
-            --secondary-color: #BE1F2D;
-        }
-
         @page {
             margin-top: var(--minimum-page-margin);
             margin-bottom: var(--minimum-page-margin);
         }
 
+        html {
+            font-size: 13px;
+        }
+
         body {
             height: auto;
             font-family: "Industry", sans-serif;
-            font-size: 14px;
 
             color: var(--nearly-black);
 
@@ -55,7 +53,7 @@
                 text-align: center;
                 font-family: "Video Cond Med", sans-serif;
                 color: var(--dark-grey);
-                font-size: 50px;
+                font-size: 3.5rem;
                 font-weight: normal;
                 margin-block-end: 0;
             }
@@ -66,7 +64,7 @@
                 color: var(--white);
 
                 border-radius: var(--border-radius);
-                line-height: 38px;
+                line-height: 2.7rem;
 
                 font-family: "Video Cond Med", sans-serif;
                 font-weight: normal;
@@ -95,13 +93,11 @@
             margin-block-start: calc(var(--block-spacing) * 16px);
 
             > .left-column {
-                /*flex: 1 1 33%;*/
                 flex: 0 0 calc(33% - (var(--inline-spacing) * (18px / 2)));
             }
 
             > .right-column {
-                /*flex: 1 1 67%;*/
-                flex: 0 0 calc(67% - (var(--inline-spacing) * (18px / 2)));
+                flex: 0 1 calc(67% - (var(--inline-spacing) * (18px / 2)));
             }
         }
 
@@ -124,12 +120,12 @@
                 background-color: var(--primary-color);
                 color: var(--white);
                 border-radius: var(--border-radius);
-                line-height: 38px;
+                line-height: 2.7rem;
                 padding-inline: calc(var(--inline-padding) * 0.5em);
 
                 font-family: "Video Cond Med", sans-serif;
                 font-weight: normal;
-                font-size: 21px;
+                font-size: 1.5rem;
                 text-align: center;
 
                 position: relative;
@@ -199,9 +195,9 @@
                         padding-inline: calc(var(--inline-padding) * 12px);
 
                         padding-block-start: 3px; /* text vertical alignment */
-                        line-height: 27px;
+                        line-height: calc(2rem - 1px);
 
-                        font-size: 16px;
+                        font-size: 1.14rem;
                         font-weight: normal;
 
                         &.with-icon {
@@ -296,12 +292,12 @@
                     padding-block: calc(var(--block-padding) * 4px);
                     padding-inline-start: calc(var(--block-padding) * 4px);
 
-                    font-size: 16px;
+                    font-size: 1.14rem;
                     font-weight: normal;
 
                     > span {
                         padding-block-start: 4px;
-                        line-height: 26px;
+                        line-height: calc(2rem - 2px);
                     }
 
                     > span.date {
@@ -313,21 +309,7 @@
                         width: 12em;
                         text-align: center;
 
-                        font-size: 14px;
-                    }
-
-                    span.status {
-                        margin-left: auto;
-                        margin-right: 14px;
-                        color: var(--medium-grey-font);
-
-                        &::before {
-                            content: "(";
-                        }
-
-                        &::after {
-                            content: ")";
-                        }
+                        font-size: 1rem;
                     }
                 }
 
@@ -347,53 +329,12 @@
             text-transform: uppercase;
         }
 
-        #contact {
-            margin-block: calc(var(--block-spacing) * 16px);
-            align-items: start;
-            /*flex-wrap: wrap;*/
-
-            > .left-column {
-               /* padding-block: calc(var(--block-padding) * 16px);
-                padding-inline: calc(var(--inline-padding) * 14px);*/
-
-                color: var(--medium-grey-font);
-
-                border-radius: var(--border-radius);
-
-                position: relative;
-
-                > h3 {
-                    margin-block-start: 0;
-                    margin-block-end: 14px;
-                    font-size: 13px;
-                    color: var(--nearly-black);
-                }
-
-                > table {
-                    margin-block-start: 1em;
-                }
-            }
-
-
-
-            #contactDetails {
-                background-color: var(--light-grey);
-                 padding-block: calc(var(--block-padding) * 16px);
-                padding-inline: calc(var(--inline-padding) * 14px);
-            }
-
-            > .right-column {
-                display: flex;
-
-            }
-        }
-
         #quote {
             > blockquote {
                 margin: 0;
                 margin-inline-start: calc(var(--inline-spacing) * 18px);
-                padding-block: calc(var(--block-padding) * 17px);
-                padding-inline: calc(var(--inline-padding) * 32px);
+                padding-block: calc(var(--block-padding) * 6px);
+                padding-inline: calc(var(--inline-padding) * 26px);
 
                 border-radius: var(--border-radius);
 
@@ -406,7 +347,7 @@
                     content: "";
                     position: absolute;
                     right: 100%;
-                    top: 42px;
+                    top: 32px;
 
                     width: 0;
                     height: 0;
@@ -425,16 +366,11 @@
         }
 
         #portrait.portrait-container {
-            /* position: absolute;
-             top: calc(var(--block-padding) * 16px);
-             right: calc(var(--inline-padding) * 14px);*/
-
             width: 85%;
             margin-inline: auto;
 
             padding-block-end: 0;
 
-            /*border-radius: 50px;*/
             border-radius: 50%;
             border: 3px solid var(--primary-color);
             border-color: var(--dark-grey);
@@ -445,55 +381,6 @@
                 display: block;
             }
         }
-
-        /*
-                main#links {
-                    display: flex;
-                    margin-block-end: calc(var(--block-spacing) * 16px);
-                    background-color: var(--secondary-color);
-                    border-radius: var(--border-radius);
-                    padding-block: calc(var(--block-padding) * 4px);
-                    padding-inline-start: calc(var(--block-padding) * 4px);
-
-
-                    > .link-container {
-                        display: flex;
-                        flex: 0 0 calc(33% - (var(--inline-spacing) * (18px / 2)));
-                        align-items: center;
-
-                        font-size: 16px;
-                        font-weight: normal;
-
-
-                        > b, a {
-                            padding-block-start: 4px;
-                            line-height: 26px;
-                        }
-
-                        > b {
-                            background-color: var(--white);
-                            width: 50%;
-                            border-radius: var(--border-radius-inner);
-                            padding-inline: calc(var(--inline-padding) * 10px);
-                            margin-inline-end: calc(var(--inline-spacing) * 14px);
-
-                            text-align: center;
-                            font-weight: normal;
-                        }
-
-                        > a {
-                            flex: 1 0 0;
-                            padding-block-start: 3px;
-                            line-height: 27px;
-
-                            &:link,
-                            &:visited {
-                                color: var(--white);
-                            }
-                        }
-
-                    }
-                }*/
 
         section#links {
             > h3 {
@@ -519,7 +406,7 @@
             }
 
             p.grade {
-                font-size: 12px;
+                font-size: 0.86rem;
             }
         }
 
@@ -566,8 +453,8 @@
                 font-size: 0;
 
                 > span {
-                    font-size: 16px;
-                    line-height: 16px;
+                    font-size: 1.14rem;
+                    line-height: 1.14rem;
                 }
 
                 .filled {
@@ -632,7 +519,7 @@
                             }
 
                             display: block;
-                            font-size: 12px;
+                            font-size: 0.86rem;
                             color: var(--medium-grey-font);
 
                             margin-block-start: calc(var(--block-spacing) * 4px);
@@ -664,71 +551,6 @@
 <h2 class="wrapper-block all-caps">
     UI Lead
 </h2>
-<!--<main id="contact">
-    <div class="left-column">
-        <section class="portrait-container">
-            <img class="portrait" src="./portrait.jpg" />
-        </section>
-        <section id="contactDetails">
-            <table>
-                <tr>
-                    <th>📧</th>
-                    <td><a href="mailto:hello@rza.io">hello@rza.io</a></td>
-                </tr>
-                <tr>
-                    <th>📍</th>
-                    <td>Berlin</td>
-                </tr>
-                <tr>
-                    <th>📞</th>
-                    <td>+49 178 790 26 93</td>
-                </tr>
-                <tr>
-                    <td colspan="2">Open to relocation (permit B as EU citizen)</td>
-                </tr>
-            </table>
-        </section>
-    </div>
-
-    <div class="right-column">
-        <blockquote>
-            <p>
-                Players deserve UIs that look amazing, feel immersive and otherwise get
-                out of their ways. As a
-                <a href="https://www.linkedin.com/in/melmuellerart/" class="underlined" target="_blank">good friend</a>
-                of mine likes to put it:
-            </p>
-            <p class="highlight">
-                It's 2025, there is no reason for bad UIs anymore.
-            </p>
-        </blockquote>
-    </div>
-</main>-->
-
-<!--<main id="links">
-    <div class="link-container">
-        <b>
-            <span class="icon">🔗</span>
-            Portfolio
-        </b>
-        <a href="https://rza.io" target="_blank">rza.io</a>
-    </div>
-    <div class="link-container">
-        <b>
-            <span class="icon">🔗</span>
-            LinkedIn
-        </b>
-        <a href="https://www.linkedin.com/in/r-zander/" target="_blank">r-zander</a>
-    </div>
-    <div class="link-container">
-        <b>
-            <span class="icon">🔗</span>
-            GitHub
-        </b>
-        <a href="https://github.com/r-zander/" target="_blank">r-zander</a>
-    </div>
-</main>-->
-
 <main>
     <div class="left-column">
         <section id="portrait" class="portrait-container">
@@ -791,7 +613,6 @@
                         <td><a href="tel:+491787902693">+49 178 790 26 93</a></td>
                     </tr>
                     <tr>
-                        <!-- TODO fix padding -->
                         <td colspan="2">Open to relocation (permit B as EU citizen)</td>
                     </tr>
                 </table>
@@ -1009,15 +830,6 @@
             </article>
         </section>
 
-        <!--     <section id="portfolioVideo">
-                 <h3>Portfolio Video</h3>
-                 <article>
-                     <p>
-                         <a href="https://youtu.be/uHZSEH76ndQ" target="_blank">https://youtu.be/uHZSEH76ndQ</a>
-                     </p>
-                 </article>
-             </section>-->
-
         <section id="education">
             <h3 class="section-heading">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.6 -0.6 24 24" id="Book-Open-Bookmark-4--Streamline-Cyber">
@@ -1100,13 +912,12 @@
         <section id="quote">
             <blockquote>
                 <p>
-                    Players deserve UIs that look amazing, feel immersive and otherwise get
-                    out of their ways. As a
+                    Players deserve gorgeous UIs that are part of the game, not a layer on top of it. As a
                     <a href="https://www.linkedin.com/in/melmuellerart/" class="underlined" target="_blank">good friend</a>
-                    of mine likes to put it:
+                    once put it:
                 </p>
                 <p class="highlight">
-                    It's 2025, there is no reason for bad UIs anymore.
+                    It's 2025 - there's no excuse for bad UIs anymore.
                 </p>
             </blockquote>
         </section>
@@ -1148,11 +959,6 @@
                             </small>
                         </td>
                     </tr>
-                    <!--   <tr>
-                           <th colspan="2" class="description">
-                               I managed the User Interface for a Sandbox MMORPG with >180 menus.
-                           </th>
-                       </tr>-->
                     <tr>
                         <th>Tasks</th>
                         <td>
@@ -1216,10 +1022,6 @@
                             <span>Full Stack Software Engineer</span>
                         </td>
                     </tr>
-                    <!-- <tr>
-                         <th colspan="2" class="description">
-                         </th>
-                     </tr>-->
                     <tr>
                         <th>Tasks</th>
                         <td>
@@ -1247,15 +1049,15 @@
                         <th>Activities</th>
                         <td>
                             <ul>
-                                <li>Portfolio creation</li>
-                                <!-- TODO makes sense? -->
-                                <li>Reorientated towards gaming industry, studied C# and Unity</li>
+                                <li>Pursued a transition into the games industry</li>
+                                <li>Self-taught Unity and C# and built up portfolio</li>
+                                <li>Returned to web development for financial stability while continuing game dev on the side</li>
                             </ul>
                         </td>
                     </tr>
                     <tr>
                         <th>Technologies</th>
-                        <td>GravCMS, Less, Twig, jQuery</td>
+                        <td>Unity, C#, GravCMS, Less, Twig, jQuery</td>
                     </tr>
                 </table>
             </article>
@@ -1280,10 +1082,6 @@
                             </small>
                         </td>
                     </tr>
-                    <!-- <tr>
-                         <th colspan="2" class="description">
-                         </th>
-                     </tr>-->
                     <tr>
                         <th>Tasks</th>
                         <td>
@@ -1321,23 +1119,6 @@
                             </small>
                         </td>
                     </tr>
-                    <!-- <tr>
-                         <th colspan="2" class="description">
-                         </th>
-                     </tr>-->
-                    <!--<tr>
-                        <th>Tasks</th>
-                        <td>
-                            <ul>
-                                <li>Development of VBA application in consultation with head of project
-                                    to establish paperless billing
-                                </li>
-                                <li>Created and maintained databases of vendors, order catalogs and
-                                    billing methods
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>-->
                     <tr>
                         <th>Technologies</th>
                         <td>MS Office, VBA, Windows API</td>
@@ -1422,12 +1203,12 @@
                         </th>
                     </tr>
                     <tr>
-                        <th>What we do</th>
+                        <th>What it is</th>
                         <td>
                             <ul>
                                 <li>Accessible via a budget limit</li>
                                 <li>Unique decks due to meta bans</li>
-                                <li>Organized with two friends</li>
+                                <li>Organized with a professional game designer and a high school teacher</li>
                             </ul>
                         </td>
                     </tr>
@@ -1442,7 +1223,6 @@
                 <h4>
                     <span class="date">Feb 2022 - Nov 2024</span>
                     <span class="title">Beyond Humanity</span>
-<!--                    <span class="status">Game ready</span>-->
                 </h4>
 
                 <table class="experience">
@@ -1452,7 +1232,7 @@
                         </th>
                     </tr>
                     <tr>
-                        <th>What we do</th>
+                        <th>What it is</th>
                         <td>
                             <ul>
                                 <li>Fate Core hack with narrative dice system - you don't just know if you succeed, but also get new twists in the story!</li>

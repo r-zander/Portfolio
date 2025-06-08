@@ -28,13 +28,9 @@ body {
     height: 297mm;
 
     padding: var(--minimum-page-margin);
-    /*padding: 0.1px 0.25rem;*/
     margin: 0 auto;
 
     background-color: white;
-
-    display: flex;
-    flex-direction: column;
 
     /*font-family: "Alegreya Sans", sans-serif;*/
 }

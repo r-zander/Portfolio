@@ -92,6 +92,7 @@
             flex-direction: row;
             hyphens: auto;
             column-gap: calc(var(--inline-spacing) * 18px);
+            margin-block-start: calc(var(--block-spacing) * 16px);
 
             > .left-column {
                 /*flex: 1 1 33%;*/
@@ -130,6 +131,15 @@
                 font-weight: normal;
                 font-size: 21px;
                 text-align: center;
+
+                position: relative;
+
+                > svg {
+                    position: absolute;
+                    left: 0.5em;
+                    top: 50%;
+                    translate: 0 -50%;
+                }
             }
         }
 
@@ -160,12 +170,16 @@
             }
         }
 
+        svg {
+            height: 1em;
+        }
+
         .left-column {
             > section {
                 margin-block-end: calc(var(--block-spacing) * 16px);
                 background-color: var(--light-grey);
                 border-radius: var(--border-radius);
-                padding-block-end: calc(var(--block-padding) * 10px);
+                padding-block-end: calc(var(--block-padding) * 6px);
                 break-inside: avoid;
 
                 > h3 {
@@ -184,11 +198,27 @@
                         border-radius: var(--border-radius-inner);
                         padding-inline: calc(var(--inline-padding) * 12px);
 
-                        padding-block-start: 3px;
+                        padding-block-start: 3px; /* text vertical alignment */
                         line-height: 27px;
 
                         font-size: 16px;
                         font-weight: normal;
+
+                        &.with-icon {
+                            display: flex;
+                            justify-content: start;
+                            align-items: center;
+
+                            padding-block-start: 0;
+
+                            > svg {
+                                margin-inline-end: calc(var(--inline-spacing) * 6px);;
+                            }
+
+                            > span {
+                                padding-block-start: 3px; /* text vertical alignment */
+                            }
+                        }
                     }
 
                     > ul {
@@ -247,6 +277,10 @@
         }
 
         .right-column {
+            display: flex;
+            flex-direction: column;
+            gap: calc(var(--block-spacing) * 16px);
+
             article {
                 break-inside: avoid;
 
@@ -354,36 +388,38 @@
             }
         }
 
-        blockquote {
-            margin: 0;
-            margin-inline-start: calc(var(--inline-spacing) * 18px);
-            padding-block: calc(var(--block-padding) * 17px);
-            padding-inline: calc(var(--inline-padding) * 32px);
+        #quote {
+            > blockquote {
+                margin: 0;
+                margin-inline-start: calc(var(--inline-spacing) * 18px);
+                padding-block: calc(var(--block-padding) * 17px);
+                padding-inline: calc(var(--inline-padding) * 32px);
 
-            border-radius: var(--border-radius);
+                border-radius: var(--border-radius);
 
-            background-color: var(--medium-grey);
-            color: var(--white);
+                background-color: var(--medium-grey);
+                color: var(--white);
 
-            position: relative;
+                position: relative;
 
-            &::before {
-                content: "";
-                position: absolute;
-                right: 100%;
-                top: 42px;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    right: 100%;
+                    top: 42px;
 
-                width: 0;
-                height: 0;
-                border-style: solid;
-                border-width: 12px 18px 12px 0;;
-                border-color: transparent var(--medium-grey) transparent transparent;
-            }
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    border-width: 20px 18px 4px 0;;
+                    border-color: transparent var(--medium-grey) transparent transparent;
+                }
 
-            > p {
-                &.highlight {
-                    font-weight: 500;
-                    text-align: center;
+                > p {
+                    &.highlight {
+                        font-weight: 500;
+                        text-align: center;
+                    }
                 }
             }
         }
@@ -503,6 +539,7 @@
             }
 
             .qr-code {
+                display: block;
                 width: 100%;
             }
         }
@@ -698,33 +735,98 @@
             <img class="portrait" src="./portrait.jpg" />
         </section>
         <section id="contactDetails">
-            <h3 class="section-heading">Contact</h3>
-            <table>
-                <tr>
-                    <th>📧</th>
-                    <td><a href="mailto:hello@rza.io">hello@rza.io</a></td>
-                </tr>
-                <tr>
-                    <th>📍</th>
-                    <td>Berlin</td>
-                </tr>
-                <tr>
-                    <th>📞</th>
-                    <td>+49 178 790 26 93</td>
-                </tr>
-                <tr>
-                    <td colspan="2">Open to relocation (permit B as EU citizen)</td>
-                </tr>
-            </table>
-        </section>
-
-        <section id="links">
-            <h3 class="section-heading">Links</h3>
+            <h3 class="section-heading">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.7 -0.7 24 24" id="Business-Letter--Streamline-Cyber">
+                    <desc>
+                        Business Letter Streamline Icon: https://streamlinehq.com
+                    </desc>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M10.829166666666666 12.7125h-9.416666666666666V0.4708333333333333h18.833333333333332v12.241666666666667H15.066666666666666" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M10.829166666666666 3.2958333333333334h5.65" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M10.829166666666666 5.179166666666666h5.65" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m8.004166666666666 6.120833333333334 -1.8833333333333333 0.9416666666666667 -1.8833333333333333 -0.9416666666666667V3.7666666666666666l1.8833333333333333 -0.9416666666666667 1.8833333333333333 0.9416666666666667v2.3541666666666665Z" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M11.770833333333334 22.129166666666666v-1.8833333333333333l-1.8833333333333333 -1.8833333333333333v-2.825l0.9416666666666667 -1.8833333333333333V8.475l1.8833333333333333 -1.4125 1.8833333333333333 1.4125v4.2375h4.708333333333333l-1.4125 9.416666666666666" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m9.8875 16.008333333333333 -0.9416666666666667 0.9416666666666667 -1.8833333333333333 -0.9416666666666667 0.9416666666666667 -3.2958333333333334" stroke-width="1.4"></path>
+                </svg>
+                <span>Contact</span>
+            </h3>
             <article>
                 <table>
                     <tr>
                         <th>
-                            <span class="icon">🔗</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.7 -0.7 24 24" id="Email-Send-1--Streamline-Cyber">
+                                <desc>
+                                    Email Send 1 Streamline Icon: https://streamlinehq.com
+                                </desc>
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m0.4708333333333333 10.829166666666666 14.125 11.3 7.533333333333333 -21.65833333333333 -21.65833333333333 10.358333333333333Z" stroke-width="1.4"></path>
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m22.129166666666666 0.4708333333333333 -15.066666666666666 15.631666666666668v5.085l2.825 -2.825" stroke-width="1.4"></path>
+                            </svg>
+                        </th>
+                        <td><a href="mailto:hello@rza.io">hello@rza.io</a></td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.7 -0.7 24 24" id="Location-Pin-1--Streamline-Cyber">
+                                <desc>
+                                    Location Pin 1 Streamline Icon: https://streamlinehq.com
+                                </desc>
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M15.5375 18.3625h2.825l3.7666666666666666 1.8833333333333333 -3.7666666666666666 1.8833333333333333h-14.125l-3.7666666666666666 -1.8833333333333333 3.7666666666666666 -1.8833333333333333h2.825" stroke-width="1.4"></path>
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M11.3 20.245833333333334 5.179166666666666 9.498591666666666V4.340141666666667L11.3 0.4708333333333333l6.120833333333334 3.869308333333333v5.158449999999999L11.3 20.245833333333334Z" stroke-width="1.4"></path>
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m8.945833333333333 5.58787825 2.3541666666666665 -1.4642916666666665 2.3541666666666665 1.4642916666666665v2.485058333333333L11.3 9.538141666666666 8.945833333333333 8.072936583333332v-2.485058333333333Z" stroke-width="1.4"></path>
+                            </svg>
+                        </th>
+                        <td><a href="https://www.google.de/maps/place/Weissensee,+Berlin-Pankow/">Berlin, Germany</a></td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.7 -0.7 24 24" id="Phone-Call-3--Streamline-Cyber">
+                                <desc>
+                                    Phone Call 3 Streamline Icon: https://streamlinehq.com
+                                </desc>
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M14.125 12.7125h3.2958333333333334l3.7666666666666666 3.7666666666666666v5.65h-6.591666666666667l-14.125 -14.125v-6.591666666666667h5.65l3.7666666666666666 3.7666666666666666V8.475l4.2375 4.2375Z" stroke-width="1.4"></path>
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M12.7125 7.0625h1.8833333333333333l0.9416666666666667 0.9416666666666667v1.8833333333333333" stroke-width="1.4"></path>
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M12.7125 4.2375h3.7666666666666666l1.8833333333333333 1.8833333333333333v3.7666666666666666" stroke-width="1.4"></path>
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M12.7125 1.4125h5.65l2.825 2.825v5.65" stroke-width="1.4"></path>
+                            </svg>
+                        </th>
+                        <td><a href="tel:+491787902693">+49 178 790 26 93</a></td>
+                    </tr>
+                    <tr>
+                        <!-- TODO fix padding -->
+                        <td colspan="2">Open to relocation (permit B as EU citizen)</td>
+                    </tr>
+                </table>
+            </article>
+        </section>
+
+        <section id="links">
+            <h3 class="section-heading">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.7 -0.7 24 24" id="Link-2--Streamline-Cyber">
+                    <desc>
+                        Link 2 Streamline Icon: https://streamlinehq.com
+                    </desc>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m6.120833333333334 16.479166666666668 9.416666666666666 -9.416666666666666" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m14.028008333333334 11.235024999999998 2.100858333333333 0.5631166666666666L21.1875 6.739508333333333l-1.1252916666666668 -4.201716666666666L15.860491666666666 1.4125l-5.058633333333333 5.058633333333333 0.5631166666666666 2.100858333333333" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m7.630325 12.306641666666668 -2.100858333333333 -0.5631166666666666L0.4708333333333333 16.802158333333335l1.1262333333333332 4.200775L5.797841666666667 22.129166666666666l5.058633333333333 -5.058633333333333 -0.5631166666666666 -2.100858333333333" stroke-width="1.4"></path>
+                </svg>
+                <span>Links</span>
+            </h3>
+            <article>
+                <table>
+                    <tr>
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.7 -0.7 24 24" id="Business-Suitcase-2--Streamline-Cyber">
+                                <desc>
+                                    Business Suitcase 2 Streamline Icon: https://streamlinehq.com
+                                </desc>
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m12.7125 14.595833333333333 -1.8833333333333333 1.8833333333333333 -1.8833333333333333 -1.8833333333333333v-3.7666666666666666h3.7666666666666666v3.7666666666666666Z" stroke-width="1.4"></path>
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m0.4708333333333333 10.358333333333333 8.475 2.4925916666666663" stroke-width="1.4"></path>
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M15.066666666666666 6.120833333333334H6.591666666666667l0.9416666666666667 -2.825h6.591666666666667l0.9416666666666667 2.825Z" stroke-width="1.4"></path>
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M10.829166666666666 13.654166666666667v-0.9416666666666667" stroke-width="1.4"></path>
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M0.4708333333333333 10.358333333333333V6.120833333333334h20.716666666666665V10.358333333333333l-8.475 2.4925916666666663" stroke-width="1.4"></path>
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1.4125 10.635183333333334V21.1875h18.833333333333332V10.635183333333334" stroke-width="1.4"></path>
+                            </svg>
+                        </td>
+                        <th>
                             Portfolio
                         </th>
                         <td>
@@ -732,8 +834,20 @@
                         </td>
                     </tr>
                     <tr class="link-container">
+                        <td>
+                            <svg id="Linkedin--Streamline-Atlas" xmlns="http://www.w3.org/2000/svg" viewBox="-0.6 -0.6 24 24">
+                                <desc>
+                                    Linkedin Streamline Icon: https://streamlinehq.com
+                                </desc>
+                                <defs></defs>
+                                <path d="M0.475 1.406h20.9v19.988H0.475Z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="1.2"></path>
+                                <path d="M9.5665 17.764999999999997v-5.909a3.1729999999999996 3.1729999999999996 0 0 1 3.1729999999999996 -3.1825 3.1825 3.1825 0 0 1 3.1825 3.1825v5.909" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="1.2"></path>
+                                <path d="m5.928 7.7615 0 10.003499999999999" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="1.2"></path>
+                                <path d="M5.016 5.946999999999999a0.9119999999999999 0.9119999999999999 0 1 0 1.8239999999999998 0 0.9119999999999999 0.9119999999999999 0 1 0 -1.8239999999999998 0" fill="currentColor" stroke-width="1.2"></path>
+                                <path d="m9.5665 7.7615 0 4.5504999999999995" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="1.2"></path>
+                            </svg>
+                        </td>
                         <th>
-                            <span class="icon">🔗</span>
                             LinkedIn
                         </th>
                         <td>
@@ -741,8 +855,15 @@
                         </td>
                     </tr>
                     <tr class="link-container">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.6 -0.6 24 24" id="Github-Logo-2--Streamline-Logos">
+                                <desc>
+                                    Github Logo 2 Streamline Icon: https://streamlinehq.com
+                                </desc>
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M11.3962 1.6824499999999998a9.9617 9.9617 0 0 0 -3.1483 19.416099999999997c0.49685 0.08739999999999999 0.6555 -0.2052 0.6555 -0.46835 0 -0.2375 0.00475 -0.8977499999999999 0 -1.7328 -2.77305 0.6013499999999999 -3.3458999999999994 -1.31195 -3.3458999999999994 -1.31195a2.63625 2.63625 0 0 0 -1.1048499999999999 -1.4573c-0.9043999999999999 -0.6174999999999999 0.06745 -0.6061 0.06745 -0.6061a2.09095 2.09095 0 0 1 1.5266499999999998 1.026 2.1204 2.1204 0 0 0 2.8974999999999995 0.8274499999999999c0.0475 -0.5035 0.27075 -0.9737499999999999 0.6327 -1.32715 -2.2116 -0.2527 -4.5371999999999995 -1.10675 -4.5371999999999995 -4.9248a3.8522499999999997 3.8522499999999997 0 0 1 1.026 -2.67425 3.5738999999999996 3.5738999999999996 0 0 1 0.09784999999999999 -2.6353s0.8379 -0.26789999999999997 2.73885 1.0222a9.4278 9.4278 0 0 1 4.9894 0c1.90665 -1.28915 2.7369499999999998 -1.0222 2.7369499999999998 -1.0222 0.36765 0.8341 0.4028 1.7765 0.09879999999999999 2.6353a3.8474999999999997 3.8474999999999997 0 0 1 1.02505 2.6752c0 3.8285 -2.3293999999999997 4.6702 -4.549549999999999 4.9153a2.36265 2.36265 0 0 1 0.6820999999999999 1.83635v2.7588c0 0.266 0.1615 0.5605 0.6668999999999999 0.46359999999999996a9.96265 9.96265 0 0 0 -3.1559 -19.416099999999997v0Z" stroke-width="1.2"></path>
+                            </svg>
+                        </td>
                         <th>
-                            <span class="icon">🔗</span>
                             GitHub
                         </th>
                         <td>
@@ -754,9 +875,35 @@
         </section>
 
         <section id="skills">
-            <h3 class="section-heading">Key Skills</h3>
+            <h3 class="section-heading">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.7 -0.7 24 24" id="Chemical--Streamline-Cyber">
+                    <desc>
+                        Chemical Streamline Icon: https://streamlinehq.com
+                    </desc>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m4.2375 1.4125 1.8833333333333333 -0.9416666666666667 1.8833333333333333 0.9416666666666667V3.7666666666666666l-1.8833333333333333 0.9416666666666667 -1.8833333333333333 -0.9416666666666667V1.4125Z" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M2.3541666666666665 14.595833333333333 6.591666666666667 12.241666666666667l4.2375 2.3541666666666665V18.833333333333332L6.591666666666667 21.1875 2.3541666666666665 18.833333333333332v-4.2375Z" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M12.7125 5.65 16.008333333333333 3.7666666666666666l3.2958333333333334 1.8833333333333333v3.2958333333333334l-3.2958333333333334 1.8833333333333333 -3.2958333333333334 -1.8833333333333333V5.65Z" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m8.784808333333334 13.460089166666668 5.666008333333334 -3.5208916666666665" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m12.7125 5.65 -4.708333333333333 -1.8833333333333333" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M4.2375 17.420833333333334v-1.8833333333333333l1.8833333333333333 -0.9416666666666667" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M14.595833333333333 8.004166666666666V6.591666666666667l0.9416666666666667 -0.4708333333333333" stroke-width="1.4"></path>
+                </svg>
+                <span>Key Skills</span>
+            </h3>
             <article>
-                <h4>Management</h4>
+                <h4 class="with-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.7 -0.7 24 24" id="Cog-Hexagon--Streamline-Cyber">
+                        <desc>
+                            Cog Hexagon Streamline Icon: https://streamlinehq.com
+                        </desc>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m8.004166666666666 9.8875 2.825 -1.6714489166666666 2.825 1.6714489166666666v2.825l-2.825 1.6714583333333333 -2.825 -1.6714583333333333v-2.825Z" stroke-width="1.4"></path>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m15.5375 10.510883333333334 1.8833333333333333 -1.8795666666666666 -0.93225 -1.6366166666666666 -2.5952333333333333 0.6676416666666666 -1.5641083333333334 -0.906825L11.770833333333334 4.708333333333333h-1.8833333333333333l-0.5584083333333333 2.0471833333333334 -1.5641083333333334 0.906825 -2.5952333333333333 -0.6676416666666666 -0.93225 1.6366166666666666 1.8833333333333333 1.8795666666666666v1.5782333333333332l-1.8833333333333333 1.8795666666666666 0.93225 1.6366166666666666 2.5952333333333333 -0.6676416666666666 1.5641083333333334 0.906825L9.8875 17.891666666666666h1.8833333333333333l0.5584083333333333 -2.0471833333333334 1.5641083333333334 -0.906825 2.5952333333333333 0.6676416666666666 0.93225 -1.6366166666666666 -1.8833333333333333 -1.8795666666666666v-1.5782333333333332Z" stroke-width="1.4"></path>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m20.245833333333334 16.714583333333334 -9.416666666666666 5.414583333333333 -9.416666666666666 -5.414583333333333V5.885416666666667L10.829166666666666 0.4708333333333333l9.416666666666666 5.414583333333333v10.829166666666666Z" stroke-width="1.4"></path>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="m10.829166666666666 10.829166666666666 -0.4708333333333333 0.4708333333333333 0.4708333333333333 0.4708333333333333" stroke-width="1.4"></path>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="m10.829166666666666 10.829166666666666 0.4708333333333333 0.4708333333333333 -0.4708333333333333 0.4708333333333333" stroke-width="1.4"></path>
+                    </svg>
+                    <span>Management</span>
+                </h4>
                 <ul class="skills-list">
                     <li>Team Development</li>
                     <li>Mentoring</li>
@@ -765,7 +912,23 @@
                 </ul>
             </article>
             <article>
-                <h4>Software Development</h4>
+                <h4 class="with-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.7 -0.7 24 24" id="Window-Hashtag--Streamline-Cyber">
+                        <desc>
+                            Window Hashtag Streamline Icon: https://streamlinehq.com
+                        </desc>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M8.019223916666666 12.7125H15.522433333333336" stroke-width="1.4"></path>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M7.07755725 15.5375H14.580766666666666" stroke-width="1.4"></path>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M8.930776083333333 17.39164166666667 10.829166666666666 10.829166666666666" stroke-width="1.4"></path>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M11.755766666666666 17.39164166666667 13.654166666666667 10.829166666666666" stroke-width="1.4"></path>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" d="M2.3541666666666665 5.179166666666666h0.9416666666666667" stroke-width="1.4"></path>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" d="M5.179166666666666 5.179166666666666h0.9416666666666667" stroke-width="1.4"></path>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" d="M8.004166666666666 5.179166666666666h0.9416666666666667" stroke-width="1.4"></path>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M22.129166666666666 3.2958333333333334H0.4708333333333333v16.95h21.65833333333333v-16.95Z" stroke-width="1.4"></path>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M0.4708333333333333 7.0625h21.65833333333333" stroke-width="1.4"></path>
+                    </svg>
+                    <span>Software Development</span>
+                </h4>
                 <ul class="skills-list">
                     <li>C#</li>
                     <li>Unity</li>
@@ -779,7 +942,19 @@
                 </ul>
             </article>
             <article>
-                <h4>UI/UX Design</h4>
+                <h4 class="with-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.7 -0.7 24 24" id="Video-Player-1--Streamline-Cyber">
+                        <desc>
+                            Video Player 1 Streamline Icon: https://streamlinehq.com
+                        </desc>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M21.1875 1.4125H0.4708333333333333v20.716666666666665h20.716666666666665v-20.716666666666665Z" stroke-width="1.4"></path>
+                        <path stroke="currentColor" stroke-linejoin="round" stroke-miterlimit="10" d="M8.004166666666666 14.125V5.65l7.533333333333333 4.2375 -7.533333333333333 4.2375Z" stroke-width="1.4"></path>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M16.008333333333333 18.3625h2.3541666666666665" stroke-width="1.4"></path>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M3.2958333333333334 18.3625H13.183333333333334" stroke-width="1.4"></path>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M14.595833333333333 16.95 13.183333333333334 18.3625l1.4125 1.4125 1.4115583333333335 -1.4125 -1.4125 -1.4125h0.0009416666666666667Z" stroke-width="1.4"></path>
+                    </svg>
+                    <span>UI/UX Design</span>
+                </h4>
                 <ul class="skills-list">
                     <li>Adobe XD</li>
                     <li>Figma</li>
@@ -790,7 +965,18 @@
         </section>
 
         <section id="languages">
-            <h3>Languages</h3>
+            <h3>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.7 -0.7 24 24" id="Bubble-Chat-Smiley-Face-1--Streamline-Cyber">
+                    <desc>
+                        Bubble Chat Smiley Face 1 Streamline Icon: https://streamlinehq.com
+                    </desc>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M22.129166666666666 15.5375h-16.95l-4.708333333333333 4.708333333333333V0.4708333333333333h21.65833333333333v15.066666666666666Z" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m6.591666666666667 6.120833333333334 1.8833333333333333 -1.8833333333333333 1.8833333333333333 1.8833333333333333" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m13.183333333333334 6.120833333333334 1.8833333333333333 -1.8833333333333333 1.8833333333333333 1.8833333333333333" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m6.591666666666667 10.829166666666666 1.8833333333333333 1.8833333333333333h6.591666666666667l1.8833333333333333 -1.8833333333333333" stroke-width="1.4"></path>
+                </svg>
+                <span>Languages</span>
+            </h3>
             <article>
                 <table class="languages">
                     <tr>
@@ -833,7 +1019,18 @@
              </section>-->
 
         <section id="education">
-            <h3 class="section-heading">Education</h3>
+            <h3 class="section-heading">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.6 -0.6 24 24" id="Book-Open-Bookmark-4--Streamline-Cyber">
+                    <desc>
+                        Book Open Bookmark 4 Streamline Icon: https://streamlinehq.com
+                    </desc>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M2.375 5.44065 0.475 4.75v13.774999999999999l10.45 2.8499999999999996 10.45 -2.8499999999999996V4.75l-1.9 0.69065" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M10.924999999999999 8.549999999999999v12.825" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M4.2749999999999995 2.375V11.399999999999999l1.9 -1.4050500000000001 1.9 3.3249999999999997V5.111l-3.8 -2.7359999999999998Z" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m4.2749999999999995 3.762019 -1.9 -1.3679999999999999V16.16995l8.549999999999999 5.20505 8.549999999999999 -5.20505V2.394019l-8.549999999999999 6.156 -2.8499999999999996 -2.052" stroke-width="1.2"></path>
+                </svg>
+                <span>Education</span>
+            </h3>
             <article>
                 <h4>Oct 2012 - Apr 2015</h4>
                 <p class="institute">SRH Berlin School of Popular Arts</p>
@@ -853,7 +1050,21 @@
         </section>
 
         <section id="certificates">
-            <h3 class="section-heading">Certification</h3>
+            <h3 class="section-heading">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.6 -0.6 24 24" id="Certificate-2--Streamline-Cyber">
+                    <desc>
+                        Certificate 2 Streamline Icon: https://streamlinehq.com
+                    </desc>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m17.575 16.3875 -2.8499999999999996 1.6624999999999999 -2.8499999999999996 -1.6624999999999999v-3.3249999999999997l2.8499999999999996 -1.6624999999999999 2.8499999999999996 1.6624999999999999v3.3249999999999997Z" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M9.975 16.625H0.475v-15.2h21.849999999999998v15.2h-2.8499999999999996" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m16.625 17.099999999999998 1.4249999999999998 5.225 -3.3249999999999997 -2.375 -3.3249999999999997 2.375 1.4249999999999998 -5.225" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M9.975 14.725h-7.6v-11.399999999999999h18.05V14.25l-0.9348 0.0152" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M14.724145 13.300189999999999 13.299335 14.725l1.42481 1.42481L16.14886 14.725l-1.424715 -1.42481Z" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M5.225 7.6 6.6499999999999995 6.6499999999999995l1.4249999999999998 0.95L9.5 6.6499999999999995l1.4249999999999998 0.95L12.35 6.6499999999999995l1.4249999999999998 0.95L15.2 6.6499999999999995" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M5.225 10.45 6.6499999999999995 9.5l1.4249999999999998 0.95 1.4249999999999998 -0.95 1.4249999999999998 0.95 1.4249999999999998 -0.95" stroke-width="1.2"></path>
+                </svg>
+                <span>Certification</span>
+            </h3>
             <article>
                 <p class="certificate">Employee Appraisal</p>
                 <p class="institute">Dr. G. Kitzmann Akademie</p>
@@ -865,7 +1076,20 @@
         </section>
 
         <section id="qrCode">
-            <h3 class="section-heading">Portfolio</h3>
+            <h3 class="section-heading">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.7 -0.7 24 24" id="Business-Suitcase-2--Streamline-Cyber">
+                    <desc>
+                        Business Suitcase 2 Streamline Icon: https://streamlinehq.com
+                    </desc>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m12.7125 14.595833333333333 -1.8833333333333333 1.8833333333333333 -1.8833333333333333 -1.8833333333333333v-3.7666666666666666h3.7666666666666666v3.7666666666666666Z" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m0.4708333333333333 10.358333333333333 8.475 2.4925916666666663" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M15.066666666666666 6.120833333333334H6.591666666666667l0.9416666666666667 -2.825h6.591666666666667l0.9416666666666667 2.825Z" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M10.829166666666666 13.654166666666667v-0.9416666666666667" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M0.4708333333333333 10.358333333333333V6.120833333333334h20.716666666666665V10.358333333333333l-8.475 2.4925916666666663" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1.4125 10.635183333333334V21.1875h18.833333333333332V10.635183333333334" stroke-width="1.4"></path>
+                </svg>
+                <span>Portfolio</span>
+            </h3>
             <article>
                 <img class="qr-code" src="./qr-rza.io.svg" />
             </article>
@@ -888,7 +1112,21 @@
         </section>
 
         <section id="experience">
-            <h3>Professional XP</h3>
+            <h3>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.7 -0.7 24 24" id="Graph--Streamline-Cyber">
+                    <desc>
+                        Graph Streamline Icon: https://streamlinehq.com
+                    </desc>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M5.179166666666666 20.48125 2.825 22.129166666666666 0.4708333333333333 20.48125v-2.3541666666666665L2.825 16.479166666666668l2.3541666666666665 1.6479166666666667v2.3541666666666665Z" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M21.1875 5.414583333333333 18.833333333333332 7.0625l-2.3541666666666665 -1.6479166666666667v-2.3541666666666665L18.833333333333332 1.4125l2.3541666666666665 1.6479166666666667v2.3541666666666665Z" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M8.239583333333334 6.120833333333334 9.8875 8.475l-1.6479166666666667 2.3541666666666665h-2.3541666666666665L4.2375 8.475l1.6479166666666667 -2.3541666666666665h2.3541666666666665Z" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M15.302083333333334 12.7125 16.95 15.066666666666666l-1.6479166666666667 2.3541666666666665h-2.3541666666666665L11.3 15.066666666666666l1.6479166666666667 -2.3541666666666665h2.3541666666666665Z" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m6.1415500000000005 10.829166666666666 -2.4483333333333333 6.257375" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m12.416816666666666 13.471295 -3.6461333333333332 -3.4013" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m17.891666666666666 6.403145 -2.7430749999999997 6.309166666666667" stroke-width="1.4"></path>
+                </svg>
+                <span>Professional XP</span>
+            </h3>
 
             <article>
                 <h4>
@@ -1109,7 +1347,28 @@
         </section>
 
         <section id="sideProjects">
-            <h3>Side Projects</h3>
+            <h3>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.6 -0.6 24 24" id="Zelda-Link--Streamline-Cyber">
+                    <desc>
+                        Zelda Link Streamline Icon: https://streamlinehq.com
+                    </desc>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1.4249999999999998 10.924999999999999h7.6v7.6l-3.8 3.8 -3.8 -3.8v-7.6Z" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M5.225 12.825v4.75" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M3.3249999999999997 14.725h3.8" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M8.075 8.075v0.95" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M10.924999999999999 8.075v0.95" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M6.33935 3.6158425 5.699999999999999 6.1751425v1.4249999999999998l-2.375 -0.475L5.699999999999999 10.925189999999999" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M7.6 3.3249999999999997 1.4249999999999998 4.75 8.549999999999999 0.475 11.399999999999999 1.9l1.9 4.2749999999999995V7.6l2.375 -0.475 -2.375 3.8v0.95l-4.2749999999999995 2.1374999999999997" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M17.575 12.825h3.8" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m20.425 3.3249999999999997 -0.95 -2.8499999999999996 -0.95 2.8499999999999996V18.05l0.95 0.95 0.95 -0.95V3.3249999999999997Z" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m11.399999999999999 12.825 4.75 2.375 0.475 7.125h-11.399999999999999" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M18.525 16.625h1.9" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M7.125 20.425h5.92325" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m13.8016 14.02599 -0.9766 8.2992" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M5.699999999999999 6.175h7.6" stroke-width="1.2"></path>
+                </svg>
+                <span>Side Projects</span>
+            </h3>
 
             <article>
                 <h4>

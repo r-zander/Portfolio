@@ -43,7 +43,7 @@ body {
 
 header {
 	text-align: left;
-	font-size: min(1em, 4vw);
+	font-size: min(2.5rem, 8vw);
 
 	> .headline {
 		.panel;
@@ -51,10 +51,17 @@ header {
 		padding-right: @gridDistance;
 		padding-bottom: @gridPadding;
 		padding-left: (2 * @gridDistance + 2 * @gridBase);
-		font-size: 2em;
 		overflow: hidden;
 		border-top-right-radius: 0;
 		position: relative; // Contain logo
+
+		@media (max-width: 560px) {
+			// 1em is currently here ~40px --> switch from px paddings to em to ensure smooth scaling
+			padding-top: unit((@gridPadding / 40px), em);
+			padding-right: unit((@gridPadding / 40px), em);
+			padding-bottom: unit((@gridPadding / 40px), em);
+			padding-left: unit(((2 * @gridDistance + 2 * @gridBase) / 40px), em);
+		}
 
 		> h1, h2 {
 			font-size: inherit;
@@ -73,11 +80,18 @@ header {
 		background: none;
 		text-decoration: none;
 		border-bottom-left-radius: 0;
+		font-size: 50%;
 		line-height: 2em;
 		margin-left: @gridPadding;
 		border: 2px solid currentColor;
 		padding-top: (@gridPadding - 2px);
 		padding-bottom: (@gridPadding - 2px);
+
+		@media (max-width: 560px) {
+			// switch from px paddings to em to ensure smooth scaling
+			margin-left: unit((@gridPadding / 20px), em);
+			padding: calc(unit((@gridPadding / 20px), em) - 2px) unit((@gridPadding / 20px), em);
+		}
 
 		&:before {
 			margin-right: 0.5em;
@@ -121,7 +135,7 @@ main {
 	padding: @gridPadding @gridDistance;
 	.containFloats;
 
-	@media all and (max-width: 800px) {
+	@media (max-width: 800px) {
 		padding: 0;
 	}
 }

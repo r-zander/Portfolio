@@ -502,7 +502,7 @@ body {
 }
 header {
   text-align: left;
-  font-size: min(1em, 4vw);
+  font-size: min(2.5rem, 8vw);
 }
 header > .headline {
   background-color: #222222;
@@ -513,10 +513,17 @@ header > .headline {
   padding-right: 32px;
   padding-bottom: 16px;
   padding-left: 72px;
-  font-size: 2em;
   overflow: hidden;
   border-top-right-radius: 0;
   position: relative;
+}
+@media (max-width: 560px) {
+  header > .headline {
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    padding-bottom: 0.4em;
+    padding-left: 1.8em;
+  }
 }
 header > .headline > h1,
 header > .headline h2 {
@@ -536,11 +543,18 @@ header > .headerLink {
   background: none;
   text-decoration: none;
   border-bottom-left-radius: 0;
+  font-size: 50%;
   line-height: 2em;
   margin-left: 16px;
   border: 2px solid currentColor;
   padding-top: 14px;
   padding-bottom: 14px;
+}
+@media (max-width: 560px) {
+  header > .headerLink {
+    margin-left: 0.8em;
+    padding: calc(0.8em - 2px) 0.8em;
+  }
 }
 header > .headerLink:before {
   margin-right: 0.5em;
@@ -581,7 +595,7 @@ main {
   padding: 16px 32px;
   overflow: hidden;
 }
-@media all and (max-width: 800px) {
+@media (max-width: 800px) {
   main {
     padding: 0;
   }
@@ -2240,7 +2254,7 @@ a.tag:last-child {
   padding-top: 8px;
   padding-right: 24px;
 }
-@media all and (max-width: 800px) {
+@media (max-width: 800px) {
   #tag {
     padding-right: 0;
   }
@@ -2252,7 +2266,7 @@ a.tag:last-child {
 .layout-medium #tag > .description {
   max-width: 50%;
 }
-@media all and (max-width: 860px) {
+@media (max-width: 860px) {
   #tag > .description {
     margin-right: 16px;
     max-width: 75%;
@@ -2353,7 +2367,7 @@ a.tag:last-child {
   font-size: 0.7em;
   padding: 0.4em 16px;
 }
-@media all and (max-width: 1600px) {
+@media (max-width: 1600px) {
   .grid-sizer {
     width: 33.33333333%;
   }
@@ -2361,7 +2375,7 @@ a.tag:last-child {
     width: 33.33333333%;
   }
 }
-@media all and (max-width: 1000px) {
+@media (max-width: 1000px) {
   .grid-sizer {
     width: 50%;
   }
@@ -2381,7 +2395,7 @@ a.tag:last-child {
 #tag.series .grid-item.promoted > .projectLink {
   padding-bottom: 35.9375%;
 }
-@media all and (max-width: 1600px) {
+@media (max-width: 1600px) {
   #tag.series .grid-sizer {
     width: 100%;
   }
@@ -2389,7 +2403,7 @@ a.tag:last-child {
     width: 100%;
   }
 }
-@media all and (max-width: 1000px) {
+@media (max-width: 1000px) {
   #tag.series .grid-sizer {
     width: 100%;
   }
@@ -2397,7 +2411,7 @@ a.tag:last-child {
     width: 100%;
   }
 }
-@media all and (max-width: 800px) {
+@media (max-width: 800px) {
   #tag.series .grid-sizer > .aspect-ratio {
     padding-bottom: 100%;
   }

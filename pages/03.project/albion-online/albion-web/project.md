@@ -29,7 +29,7 @@ displayTypes:
 ---
 ## Achievements
 
-_As a disclaimer, none of these projects happened in a vacuum. A lot of super talented people from the company and especially the game side of Sandbox Interactive made these successes possible. I'm outlining the parts that I supervised and developed, but will list the measured results that contain the efforts of everyone involved._
+<small>_As a disclaimer, none of these projects happened in a vacuum. A lot of super talented people from the company and especially the game side of Sandbox Interactive made these successes possible. I'm outlining the parts that I supervised and developed, but will list the measured results that contain the efforts of everyone involved._</small>
 
 ### Android and iOS Platform Release <small>(Jun 2021)</small>
 

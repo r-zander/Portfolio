@@ -1,0 +1,11 @@
+main {
+    flex-direction: row;
+
+    > div {
+        flex: 1 1 50%;
+
+        &.full-width {
+            flex: 1 1 100%;
+        }
+    }
+}

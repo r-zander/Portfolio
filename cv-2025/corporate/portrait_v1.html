@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Raoul Zander :: CV</title>
+
+
+    <link href="fonts/helvetica-neue.css" rel="stylesheet" />
+    <link href="base.css" rel="stylesheet" />
+    <link href="portrait.css" rel="stylesheet" />
+    <style>
+        :root {
+            --nearly-black: rgba(0, 0, 0, 0.86);
+            --dark-grey: #3E3E3F;
+            --medium-grey: #939598;
+            --medium-grey-font: #848384;
+            --light-grey: #E6E7E9;
+            --white: #FFFFFF;
+            --primary-color: #2C5F5F;
+            --secondary-color: #2C5F5F;
+
+            --border-radius: 0px;
+            --border-radius-inner: 0px;
+            --border-radius-inner-inner: 0px;
+
+            --block-spacing: 1.0;
+            --inline-spacing: 1.0;
+
+            --block-padding: 1.0;
+            --inline-padding: 1.0;
+        }
+
+        @page {
+            margin-top: var(--minimum-page-margin);
+            margin-bottom: var(--minimum-page-margin);
+        }
+
+        html {
+            font-size: 10pt;
+        }
+
+        body {
+            height: auto;
+            font-family: "Helvetica Neue", sans-serif;
+            font-weight: 300;
+
+            color: var(--nearly-black);
+
+            > h1 {
+                margin-top: 0;
+                text-align: center;
+                /*font-family: "Video Cond Med", sans-serif;*/
+                color: var(--dark-grey);
+                font-size: 1.4rem;
+                font-weight: normal;
+                margin-block-end: 0;
+            }
+
+            > h2 {
+                text-align: center;
+                background-color: var(--dark-grey);
+                color: var(--white);
+
+                border-radius: var(--border-radius);
+                line-height: 2.7rem;
+
+                /*font-family: "Video Cond Med", sans-serif;*/
+                font-weight: normal;
+                margin-block-start: 2px;
+                margin-block-end: 0;
+            }
+        }
+
+        @media print {
+            body {
+                padding: 0 var(--minimum-page-margin);
+            }
+        }
+
+
+        /**
+         * https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Multiple-column_Layout
+         * https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_paged_media
+         */
+
+        main {
+            display: flex;
+            flex-direction: row;
+            hyphens: auto;
+            column-gap: calc(var(--inline-spacing) * 18px);
+            margin-block-start: calc(var(--block-spacing) * 16px);
+
+            > .left-column {
+                flex: 0 0 calc(33% - (var(--inline-spacing) * (18px / 2)));
+            }
+
+            > .right-column {
+                flex: 0 1 calc(67% - (var(--inline-spacing) * (18px / 2)));
+            }
+        }
+
+
+        section {
+            > p {
+                break-inside: avoid;
+            }
+
+            th, td {
+                break-inside: avoid;
+            }
+
+            > h2 {
+                break-after: avoid;
+                break-inside: avoid;
+            }
+
+            > h3 {
+                /*background-color: var(--primary-color);*/
+                /*color: var(--white);*/
+                border-radius: var(--border-radius);
+                line-height: 2.7rem;
+                padding-inline: calc(var(--inline-padding) * 0.5em);
+
+                /*font-family: "Video Cond Med", sans-serif;*/
+                font-weight: normal;
+                font-size: 1.5rem;
+                text-align: left;
+
+                position: relative;
+
+                > svg {
+                    position: absolute;
+                    left: 0.5em;
+                    top: 50%;
+                    translate: 0 -50%;
+                }
+            }
+        }
+
+        a {
+            &:link,
+            &:visited {
+                color: inherit;
+                text-decoration: none;
+            }
+
+            &:hover,
+            &:active,
+            &:focus {
+                text-decoration: underline;
+            }
+
+            &.underlined {
+                &:link,
+                &:visited {
+                    text-decoration: underline;
+                }
+
+                &:hover,
+                &:active,
+                &:focus {
+                    text-decoration: none;
+                }
+            }
+        }
+
+        svg {
+            display: none;
+        }
+
+        .left-column {
+            > section {
+                margin-block-end: calc(var(--block-spacing) * 16px);
+                /*background-color: var(--light-grey);*/
+                border-radius: var(--border-radius);
+                padding-block-end: calc(var(--block-padding) * 6px);
+                break-inside: avoid;
+
+                > h3 {
+                    margin-block-end: calc(var(--block-spacing) * 0px);
+                    padding-inline: calc(var(--block-padding) * 7px);
+                }
+
+                > article {
+                    padding-inline: calc(var(--block-padding) * 7px);
+
+                    > h4 {
+                        margin-block-start: calc(var(--block-spacing) * 0px);
+                        margin-block-end: calc(var(--block-spacing) * 8px);
+
+                        /*background-color: var(--medium-grey);*/
+                        /*color: var(--white);*/
+                        border-radius: var(--border-radius-inner);
+                        /*padding-inline: calc(var(--inline-padding) * 12px);*/
+
+                        padding-block-start: 3px; /* text vertical alignment */
+                        line-height: calc(2rem - 1px);
+
+                        font-size: 1.14rem;
+                        font-weight: normal;
+
+                        &.with-icon {
+                            display: flex;
+                            justify-content: start;
+                            align-items: center;
+
+                            padding-block-start: 0;
+
+                            > svg {
+                                margin-inline-end: calc(var(--inline-spacing) * 6px);;
+                            }
+
+                            > span {
+                                padding-block-start: 3px; /* text vertical alignment */
+                            }
+                        }
+                    }
+
+                    > ul {
+                        margin-block: 0;
+                        padding-inline-start: calc(12px + (var(--inline-padding) * 12px));
+                        list-style-type: "\25CF";
+
+                        > li {
+                            padding-inline-start: calc(var(--inline-padding) * 6px);
+                            margin-block-end: calc(var(--block-spacing) * 6px);
+
+                            > small {
+                                font-size: 100%;
+                                color: var(--medium-grey-font);
+                                display: block;
+                                hyphens: manual;
+
+                                &::before {
+                                    content: "(";
+                                }
+
+                                &::after {
+                                    content: ")";
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            article {
+                > table {
+                    margin-inline-start: calc(var(--block-padding) * 12px);
+                    width: calc(100% - var(--block-padding) * 2 * 12px);
+                }
+
+                th {
+                    text-align: left;
+                }
+
+                th, td {
+                    vertical-align: bottom;
+                    padding-block-end: calc(var(--block-padding) * 8px);
+                }
+
+                tr:last-of-type {
+                    > th, td {
+                        padding-block-end: calc(var(--block-padding) * 6px);
+                    }
+                }
+
+                > p {
+                    padding-inline: calc(var(--block-padding) * 12px);
+                }
+            }
+        }
+
+        .right-column {
+            display: flex;
+            flex-direction: column;
+            gap: calc(var(--block-spacing) * 16px);
+
+            article {
+                break-inside: avoid;
+
+                > h4 {
+                    display: flex;
+                    flex-direction: row;
+
+                    margin-block-start: calc(var(--block-spacing) * 16px - var(--block-padding) * 4px);
+                    margin-block-end: calc(var(--block-spacing) * 8px);
+
+                    background-color: var(--light-grey);
+                    border-radius: var(--border-radius);
+                    padding-block: calc(var(--block-padding) * 4px);
+                    padding-inline-start: calc(var(--block-padding) * 4px);
+
+                    font-size: 1.14rem;
+                    font-weight: normal;
+
+                    > span {
+                        padding-block-start: 4px;
+                        line-height: calc(2rem - 2px);
+                    }
+
+                    > span.date {
+                        background-color: var(--medium-grey);
+                        color: var(--white);
+                        border-radius: var(--border-radius-inner);
+
+                        margin-inline-end: calc(var(--block-spacing) * 14px);
+                        width: 12em;
+                        text-align: center;
+
+                        font-size: 1rem;
+                    }
+                }
+
+                > table {
+                    margin-inline-start: calc(var(--block-padding) * 12px);
+                    width: calc(100% - var(--block-padding) * 12px);
+                }
+            }
+        }
+
+        p {
+            margin: 0.5rem 0;
+            text-align: justify;
+        }
+
+        .all-caps {
+            text-transform: uppercase;
+        }
+
+        #quote {
+            > blockquote {
+                margin: 0;
+                margin-inline-start: calc(var(--inline-spacing) * 18px);
+                padding-block: calc(var(--block-padding) * 6px);
+                padding-inline: calc(var(--inline-padding) * 26px);
+
+                border-radius: var(--border-radius);
+
+                background-color: var(--medium-grey);
+                color: var(--white);
+
+                position: relative;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    right: 100%;
+                    top: 32px;
+
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    border-width: 20px 18px 4px 0;;
+                    border-color: transparent var(--medium-grey) transparent transparent;
+                }
+
+                > p {
+                    &.highlight {
+                        font-weight: 500;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+
+        #portrait.portrait-container {
+            width: 85%;
+            margin-inline: auto;
+
+            padding-block-end: 0;
+
+            border-radius: 50%;
+            border: 3px solid var(--primary-color);
+            border-color: var(--dark-grey);
+            overflow: hidden;
+
+            > img {
+                width: 100%;
+                display: block;
+            }
+        }
+
+        section#contactDetails,
+        section#links {
+            > h3 {
+                /*background-color: var(--secondary-color);*/
+            }
+
+            table {
+                width: auto;
+            }
+
+            th {
+                padding-inline-end: calc(var(--inline-padding) * 6px);
+            }
+        }
+
+        #education {
+            .course {
+                color: var(--medium-grey-font);
+            }
+
+            ul.content {
+                padding-inline-start: calc(12px + (var(--inline-padding) * 12px));
+            }
+
+            p.grade {
+                font-size: 0.86rem;
+            }
+        }
+
+        #certificates {
+            article:not(:last-of-type) {
+                margin-block-end: calc(var(--block-spacing) * 16px);
+            }
+
+            .institute {
+                color: var(--medium-grey-font);
+            }
+        }
+
+        #qrCode {
+            > h3 {
+                /*background-color: var(--secondary-color);*/
+            }
+
+            .qr-code {
+                display: block;
+                width: 100%;
+            }
+        }
+
+        table.languages {
+            margin-inline-start: 0 !important;
+            width: calc(100% - var(--block-padding) * 1 * 12px) !important;
+
+            th, td {
+                white-space: nowrap;
+            }
+
+            .proficiency {
+                width: 100%;
+                padding-inline-end: calc(var(--inline-padding) * 6px);
+
+                text-align: right;
+                text-transform: lowercase;
+                font-variant: small-caps;
+            }
+
+            .level {
+                text-align: right;
+                font-size: 0;
+
+                > span {
+                    font-size: 1.14rem;
+                    line-height: 1.14rem;
+                }
+
+                .filled {
+                    color: var(--primary-color);
+                }
+
+                .empty {
+                    color: var(--medium-grey);
+                }
+            }
+        }
+
+        table.experience {
+            > tbody {
+                > tr {
+                    --row-spacing: 8px;
+
+                    > th {
+                        text-align: left;
+                        vertical-align: top;
+                        /* offset + width of h4 date + margin to XP title - our inline start padding */
+                        width: calc(4px + (6 * 19px) + 14px - (var(--block-padding) * 12px));
+                        padding-inline: 0;
+                        padding-block-end: calc(var(--block-padding) * var(--row-spacing));
+
+                        &:after {
+                            content: ":";
+                        }
+
+                        &.description {
+                            font-style: italic;
+                            padding-block-start: calc(var(--block-padding) * 7px);
+                            padding-block-end: calc(var(--block-padding) * (7px + var(--row-spacing)));
+
+                            &:after {
+                                content: "";
+                            }
+                        }
+                    }
+
+                    > td {
+                        vertical-align: top;
+                        padding-inline: 0;
+                        padding-block-end: calc(var(--block-padding) * var(--row-spacing));
+
+                        > ul {
+                            margin-block: 0;
+                            /* Move bullet points outside */
+                            margin-inline-start: calc(var(--inline-padding) * -6px);
+                            padding-inline-start: 0;
+                            list-style-type: "\25CF";
+
+                            > li {
+                                padding-inline-start: calc(var(--inline-padding) * 6px);
+                                margin-block-end: calc(var(--block-spacing) * 6px);
+                            }
+                        }
+
+                        > small.formerly {
+                            &::before {
+                                content: "formerly: ";
+                            }
+
+                            display: block;
+                            font-size: 0.86rem;
+                            color: var(--medium-grey-font);
+
+                            margin-block-start: calc(var(--block-spacing) * 4px);
+
+                            > span {
+                                white-space: nowrap;
+                            }
+                        }
+                    }
+                }
+            }
+
+            em {
+                font-style: normal;
+                font-variant: small-caps;
+            }
+
+            .position ~ .position {
+                > td,
+                > th {
+                    padding-block-start: 1em;
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+<h1>Raoul Zander</h1>
+<h2 class="wrapper-block">
+    Staff Frontend Engineer | Hybrid | Native German Speaker
+</h2>
+<main>
+    <div class="left-column">
+        <section id="contactDetails">
+            <h3 class="section-heading">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.7 -0.7 24 24" id="Business-Letter--Streamline-Cyber">
+                    <desc>
+                        Business Letter Streamline Icon: https://streamlinehq.com
+                    </desc>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M10.829166666666666 12.7125h-9.416666666666666V0.4708333333333333h18.833333333333332v12.241666666666667H15.066666666666666" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M10.829166666666666 3.2958333333333334h5.65" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M10.829166666666666 5.179166666666666h5.65" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m8.004166666666666 6.120833333333334 -1.8833333333333333 0.9416666666666667 -1.8833333333333333 -0.9416666666666667V3.7666666666666666l1.8833333333333333 -0.9416666666666667 1.8833333333333333 0.9416666666666667v2.3541666666666665Z" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M11.770833333333334 22.129166666666666v-1.8833333333333333l-1.8833333333333333 -1.8833333333333333v-2.825l0.9416666666666667 -1.8833333333333333V8.475l1.8833333333333333 -1.4125 1.8833333333333333 1.4125v4.2375h4.708333333333333l-1.4125 9.416666666666666" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m9.8875 16.008333333333333 -0.9416666666666667 0.9416666666666667 -1.8833333333333333 -0.9416666666666667 0.9416666666666667 -3.2958333333333334" stroke-width="1.4"></path>
+                </svg>
+                <span>Contact</span>
+            </h3>
+            <article>
+                <table>
+                    <tr>
+                        <th>E-Mail</th>
+                        <td><a href="mailto:hello@rza.io">hello@rza.io</a></td>
+                    </tr>
+                    <tr>
+                        <th>Location</th>
+                        <td><a href="https://www.google.de/maps/place/Weissensee,+Berlin-Pankow/">Berlin, Germany</a></td>
+                    </tr>
+                    <tr>
+                        <th>Phone</th>
+                        <td><a href="tel:+491787902693">+49 178 790 26 93</a></td>
+                    </tr>
+                </table>
+                <p style="margin-top: 0;">Open to relocation (permit B as EU citizen)</p>
+            </article>
+        </section>
+
+        <section id="links">
+            <h3 class="section-heading">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.7 -0.7 24 24" id="Link-2--Streamline-Cyber">
+                    <desc>
+                        Link 2 Streamline Icon: https://streamlinehq.com
+                    </desc>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m6.120833333333334 16.479166666666668 9.416666666666666 -9.416666666666666" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m14.028008333333334 11.235024999999998 2.100858333333333 0.5631166666666666L21.1875 6.739508333333333l-1.1252916666666668 -4.201716666666666L15.860491666666666 1.4125l-5.058633333333333 5.058633333333333 0.5631166666666666 2.100858333333333" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m7.630325 12.306641666666668 -2.100858333333333 -0.5631166666666666L0.4708333333333333 16.802158333333335l1.1262333333333332 4.200775L5.797841666666667 22.129166666666666l5.058633333333333 -5.058633333333333 -0.5631166666666666 -2.100858333333333" stroke-width="1.4"></path>
+                </svg>
+                <span>Links</span>
+            </h3>
+            <article>
+                <table>
+                    <tr>
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.7 -0.7 24 24" id="Business-Suitcase-2--Streamline-Cyber">
+                                <desc>
+                                    Business Suitcase 2 Streamline Icon: https://streamlinehq.com
+                                </desc>
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m12.7125 14.595833333333333 -1.8833333333333333 1.8833333333333333 -1.8833333333333333 -1.8833333333333333v-3.7666666666666666h3.7666666666666666v3.7666666666666666Z" stroke-width="1.4"></path>
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m0.4708333333333333 10.358333333333333 8.475 2.4925916666666663" stroke-width="1.4"></path>
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M15.066666666666666 6.120833333333334H6.591666666666667l0.9416666666666667 -2.825h6.591666666666667l0.9416666666666667 2.825Z" stroke-width="1.4"></path>
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M10.829166666666666 13.654166666666667v-0.9416666666666667" stroke-width="1.4"></path>
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M0.4708333333333333 10.358333333333333V6.120833333333334h20.716666666666665V10.358333333333333l-8.475 2.4925916666666663" stroke-width="1.4"></path>
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1.4125 10.635183333333334V21.1875h18.833333333333332V10.635183333333334" stroke-width="1.4"></path>
+                            </svg>
+                        </td>
+                        <th>
+                            Portfolio
+                        </th>
+                        <td>
+                            <a href="https://rza.io" target="_blank">rza.io</a>
+                        </td>
+                    </tr>
+                    <tr class="link-container">
+                        <td>
+                            <svg id="Linkedin--Streamline-Atlas" xmlns="http://www.w3.org/2000/svg" viewBox="-0.7 -0.7 24 24">
+                                <desc>
+                                    Linkedin Streamline Icon: https://streamlinehq.com
+                                </desc>
+                                <defs></defs>
+                                <path d="M0.4708333333333333 1.3936666666666666h20.716666666666665v19.812666666666665H0.4708333333333333Z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="1.4"></path>
+                                <path d="M9.482583333333334 17.609166666666667v-5.857166666666666a3.1451666666666664 3.1451666666666664 0 0 1 3.1451666666666664 -3.1545833333333335 3.1545833333333335 3.1545833333333335 0 0 1 3.1545833333333335 3.1545833333333335v5.857166666666666" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="1.4"></path>
+                                <path d="m5.876 7.693416666666667 0 9.91575" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="1.4"></path>
+                                <path d="M4.972 5.894833333333333a0.9039999999999999 0.9039999999999999 0 1 0 1.8079999999999998 0 0.9039999999999999 0.9039999999999999 0 1 0 -1.8079999999999998 0" fill="currentColor" stroke-width="1.4"></path>
+                                <path d="m9.482583333333334 7.693416666666667 0 4.510583333333333" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="1.4"></path>
+                            </svg>
+                        </td>
+                        <th>
+                            LinkedIn
+                        </th>
+                        <td>
+                            <a href="https://www.linkedin.com/in/r-zander/" target="_blank">r-zander</a>
+                        </td>
+                    </tr>
+                    <tr class="link-container">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.6 -0.6 24 24" id="Github-Logo-2--Streamline-Logos">
+                                <desc>
+                                    Github Logo 2 Streamline Icon: https://streamlinehq.com
+                                </desc>
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M11.3962 1.6824499999999998a9.9617 9.9617 0 0 0 -3.1483 19.416099999999997c0.49685 0.08739999999999999 0.6555 -0.2052 0.6555 -0.46835 0 -0.2375 0.00475 -0.8977499999999999 0 -1.7328 -2.77305 0.6013499999999999 -3.3458999999999994 -1.31195 -3.3458999999999994 -1.31195a2.63625 2.63625 0 0 0 -1.1048499999999999 -1.4573c-0.9043999999999999 -0.6174999999999999 0.06745 -0.6061 0.06745 -0.6061a2.09095 2.09095 0 0 1 1.5266499999999998 1.026 2.1204 2.1204 0 0 0 2.8974999999999995 0.8274499999999999c0.0475 -0.5035 0.27075 -0.9737499999999999 0.6327 -1.32715 -2.2116 -0.2527 -4.5371999999999995 -1.10675 -4.5371999999999995 -4.9248a3.8522499999999997 3.8522499999999997 0 0 1 1.026 -2.67425 3.5738999999999996 3.5738999999999996 0 0 1 0.09784999999999999 -2.6353s0.8379 -0.26789999999999997 2.73885 1.0222a9.4278 9.4278 0 0 1 4.9894 0c1.90665 -1.28915 2.7369499999999998 -1.0222 2.7369499999999998 -1.0222 0.36765 0.8341 0.4028 1.7765 0.09879999999999999 2.6353a3.8474999999999997 3.8474999999999997 0 0 1 1.02505 2.6752c0 3.8285 -2.3293999999999997 4.6702 -4.549549999999999 4.9153a2.36265 2.36265 0 0 1 0.6820999999999999 1.83635v2.7588c0 0.266 0.1615 0.5605 0.6668999999999999 0.46359999999999996a9.96265 9.96265 0 0 0 -3.1559 -19.416099999999997v0Z" stroke-width="1.2"></path>
+                            </svg>
+                        </td>
+                        <th>
+                            GitHub
+                        </th>
+                        <td>
+                            <a href="https://github.com/r-zander/" target="_blank">r-zander</a>
+                        </td>
+                    </tr>
+                </table>
+            </article>
+        </section>
+
+        <section id="skills">
+            <h3 class="section-heading">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.7 -0.7 24 24" id="Chemical--Streamline-Cyber">
+                    <desc>
+                        Chemical Streamline Icon: https://streamlinehq.com
+                    </desc>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m4.2375 1.4125 1.8833333333333333 -0.9416666666666667 1.8833333333333333 0.9416666666666667V3.7666666666666666l-1.8833333333333333 0.9416666666666667 -1.8833333333333333 -0.9416666666666667V1.4125Z" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M2.3541666666666665 14.595833333333333 6.591666666666667 12.241666666666667l4.2375 2.3541666666666665V18.833333333333332L6.591666666666667 21.1875 2.3541666666666665 18.833333333333332v-4.2375Z" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M12.7125 5.65 16.008333333333333 3.7666666666666666l3.2958333333333334 1.8833333333333333v3.2958333333333334l-3.2958333333333334 1.8833333333333333 -3.2958333333333334 -1.8833333333333333V5.65Z" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m8.784808333333334 13.460089166666668 5.666008333333334 -3.5208916666666665" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m12.7125 5.65 -4.708333333333333 -1.8833333333333333" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M4.2375 17.420833333333334v-1.8833333333333333l1.8833333333333333 -0.9416666666666667" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M14.595833333333333 8.004166666666666V6.591666666666667l0.9416666666666667 -0.4708333333333333" stroke-width="1.4"></path>
+                </svg>
+                <span>Key Skills</span>
+            </h3>
+            <article>
+                <h4 class="with-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.7 -0.7 24 24" id="Cog-Hexagon--Streamline-Cyber">
+                        <desc>
+                            Cog Hexagon Streamline Icon: https://streamlinehq.com
+                        </desc>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m8.004166666666666 9.8875 2.825 -1.6714489166666666 2.825 1.6714489166666666v2.825l-2.825 1.6714583333333333 -2.825 -1.6714583333333333v-2.825Z" stroke-width="1.4"></path>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m15.5375 10.510883333333334 1.8833333333333333 -1.8795666666666666 -0.93225 -1.6366166666666666 -2.5952333333333333 0.6676416666666666 -1.5641083333333334 -0.906825L11.770833333333334 4.708333333333333h-1.8833333333333333l-0.5584083333333333 2.0471833333333334 -1.5641083333333334 0.906825 -2.5952333333333333 -0.6676416666666666 -0.93225 1.6366166666666666 1.8833333333333333 1.8795666666666666v1.5782333333333332l-1.8833333333333333 1.8795666666666666 0.93225 1.6366166666666666 2.5952333333333333 -0.6676416666666666 1.5641083333333334 0.906825L9.8875 17.891666666666666h1.8833333333333333l0.5584083333333333 -2.0471833333333334 1.5641083333333334 -0.906825 2.5952333333333333 0.6676416666666666 0.93225 -1.6366166666666666 -1.8833333333333333 -1.8795666666666666v-1.5782333333333332Z" stroke-width="1.4"></path>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m20.245833333333334 16.714583333333334 -9.416666666666666 5.414583333333333 -9.416666666666666 -5.414583333333333V5.885416666666667L10.829166666666666 0.4708333333333333l9.416666666666666 5.414583333333333v10.829166666666666Z" stroke-width="1.4"></path>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="m10.829166666666666 10.829166666666666 -0.4708333333333333 0.4708333333333333 0.4708333333333333 0.4708333333333333" stroke-width="1.4"></path>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="m10.829166666666666 10.829166666666666 0.4708333333333333 0.4708333333333333 -0.4708333333333333 0.4708333333333333" stroke-width="1.4"></path>
+                    </svg>
+                    <span>Management</span>
+                </h4>
+                <ul class="skills-list">
+                    <li>Team Development</li>
+                    <li>Mentoring</li>
+                    <li>Scrum Roadmapping</li>
+                    <li>Project Management</li>
+                </ul>
+            </article>
+            <article>
+                <h4 class="with-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.7 -0.7 24 24" id="Window-Hashtag--Streamline-Cyber">
+                        <desc>
+                            Window Hashtag Streamline Icon: https://streamlinehq.com
+                        </desc>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M8.019223916666666 12.7125H15.522433333333336" stroke-width="1.4"></path>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M7.07755725 15.5375H14.580766666666666" stroke-width="1.4"></path>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M8.930776083333333 17.39164166666667 10.829166666666666 10.829166666666666" stroke-width="1.4"></path>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M11.755766666666666 17.39164166666667 13.654166666666667 10.829166666666666" stroke-width="1.4"></path>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" d="M2.3541666666666665 5.179166666666666h0.9416666666666667" stroke-width="1.4"></path>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" d="M5.179166666666666 5.179166666666666h0.9416666666666667" stroke-width="1.4"></path>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" d="M8.004166666666666 5.179166666666666h0.9416666666666667" stroke-width="1.4"></path>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M22.129166666666666 3.2958333333333334H0.4708333333333333v16.95h21.65833333333333v-16.95Z" stroke-width="1.4"></path>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M0.4708333333333333 7.0625h21.65833333333333" stroke-width="1.4"></path>
+                    </svg>
+                    <span>Software Development</span>
+                </h4>
+                <ul class="skills-list">
+                    <li>C#</li>
+                    <li>Unity</li>
+                    <li>Unity UI</li>
+                    <li>JavaScript / TypeScript</li>
+                    <li>Java (8 / 21)</li>
+                    <li>Spring Boot</li>
+                    <li>HTML5</li>
+                    <li>CSS3</li>
+                    <li>PostgreSQL / MySQL</li>
+                </ul>
+            </article>
+            <article>
+                <h4 class="with-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.7 -0.7 24 24" id="Video-Player-1--Streamline-Cyber">
+                        <desc>
+                            Video Player 1 Streamline Icon: https://streamlinehq.com
+                        </desc>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M21.1875 1.4125H0.4708333333333333v20.716666666666665h20.716666666666665v-20.716666666666665Z" stroke-width="1.4"></path>
+                        <path stroke="currentColor" stroke-linejoin="round" stroke-miterlimit="10" d="M8.004166666666666 14.125V5.65l7.533333333333333 4.2375 -7.533333333333333 4.2375Z" stroke-width="1.4"></path>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M16.008333333333333 18.3625h2.3541666666666665" stroke-width="1.4"></path>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M3.2958333333333334 18.3625H13.183333333333334" stroke-width="1.4"></path>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M14.595833333333333 16.95 13.183333333333334 18.3625l1.4125 1.4125 1.4115583333333335 -1.4125 -1.4125 -1.4125h0.0009416666666666667Z" stroke-width="1.4"></path>
+                    </svg>
+                    <span>UI/UX Design</span>
+                </h4>
+                <ul class="skills-list">
+                    <li>Adobe XD</li>
+                    <li>Figma</li>
+                    <li>Balsamiq</li>
+                    <li>Illustrator</li>
+                </ul>
+            </article>
+        </section>
+
+        <section id="languages">
+            <h3>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.7 -0.7 24 24" id="Bubble-Chat-Smiley-Face-1--Streamline-Cyber">
+                    <desc>
+                        Bubble Chat Smiley Face 1 Streamline Icon: https://streamlinehq.com
+                    </desc>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M22.129166666666666 15.5375h-16.95l-4.708333333333333 4.708333333333333V0.4708333333333333h21.65833333333333v15.066666666666666Z" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m6.591666666666667 6.120833333333334 1.8833333333333333 -1.8833333333333333 1.8833333333333333 1.8833333333333333" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m13.183333333333334 6.120833333333334 1.8833333333333333 -1.8833333333333333 1.8833333333333333 1.8833333333333333" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m6.591666666666667 10.829166666666666 1.8833333333333333 1.8833333333333333h6.591666666666667l1.8833333333333333 -1.8833333333333333" stroke-width="1.4"></path>
+                </svg>
+                <span>Languages</span>
+            </h3>
+            <article>
+                <table class="languages">
+                    <tr>
+                        <th class="language">German</th>
+                        <td class="proficiency">Native</td>
+                        <td class="level">
+                            <span class="filled">&#x25CF;&#x25CF;&#x25CF;&#x25CF;&#x25CF;</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="language">English</th>
+                        <td class="proficiency">Proficient</td>
+                        <td class="level">
+                            <span class="filled">&#x25CF;&#x25CF;&#x25CF;&#x25CF;</span>
+                            <span class="empty">&#x25CF;</span>
+                        </td>
+                    </tr>
+                </table>
+            </article>
+        </section>
+
+        <section id="education">
+            <h3 class="section-heading">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.6 -0.6 24 24" id="Book-Open-Bookmark-4--Streamline-Cyber">
+                    <desc>
+                        Book Open Bookmark 4 Streamline Icon: https://streamlinehq.com
+                    </desc>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M2.375 5.44065 0.475 4.75v13.774999999999999l10.45 2.8499999999999996 10.45 -2.8499999999999996V4.75l-1.9 0.69065" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M10.924999999999999 8.549999999999999v12.825" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M4.2749999999999995 2.375V11.399999999999999l1.9 -1.4050500000000001 1.9 3.3249999999999997V5.111l-3.8 -2.7359999999999998Z" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m4.2749999999999995 3.762019 -1.9 -1.3679999999999999V16.16995l8.549999999999999 5.20505 8.549999999999999 -5.20505V2.394019l-8.549999999999999 6.156 -2.8499999999999996 -2.052" stroke-width="1.2"></path>
+                </svg>
+                <span>Education</span>
+            </h3>
+            <article>
+                <h4>Oct 2012 - Apr 2015</h4>
+                <p class="institute">SRH Berlin School of Popular Arts</p>
+                <p class="course">Studies in Interaction Design</p>
+                <ul class="content">
+                    <li>User experience &amp; usability</li>
+                    <li>Screen design</li>
+                    <li>App creation</li>
+                </ul>
+            </article>
+            <article>
+                <h4>Aug 2007 - May 2011</h4>
+                <p class="institute">Technical University of Applied Sciences Wildau</p>
+                <p class="course">B.Sc. in Business Computing</p>
+                <p class="grade">Grade 1.8 (&wedgeq; top 15%)</p>
+            </article>
+        </section>
+
+        <section id="certificates">
+            <h3 class="section-heading">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.6 -0.6 24 24" id="Certificate-2--Streamline-Cyber">
+                    <desc>
+                        Certificate 2 Streamline Icon: https://streamlinehq.com
+                    </desc>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m17.575 16.3875 -2.8499999999999996 1.6624999999999999 -2.8499999999999996 -1.6624999999999999v-3.3249999999999997l2.8499999999999996 -1.6624999999999999 2.8499999999999996 1.6624999999999999v3.3249999999999997Z" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M9.975 16.625H0.475v-15.2h21.849999999999998v15.2h-2.8499999999999996" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m16.625 17.099999999999998 1.4249999999999998 5.225 -3.3249999999999997 -2.375 -3.3249999999999997 2.375 1.4249999999999998 -5.225" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M9.975 14.725h-7.6v-11.399999999999999h18.05V14.25l-0.9348 0.0152" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M14.724145 13.300189999999999 13.299335 14.725l1.42481 1.42481L16.14886 14.725l-1.424715 -1.42481Z" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M5.225 7.6 6.6499999999999995 6.6499999999999995l1.4249999999999998 0.95L9.5 6.6499999999999995l1.4249999999999998 0.95L12.35 6.6499999999999995l1.4249999999999998 0.95L15.2 6.6499999999999995" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M5.225 10.45 6.6499999999999995 9.5l1.4249999999999998 0.95 1.4249999999999998 -0.95 1.4249999999999998 0.95 1.4249999999999998 -0.95" stroke-width="1.2"></path>
+                </svg>
+                <span>Certification</span>
+            </h3>
+            <article>
+                <p class="certificate">Employee Appraisal</p>
+                <p class="institute">Dr. G. Kitzmann Akademie</p>
+            </article>
+            <article>
+                <p class="certificate">Employee Management</p>
+                <p class="institute">Dr. G. Kitzmann Akademie</p>
+            </article>
+        </section>
+
+        <section id="qrCode">
+            <h3 class="section-heading">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.7 -0.7 24 24" id="Business-Suitcase-2--Streamline-Cyber">
+                    <desc>
+                        Business Suitcase 2 Streamline Icon: https://streamlinehq.com
+                    </desc>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m12.7125 14.595833333333333 -1.8833333333333333 1.8833333333333333 -1.8833333333333333 -1.8833333333333333v-3.7666666666666666h3.7666666666666666v3.7666666666666666Z" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m0.4708333333333333 10.358333333333333 8.475 2.4925916666666663" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M15.066666666666666 6.120833333333334H6.591666666666667l0.9416666666666667 -2.825h6.591666666666667l0.9416666666666667 2.825Z" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M10.829166666666666 13.654166666666667v-0.9416666666666667" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M0.4708333333333333 10.358333333333333V6.120833333333334h20.716666666666665V10.358333333333333l-8.475 2.4925916666666663" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1.4125 10.635183333333334V21.1875h18.833333333333332V10.635183333333334" stroke-width="1.4"></path>
+                </svg>
+                <span>Portfolio</span>
+            </h3>
+            <article>
+                <img class="qr-code" src="qr-rza.io.svg" />
+            </article>
+        </section>
+    </div>
+
+    <div class="right-column">
+        <section id="quote">
+            <blockquote>
+                <p>
+                    Players deserve gorgeous UIs that are part of the game, not a layer on top of it. As a
+                    <a href="https://www.linkedin.com/in/melmuellerart/" class="underlined" target="_blank">good friend</a>
+                    once put it:
+                </p>
+                <p class="highlight">
+                    It's 2025 - there's no excuse for bad UIs anymore.
+                </p>
+            </blockquote>
+        </section>
+
+        <section id="experience">
+            <h3>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.7 -0.7 24 24" id="Graph--Streamline-Cyber">
+                    <desc>
+                        Graph Streamline Icon: https://streamlinehq.com
+                    </desc>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M5.179166666666666 20.48125 2.825 22.129166666666666 0.4708333333333333 20.48125v-2.3541666666666665L2.825 16.479166666666668l2.3541666666666665 1.6479166666666667v2.3541666666666665Z" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M21.1875 5.414583333333333 18.833333333333332 7.0625l-2.3541666666666665 -1.6479166666666667v-2.3541666666666665L18.833333333333332 1.4125l2.3541666666666665 1.6479166666666667v2.3541666666666665Z" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M8.239583333333334 6.120833333333334 9.8875 8.475l-1.6479166666666667 2.3541666666666665h-2.3541666666666665L4.2375 8.475l1.6479166666666667 -2.3541666666666665h2.3541666666666665Z" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M15.302083333333334 12.7125 16.95 15.066666666666666l-1.6479166666666667 2.3541666666666665h-2.3541666666666665L11.3 15.066666666666666l1.6479166666666667 -2.3541666666666665h2.3541666666666665Z" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m6.1415500000000005 10.829166666666666 -2.4483333333333333 6.257375" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m12.416816666666666 13.471295 -3.6461333333333332 -3.4013" stroke-width="1.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m17.891666666666666 6.403145 -2.7430749999999997 6.309166666666667" stroke-width="1.4"></path>
+                </svg>
+                <span>Professional XP</span>
+            </h3>
+
+            <article>
+                <h4>
+                    <span class="date">Mar 2019 - Present</span>
+                    <span class="title"><a href="https://albiononline.com" target="_blank">Albion Online</a></span>
+                </h4>
+
+                <table class="experience">
+                    <tr>
+                        <th>Company</th>
+                        <td><a href="https://albiononline.com" target="_blank">Sandbox Interactive</a></td>
+                    </tr>
+                    <tr class="position">
+                        <th>Position</th>
+                        <td>
+                            <span>UI Lead (1 yr 4 mos)</span>
+                            <small class="formerly">
+                                <span>Junior Game Developer (1 yr 5 mos)</span>
+                            </small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Tasks</th>
+                        <td>
+                            <ul>
+                                <li>Managed the design and implementation of 3 sizable UI features
+                                    (Remote Item Overview, Hierarchical Achievement Collection, Quick Setting Presets)
+                                and well-received QoL changes for HUD and Item Management.
+                                <br />For details see <a href="https://rza.io/project/albion-online/albion-ui">"Albion UI" in my portfolio</a>.</li>
+                                <li>Managed UI production for 4 major game updates</li>
+                                <li>Hired 3 UI developers</li>
+                                <li>Worked closely with the Game Director, game designers and community management to deliver the best UI experience</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Skills</th>
+                        <td>C#, Unity, Team Leadership, Production, XML</td>
+                    </tr>
+
+                    <tr class="position">
+                        <th>Position</th>
+                        <td>
+                            <span>Product Owner Web (7 mos)</span>
+                            <small class="formerly">
+                                <span>Web Lead Developer (3 yrs 1 mo)</span>
+                            </small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Tasks</th>
+                        <td>
+                            <ul>
+                                <li>Built up web team from 1 to 6 employees</li>
+                                <li>Managed Android and iOS payment integration and pre-registration flow</li>
+                                <li>Led web infrastructure split (global vs. regional), deployment of new Asia shard, launch site, and shop updates &rightarrow; doubled DAU to 300k, revenue +90% YoY</li>
+                                <li>Prepared additional EU shard, launch site, and shop updates &rightarrow; +113k DAU, revenue +40% YoY</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Technologies</th>
+                        <td>Java, Spring Boot, PostgreSQL</td>
+                    </tr>
+                </table>
+            </article>
+
+            <article>
+                <h4>
+                    <span class="date">Feb 2017 - Mar 2019</span>
+                    <span class="title"><a href="https://oviva.com/de/de/" target="_blank">Oviva</a></span>
+                </h4>
+
+                <table class="experience">
+                    <tr>
+                        <th>Company</th>
+                        <td><a href="https://oviva.com/global/en/" target="_blank">Oviva AG</a></td>
+                    </tr>
+                    <tr>
+                        <th>Position</th>
+                        <td>
+                            <span>Full Stack Software Engineer</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Tasks</th>
+                        <td>
+                            <ul>
+                                <li>Developed an enterprise web application enabling dietitians to coach patients</li>
+                                <li>Top projects: Chat + Video Chat, Quiz Frontend, Highly performant coaching dashboard</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Technologies</th>
+                        <td>Angular JS, JEE</td>
+                    </tr>
+                </table>
+            </article>
+
+            <article>
+                <h4>
+                    <span class="date">Oct 2015 - Jan 2017</span>
+                    <span class="title">Career Break</span>
+                </h4>
+
+                <table class="experience">
+                    <tr>
+                        <th>Activities</th>
+                        <td>
+                            <ul>
+                                <li>Pursued a transition into the games industry</li>
+                                <li>Self-taught Unity and C#; built a portfolio</li>
+                                <li>Returned to web development for financial stability while continuing game dev on the side</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Technologies</th>
+                        <td>Unity, C#, GravCMS, Less, Twig, jQuery</td>
+                    </tr>
+                </table>
+            </article>
+
+            <article>
+                <h4>
+                    <span class="date">Jan 2012 - Oct 2015</span>
+                    <span class="title">AdClear</span>
+                </h4>
+
+                <table class="experience">
+                    <tr>
+                        <th>Company</th>
+                        <td>AdClear GmbH</td>
+                    </tr>
+                    <tr>
+                        <th>Position</th>
+                        <td>
+                            <span>Lead Front End Developer</span>
+                            <small class="formerly">
+                                <span>Junior Java Developer</span>,
+                            </small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Tasks</th>
+                        <td>
+                            <ul>
+                                <li>Development of a Java web application to analyze online marketing
+                                    activities and customer journeys
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Technologies</th>
+                        <td>Apache Wicket, HTML5 and CSS3</td>
+                    </tr>
+                </table>
+            </article>
+
+            <article>
+                <h4>
+                    <span class="date">Oct 2009 - Mar 2012</span>
+                    <span class="title">Digitalization of Global Billing</span>
+                </h4>
+
+                <table class="experience">
+                    <tr>
+                        <th>Company</th>
+                        <td>Deutsche Bank AG - Global Sourcing</td>
+                    </tr>
+                    <tr>
+                        <th>Position</th>
+                        <td>
+                            <span>Freelance Developer</span>
+                            <small class="formerly">
+                                <span>Intern</span>
+                            </small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Technologies</th>
+                        <td>MS Office, VBA, Windows API</td>
+                    </tr>
+                </table>
+            </article>
+        </section>
+
+        <section id="sideProjects">
+            <h3>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.6 -0.6 24 24" id="Zelda-Link--Streamline-Cyber">
+                    <desc>
+                        Zelda Link Streamline Icon: https://streamlinehq.com
+                    </desc>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1.4249999999999998 10.924999999999999h7.6v7.6l-3.8 3.8 -3.8 -3.8v-7.6Z" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M5.225 12.825v4.75" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M3.3249999999999997 14.725h3.8" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M8.075 8.075v0.95" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M10.924999999999999 8.075v0.95" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M6.33935 3.6158425 5.699999999999999 6.1751425v1.4249999999999998l-2.375 -0.475L5.699999999999999 10.925189999999999" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M7.6 3.3249999999999997 1.4249999999999998 4.75 8.549999999999999 0.475 11.399999999999999 1.9l1.9 4.2749999999999995V7.6l2.375 -0.475 -2.375 3.8v0.95l-4.2749999999999995 2.1374999999999997" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M17.575 12.825h3.8" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m20.425 3.3249999999999997 -0.95 -2.8499999999999996 -0.95 2.8499999999999996V18.05l0.95 0.95 0.95 -0.95V3.3249999999999997Z" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m11.399999999999999 12.825 4.75 2.375 0.475 7.125h-11.399999999999999" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M18.525 16.625h1.9" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M7.125 20.425h5.92325" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="m13.8016 14.02599 -0.9766 8.2992" stroke-width="1.2"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M5.699999999999999 6.175h7.6" stroke-width="1.2"></path>
+                </svg>
+                <span>Side Projects</span>
+            </h3>
+
+            <article>
+                <h4>
+                    <span class="date">Sep 2021 - Present</span>
+                    <span class="title"><a href="https://kringel.games" target="_blank">Kringel Games</a></span>
+                </h4>
+
+                <table class="experience">
+                    <tr>
+                        <th colspan="2" class="description">
+                            Berlin-based Games Collective
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>What we do</th>
+                        <td>
+                            <ul>
+                                <li>Trying out game development and production methods</li>
+                                <li>Team of 2 generalists, 1 producer, 1 audio designer, 3 developers, and 2 artists</li>
+                                <li>Delivered 3 games: Progress Station, Runebreaker, BerryHunter.io</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Games</th>
+                        <td>
+                            <ul>
+                                <li><b><a href="https://berryhunter.io">BerryHunter.io</a>:</b> Vision Keeper and Frontend Developer</li>
+                                <li><b><a href="https://kringel-games.itch.io/progress-station">Progress Station</a>:</b> Game Director and Lead Developer</li>
+                                <li><b><a href="https://kringel-games.itch.io/runebreaker">Runebreaker</a>:</b> Developer</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Link</th>
+                        <td><a href="https://kringel.games" target="_blank">https://kringel.games</a></td>
+                    </tr>
+                </table>
+            </article>
+
+            <article>
+                <h4>
+                    <span class="date">Apr 2021 - Present</span>
+                    <span class="title"><a href="https://casualchallenge.gg" target="_blank">Casual Challenge</a></span>
+                </h4>
+
+                <table class="experience">
+                    <tr>
+                        <th colspan="2" class="description">
+                            Custom <em>Magic: the Gathering</em> Format and Event Series
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>What it is</th>
+                        <td>
+                            <ul>
+                                <li>Accessible via a budget limit</li>
+                                <li>Unique decks due to meta bans</li>
+                                <li>Organized with a professional game designer and a high school teacher</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Link</th>
+                        <td><a href="https://casualchallenge.gg" target="_blank">https://casualchallenge.gg</a></td>
+                    </tr>
+                </table>
+            </article>
+
+            <article>
+                <h4>
+                    <span class="date">Feb 2022 - Nov 2024</span>
+                    <span class="title">Beyond Humanity</span>
+                </h4>
+
+                <table class="experience">
+                    <tr>
+                        <th colspan="2" class="description">
+                            Homebrew TTRPG System
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>What it is</th>
+                        <td>
+                            <ul>
+                                <li>Fate Core hack with narrative dice system - you not only find out if you succeed, but also get new twists into the story!</li>
+                                <li>Hard Sci-Fi setting placed on Earth in year 2867: Humanity has scattered in 8 societies that evolved unique survival strategies.</li>
+                                <li>Designed and laid out the complete player manual and supplemental documents</li>
+                                <li>Co-game mastered a long-running campaign with bi-weekly prep and monthly sessions</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </article>
+        </section>
+    </div>
+</main>
+
+<h2>Thank you!</h2>
+</body>
+</html>

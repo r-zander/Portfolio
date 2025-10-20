@@ -68,5 +68,5 @@ config/plugins/private.yaml
 /cv-assets/cv.css.map
 /data/feed/
 /data/notifications/
-/cv-2025/fonts/
-!/cv-2025/fonts/**.css
+/cv-2025/**/fonts/
+!/cv-2025/**/fonts/**.css

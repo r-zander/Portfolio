@@ -1,0 +1,130 @@
+@font-face {
+    font-family: 'Video Cond';
+    /*src: url('Video Cond Bold.eot');*/
+    src: local('Video Cond Bold'), local('Video Cond Bold'),
+        /*url('Video Cond Bold.eot?#iefix') format('embedded-opentype'),*/
+        /*url('Video Cond Bold.woff2') format('woff2'),*/
+        /*url('Video Cond Bold.woff') format('woff'),*/
+        url('Video Cond Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Video';
+    /*src: url('Video Bold.eot');*/
+    src: local('Video Bold'), local('Video Bold'),
+        /*url('Video Bold.eot?#iefix') format('embedded-opentype'),*/
+        /*url('Video Bold.woff2') format('woff2'),*/
+        /*url('Video Bold.woff') format('woff'),*/
+        url('Video Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Video Cond SemBd';
+    /*src: url('Video Cond SemiBold.eot');*/
+    src: local('Video Cond SemiBold'), local('Video Cond SemiBold'),
+        /*url('Video Cond SemiBold.eot?#iefix') format('embedded-opentype'),*/
+        /*url('Video Cond SemiBold.woff2') format('woff2'),*/
+        /*url('Video Cond SemiBold.woff') format('woff'),*/
+        url('Video Cond SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Video Cond';
+    /*src: url('Video Cond Regular.eot');*/
+    src: local('Video Cond Regular'), local('Video Cond Regular'),
+        /*url('Video Cond Regular.eot?#iefix') format('embedded-opentype'),*/
+        /*url('Video Cond Regular.woff2') format('woff2'),*/
+        /*url('Video Cond Regular.woff') format('woff'),*/
+        url('Video Cond Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Video Cond';
+    /*src: url('Video Cond Light.eot');*/
+    src: local('Video Cond Light'), local('Video Cond Light'),
+        /*url('Video Cond Light.eot?#iefix') format('embedded-opentype'),*/
+        /*url('Video Cond Light.woff2') format('woff2'),*/
+        /*url('Video Cond Light.woff') format('woff'),*/
+        url('Video Cond Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Video Cond Med';
+    /*src: url('Video Cond Medium.eot');*/
+    src: local('Video Cond Medium'), local('Video Cond Medium'),
+        /*url('Video Cond Medium.eot?#iefix') format('embedded-opentype'),*/
+        /*url('Video Cond Medium.woff2') format('woff2'),*/
+        /*url('Video Cond Medium.woff') format('woff'),*/
+        url('Video Cond Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Video Med';
+    /*src: url('Video Medium.eot');*/
+    src: local('Video Medium'), local('Video Medium'),
+        /*url('Video Medium.eot?#iefix') format('embedded-opentype'),*/
+        /*url('Video Medium.woff2') format('woff2'),*/
+        /*url('Video Medium.woff') format('woff'),*/
+        url('Video Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Video SemBd';
+    /*src: url('Video SemiBold.eot');*/
+    src: local('Video SemiBold'), local('Video SemiBold'),
+        /*url('Video SemiBold.eot?#iefix') format('embedded-opentype'),*/
+        /*url('Video SemiBold.woff2') format('woff2'),*/
+        /*url('Video SemiBold.woff') format('woff'),*/
+        url('Video SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Video';
+    /*src: url('Video Regular.eot');*/
+    src: local('Video Regular'), local('Video Regular'),
+        /*url('Video Regular.eot?#iefix') format('embedded-opentype'),*/
+        /*url('Video Regular.woff2') format('woff2'),*/
+        /*url('Video Regular.woff') format('woff'),*/
+        url('Video Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Video';
+    /*src: url('Video Light.eot');*/
+    src: local('Video Light'), local('Video Light'),
+        /*url('Video Light.eot?#iefix') format('embedded-opentype'),*/
+        /*url('Video Light.woff2') format('woff2'),*/
+        /*url('Video Light.woff') format('woff'),*/
+        url('Video Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+

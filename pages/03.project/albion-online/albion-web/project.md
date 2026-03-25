@@ -22,10 +22,10 @@ displayTypes:
       Mobile Homepage
   video:
     title: Asia Launch Page
-    file: 2023-03-19 Asia Launch Page.mp4
+    file: 2023-03-19_asia_launch_page.mp4
   video2:
     title: Europe Launch Page
-    file: 2024-04-28 Europe Launch Page.mp4
+    file: 2024-04-28_europe_launch_page.mp4
 ---
 ## Achievements
 
